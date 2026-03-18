@@ -1,0 +1,36 @@
+# Testing Standards (Scoped)
+description: テスト方針（失敗→原因特定→修正のループを安定化）
+globs:
+  - "**/*test*"
+  - "**/__tests__/**"
+  - "**/tests/**"
+  - "**/*.spec.*"
+  - "**/*.test.*"
+---
+【目的】
+- 「動く/壊れた」を客観的に判断できるようにする
+- Lighthouse 90点以上・LCP 2.5秒未満を品質基準とする
+
+【必須スモークテスト（MVP）】
+以下3ルートが最低限テストされていること:
+1. 記事一覧ページ（/articles）のレンダリング
+2. 記事詳細ページ（/articles/[slug]）のレンダリングと記事データの表示
+3. タグ・検索絞り込みの動作
+
+【テスト方針】
+1. 変更を入れたら、最低1つは再現/確認手順（テスト or 実行コマンド）を提示する
+2. 失敗した場合は「再現手順」「期待結果」「実際の結果」「暫定原因仮説」を分けて報告する
+3. テストが無い箇所を触る場合は、最低限のスモークテスト（起動/主要フロー）を提案する
+4. UIスタイルのテストは書かない（Lighthouse でカバー）
+5. 外部API呼び出しはモック化する
+
+【品質基準】
+- Lighthouse: Performance / SEO / Accessibility 各90点以上
+- LCP: 2.5秒未満（モバイル回線想定）
+- TypeScript: コンパイルエラーゼロ
+
+【CI】
+- GitHub Actions で push 時に lint + tsc + test を実行する
+
+【ドキュメント同期】
+- テストコマンドは `CLAUDE.md` の Operational Commands と `docs/project-status.md` にも反映する

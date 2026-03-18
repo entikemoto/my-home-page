@@ -1,0 +1,50 @@
+# Tech Stack Allowlist
+alwaysApply: true
+---
+【許可スタック】
+
+Language:
+  - TypeScript 5.x（strict mode 必須）
+
+Framework:
+  - Next.js 15+ (App Router)
+
+UI:
+  - Tailwind CSS v3+
+
+Content:
+  - gray-matter（MDX フロントマター解析）
+  - next-mdx-remote または @next/mdx（MDX レンダリング）
+
+Search:
+  - Pagefind（静的検索、ビルド後インデックス生成）
+
+Test:
+  - Vitest（ユニット・コンポーネントテスト）
+  - Playwright（E2E スモークテスト）
+  - React Testing Library
+
+Deploy:
+  - GitHub + Vercel（自動デプロイ、main push で本番反映）
+
+Lint/Format:
+  - ESLint (eslint-config-next)
+  - Prettier
+
+【記事スキーマ（MDX フロントマター）】
+```yaml
+---
+title: "記事タイトル"
+publishedAt: "2026-03-18T09:00:00+09:00"
+sourceUrl: "https://example.com/news"
+summary: "100文字以内の要約"
+category: "AI" | "医療AI" | "規制" | "産業"
+tags: ["LLM", "OpenAI"]
+session: "morning" | "evening"  # 朝便 or 夜便（表示用）
+---
+```
+
+【ルール】
+- 上記にないライブラリを追加する場合は必ず開発者に確認を取ること
+- DB・サーバーサイドランタイムは追加しない（静的サイト原則）
+- 外部APIへの依存はビルド時のみとし、ランタイム外部API呼び出しを増やさない

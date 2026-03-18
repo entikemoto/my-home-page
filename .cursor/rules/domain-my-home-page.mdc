@@ -1,0 +1,101 @@
+---
+description: "My Home Page — ドメインルール。個人ブランドサイト兼AI解説記事蓄積基盤のビジネスルール・データ設計・API原則。"
+globs: ["**/*.ts", "**/*.tsx", "**/*.mdx", "**/*.md"]
+---
+
+# My Home Page — ドメインルール
+
+## 1. ビジネスルール
+
+### 記事の保存単位と配信単位
+
+- **保存単位 = 個別記事（Article）**。朝3本・夜3本の配信グループ（Dispatch）はメタデータに過ぎず、URLや主キーに用いない
+- 1つの Article は1つの元ニュースに対応する
+- `sourceUrl` は必須。省略した記事はビルドエラーにして公開を阻止する（出典明示義務）
+- `draft: true` の記事は本番ビルドで除外する
+
+### コンテンツ分類
+
+- `category` は大分類: `ai-news` | `medical-ai` | `column` | `profile`（将来追加可）
+- `tags` は自由なキーワード配列。正規化はしない
+- 医療AI関連の記述は「診断・治療の助言」と誤認されないよう「動向・解説」として記述する
+
+### 外部メディアとの役割分担
+
+- HP = 個別記事の正本（canonical は HP に向ける）
+- note = 朝便・夜便のまとめ記事
+- X / Slack = 既存配信チャネル（HP はこれらに干渉しない）
+
+## 2. データ設計
+
+### Article インターフェース
+
+```typescript
+interface Article {
+  id: string;           // 例: "20260318-001-gpt5-release"（YYYYMMDD-連番-kebab-title）
+  title: string;
+  publishedAt: string;  // ISO 8601（例: "2026-03-18T06:00:00+09:00"）
+  sourceUrl: string;    // 元ニュースURL（必須）
+  summary: string;      // 要約（200字以内推奨）
+  commentary: string;   // 解説（MDX 本文）
+  tags: string[];
+  category: 'ai-news' | 'medical-ai' | 'column' | 'profile';
+  dispatch?: {
+    timing: 'morning' | 'evening';
+    date: string;       // YYYY-MM-DD
+    index: number;      // 1〜3
+  };
+  draft: boolean;
+}
+```
+
+### ファイル配置
+
+```
+content/articles/YYYY/MM/[id].mdx
+```
+
+### フロントマター例
+
+```yaml
+---
+id: "20260318-001-gpt5-release"
+title: "GPT-5リリース：何が変わったか"
+publishedAt: "2026-03-18T06:00:00+09:00"
+sourceUrl: "https://openai.com/blog/gpt-5"
+summary: "OpenAI が GPT-5 を公開。推論速度とマルチモーダルが主な改善点。"
+tags: ["GPT-5", "OpenAI", "LLM"]
+category: "ai-news"
+dispatch:
+  timing: "morning"
+  date: "2026-03-18"
+  index: 1
+draft: false
+---
+```
+
+## 3. API 原則
+
+- **静的ファースト**: ビルド時 SSG。API Route は最小限にする
+- **問い合わせフォーム**: Formspree 等の外部サービスを使い、サーバー攻撃面を増やさない
+- **検索**: 初期は Pagefind 等の静的インデックス。外部 API は不要
+
+### データ取得関数（ビルド時のみ呼ぶ）
+
+```typescript
+getAllArticles(): Promise<ArticleMeta[]>
+getArticleById(id: string): Promise<Article | null>
+getArticlesByTag(tag: string): Promise<ArticleMeta[]>
+getArticlesByCategory(category: Category): Promise<ArticleMeta[]>
+getArticlesByMonth(year: number, month: number): Promise<ArticleMeta[]>
+getAllTags(): Promise<{ tag: string; count: number }[]>
+```
+
+## 4. 失敗時リカバリ
+
+| 状況 | 対策 |
+|------|------|
+| `sourceUrl` が空 or 不正 URL | ビルドエラーにして公開を阻止 |
+| `draft: true` 記事の誤公開 | `getAllArticles()` で draft を除外（本番フラグで制御） |
+| canonical 設定漏れ | HP を正本とし、note 側に canonical を設定するルールを運用手順に明記 |
+| 記事 ID の重複 | ビルド時に ID 重複チェックを行い、重複があればエラー |

@@ -1,0 +1,44 @@
+# Content Architecture (Scoped)
+description: コンテンツ管理・データフローの設計原則（静的サイト向け）
+globs:
+  - "**/*.ts"
+  - "**/lib/**"
+  - "**/content/**"
+  - "**/app/**"
+---
+【静的サイトの原則】
+- DB・サーバーランタイムを持たない
+- コンテンツは MDX ファイルとして `content/articles/` に配置する
+- ビルド時に全ページを静的生成（generateStaticParams）する
+
+【コンテンツ構造】
+```
+content/
+  articles/
+    YYYY-MM-DD-slug.mdx  # 個別記事
+  pages/
+    about.mdx
+    vision.mdx
+```
+
+【主要ライブラリ関数（src/lib/articles.ts）】
+- getAllArticles(): 全記事を日付降順で返す
+- getArticleBySlug(slug): slug から記事取得
+- getArticlesByTag(tag): タグで絞り込み
+- getArticlesByCategory(category): カテゴリーで絞り込み
+
+【データフロー】
+1. content/articles/*.mdx → src/lib/articles.ts で読み込み
+2. articles.ts → 記事一覧・詳細ページへ静的生成
+3. Pagefind がビルド後のHTMLをインデックス化 → 検索機能
+
+【CortexFlow 連携】
+- 20260222_CortexFlow2.0 が個別記事データを MDX 形式で出力する
+- HP は受け取った MDX ファイルを content/articles/ に配置するだけ
+- フロントマター形式は tech-stack.mdc の記事スキーマに準拠する
+
+【必須ルール】
+1. コンテンツ取得ロジックは src/lib/ に集約し、ページコンポーネントに直書きしない
+2. 型定義は src/types/article.ts に集約する
+3. ビルド時のみ外部依存を許容し、ランタイム外部API呼び出しを増やさない
+4. APIの形が変わるなら `docs/architecture.md` を更新する
