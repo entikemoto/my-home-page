@@ -47,9 +47,13 @@ function assertRequiredFields(article: Partial<HpArticle>, filePath: string): vo
   }
 
   // edition 値チェック
-  if (article.edition !== 'morning' && article.edition !== 'evening') {
+  if (
+    article.edition !== 'morning' &&
+    article.edition !== 'evening' &&
+    article.edition !== 'standalone'
+  ) {
     throw new Error(
-      `[articles] Invalid edition "${article.edition}" in ${filePath}. Must be "morning" or "evening".`,
+      `[articles] Invalid edition "${article.edition}" in ${filePath}. Must be "morning", "evening", or "standalone".`,
     );
   }
 }
@@ -133,12 +137,21 @@ export function _resetCache(): void {
 
 /** 全記事メタデータを最新順で取得 */
 export function getArticles(): HpArticleMeta[] {
-  return getAllArticlesRaw().map(({ body: _body, ...meta }) => meta);
+  return getAllArticlesRaw().map((article) => {
+    const { body, ...meta } = article;
+    void body;
+    return meta;
+  });
 }
 
 /** articleId で1記事（本文含む）を取得。見つからない場合は null */
 export function getArticle(id: string): HpArticle | null {
   return getAllArticlesRaw().find((a) => a.articleId === id) ?? null;
+}
+
+/** 一覧検索用に本文を含む全記事を最新順で取得 */
+export function getArticlesWithBody(): HpArticle[] {
+  return getAllArticlesRaw();
 }
 
 /** タグで絞り込み（最新順） */

@@ -41,9 +41,9 @@ describe('getArticles()', () => {
 
 describe('getArticle()', () => {
   it('存在する ID で記事（body 含む）を返す', () => {
-    const article = getArticle('2026-03-18_morning_1');
+    const article = getArticle('note-na999d9aba013-1');
     expect(article).not.toBeNull();
-    expect(article?.title).toBe('OpenAIの新API発表が示す次の競争軸');
+    expect(article?.title).toBe('OpenAIの小型モデルは、エージェント普及の鍵か');
     expect(article?.body).toBeTruthy();
   });
 
@@ -66,9 +66,9 @@ describe('getArticlesByTag()', () => {
 
 describe('getArticlesByCategory()', () => {
   it('カテゴリーに一致する記事のみ返す', () => {
-    const results = getArticlesByCategory('model');
+    const results = getArticlesByCategory('deep-dive');
     expect(results.length).toBeGreaterThanOrEqual(1);
-    results.forEach((a) => expect(a.category).toBe('model'));
+    results.forEach((a) => expect(a.category).toBe('deep-dive'));
   });
 });
 

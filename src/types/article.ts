@@ -3,7 +3,7 @@
  * 参照: docs/business-and-system-overview.md §6-①
  */
 
-export type Edition = 'morning' | 'evening';
+export type Edition = 'morning' | 'evening' | 'standalone';
 
 export interface HpArticle {
   articleId: string;          // 例: "2026-03-18_morning_1"

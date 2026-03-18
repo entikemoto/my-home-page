@@ -45,14 +45,38 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const EDITION_LABEL: Record<string, string> = {
   morning: '朝便',
   evening: '夜便',
+  standalone: 'note記事',
 };
 
-/** body の二重改行を段落に変換する（Markdown ライブラリ不要） */
-function bodyToParagraphs(body: string): string[] {
-  return body
+type BodyBlock =
+  | { type: 'heading'; content: string }
+  | { type: 'list'; items: string[] }
+  | { type: 'paragraph'; content: string };
+
+/** 簡易的な Markdown 風レンダリング用ブロック化 */
+function bodyToBlocks(body: string): BodyBlock[] {
+  const blocks = body
     .split(/\n{2,}/)
-    .map((p) => p.trim())
+    .map((block) => block.trim())
     .filter(Boolean);
+
+  return blocks.map((block) => {
+    const lines = block.split('\n').map((line) => line.trim()).filter(Boolean);
+
+    if (block.startsWith('### ')) {
+      return { type: 'heading', content: block.replace(/^###\s+/, '').trim() };
+    }
+
+    if (block.startsWith('## ')) {
+      return { type: 'heading', content: block.replace(/^##\s+/, '').trim() };
+    }
+
+    if (lines.length > 0 && lines.every((line) => line.startsWith('- '))) {
+      return { type: 'list', items: lines.map((line) => line.replace(/^- /, '').trim()) };
+    }
+
+    return { type: 'paragraph', content: block };
+  });
 }
 
 export default async function ArticlePage({ params }: Props) {
@@ -68,7 +92,9 @@ export default async function ArticlePage({ params }: Props) {
     day: 'numeric',
   });
   const editionLabel = EDITION_LABEL[article.edition] ?? article.edition;
-  const paragraphs = bodyToParagraphs(article.body);
+  const blocks = bodyToBlocks(article.body);
+  const articleMetaLabel =
+    article.edition === 'standalone' ? editionLabel : `${editionLabel} ${article.orderInEdition}本目`;
 
   return (
     <main className="max-w-3xl mx-auto px-6 lg:px-8 py-16">
@@ -77,7 +103,7 @@ export default async function ArticlePage({ params }: Props) {
         <div className="flex items-center gap-3 mb-5 text-xs text-gray-400 tracking-wide">
           <time dateTime={article.publishedAt}>{dateLabel}</time>
           <span>·</span>
-          <span>{editionLabel} {article.orderInEdition}本目</span>
+          <span>{articleMetaLabel}</span>
           <span>·</span>
           <span>{article.sourceName}</span>
           {article.category && (
@@ -111,8 +137,20 @@ export default async function ArticlePage({ params }: Props) {
 
       {/* 本文 */}
       <article className="space-y-5 text-base leading-[1.9] text-gray-700">
-        {paragraphs.map((para, i) => (
-          <p key={i}>{para}</p>
+        {blocks.map((block, i) => (
+          block.type === 'heading' ? (
+            <h2 key={i} className="font-serif text-xl font-bold text-gray-900 pt-3">
+              {block.content}
+            </h2>
+          ) : block.type === 'list' ? (
+            <ul key={i} className="list-disc pl-6 space-y-2">
+              {block.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <p key={i}>{block.content}</p>
+          )
         ))}
       </article>
 
@@ -141,7 +179,7 @@ export default async function ArticlePage({ params }: Props) {
               rel="noopener noreferrer"
               className="underline underline-offset-4 hover:text-gray-700 transition-colors"
             >
-              3本まとめ記事で読む
+              {article.edition === 'standalone' ? 'noteで読む' : '3本まとめ記事で読む'}
             </a>
           </p>
         )}

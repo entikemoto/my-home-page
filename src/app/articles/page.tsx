@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { getArticles, getAllTags } from '@/lib/articles';
-import ArticleCard from '@/components/ArticleCard';
+import { getArticles, getArticlesWithBody, getAllTags } from '@/lib/articles';
+import ArticleSearch from '@/components/ArticleSearch';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 
 export default function ArticlesPage() {
   const articles = getArticles();
+  const searchableArticles = getArticlesWithBody();
   const tags = getAllTags().slice(0, 20); // 上位20タグを表示
 
   // 月別アーカイブの生成
@@ -25,7 +26,10 @@ export default function ArticlesPage() {
   return (
     <main className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
       <h1 className="font-serif text-3xl lg:text-4xl font-bold mb-2 text-gray-900">記事一覧</h1>
-      <p className="text-sm text-gray-400 mb-12">{articles.length}件</p>
+      <p className="text-sm text-gray-400 mb-3">{articles.length}件</p>
+      <p className="text-sm text-gray-500 leading-relaxed mb-12">
+        AI Daily Digest は 1本ずつに分解して掲載し、単独で公開した note 記事もあわせて収録しています。
+      </p>
 
       <div className="flex gap-12">
         {/* 記事グリッド */}
@@ -33,11 +37,7 @@ export default function ArticlesPage() {
           {articles.length === 0 ? (
             <p className="text-gray-400">まだ記事がありません。</p>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {articles.map((article) => (
-                <ArticleCard key={article.articleId} article={article} />
-              ))}
-            </div>
+            <ArticleSearch articles={searchableArticles} />
           )}
         </div>
 

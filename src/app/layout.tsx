@@ -14,11 +14,11 @@ const notoSerifJP = Noto_Serif_JP({
 
 export const metadata: Metadata = {
   title: {
-    default: "池本武志 — 医師×医療AI研究家",
-    template: "%s | 池本武志",
+    default: "Takeshi Ikemoto — 医療×経営×テクノロジー",
+    template: "%s | Takeshi Ikemoto",
   },
   description:
-    "医師・MBA・医学博士。医療現場の視点からAIの今と未来を解説し、医療×AIで起業を目指す。",
+    "Takeshi Ikemoto の公式サイト。医療×経営×テクノロジーの視点から、AIと次の医療を考える。",
 };
 
 export default function RootLayout({
