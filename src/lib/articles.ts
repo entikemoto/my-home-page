@@ -1,15 +1,19 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import type { HpArticle, HpArticleMeta } from '@/types/article';
+import type { HpArticle, HpArticleMeta, HpArticleOverride } from '@/types/article';
 
 /**
  * 記事 JSON ファイルの格納ディレクトリ。
  * HP_ARTICLES_DIR 環境変数で上書き可能（CortexFlow2.0 の出力先を直接指定する場合）。
  * デフォルト: プロジェクトルート/content/articles
  */
-const ARTICLES_DIR =
-  process.env.HP_ARTICLES_DIR ??
-  path.join(process.cwd(), 'content', 'articles');
+function getArticlesDir(): string {
+  return process.env.HP_ARTICLES_DIR ?? path.join(process.cwd(), 'content', 'articles');
+}
+
+function getOverridesFile(): string {
+  return process.env.HP_ARTICLE_OVERRIDES_FILE ?? path.join(getArticlesDir(), 'overrides.json');
+}
 
 // ---------------------------------------------------------------------------
 // バリデーション
@@ -67,7 +71,10 @@ function loadArticlesFromDir(dir: string): HpArticle[] {
     return [];
   }
 
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.json'));
+  const excludedFiles = new Set(['overrides.json', path.basename(getOverridesFile())]);
+  const files = fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith('.json') && !excludedFiles.has(f));
   const articles: HpArticle[] = [];
 
   for (const file of files) {
@@ -89,6 +96,41 @@ function loadArticlesFromDir(dir: string): HpArticle[] {
   }
 
   return articles;
+}
+
+function loadOverrides(filePath: string): Record<string, HpArticleOverride> {
+  if (!fs.existsSync(filePath)) {
+    return {};
+  }
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  } catch {
+    throw new Error(`[articles] Failed to parse overrides JSON: ${filePath}`);
+  }
+
+  if (!parsed || Array.isArray(parsed) || typeof parsed !== 'object') {
+    throw new Error(`[articles] Overrides file must be an object: ${filePath}`);
+  }
+
+  return parsed as Record<string, HpArticleOverride>;
+}
+
+function applyOverrides(
+  articles: HpArticle[],
+  overrides: Record<string, HpArticleOverride>,
+): HpArticle[] {
+  return articles.map((article) => {
+    const override = overrides[article.articleId];
+    if (!override) {
+      return article;
+    }
+
+    const merged = { ...article, ...override };
+    assertRequiredFields(merged, `override:${article.articleId}`);
+    return merged;
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -114,15 +156,19 @@ let _cache: HpArticle[] | null = null;
 function getAllArticlesRaw(): HpArticle[] {
   if (_cache) return _cache;
 
-  const articles = loadArticlesFromDir(ARTICLES_DIR);
-  checkDuplicateIds(articles);
+  const articlesDir = getArticlesDir();
+  const overridesFile = getOverridesFile();
+  const articles = loadArticlesFromDir(articlesDir);
+  const overrides = loadOverrides(overridesFile);
+  const mergedArticles = applyOverrides(articles, overrides);
+  checkDuplicateIds(mergedArticles);
 
   // 最新順（publishedAt 降順）
-  articles.sort(
+  mergedArticles.sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
   );
 
-  _cache = articles;
+  _cache = mergedArticles;
   return _cache;
 }
 

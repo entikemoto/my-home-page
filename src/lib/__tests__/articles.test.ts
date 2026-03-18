@@ -1,4 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import fs from 'node:fs';
 import path from 'node:path';
 import {
   getArticles,
@@ -16,7 +17,21 @@ afterEach(() => _resetCache());
 
 // HP_ARTICLES_DIR をフィクスチャディレクトリに向ける
 const FIXTURE_DIR = path.join(process.cwd(), 'content', 'articles');
+const TEST_OVERRIDES_FILE = path.join(FIXTURE_DIR, 'overrides.test.json');
 vi.stubEnv('HP_ARTICLES_DIR', FIXTURE_DIR);
+vi.stubEnv('HP_ARTICLE_OVERRIDES_FILE', TEST_OVERRIDES_FILE);
+
+beforeEach(() => {
+  if (fs.existsSync(TEST_OVERRIDES_FILE)) {
+    fs.unlinkSync(TEST_OVERRIDES_FILE);
+  }
+});
+
+afterEach(() => {
+  if (fs.existsSync(TEST_OVERRIDES_FILE)) {
+    fs.unlinkSync(TEST_OVERRIDES_FILE);
+  }
+});
 
 describe('getArticles()', () => {
   it('全記事を最新順で返す', () => {
@@ -49,6 +64,24 @@ describe('getArticle()', () => {
 
   it('存在しない ID で null を返す', () => {
     expect(getArticle('nonexistent')).toBeNull();
+  });
+
+  it('overrides でタイトルと要約を上書きできる', () => {
+    fs.writeFileSync(
+      TEST_OVERRIDES_FILE,
+      JSON.stringify({
+        'note-na999d9aba013-1': {
+          title: '上書き後タイトル',
+          summary: '上書き後の要約',
+        },
+      }),
+    );
+
+    _resetCache();
+    const article = getArticle('note-na999d9aba013-1');
+
+    expect(article?.title).toBe('上書き後タイトル');
+    expect(article?.summary).toBe('上書き後の要約');
   });
 });
 

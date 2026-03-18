@@ -22,3 +22,8 @@ export interface HpArticle {
 
 /** 一覧表示用（本文省略） */
 export type HpArticleMeta = Omit<HpArticle, 'body'>;
+
+/** 手動修正用: note 取り込み後に一部項目だけ上書きする */
+export type HpArticleOverride = Partial<
+  Pick<HpArticle, 'title' | 'summary' | 'body' | 'tags' | 'category' | 'sourceName'>
+>;
