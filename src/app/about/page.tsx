@@ -91,6 +91,67 @@ export default function AboutPage() {
         </p>
       </section>
 
+      {/* ─── 発信媒体 ─── */}
+      <section className="mb-12">
+        <h2 className="text-xl font-bold mb-4 pb-1 border-b">発信媒体</h2>
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="text-left text-gray-400 text-xs">
+              <th className="pb-2 font-normal w-28">媒体</th>
+              <th className="pb-2 font-normal">役割</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y">
+            <tr>
+              <td className="py-2.5 font-medium">
+                <a
+                  href="https://note.com/entikemoto"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:opacity-70"
+                >
+                  note
+                </a>
+              </td>
+              <td className="py-2.5 text-gray-600">
+                朝便・夜便の3本まとめ記事（購読者向けまとめ配信）
+              </td>
+            </tr>
+            <tr>
+              <td className="py-2.5 font-medium">
+                <a
+                  href="https://x.com/Ikemoto1966"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:opacity-70"
+                >
+                  X
+                </a>
+              </td>
+              <td className="py-2.5 text-gray-600">
+                速報・一言コメント・HP記事の告知
+              </td>
+            </tr>
+            <tr>
+              <td className="py-2.5 font-medium text-gray-700">Slack</td>
+              <td className="py-2.5 text-gray-600">
+                medai-co-lab — 医師・エンジニア・Bizが集う医療AI共創コミュニティ
+              </td>
+            </tr>
+            <tr>
+              <td className="py-2.5 font-medium">
+                <Link href="/articles" className="underline hover:opacity-70">
+                  このHP
+                </Link>
+              </td>
+              <td className="py-2.5 text-gray-600">
+                個別記事の正本。1本ずつ検索・タグ・月別で探せる
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
       {/* ─── 免責 ─── */}
       <section>
         <p className="text-xs text-gray-400 leading-relaxed">
