@@ -1,0 +1,30 @@
+[
+  {
+    "articleId": "2026-03-18_morning_1",
+    "title": "OpenAIの新API発表が示す次の競争軸",
+    "publishedAt": "2026-03-18T06:30:00+09:00",
+    "edition": "morning",
+    "orderInEdition": 1,
+    "body": "OpenAI が新しい API を発表した。これが業界競争に与える影響を解説する。",
+    "originalSourceUrl": "https://openai.com/blog/new-api-example",
+    "sourceName": "OpenAI",
+    "tags": ["OpenAI", "API", "AIニュース"],
+    "category": "model",
+    "summary": "新API発表の要点と競争上の意味を短くまとめた要約。",
+    "noteArticleUrl": "https://note.com/example/n/sample-morning-1"
+  },
+  {
+    "articleId": "2026-03-18_morning_2",
+    "title": "医療AIの規制動向：FDA新ガイドライン",
+    "publishedAt": "2026-03-18T06:30:00+09:00",
+    "edition": "morning",
+    "orderInEdition": 2,
+    "body": "FDA が医療 AI に関する新ガイドラインを公開した。承認プロセスの変更点を解説する。",
+    "originalSourceUrl": "https://www.fda.gov/example-guideline",
+    "sourceName": "FDA",
+    "tags": ["医療AI", "FDA", "規制"],
+    "category": "policy",
+    "summary": "FDA の新ガイドラインが医療 AI の承認プロセスに与える影響。",
+    "noteArticleUrl": "https://note.com/example/n/sample-morning-1"
+  }
+]
