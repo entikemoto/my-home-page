@@ -74,7 +74,7 @@ export default function ArticlesPage() {
                   return (
                     <Link
                       key={ym}
-                      href={`/articles/${y}/${m}`}
+                      href={`/articles/archive/${y}/${m}`}
                       className="text-sm text-gray-600 hover:underline"
                     >
                       {y}年{parseInt(m)}月
