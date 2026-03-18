@@ -71,18 +71,24 @@ export default async function ArticlePage({ params }: Props) {
   const paragraphs = bodyToParagraphs(article.body);
 
   return (
-    <main className="max-w-2xl mx-auto px-4 py-12">
+    <main className="max-w-3xl mx-auto px-6 lg:px-8 py-16">
       {/* ヘッダー */}
-      <div className="mb-6">
-        <div className="flex items-center gap-2 mb-3 text-sm text-gray-500">
-          <span>{dateLabel}</span>
+      <div className="mb-8">
+        <div className="flex items-center gap-3 mb-5 text-xs text-gray-400 tracking-wide">
+          <time dateTime={article.publishedAt}>{dateLabel}</time>
           <span>·</span>
           <span>{editionLabel} {article.orderInEdition}本目</span>
           <span>·</span>
           <span>{article.sourceName}</span>
+          {article.category && (
+            <>
+              <span>·</span>
+              <span className="text-teal-600 uppercase">{article.category}</span>
+            </>
+          )}
         </div>
 
-        <h1 className="text-2xl font-bold leading-tight mb-4">
+        <h1 className="font-serif text-2xl lg:text-4xl font-bold leading-tight mb-6 text-gray-900">
           {article.title}
         </h1>
 
@@ -92,7 +98,7 @@ export default async function ArticlePage({ params }: Props) {
             {article.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-2 py-0.5 text-xs bg-gray-100 text-gray-600 rounded"
+                className="px-3 py-0.5 text-xs bg-gray-100 text-gray-500"
               >
                 {tag}
               </span>
@@ -101,26 +107,26 @@ export default async function ArticlePage({ params }: Props) {
         )}
       </div>
 
-      <hr className="mb-8" />
+      <hr className="border-gray-100 mb-10" />
 
       {/* 本文 */}
-      <article className="space-y-4 text-base leading-relaxed">
+      <article className="space-y-5 text-base leading-[1.9] text-gray-700">
         {paragraphs.map((para, i) => (
           <p key={i}>{para}</p>
         ))}
       </article>
 
-      <hr className="mt-10 mb-6" />
+      <hr className="border-gray-100 mt-12 mb-8" />
 
       {/* フッター：出典・導線 */}
-      <footer className="space-y-3 text-sm text-gray-600">
+      <footer className="space-y-3 text-sm text-gray-500">
         <p>
-          <span className="font-medium">元記事：</span>
+          <span className="text-gray-400 text-xs tracking-wide uppercase mr-2">元記事</span>
           <a
             href={article.originalSourceUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline hover:text-gray-900 break-all"
+            className="underline underline-offset-4 hover:text-gray-700 break-all transition-colors"
           >
             {article.originalSourceUrl}
           </a>
@@ -128,19 +134,19 @@ export default async function ArticlePage({ params }: Props) {
 
         {article.noteArticleUrl && (
           <p>
-            <span className="font-medium">note のまとめ記事：</span>
+            <span className="text-gray-400 text-xs tracking-wide uppercase mr-2">note</span>
             <a
               href={article.noteArticleUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-gray-900"
+              className="underline underline-offset-4 hover:text-gray-700 transition-colors"
             >
-              note で読む
+              3本まとめ記事で読む
             </a>
           </p>
         )}
 
-        <p className="text-xs text-gray-400 mt-4">
+        <p className="text-xs text-gray-400 mt-6 pt-4 border-t border-gray-100">
           ※ 本記事はAIニュースの解説を目的としており、医療上の診断・治療の助言ではありません。
         </p>
       </footer>

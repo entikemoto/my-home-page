@@ -27,20 +27,22 @@ export default async function TagPage({ params }: Props) {
   if (articles.length === 0) notFound();
 
   return (
-    <main className="max-w-2xl mx-auto px-4 py-12">
-      <div className="mb-2">
-        <Link href="/articles" className="text-sm text-gray-400 hover:underline">
+    <main className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+      <div className="mb-6">
+        <Link href="/articles" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">
           ← 記事一覧
         </Link>
       </div>
-      <h1 className="text-2xl font-bold mb-1">
-        タグ: <span className="font-normal">{decoded}</span>
+      <h1 className="font-serif text-3xl lg:text-4xl font-bold mb-2 text-gray-900">
+        タグ: <span className="font-normal text-gray-500">{decoded}</span>
       </h1>
-      <p className="text-sm text-gray-500 mb-8">{articles.length}件</p>
+      <p className="text-sm text-gray-400 mb-12">{articles.length}件</p>
 
-      {articles.map((article) => (
-        <ArticleCard key={article.articleId} article={article} />
-      ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {articles.map((article) => (
+          <ArticleCard key={article.articleId} article={article} />
+        ))}
+      </div>
     </main>
   );
 }

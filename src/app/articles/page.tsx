@@ -23,36 +23,38 @@ export default function ArticlesPage() {
   ].slice(0, 12);
 
   return (
-    <main className="max-w-2xl mx-auto px-4 py-12">
-      <h1 className="text-2xl font-bold mb-2">記事一覧</h1>
-      <p className="text-sm text-gray-500 mb-8">{articles.length}件</p>
+    <main className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+      <h1 className="font-serif text-3xl lg:text-4xl font-bold mb-2 text-gray-900">記事一覧</h1>
+      <p className="text-sm text-gray-400 mb-12">{articles.length}件</p>
 
-      <div className="flex gap-8">
-        {/* 記事リスト */}
+      <div className="flex gap-12">
+        {/* 記事グリッド */}
         <div className="flex-1 min-w-0">
           {articles.length === 0 ? (
             <p className="text-gray-400">まだ記事がありません。</p>
           ) : (
-            articles.map((article) => (
-              <ArticleCard key={article.articleId} article={article} />
-            ))
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {articles.map((article) => (
+                <ArticleCard key={article.articleId} article={article} />
+              ))}
+            </div>
           )}
         </div>
 
         {/* サイドバー */}
-        <aside className="w-44 shrink-0 hidden sm:block">
+        <aside className="w-48 shrink-0 hidden lg:block">
           {/* タグ一覧 */}
           {tags.length > 0 && (
-            <section className="mb-6">
-              <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">
+            <section className="mb-8">
+              <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">
                 タグ
               </h2>
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-1.5">
                 {tags.map(({ tag, count }) => (
                   <Link
                     key={tag}
                     href={`/articles/tag/${encodeURIComponent(tag)}`}
-                    className="text-sm text-gray-600 hover:underline flex justify-between"
+                    className="text-sm text-gray-600 hover:text-gray-900 transition-colors flex justify-between"
                   >
                     <span>{tag}</span>
                     <span className="text-gray-400">{count}</span>
@@ -65,17 +67,17 @@ export default function ArticlesPage() {
           {/* 月別アーカイブ */}
           {months.length > 0 && (
             <section>
-              <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">
+              <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">
                 月別
               </h2>
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-1.5">
                 {months.map((ym) => {
                   const [y, m] = ym.split('/');
                   return (
                     <Link
                       key={ym}
                       href={`/articles/archive/${y}/${m}`}
-                      className="text-sm text-gray-600 hover:underline"
+                      className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
                     >
                       {y}年{parseInt(m)}月
                     </Link>

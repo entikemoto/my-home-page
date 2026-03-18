@@ -1,25 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const notoSerifJP = Noto_Serif_JP({
+  weight: ["400", "700", "900"],
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-noto-serif-jp",
+  display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "池本の医療AI日記",
-    template: "%s | 池本の医療AI日記",
+    default: "池本武志 — 医師×医療AI研究家",
+    template: "%s | 池本武志",
   },
-  description: "毎日のAIニュースを医療AIの視点で解説する個人サイト。",
+  description:
+    "医師・MBA・医学博士。医療現場の視点からAIの今と未来を解説し、医療×AIで起業を目指す。",
 };
 
 export default function RootLayout({
@@ -29,9 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${notoSerifJP.variable} antialiased`}>
         <Header />
         {children}
         <Footer />
