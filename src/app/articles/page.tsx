@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { getArticles, getArticlesWithBody, getAllTags } from '@/lib/articles';
+import { tagToSlug } from '@/lib/tag-slug';
 import ArticleSearch from '@/components/ArticleSearch';
 import Link from 'next/link';
 
@@ -53,7 +54,7 @@ export default function ArticlesPage() {
                 {tags.map(({ tag, count }) => (
                   <Link
                     key={tag}
-                    href={`/articles/tag/${tag}`}
+                    href={`/articles/tag/${tagToSlug(tag)}`}
                     className="text-sm text-gray-600 hover:text-gray-900 transition-colors flex justify-between"
                   >
                     <span>{tag}</span>

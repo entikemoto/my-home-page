@@ -2,25 +2,28 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getArticlesByTag, getAllTags } from '@/lib/articles';
+import { slugToTag, tagToSlug } from '@/lib/tag-slug';
 import ArticleCard from '@/components/ArticleCard';
 
 type Props = { params: Promise<{ tag: string }> };
 
 export async function generateStaticParams(): Promise<{ tag: string }[]> {
-  return getAllTags().map(({ tag }) => ({ tag }));
+  return getAllTags().map(({ tag }) => ({ tag: tagToSlug(tag) }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { tag } = await params;
+  const decodedTag = slugToTag(tag);
   return {
-    title: `タグ: ${tag}`,
-    description: `"${tag}" タグの記事一覧`,
+    title: `タグ: ${decodedTag}`,
+    description: `"${decodedTag}" タグの記事一覧`,
   };
 }
 
 export default async function TagPage({ params }: Props) {
   const { tag } = await params;
-  const articles = getArticlesByTag(tag);
+  const decodedTag = slugToTag(tag);
+  const articles = getArticlesByTag(decodedTag);
 
   if (articles.length === 0) notFound();
 
@@ -32,7 +35,7 @@ export default async function TagPage({ params }: Props) {
         </Link>
       </div>
       <h1 className="font-serif text-3xl lg:text-4xl font-bold mb-2 text-gray-900">
-        タグ: <span className="font-normal text-gray-500">{tag}</span>
+        タグ: <span className="font-normal text-gray-500">{decodedTag}</span>
       </h1>
       <p className="text-sm text-gray-400 mb-12">{articles.length}件</p>
 
