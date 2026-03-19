@@ -7,22 +7,20 @@ import ArticleCard from '@/components/ArticleCard';
 type Props = { params: Promise<{ tag: string }> };
 
 export async function generateStaticParams(): Promise<{ tag: string }[]> {
-  return getAllTags().map(({ tag }) => ({ tag: encodeURIComponent(tag) }));
+  return getAllTags().map(({ tag }) => ({ tag }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { tag } = await params;
-  const decoded = decodeURIComponent(tag);
   return {
-    title: `タグ: ${decoded}`,
-    description: `"${decoded}" タグの記事一覧`,
+    title: `タグ: ${tag}`,
+    description: `"${tag}" タグの記事一覧`,
   };
 }
 
 export default async function TagPage({ params }: Props) {
   const { tag } = await params;
-  const decoded = decodeURIComponent(tag);
-  const articles = getArticlesByTag(decoded);
+  const articles = getArticlesByTag(tag);
 
   if (articles.length === 0) notFound();
 
@@ -34,7 +32,7 @@ export default async function TagPage({ params }: Props) {
         </Link>
       </div>
       <h1 className="font-serif text-3xl lg:text-4xl font-bold mb-2 text-gray-900">
-        タグ: <span className="font-normal text-gray-500">{decoded}</span>
+        タグ: <span className="font-normal text-gray-500">{tag}</span>
       </h1>
       <p className="text-sm text-gray-400 mb-12">{articles.length}件</p>
 
