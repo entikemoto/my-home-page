@@ -53,7 +53,7 @@ export default function ArticlesPage() {
                 {tags.map(({ tag, count }) => (
                   <Link
                     key={tag}
-                    href={`/articles/tag/${encodeURIComponent(tag)}`}
+                    href={`/articles/tag/${tag}`}
                     className="text-sm text-gray-600 hover:text-gray-900 transition-colors flex justify-between"
                   >
                     <span>{tag}</span>
