@@ -1,7 +1,7 @@
 [
   {
     "articleId": "note-nb9f060b74b23-1",
-    "title": "Geminiのアプリ操作、遅くても未来を予感させる\n\n[Gemini task automation is slow, clunky, and super impressive](",
+    "title": "Geminiのアプリ操作、遅くても未来を予感させる",
     "publishedAt": "2026-03-22T20:47:40.000+09:00",
     "edition": "evening",
     "orderInEdition": 1,
@@ -31,7 +31,7 @@
   },
   {
     "articleId": "note-nb9f060b74b23-2",
-    "title": "OpenAIがAstral買収、AIコーディングの未来を加速\n\n[OpenAI acquires Astral to bring Python's most popular dev tools into its Codex AI coding platform](",
+    "title": "OpenAIがAstral買収、AIコーディングの未来を加速",
     "publishedAt": "2026-03-22T20:47:40.000+09:00",
     "edition": "evening",
     "orderInEdition": 2,
@@ -61,7 +61,7 @@
   },
   {
     "articleId": "note-nb9f060b74b23-3",
-    "title": "米政府のAI規制案、大手テック企業の思惑通りか\n\n[White House AI plan hands Big Tech the federal preemption it lobbied for](",
+    "title": "米政府のAI規制案、大手テック企業の思惑通りか",
     "publishedAt": "2026-03-22T20:47:40.000+09:00",
     "edition": "evening",
     "orderInEdition": 3,
@@ -91,7 +91,7 @@
   },
   {
     "articleId": "note-n75187946e9f9-1",
-    "title": "OpenAIが従業員倍増で企業市場に攻勢、AIの主戦場はどこへ\n\n[OpenAI plans to nearly double its workforce by 2026 as it ramps up enterprise push](",
+    "title": "OpenAIが従業員倍増で企業市場に攻勢、AIの主戦場はどこへ",
     "publishedAt": "2026-03-22T09:29:54.000+09:00",
     "edition": "morning",
     "orderInEdition": 1,
@@ -121,7 +121,7 @@
   },
   {
     "articleId": "note-n75187946e9f9-2",
-    "title": "AIエージェントが開発者を「誹謗中傷」、自律性の倫理はどこへ\n\n[Rogue OpenClaw AI wrote and published 'hit piece' on a Python developer who rejected its code — disgruntled bot accuses Matplotlib maintainer of discrimination and hypocrisy, later backtracks with an an apology](",
+    "title": "AIエージェントが開発者を「誹謗中傷」、自律性の倫理はどこへ",
     "publishedAt": "2026-03-22T09:29:54.000+09:00",
     "edition": "morning",
     "orderInEdition": 2,
@@ -151,7 +151,7 @@
   },
   {
     "articleId": "note-n75187946e9f9-3",
-    "title": "AIコンプライアンスの信頼性揺るがす「偽証拠」疑惑\n\n[Delve accused of misleading customers with ‘fake compliance’](",
+    "title": "AIコンプライアンスの信頼性揺るがす「偽証拠」疑惑",
     "publishedAt": "2026-03-22T09:29:54.000+09:00",
     "edition": "morning",
     "orderInEdition": 3,
@@ -181,7 +181,7 @@
   },
   {
     "articleId": "note-ncfa0c5ada122-1",
-    "title": "Claudeが外部通知を取り込む時代へ、業務自動化は次の段階に\n\n[> Anthropic turns Claude Code into an always-on AI agent with new channels feature](",
+    "title": "Claudeが外部通知を取り込む時代へ、業務自動化は次の段階に",
     "publishedAt": "2026-03-21T20:40:46.000+09:00",
     "edition": "evening",
     "orderInEdition": 1,
@@ -211,7 +211,7 @@
   },
   {
     "articleId": "note-ncfa0c5ada122-2",
-    "title": "AI車椅子は自律走行へ、しかし「人」の視点こそ重要\n\n[> AI Aims for Autonomous Wheelchair Navigation](",
+    "title": "AI車椅子は自律走行へ、しかし「人」の視点こそ重要",
     "publishedAt": "2026-03-21T20:40:46.000+09:00",
     "edition": "evening",
     "orderInEdition": 2,
@@ -241,7 +241,7 @@
   },
   {
     "articleId": "note-ncfa0c5ada122-3",
-    "title": "欧州AI、高い導入率の裏で自国エコシステムが育たない矛盾\n\n[> Europe's AI paradox is record adoption that funds foreign ecosystems instead of building its own](",
+    "title": "欧州AI、高い導入率の裏で自国エコシステムが育たない矛盾",
     "publishedAt": "2026-03-21T20:40:46.000+09:00",
     "edition": "evening",
     "orderInEdition": 3,
@@ -271,7 +271,7 @@
   },
   {
     "articleId": "note-n14ab6e88d3fb-1",
-    "title": "OpenAIが目指す「AI研究者」は、人の仕事をどう変えるか？\n\n[> OpenAI is throwing everything into building a fully automated researcher](",
+    "title": "OpenAIが目指す「AI研究者」は、人の仕事をどう変えるか？",
     "publishedAt": "2026-03-21T10:24:11.000+09:00",
     "edition": "morning",
     "orderInEdition": 1,
@@ -301,7 +301,7 @@
   },
   {
     "articleId": "note-n14ab6e88d3fb-2",
-    "title": "サイケデリックス、過熱する期待と臨床試験の壁\n\n[> Mind-altering substances are (still) falling short in clinical trials](",
+    "title": "サイケデリックス、過熱する期待と臨床試験の壁",
     "publishedAt": "2026-03-21T10:24:11.000+09:00",
     "edition": "morning",
     "orderInEdition": 2,
@@ -331,7 +331,7 @@
   },
   {
     "articleId": "note-n14ab6e88d3fb-3",
-    "title": "トランプ政権のAI規制案、州の権限を制限し開発加速へ\n\n[> Trump takes another shot at dismantling state AI regulation](",
+    "title": "トランプ政権のAI規制案、州の権限を制限し開発加速へ",
     "publishedAt": "2026-03-21T10:24:11.000+09:00",
     "edition": "morning",
     "orderInEdition": 3,
@@ -361,7 +361,7 @@
   },
   {
     "articleId": "note-neba9b52c4b34-1",
-    "title": "MetaのAIのプライバシー、Signal開発者が変えるか\n\n[> Signal’s Creator Is Helping Encrypt Meta AI](",
+    "title": "MetaのAIのプライバシー、Signal開発者が変えるか",
     "publishedAt": "2026-03-20T23:35:40.000+09:00",
     "edition": "evening",
     "orderInEdition": 1,
@@ -391,7 +391,7 @@
   },
   {
     "articleId": "note-neba9b52c4b34-2",
-    "title": "DoorDash、ギグワーカーがAI学習データ収集で稼ぐ新常識\n\n[> DoorDash launches a new ‘Tasks’ app that pays couriers to submit videos to train AI](",
+    "title": "DoorDash、ギグワーカーがAI学習データ収集で稼ぐ新常識",
     "publishedAt": "2026-03-20T23:35:40.000+09:00",
     "edition": "evening",
     "orderInEdition": 2,
@@ -421,7 +421,7 @@
   },
   {
     "articleId": "note-neba9b52c4b34-3",
-    "title": "AIの「ダークサイド」を解明、有害な人間-AI相互作用を予測\n\n[> Multi-Trait Subspace Steering to Reveal the Dark Side of Human-AI Interaction](",
+    "title": "AIの「ダークサイド」を解明、有害な人間-AI相互作用を予測",
     "publishedAt": "2026-03-20T23:35:40.000+09:00",
     "edition": "evening",
     "orderInEdition": 3,
@@ -451,7 +451,7 @@
   },
   {
     "articleId": "note-n43168042fb18-1",
-    "title": "コード特化AI、大手モデルの牙城を崩せるか\n\n[> Cursor takes on OpenAI and Anthropic with Composer 2, a code-only model built to match rivals at a fraction of the cost](",
+    "title": "コード特化AI、大手モデルの牙城を崩せるか",
     "publishedAt": "2026-03-20T12:57:02.000+09:00",
     "edition": "morning",
     "orderInEdition": 1,
@@ -481,7 +481,7 @@
   },
   {
     "articleId": "note-n43168042fb18-2",
-    "title": "AI半導体競争、メモリ供給が勝敗を分ける\n\n[AMD and Samsung ink memory supply memorandum for EPYC and Instinct products — unprecedented deal also includes scope for foundry partnership](",
+    "title": "AI半導体競争、メモリ供給が勝敗を分ける",
     "publishedAt": "2026-03-20T12:57:02.000+09:00",
     "edition": "morning",
     "orderInEdition": 2,
@@ -511,7 +511,7 @@
   },
   {
     "articleId": "note-n43168042fb18-3",
-    "title": "医療を変革するバーチャルツインとAIの融合\n\n[> How Your Virtual Twin Could One Day Save Your Life](",
+    "title": "医療を変革するバーチャルツインとAIの融合",
     "publishedAt": "2026-03-20T12:57:02.000+09:00",
     "edition": "morning",
     "orderInEdition": 3,
@@ -541,7 +541,7 @@
   },
   {
     "articleId": "note-nbcde6d0b6422-1",
-    "title": "AIが犬の癌を治した？過度な期待と現実の差\n\n[ChatGPT did not cure a dog’s cancer](",
+    "title": "AIが犬の癌を治した？過度な期待と現実の差",
     "publishedAt": "2026-03-19T23:16:07.000+09:00",
     "edition": "evening",
     "orderInEdition": 1,
@@ -571,7 +571,7 @@
   },
   {
     "articleId": "note-nbcde6d0b6422-2",
-    "title": "AIエージェントが機密情報を漏洩、制御の難しさ露呈\n\n[Meta is having trouble with rogue AI agents](",
+    "title": "AIエージェントが機密情報を漏洩、制御の難しさ露呈",
     "publishedAt": "2026-03-19T23:16:07.000+09:00",
     "edition": "evening",
     "orderInEdition": 2,
@@ -601,7 +601,7 @@
   },
   {
     "articleId": "note-nbcde6d0b6422-3",
-    "title": "機密データでAI訓練、国防総省の計画に潜むリスク\n\n[The Pentagon is planning for AI companies to train on classified data, defense official says](",
+    "title": "機密データでAI訓練、国防総省の計画に潜むリスク",
     "publishedAt": "2026-03-19T23:16:07.000+09:00",
     "edition": "evening",
     "orderInEdition": 3,
@@ -662,7 +662,7 @@
   },
   {
     "articleId": "note-n9ad710fad741-2",
-    "title": "NVIDIAが描く、個人に最適化されたローカルAIの未来\n\n[GTC Spotlights NVIDIA RTX PCs and DGX Sparks Running Latest Open Models and AI Agents Locally](",
+    "title": "NVIDIAが描く、個人に最適化されたローカルAIの未来",
     "publishedAt": "2026-03-19T13:00:25.000+09:00",
     "edition": "morning",
     "orderInEdition": 2,
@@ -693,7 +693,7 @@
   },
   {
     "articleId": "note-n9ad710fad741-3",
-    "title": "米中技術競争の狭間で、NVIDIAが中国市場で示す戦略\n\n[Beijing approves Nvidia's H200 chip sales as the company builds a China-ready version of its Groq inference chip](",
+    "title": "米中技術競争の狭間で、NVIDIAが中国市場で示す戦略",
     "publishedAt": "2026-03-19T13:00:25.000+09:00",
     "edition": "morning",
     "orderInEdition": 3,
@@ -724,7 +724,7 @@
   },
   {
     "articleId": "note-ncbeaa87f748f-1",
-    "title": "企業AIの真価を引き出す、カスタムモデル構築の重要性\n\n[> Mistral bets on ‘build-your-own AI’ as it takes on OpenAI, Anthropic in the enterprise](",
+    "title": "企業AIの真価を引き出す、カスタムモデル構築の重要性",
     "publishedAt": "2026-03-18T22:27:54.000+09:00",
     "edition": "evening",
     "orderInEdition": 1,
@@ -754,7 +754,7 @@
   },
   {
     "articleId": "note-ncbeaa87f748f-2",
-    "title": "AIエージェント購買の信頼性を担保する人間認証の仕組み\n\n[> World launches tool to verify humans behind AI shopping agents](",
+    "title": "AIエージェント購買の信頼性を担保する人間認証の仕組み",
     "publishedAt": "2026-03-18T22:27:54.000+09:00",
     "edition": "evening",
     "orderInEdition": 2,
@@ -784,7 +784,7 @@
   },
   {
     "articleId": "note-ncbeaa87f748f-3",
-    "title": "企業AIエージェントの普及を加速するセキュリティ基盤\n\n[> Nvidia’s version of OpenClaw could solve its biggest problem: security](",
+    "title": "企業AIエージェントの普及を加速するセキュリティ基盤",
     "publishedAt": "2026-03-18T22:27:54.000+09:00",
     "edition": "evening",
     "orderInEdition": 3,
@@ -814,7 +814,7 @@
   },
   {
     "articleId": "note-na999d9aba013-1",
-    "title": "OpenAIの小型モデルは、エージェント普及の鍵か\n\n[> Introducing GPT-5.4 mini and nano](",
+    "title": "OpenAIの小型モデルは、エージェント普及の鍵か",
     "publishedAt": "2026-03-18T10:54:16.000+09:00",
     "edition": "morning",
     "orderInEdition": 1,
@@ -842,7 +842,7 @@
   },
   {
     "articleId": "note-na999d9aba013-2",
-    "title": "Nvidiaが推論特化ハードを投入、その真意とは\n\n[> GTC 2026: With Groq 3 LPX, Nvidia adds dedicated inference hardware to its platform for the first time](",
+    "title": "Nvidiaが推論特化ハードを投入、その真意とは",
     "publishedAt": "2026-03-18T10:54:16.000+09:00",
     "edition": "morning",
     "orderInEdition": 2,
@@ -870,7 +870,7 @@
   },
   {
     "articleId": "note-na999d9aba013-3",
-    "title": "EHR予測AI、高精度でも実用化に壁がある理由\n\n[> Translational Gaps in Graph Transformers for Longitudinal EHR Prediction: A Critical Appraisal of GT-BEHRT](",
+    "title": "EHR予測AI、高精度でも実用化に壁がある理由",
     "publishedAt": "2026-03-18T10:54:16.000+09:00",
     "edition": "morning",
     "orderInEdition": 3,
@@ -898,7 +898,7 @@
   },
   {
     "articleId": "note-n7c79a66a1ea7-1",
-    "title": "OpenAI、多角化戦略から転換し企業向けに集中する理由\n\n[> OpenAI reportedly ditches its \"side quests\" strategy to focus on coding tools and business customers](",
+    "title": "OpenAI、多角化戦略から転換し企業向けに集中する理由",
     "publishedAt": "2026-03-17T22:25:07.000+09:00",
     "edition": "evening",
     "orderInEdition": 1,
@@ -928,7 +928,7 @@
   },
   {
     "articleId": "note-n7c79a66a1ea7-2",
-    "title": "外科手術ロボットの自律化へ、初のオープンデータセットが拓く道\n\n[> The First Healthcare Robotics Dataset and Foundational Physical AI Models for Healthcare Robotics](",
+    "title": "外科手術ロボットの自律化へ、初のオープンデータセットが拓く道",
     "publishedAt": "2026-03-17T22:25:07.000+09:00",
     "edition": "evening",
     "orderInEdition": 2,
@@ -958,7 +958,7 @@
   },
   {
     "articleId": "note-n7c79a66a1ea7-3",
-    "title": "SearsのAIチャットボット、顧客の個人情報をウェブに公開\n\n[> Sears Exposed AI Chatbot Phone Calls and Text Chats to Anyone on the Web](",
+    "title": "SearsのAIチャットボット、顧客の個人情報をウェブに公開",
     "publishedAt": "2026-03-17T22:25:07.000+09:00",
     "edition": "evening",
     "orderInEdition": 3,
@@ -988,7 +988,7 @@
   },
   {
     "articleId": "note-n5a5e2097d728-1",
-    "title": "米陸軍がAndurilと巨額契約、国防の主役はソフトウェアへ\n\n[> US Army announces contract with Anduril worth up to $20B](",
+    "title": "米陸軍がAndurilと巨額契約、国防の主役はソフトウェアへ",
     "publishedAt": "2026-03-17T13:31:31.000+09:00",
     "edition": "evening",
     "orderInEdition": 1,
@@ -1013,7 +1013,7 @@
   },
   {
     "articleId": "note-n5a5e2097d728-2",
-    "title": "AIチャットボットが精神に影響、大量殺傷リスクの警告\n\n[> Lawyer behind AI psychosis cases warns of mass casualty risks](",
+    "title": "AIチャットボットが精神に影響、大量殺傷リスクの警告",
     "publishedAt": "2026-03-17T13:31:31.000+09:00",
     "edition": "evening",
     "orderInEdition": 2,
@@ -1063,7 +1063,7 @@
   },
   {
     "articleId": "note-ne6fdf4e42df4-1",
-    "title": "OpenAI、企業導入の壁を越える新戦略とは\n\n[> OpenAI's biggest problem may not be building AI but getting companies to actually use it beyond ChatGPT](",
+    "title": "OpenAI、企業導入の壁を越える新戦略とは",
     "publishedAt": "2026-03-17T08:35:57.000+09:00",
     "edition": "morning",
     "orderInEdition": 1,
@@ -1093,7 +1093,7 @@
   },
   {
     "articleId": "note-ne6fdf4e42df4-2",
-    "title": "ロシュ、創薬から製造までAIを全社展開する大規模投資\n\n[> Roche Scales NVIDIA AI Factories Globally to Accelerate Drug Discovery, Diagnostic Solutions and Manufacturing Breakthroughs](",
+    "title": "ロシュ、創薬から製造までAIを全社展開する大規模投資",
     "publishedAt": "2026-03-17T08:35:57.000+09:00",
     "edition": "morning",
     "orderInEdition": 2,
@@ -1123,7 +1123,7 @@
   },
   {
     "articleId": "note-ne6fdf4e42df4-3",
-    "title": "メタ、270億ドル投資でAIインフラを爆速強化\n\n[> Meta signs $27 billion cloud deal with Nebius in one of the largest AI infrastructure bets yet](",
+    "title": "メタ、270億ドル投資でAIインフラを爆速強化",
     "publishedAt": "2026-03-17T08:35:57.000+09:00",
     "edition": "morning",
     "orderInEdition": 3,
@@ -1153,7 +1153,7 @@
   },
   {
     "articleId": "note-n75416f33cc20-1",
-    "title": "MCP、AI同士が連携する基盤へ\n\n[> MCPは死んでない？　MCPの2026年ロードマップ公開　「AIツール接続」から「AI自律連携インフラ」へ](",
+    "title": "MCP、AI同士が連携する基盤へ",
     "publishedAt": "2026-03-16T20:18:44.000+09:00",
     "edition": "evening",
     "orderInEdition": 1,
@@ -1183,7 +1183,7 @@
   },
   {
     "articleId": "note-n75416f33cc20-2",
-    "title": "DeNA、Devinを全社導入し開発体制を見直し\n\n[> DeNA、「Devin」を全社2000人超に導入　「作業効率6倍」でレガシーコードを刷新](",
+    "title": "DeNA、Devinを全社導入し開発体制を見直し",
     "publishedAt": "2026-03-16T20:18:44.000+09:00",
     "edition": "evening",
     "orderInEdition": 2,
@@ -1213,7 +1213,7 @@
   },
   {
     "articleId": "note-n75416f33cc20-3",
-    "title": "政府、AIエージェントとフィジカルAIの便益・リスクを明示\n\n[> 総務省・経産省、AI事業者ガイドラインを更新 AIエージェントやフィジカルAIの便益・リスク等追記](",
+    "title": "政府、AIエージェントとフィジカルAIの便益・リスクを明示",
     "publishedAt": "2026-03-16T20:18:44.000+09:00",
     "edition": "evening",
     "orderInEdition": 3,
@@ -1243,7 +1243,7 @@
   },
   {
     "articleId": "note-nca5b316cb63b-1",
-    "title": "ChatGPTが数学・科学学習を革新する視覚化機能とは\n\n[> New ways to learn math and science in ChatGPT](",
+    "title": "ChatGPTが数学・科学学習を革新する視覚化機能とは",
     "publishedAt": "2026-03-16T07:32:42.000+09:00",
     "edition": "morning",
     "orderInEdition": 1,
@@ -1272,7 +1272,7 @@
   },
   {
     "articleId": "note-nca5b316cb63b-2",
-    "title": "AIエージェントが企業をハッキング、トランプ氏模倣で露呈した限界\n\n[> Codewall's AI agent hacked an AI recruiter, then impersonated Trump to test its voice bot's guardrails](",
+    "title": "AIエージェントが企業をハッキング、トランプ氏模倣で露呈した限界",
     "publishedAt": "2026-03-16T07:32:42.000+09:00",
     "edition": "morning",
     "orderInEdition": 2,
@@ -1301,7 +1301,7 @@
   },
   {
     "articleId": "note-nca5b316cb63b-3",
-    "title": "Bytedanceの動画生成AI、著作権問題でグローバル展開延期\n\n[> Hollywood copyright complaints force Bytedance to shelve global launch of AI video generator Seedance 2.0](",
+    "title": "Bytedanceの動画生成AI、著作権問題でグローバル展開延期",
     "publishedAt": "2026-03-16T07:32:42.000+09:00",
     "edition": "morning",
     "orderInEdition": 3,
@@ -1330,7 +1330,7 @@
   },
   {
     "articleId": "note-nedcde7c7784e-1",
-    "title": "長文処理のコスト激減、AI活用に新たな扉が開く\n\n[> Anthropic drops the surcharge for million-token context windows, making Opus 4.6 and Sonnet 4.6 far cheaper](",
+    "title": "長文処理のコスト激減、AI活用に新たな扉が開く",
     "publishedAt": "2026-03-15T07:00:27.000+09:00",
     "edition": "morning",
     "orderInEdition": 1,
@@ -1351,7 +1351,7 @@
   },
   {
     "articleId": "note-nedcde7c7784e-2",
-    "title": "地方政府がAIエージェントに巨額投資、中国の狙いは何か\n\n[> China pushes OpenClaw \"one-person companies\" with millions in AI agent subsidies](",
+    "title": "地方政府がAIエージェントに巨額投資、中国の狙いは何か",
     "publishedAt": "2026-03-15T07:00:27.000+09:00",
     "edition": "morning",
     "orderInEdition": 2,
@@ -1372,7 +1372,7 @@
   },
   {
     "articleId": "note-nedcde7c7784e-3",
-    "title": "見えない文字がコードを汚染、AI悪用の新たな脅威\n\n[> Invisible malicious code attacks 151 GitHub repos and VS Code — Glassworm attack uses blockchain to steal tokens, credentials, and secrets](",
+    "title": "見えない文字がコードを汚染、AI悪用の新たな脅威",
     "publishedAt": "2026-03-15T07:00:27.000+09:00",
     "edition": "morning",
     "orderInEdition": 3,
@@ -1393,7 +1393,7 @@
   },
   {
     "articleId": "note-ndf0a140803b4-1",
-    "title": "元Anthropic研究者が新会社、科学研究AIの未来を拓く\n\n[> Ex-Anthropic researchers launch AI startup Mirendil to tackle scientific research](",
+    "title": "元Anthropic研究者が新会社、科学研究AIの未来を拓く",
     "publishedAt": "2026-03-14T22:51:39.000+09:00",
     "edition": "evening",
     "orderInEdition": 1,
@@ -1423,7 +1423,7 @@
   },
   {
     "articleId": "note-ndf0a140803b4-2",
-    "title": "物理AIを製造業へ、MicrosoftとNVIDIAが進める基盤づくり\n\n[> Why physical AI is becoming manufacturing’s next advantage](",
+    "title": "物理AIを製造業へ、MicrosoftとNVIDIAが進める基盤づくり",
     "publishedAt": "2026-03-14T22:51:39.000+09:00",
     "edition": "evening",
     "orderInEdition": 2,
@@ -1453,7 +1453,7 @@
   },
   {
     "articleId": "note-ndf0a140803b4-3",
-    "title": "シミュレーションだけでロボットを学習、AI2が示す新しい道筋\n\n[> Ai2 releases new robotics models trained entirely in simulation to skip real-world data collection](",
+    "title": "シミュレーションだけでロボットを学習、AI2が示す新しい道筋",
     "publishedAt": "2026-03-14T22:51:39.000+09:00",
     "edition": "evening",
     "orderInEdition": 3,
@@ -1483,7 +1483,7 @@
   },
   {
     "articleId": "note-n11305388f436-1",
-    "title": "軍事AIの標的選定、ペンタゴンがClaudeを警戒する理由\n\n[> The Download: how AI is used for military targeting, and the Pentagon’s war on Claude](",
+    "title": "軍事AIの標的選定、ペンタゴンがClaudeを警戒する理由",
     "publishedAt": "2026-03-14T08:17:47.000+09:00",
     "edition": "morning",
     "orderInEdition": 1,
@@ -1513,7 +1513,7 @@
   },
   {
     "articleId": "note-n11305388f436-2",
-    "title": "OpenClaw熱狂の裏側、中国AI企業が狙う顧客囲い込み\n\n[> China’s OpenClaw Boom Is a Gold Rush for AI Companies](",
+    "title": "OpenClaw熱狂の裏側、中国AI企業が狙う顧客囲い込み",
     "publishedAt": "2026-03-14T08:17:47.000+09:00",
     "edition": "morning",
     "orderInEdition": 2,
@@ -1543,7 +1543,7 @@
   },
   {
     "articleId": "note-n11305388f436-3",
-    "title": "輸出規制下でも計算資源を確保、ByteDanceの海外クラウド戦略\n\n[> China's ByteDance to access 36,000 Blackwell GPU cluster through Malaysia cloud operator — Nvidia confirms no objections, deal is in line with US export controls](",
+    "title": "輸出規制下でも計算資源を確保、ByteDanceの海外クラウド戦略",
     "publishedAt": "2026-03-14T08:17:47.000+09:00",
     "edition": "morning",
     "orderInEdition": 3,
@@ -1573,7 +1573,7 @@
   },
   {
     "articleId": "note-nd1e5f4ec3045-1",
-    "title": "Geminiがアプリを自律操作、AIエージェントの夜明けか\n\n[> Gemini’s task automation is here and it’s wild](",
+    "title": "Geminiがアプリを自律操作、AIエージェントの夜明けか",
     "publishedAt": "2026-03-14T00:18:29.000+09:00",
     "edition": "evening",
     "orderInEdition": 1,
@@ -1603,7 +1603,7 @@
   },
   {
     "articleId": "note-nd1e5f4ec3045-2",
-    "title": "NVIDIAがデータ分析AIで最高水準、専門家型の思考法とは\n\n[> Build an Agent That Thinks Like a Data Scientist: How We Hit #1 on DABStep with Reusable Tool Generation](",
+    "title": "NVIDIAがデータ分析AIで最高水準、専門家型の思考法とは",
     "publishedAt": "2026-03-14T00:18:29.000+09:00",
     "edition": "evening",
     "orderInEdition": 2,
@@ -1633,7 +1633,7 @@
   },
   {
     "articleId": "note-nd1e5f4ec3045-3",
-    "title": "Perplexityが24時間稼働AIエージェント、デジタル分身の未来像\n\n[> Perplexity's \"Personal Computer\" promises a tireless AI agent for $200 a month](",
+    "title": "Perplexityが24時間稼働AIエージェント、デジタル分身の未来像",
     "publishedAt": "2026-03-14T00:18:29.000+09:00",
     "edition": "evening",
     "orderInEdition": 3,
@@ -1683,7 +1683,7 @@
   },
   {
     "articleId": "note-n07e29a156cde-1",
-    "title": "AIエージェントの脆弱性、ソーシャルエンジニアリングが鍵\n\n[> Designing AI agents to resist prompt injection](",
+    "title": "AIエージェントの脆弱性、ソーシャルエンジニアリングが鍵",
     "publishedAt": "2026-03-13T07:53:42.000+09:00",
     "edition": "morning",
     "orderInEdition": 1,
@@ -1713,7 +1713,7 @@
   },
   {
     "articleId": "note-n07e29a156cde-2",
-    "title": "個人健康データとAI連携、プライバシー保護の壁\n\n[> Microsoft’s Copilot Health can connect to your medical records and wearables](",
+    "title": "個人健康データとAI連携、プライバシー保護の壁",
     "publishedAt": "2026-03-13T07:53:42.000+09:00",
     "edition": "morning",
     "orderInEdition": 2,
@@ -1743,7 +1743,7 @@
   },
   {
     "articleId": "note-n07e29a156cde-3",
-    "title": "MetaがAI推論チップを自社開発、NVIDIA依存を脱却か\n\n[> Meta reveals four new MTIA chips built for AI inference — to be released on a six-month cadence](",
+    "title": "MetaがAI推論チップを自社開発、NVIDIA依存を脱却か",
     "publishedAt": "2026-03-13T07:53:42.000+09:00",
     "edition": "morning",
     "orderInEdition": 3,
@@ -1773,7 +1773,7 @@
   },
   {
     "articleId": "note-n142bf0b3ae0a-1",
-    "title": "小売大手Wayfair、AIで商品データと顧客対応を改善\n\n[> Wayfair boosts catalog accuracy and support speed with OpenAI](",
+    "title": "小売大手Wayfair、AIで商品データと顧客対応を改善",
     "publishedAt": "2026-03-13T00:17:14.000+09:00",
     "edition": "evening",
     "orderInEdition": 1,
@@ -1803,7 +1803,7 @@
   },
   {
     "articleId": "note-n142bf0b3ae0a-2",
-    "title": "Fordが商用車フリート管理にAIを導入、データ活用で運用効率を改善\n\n[> Ford is giving its commercial fleet business an AI makeover](",
+    "title": "Fordが商用車フリート管理にAIを導入、データ活用で運用効率を改善",
     "publishedAt": "2026-03-13T00:17:14.000+09:00",
     "edition": "evening",
     "orderInEdition": 2,
@@ -1833,7 +1833,7 @@
   },
   {
     "articleId": "note-n142bf0b3ae0a-3",
-    "title": "MetaはなぜMoltbookを買収したのか\n\n[> Meta’s Moltbook deal points to a future built around AI agents](",
+    "title": "MetaはなぜMoltbookを買収したのか",
     "publishedAt": "2026-03-13T00:17:14.000+09:00",
     "edition": "evening",
     "orderInEdition": 3,
@@ -1863,7 +1863,7 @@
   },
   {
     "articleId": "note-n583aa0c9b151-1",
-    "title": "開発現場の常識が変わる？楽天がAIでMTTR半減\n\n[> Rakuten fixes issues twice as fast with Codex](",
+    "title": "開発現場の常識が変わる？楽天がAIでMTTR半減",
     "publishedAt": "2026-03-12T08:32:00.000+09:00",
     "edition": "morning",
     "orderInEdition": 1,
@@ -1893,7 +1893,7 @@
   },
   {
     "articleId": "note-n583aa0c9b151-2",
-    "title": "古典的脆弱性がAI時代に新たな脅威となる理由\n\n[> An AI agent hacked McKinsey's internal AI platform in two hours using a decades-old technique](",
+    "title": "古典的脆弱性がAI時代に新たな脅威となる理由",
     "publishedAt": "2026-03-12T08:32:00.000+09:00",
     "edition": "morning",
     "orderInEdition": 2,
@@ -1923,7 +1923,7 @@
   },
   {
     "articleId": "note-n583aa0c9b151-3",
-    "title": "産業用ロボットの常識を覆す？シミュレーションと現実の融合\n\n[> ABB Robotics Taps NVIDIA Omniverse to Deliver Industrial‑Grade Physical AI at Scale](",
+    "title": "産業用ロボットの常識を覆す？シミュレーションと現実の融合",
     "publishedAt": "2026-03-12T08:32:00.000+09:00",
     "edition": "morning",
     "orderInEdition": 3,
@@ -1973,7 +1973,7 @@
   },
   {
     "articleId": "note-ne934f9a73b49-1",
-    "title": "スプレッドシートの常識を覆すAIの力\n\n[> Gemini in Google Sheets just achieved state-of-the-art performance.](",
+    "title": "スプレッドシートの常識を覆すAIの力",
     "publishedAt": "2026-03-11T20:35:26.000+09:00",
     "edition": "evening",
     "orderInEdition": 1,
@@ -2006,7 +2006,7 @@
   },
   {
     "articleId": "note-ne934f9a73b49-2",
-    "title": "開発のボトルネックをAIが解消する\n\n[> Claude Code gets parallel AI agents that review code for bugs and security gaps](",
+    "title": "開発のボトルネックをAIが解消する",
     "publishedAt": "2026-03-11T20:35:26.000+09:00",
     "edition": "evening",
     "orderInEdition": 2,
@@ -2039,7 +2039,7 @@
   },
   {
     "articleId": "note-ne934f9a73b49-3",
-    "title": "Nvidiaが描くAIエージェントの未来戦略\n\n[> Nvidia Is Planning to Launch an Open-Source AI Agent Platform](",
+    "title": "Nvidiaが描くAIエージェントの未来戦略",
     "publishedAt": "2026-03-11T20:35:26.000+09:00",
     "edition": "evening",
     "orderInEdition": 3,
@@ -2072,7 +2072,7 @@
   },
   {
     "articleId": "note-n94046a388d20-1",
-    "title": "AmazonがヘルスケアAIを一般公開、医療体験はどう変わるか\n\n[> Amazon launches its healthcare AI assistant on its website and app](",
+    "title": "AmazonがヘルスケアAIを一般公開、医療体験はどう変わるか",
     "publishedAt": "2026-03-11T16:09:14.000+09:00",
     "edition": "morning",
     "orderInEdition": 1,
@@ -2102,7 +2102,7 @@
   },
   {
     "articleId": "note-n94046a388d20-2",
-    "title": "AIの電力消費が経営を揺るがす時代、エネルギー戦略の重要性\n\n[> Prioritizing energy intelligence for sustainable growth](",
+    "title": "AIの電力消費が経営を揺るがす時代、エネルギー戦略の重要性",
     "publishedAt": "2026-03-11T16:09:14.000+09:00",
     "edition": "morning",
     "orderInEdition": 2,
@@ -2132,7 +2132,7 @@
   },
   {
     "articleId": "note-n94046a388d20-3",
-    "title": "デジタル資産のセキュリティ、使いやすさとの両立がなぜ難しいか\n\n[> The usability imperative for securing digital asset devices](",
+    "title": "デジタル資産のセキュリティ、使いやすさとの両立がなぜ難しいか",
     "publishedAt": "2026-03-11T16:09:14.000+09:00",
     "edition": "morning",
     "orderInEdition": 3,
@@ -2162,7 +2162,7 @@
   },
   {
     "articleId": "note-nf4b1336c6f6d-1",
-    "title": "AIは金融の大きな損失を減らせるか\n\n[> Autonomous AI Agents for Option Hedging: Enhancing Financial Stability through Shortfall Aware Reinforcement Learning](",
+    "title": "AIは金融の大きな損失を減らせるか",
     "publishedAt": "2026-03-10T22:00:21.000+09:00",
     "edition": "evening",
     "orderInEdition": 1,
@@ -2193,7 +2193,7 @@
   },
   {
     "articleId": "note-nf4b1336c6f6d-2",
-    "title": "Copilotは複数アプリの作業代行に近づく\n\n[> Microsoft brings Anthropic's Claude Cowork into Copilot to run tasks across Outlook, Teams, and Excel](",
+    "title": "Copilotは複数アプリの作業代行に近づく",
     "publishedAt": "2026-03-10T22:00:21.000+09:00",
     "edition": "evening",
     "orderInEdition": 2,
@@ -2224,7 +2224,7 @@
   },
   {
     "articleId": "note-nf4b1336c6f6d-3",
-    "title": "過去の動きがAIの次の判断を左右する\n\n[> Autocorrelation effects in a stochastic-process model for decision making via time series](",
+    "title": "過去の動きがAIの次の判断を左右する",
     "publishedAt": "2026-03-10T22:00:21.000+09:00",
     "edition": "evening",
     "orderInEdition": 3,
@@ -2255,7 +2255,7 @@
   },
   {
     "articleId": "note-nac8c4c374a48-1",
-    "title": "OpenAI、AIの安全性を買収で強化する狙い\n\n[> OpenAI to acquire Promptfoo](",
+    "title": "OpenAI、AIの安全性を買収で強化する狙い",
     "publishedAt": "2026-03-10T06:57:29.000+09:00",
     "edition": "morning",
     "orderInEdition": 1,
@@ -2285,7 +2285,7 @@
   },
   {
     "articleId": "note-nac8c4c374a48-2",
-    "title": "医療AI、経験から自律的に診断スキルを習得\n\n[> Evolving Medical Imaging Agents via Experience-driven Self-skill Discovery](",
+    "title": "医療AI、経験から自律的に診断スキルを習得",
     "publishedAt": "2026-03-10T06:57:29.000+09:00",
     "edition": "morning",
     "orderInEdition": 2,
@@ -2315,7 +2315,7 @@
   },
   {
     "articleId": "note-nac8c4c374a48-3",
-    "title": "エージェントAI、分散リソース管理の鍵は依存構造\n\n[> Real-Time AI Service Economy: A Framework for Agentic Computing Across the Continuum](",
+    "title": "エージェントAI、分散リソース管理の鍵は依存構造",
     "publishedAt": "2026-03-10T06:57:29.000+09:00",
     "edition": "morning",
     "orderInEdition": 3,
@@ -2345,7 +2345,7 @@
   },
   {
     "articleId": "note-nb8fe712cd8d2-1",
-    "title": "LLMの思考過程は操作困難、AI監視の信頼性高まる\n\n[> Reasoning Models Struggle to Control their Chains of Thought](",
+    "title": "LLMの思考過程は操作困難、AI監視の信頼性高まる",
     "publishedAt": "2026-03-09T22:27:25.000+09:00",
     "edition": "evening",
     "orderInEdition": 1,
@@ -2405,7 +2405,7 @@
   },
   {
     "articleId": "note-nb8fe712cd8d2-3",
-    "title": "LLMのデータ枯渇を救う、未ラベル動画の潜在力\n\n[> LLM text data is drying up, but Meta points to unlabeled video as the next massive training frontier](",
+    "title": "LLMのデータ枯渇を救う、未ラベル動画の潜在力",
     "publishedAt": "2026-03-09T22:27:25.000+09:00",
     "edition": "evening",
     "orderInEdition": 3,
