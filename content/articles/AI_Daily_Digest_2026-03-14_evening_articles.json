@@ -1,0 +1,77 @@
+[
+  {
+    "articleId": "2026-03-14_evening_1",
+    "title": "元Anthropic研究者が新会社、科学研究AIの未来を拓く",
+    "publishedAt": "2026-03-14T00:00:00+00:00",
+    "edition": "evening",
+    "orderInEdition": 1,
+    "originalSourceUrl": "https://the-decoder.com/ex-anthropic-researchers-launch-ai-startup-mirendil-to-tackle-scientific-research/",
+    "sourceName": "",
+    "summary": "Anthropicの元研究者がMirendilを設立し、生物学や材料科学などの科学研究分野に特化したAI開発を進めています。",
+    "body": "> [> Ex-Anthropic researchers launch AI startup Mirendil to tackle scientific research](https://the-decoder.com/ex-anthropic-researchers-launch-ai-startup-mirendil-to-tackle-scientific-research/)\n>\n> https://the-decoder.com/ex-anthropic-researchers-launch-ai-startup-mirendil-to-tackle-scientific-research/\n\n### 一言で言うと\n\n[[Anthropic]]の元研究者が[[Mirendil]]を設立し、生物学や材料科学などの科学研究分野に特化したAI開発を進めています。大手AI企業で培った知見を、特定分野に深く生かそうとする動きとして注目されます。\n\n### 何が起きているのか\n\n[[Anthropic]]の元研究者である[[Behnam Neyshabur]]氏（最高経営責任者: CEO）と[[Harsh Mehta]]氏（最高技術責任者: CTO）が、2023年12月に同社を退社し、科学研究に特化したAIスタートアップ[[Mirendil]]を立ち上げました。現在、[[Andreessen Horowitz]]と[[Kleiner Perkins]]が共同で主導するとされる1億7500万ドルの資金調達ラウンドを交渉中で、評価額は10億ドルに達する見込みです。[[Neyshabur]]氏は[[Anthropic]]で科学AI推論チームを率い、以前は[[Google DeepMind]]に5年以上在籍していました。[[Mehta]]氏は[[Anthropic]]でシニアリサーチサイエンティストを務めていました。創業チームには、[[xAI]]出身の[[Shayan Salehian]]氏と[[OpenAI]]でインターン経験のある[[Tara Rezaei]]氏も加わっています。\n\n### AI業界の文脈では\n\nこの動きは、大手AIラボで培われた知見が、特定の応用領域に特化したスタートアップへと広がっている流れを象徴しています。大規模言語モデル（LLM: Large Language Model）開発競争が激しくなる一方で、その基盤技術を生物学や材料科学のような個別分野に深く応用し、より高い専門性と実用性を目指す動きが目立ってきました。これは、AIの基盤技術そのものだけで差をつけるのではなく、どの分野で具体的な価値を出せるかが重要になっていることを示しています。\n\n### 私の見立て\n\n大手AIラボで培われた専門知識が、特定の科学領域に特化したスタートアップへ向かうことは、AI活用がより現場に近い形へ進んでいることを示す動きです。\n\nこれは、汎用人工知能（AGI: Artificial General Intelligence）を目指す流れとは別に、特定の課題解決に絞ったAI開発が、現実の価値につながりやすいことを示しています。特に、生物学や材料科学のような研究分野は、扱うデータ量が膨大で複雑な関係を見つける必要があるため、AI支援との相性がよい領域です。\n\nまた、有力なベンチャーキャピタルがこのような専門特化型スタートアップに巨額の投資を行うことは、市場がその将来性を高く見ていることを示しています。AIは単なる作業効率化の道具にとどまらず、新しい研究の進め方や産業の形を生み出す基盤になりつつあります。\n\n**→ 何が変わるか**: 科学研究のサイクルがAIによって速まり、新薬開発や新素材探索の進め方が変わる可能性があります。\n\n**→ 何をすべきか**: 医療機関や研究機関は、自らの専門領域でAIをどう使えるかを早めに見極め、専門特化型のAIスタートアップとの連携可能性を検討しておくことが重要です。\n\n---",
+    "tags": [
+      "Mirendil",
+      "Anthropic",
+      "科学研究AI",
+      "AIスタートアップ"
+    ],
+    "hashtags": [
+      "#Mirendil",
+      "#Anthropic",
+      "#科学研究AI",
+      "#AIスタートアップ"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  },
+  {
+    "articleId": "2026-03-14_evening_2",
+    "title": "物理AIを製造業へ、MicrosoftとNVIDIAが進める基盤づくり",
+    "publishedAt": "2026-03-14T00:00:00+00:00",
+    "edition": "evening",
+    "orderInEdition": 2,
+    "originalSourceUrl": "https://www.technologyreview.com/2026/03/13/1134184/why-physical-ai-is-becoming-manufacturings-next-advantage/",
+    "sourceName": "",
+    "summary": "MicrosoftとNVIDIAが提携し、製造業における「物理AI」の導入を加速させています。",
+    "body": "> [> Why physical AI is becoming manufacturing’s next advantage](https://www.technologyreview.com/2026/03/13/1134184/why-physical-ai-is-becoming-manufacturings-next-advantage/)\n>\n> https://www.technologyreview.com/2026/03/13/1134184/why-physical-ai-is-becoming-manufacturings-next-advantage/\n\n### 一言で言うと\n\n[[Microsoft]]と[[NVIDIA]]が提携し、製造業における「物理AI」の導入を加速させています。ここでいう物理AIとは、現場の状況を読み取り、判断し、実際の機械やロボットの動きにつなげるAIのことです。単なるデータ分析にとどまらず、製造現場で実際に役立つ仕組みとして期待されています。\n\n### 何が起きているのか\n\n製造業では長年、効率化、コスト削減、安定稼働のために自動化が進められてきましたが、最近は労働力不足、生産工程の複雑化、製品切り替えの早さへの対応といった新たな課題に直面しています。これに対し、[[Microsoft]]と[[NVIDIA]]は、現実世界で感知（sense）、推論（reason）、行動（act）できる「物理AI」が次の変化の鍵になると提唱し、その導入を後押ししています。\n\n従来のAI導入が個別タスクの自動化や最適化にとどまりがちだったのに対し、物理AIは、シミュレーションで試した内容を実際の現場運用までつなげようとする点が特徴です。人と協調しながら、生産ラインの調整、保守計画の見直し、サプライチェーン対応などに生かしていく構想です。この取り組みでは、[[NVIDIA]]が計算基盤やシミュレーション、ロボティクス向けの技術を提供し、[[Microsoft]]がそれを安全に大規模運用するためのクラウドとデータ基盤を担います。\n\n### AI業界の文脈では\n\nこの動きは、AIの活用が画面の中の分析から、現実の設備やロボットを動かす領域へ広がっていることを示しています。大規模言語モデル（LLM: Large Language Model）や画像生成AIが注目される中で、ロボティクスや自律システムとつながり、物理世界で具体的な作業を担うAIの重要性が増しています。特に製造業は、環境が複雑で安全性や信頼性の要求も高いため、物理AIの実用化が試される代表的な場です。[[Microsoft]]と[[NVIDIA]]のような大手企業が協業することで、シミュレーション、データ管理、AIモデル、ロボティクス、安全管理までをまとめて扱う基盤が整い、物理AIの普及が進む可能性があります。\n\n### 私の見立て\n\n物理AIが製造業の現場に広がることは、単なる自動化の延長ではなく、人とAIが役割分担しながら働く新しい生産体制につながる動きです。\n\nここで起きている変化は、AIが「計画や分析」だけでなく「現場での実行」にまで関わるようになることです。ロボットや自律システムが変化する環境の中で感知し、判断し、動けるようになれば、従来の自動化では対応しにくかった変動や複雑さにも対応しやすくなります。その結果、生産効率だけでなく、品質の安定や安全性の向上にもつながる可能性があります。\n\n重要なのは、人間がAIに目的や条件を与え、AIが実行や監視、提案を担うという、人間中心の設計です。これにより、AIを活用しながらも最終判断は人が握れるため、リスクの高い現場でも導入しやすくなります。\n\n**→ 何が変わるか**: 製造業は、労働力不足や複雑なサプライチェーンの課題に対し、人とAIが協調する形で、より柔軟かつ迅速に対応しやすくなります。\n\n**→ 何をすべきか**: 製造業の経営者は、物理AIの導入を単なる機械の追加ではなく、生産プロセス全体の見直しとして捉え、AIを人が監督・制御できる体制を早めに整えることが重要です。\n\n---",
+    "tags": [
+      "Microsoft",
+      "NVIDIA",
+      "物理AI",
+      "製造業"
+    ],
+    "hashtags": [
+      "#Microsoft",
+      "#NVIDIA",
+      "#物理AI",
+      "#製造業"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  },
+  {
+    "articleId": "2026-03-14_evening_3",
+    "title": "シミュレーションだけでロボットを学習、AI2が示す新しい道筋",
+    "publishedAt": "2026-03-14T00:00:00+00:00",
+    "edition": "evening",
+    "orderInEdition": 3,
+    "originalSourceUrl": "https://the-decoder.com/ai2-releases-new-robotics-models-trained-entirely-in-simulation-to-skip-real-world-data-collection/",
+    "sourceName": "",
+    "summary": "AI2が、実世界でのデータ収集を行わず、シミュレーションのみで訓練されたロボティクスモデル「MolmoSpaces」と「MolmoBot」をオープンソースで公開しました。",
+    "body": "> [> Ai2 releases new robotics models trained entirely in simulation to skip real-world data collection](https://the-decoder.com/ai2-releases-new-robotics-models-trained-entirely-in-simulation-to-skip-real-world-data-collection/)\n>\n> https://the-decoder.com/ai2-releases-new-robotics-models-trained-entirely-in-simulation-to-skip-real-world-data-collection/\n\n### 一言で言うと\n\n[[AI2]]が、実世界でのデータ収集を行わず、シミュレーションのみで訓練されたロボティクスモデル「[[MolmoSpaces]]」と「[[MolmoBot]]」をオープンソースで公開しました。これにより、ロボット開発の期間とコストを減らせる可能性があります。\n\n### 何が起きているのか\n\nAI研究機関の[[AI2]]は、実世界での手動データ収集や追加調整を行わず、完全にシミュレーション環境で訓練したロボティクスモデルを発表しました。狙いは、仮想空間だけで学習したモデルを、そのまま現実のロボットでも動かせるようにすることです。\n\n従来の訓練方法では、シミュレーションで訓練した後も、実機で安定して動かすために、数か月にわたる遠隔操作や実地データ収集が必要でした。今回公開されたオープンソースシステムは「[[MolmoSpaces]]」と「[[MolmoBot]]」の2つです。[[MolmoSpaces]]は、多数の屋内シーン、物体データ、ロボットが物をつかむための学習用データを含む大規模なシミュレーション基盤です。\n\n[[MolmoBot]]はその上に構築されており、対象物をつかむ、置く、引き出しを開ける、ドアを操作するといった行動を、これらのタスクに関する実世界データを見ずにこなせるとされています。[[AI2]]の[[PRIOR]]チームディレクターである[[Ranjay Krishna]]氏は、シミュレーション環境、物体、カメラ条件の多様性を大きく増やすことで、シミュレーションと現実の差を縮められると説明しています。\n\n### AI業界の文脈では\n\nこの発表は、ロボティクス分野におけるデータ収集の大きなボトルネックを小さくできる可能性を示しています。実世界でのデータ収集は、時間、費用、安全性の面で負担が大きく、ロボット普及を妨げる一因でした。もしシミュレーション環境での訓練結果をそのまま実機に生かせるなら、ロボットの設計、テスト、導入のサイクルは大きく短縮されます。これは、ロボットが仮想環境で多様な経験を積むことで、現実でも対応できる力を身につけられる可能性を示すものです。さらにオープンソースで公開されたことで、この方向性を試す研究者や企業は増えそうです。\n\n### 私の見立て\n\nシミュレーションのみで訓練したロボティクスモデルが実世界でも機能するという[[AI2]]の成果は、ロボット開発における大きな障壁を下げる動きです。\n\nこの技術は、高価で時間のかかる実世界でのデータ収集を減らすことで、ロボットの試作から実用化までの時間を短くする可能性があります。特に、医療現場や介護施設のように安全性が重要で、しかも状況の変化が多い場所では、シミュレーションによる十分な検証と訓練が大きな意味を持ちます。\n\nさらに、シミュレーション環境の多様性を高めて現実とのずれを小さくする考え方は、AIモデルがさまざまな状況に対応しやすくなるうえで有効です。これにより、特定の作業だけに特化したロボットだけでなく、より幅広い環境に適応できるロボットの開発も進みやすくなります。\n\n**→ 何が変わるか**: ロボット開発のコストと時間が下がり、医療・介護・製造など幅広い分野でロボット導入が進みやすくなる可能性があります。\n\n**→ 何をすべきか**: 医療法人や製造業の経営者は、ロボット導入の壁だったデータ収集や訓練コストが下がる可能性を踏まえ、シミュレーションベースのロボット開発をどう活用できるかを検討し始めることが重要です。",
+    "tags": [
+      "AI2",
+      "MolmoSpaces",
+      "MolmoBot",
+      "シミュレーション学習"
+    ],
+    "hashtags": [
+      "#AI2",
+      "#MolmoSpaces",
+      "#MolmoBot",
+      "#シミュレーション学習"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  }
+]
