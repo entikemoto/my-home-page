@@ -123,12 +123,9 @@ function formatDigestSectionBody(section) {
 }
 
 function trimSourceHeadline(rawTitle) {
-  const trimmed = collapseSpaces(rawTitle);
-  const englishSplit = trimmed.match(/^(.*?)(?=\s+[A-Z][A-Za-z0-9][^ ]*\s)/);
-  if (englishSplit?.[1]) {
-    return englishSplit[1].trim();
-  }
-  return trimmed;
+  // Take only the first line — the Japanese title.
+  // Subsequent lines contain the English source headline and URL.
+  return collapseSpaces(rawTitle.split('\n')[0]);
 }
 
 function splitDigestBody(body) {
