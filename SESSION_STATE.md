@@ -1,6 +1,6 @@
 # SESSION_STATE — 20260317_MyHomePage
 
-> 最終更新: 2026-03-18
+> 最終更新: 2026-03-23
 
 ## 現在フェーズ
 
@@ -74,9 +74,14 @@
    - このサイトを訪れた人へのメッセージ（2〜3文）
    - 医師→AI/テックへの転換点エピソード（3〜5文）
 3. **Slack 招待URL** — 取得できたら `/lab` の CTA に追加
-4. **GitHub push** — リポジトリを作成して push
-5. **Vercel デプロイ** — デプロイ後に本番 URL を確認
-6. **HP_ARTICLES_DIR 連携** — CortexFlow2.0 の出力先に接続
+4. ~~**GitHub push**~~ — ✅ 完了（entikemoto/my-home-page）
+5. ~~**Vercel デプロイ**~~ — ✅ 設定済み（pushで自動デプロイ）
+6. ~~**HP_ARTICLES_DIR 連携**~~ — ✅ 完了（content/articles/にCortexFlow記事を追加、Vercel環境変数不要）
+7. ~~**記事重複問題修正**~~ — ✅ 完了（2026-03-23: deduplicateArticles追加）
+8. ~~**Markdownレンダリング修正**~~ — ✅ 完了（2026-03-23: page.tsx inlineレンダラー実装）
+
+### 記事更新フロー（確立済み）
+CortexFlow2.0 が hp_articles/*.json を生成 → `content/articles/` にコピー → git commit/push → Vercel自動デプロイ
 
 ## 関連プロジェクト
 
