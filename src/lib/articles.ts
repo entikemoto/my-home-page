@@ -148,6 +148,36 @@ function checkDuplicateIds(articles: HpArticle[]): void {
 }
 
 // ---------------------------------------------------------------------------
+// コンテンツ重複排除（同一日・同一edition・同一順序の記事）
+// note_import.json と *_articles.json が同じ記事を持つ場合、
+// *_articles.json 側（非 "note-" プレフィックス）を優先する。
+// ---------------------------------------------------------------------------
+
+function deduplicateArticles(articles: HpArticle[]): HpArticle[] {
+  type Key = string;
+  const toDateStr = (publishedAt: string) => publishedAt.slice(0, 10);
+  const makeKey = (a: HpArticle): Key =>
+    `${toDateStr(a.publishedAt)}|${a.edition}|${a.orderInEdition}`;
+
+  // 非 note- 記事を先に登録し、note- 記事で上書きしない
+  const map = new Map<Key, HpArticle>();
+  const nonNote = articles.filter((a) => !a.articleId.startsWith('note-'));
+  const note = articles.filter((a) => a.articleId.startsWith('note-'));
+
+  for (const a of nonNote) {
+    map.set(makeKey(a), a);
+  }
+  for (const a of note) {
+    const key = makeKey(a);
+    if (!map.has(key)) {
+      map.set(key, a);
+    }
+  }
+
+  return [...map.values()];
+}
+
+// ---------------------------------------------------------------------------
 // キャッシュ（同一プロセス内での再読み込みを避ける）
 // ---------------------------------------------------------------------------
 
@@ -160,7 +190,8 @@ function getAllArticlesRaw(): HpArticle[] {
   const overridesFile = getOverridesFile();
   const articles = loadArticlesFromDir(articlesDir);
   const overrides = loadOverrides(overridesFile);
-  const mergedArticles = applyOverrides(articles, overrides);
+  const deduped = deduplicateArticles(articles);
+  const mergedArticles = applyOverrides(deduped, overrides);
   checkDuplicateIds(mergedArticles);
 
   // 最新順（publishedAt 降順）

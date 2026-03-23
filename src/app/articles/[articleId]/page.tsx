@@ -1,3 +1,4 @@
+import React from 'react';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getArticle, getArticles, _resetCache } from '@/lib/articles';
@@ -51,31 +52,83 @@ const EDITION_LABEL: Record<string, string> = {
 type BodyBlock =
   | { type: 'heading'; content: string }
   | { type: 'list'; items: string[] }
+  | { type: 'blockquote'; lines: string[] }
+  | { type: 'hr' }
   | { type: 'paragraph'; content: string };
 
-/** 簡易的な Markdown 風レンダリング用ブロック化 */
+/**
+ * インラインマークダウンを React ノードに変換する。
+ * 対応: **bold**, [[WikiLink]], [text](url)
+ */
+function renderInline(text: string): React.ReactNode {
+  const pattern = /(\*\*[^*]+\*\*|\[\[[^\]]+\]\]|\[[^\]]*\]\([^)]+\))/g;
+  const parts = text.split(pattern);
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    }
+    if (part.startsWith('[[') && part.endsWith(']]')) {
+      return <span key={i}>{part.slice(2, -2)}</span>;
+    }
+    const linkMatch = part.match(/^\[([^\]]*)\]\(([^)]+)\)$/);
+    if (linkMatch) {
+      const label = linkMatch[1].replace(/^>\s*/, '');
+      return (
+        <a
+          key={i}
+          href={linkMatch[2]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-4 hover:text-gray-900 transition-colors"
+        >
+          {label}
+        </a>
+      );
+    }
+    return part;
+  });
+}
+
+/** Markdown 風ブロック化 */
 function bodyToBlocks(body: string): BodyBlock[] {
   const blocks = body
     .split(/\n{2,}/)
     .map((block) => block.trim())
     .filter(Boolean);
 
-  return blocks.map((block) => {
-    const lines = block.split('\n').map((line) => line.trim()).filter(Boolean);
-
-    if (block.startsWith('### ')) {
-      return { type: 'heading', content: block.replace(/^###\s+/, '').trim() };
+  return blocks.flatMap((block): BodyBlock[] => {
+    if (block === '---') {
+      return [{ type: 'hr' }];
     }
 
-    if (block.startsWith('## ')) {
-      return { type: 'heading', content: block.replace(/^##\s+/, '').trim() };
+    // ### heading\n本文 のように1つの改行でつながっている場合を分離する
+    if (block.startsWith('### ') || block.startsWith('## ')) {
+      const firstNewline = block.indexOf('\n');
+      if (firstNewline === -1) {
+        const prefix = block.startsWith('### ') ? '### ' : '## ';
+        return [{ type: 'heading', content: block.replace(new RegExp(`^${prefix.trim()}\\s+`), '').trim() }];
+      }
+      const headingLine = block.slice(0, firstNewline);
+      const rest = block.slice(firstNewline + 1).trim();
+      const prefix = headingLine.startsWith('### ') ? /^###\s+/ : /^##\s+/;
+      const result: BodyBlock[] = [{ type: 'heading', content: headingLine.replace(prefix, '').trim() }];
+      if (rest) result.push(...bodyToBlocks(rest));
+      return result;
     }
 
-    if (lines.length > 0 && lines.every((line) => line.startsWith('- '))) {
-      return { type: 'list', items: lines.map((line) => line.replace(/^- /, '').trim()) };
+    // blockquote: 全行が > で始まるブロック
+    const lines = block.split('\n');
+    if (lines.every((l) => l.startsWith('>'))) {
+      const stripped = lines.map((l) => l.replace(/^>\s?/, '')).filter(Boolean);
+      return [{ type: 'blockquote', lines: stripped }];
     }
 
-    return { type: 'paragraph', content: block };
+    const trimmedLines = lines.map((l) => l.trim()).filter(Boolean);
+    if (trimmedLines.length > 0 && trimmedLines.every((l) => l.startsWith('- '))) {
+      return [{ type: 'list', items: trimmedLines.map((l) => l.replace(/^- /, '').trim()) }];
+    }
+
+    return [{ type: 'paragraph', content: block }];
   });
 }
 
@@ -137,21 +190,23 @@ export default async function ArticlePage({ params }: Props) {
 
       {/* 本文 */}
       <article className="space-y-5 text-base leading-[1.9] text-gray-700">
-        {blocks.map((block, i) => (
-          block.type === 'heading' ? (
+        {blocks.map((block, i) =>
+          block.type === 'hr' ? (
+            <hr key={i} className="border-gray-100" />
+          ) : block.type === 'heading' ? (
             <h2 key={i} className="font-serif text-xl font-bold text-gray-900 pt-3">
-              {block.content}
+              {renderInline(block.content)}
             </h2>
-          ) : block.type === 'list' ? (
+          ) : block.type === 'blockquote' ? null : block.type === 'list' ? (
             <ul key={i} className="list-disc pl-6 space-y-2">
-              {block.items.map((item) => (
-                <li key={item}>{item}</li>
+              {block.items.map((item, j) => (
+                <li key={j}>{renderInline(item)}</li>
               ))}
             </ul>
           ) : (
-            <p key={i}>{block.content}</p>
-          )
-        ))}
+            <p key={i}>{renderInline(block.content)}</p>
+          ),
+        )}
       </article>
 
       <hr className="border-gray-100 mt-12 mb-8" />
