@@ -1,0 +1,77 @@
+[
+  {
+    "articleId": "2026-03-25_evening_1",
+    "title": "OpenAIのSora撤退が示す、AI事業の厳しさと資源制約",
+    "publishedAt": "2026-03-25T00:00:00+00:00",
+    "edition": "evening",
+    "orderInEdition": 1,
+    "originalSourceUrl": "https://the-decoder.com/disney-pulls-out-of-openai-partnership-after-sora-app-and-api-gets-killed-just-months-after-launch/",
+    "sourceName": "",
+    "summary": "OpenAIは動画生成AI「Sora」のアプリとSora API（アプリケーションプログラミングインターフェース: Application Programming Interface）の提供を停止し、これに伴いDisneyとの提携も解消されました。",
+    "body": "> [> Disney pulls out of OpenAI partnership after Sora app and API gets killed just months after launch](https://the-decoder.com/disney-pulls-out-of-openai-partnership-after-sora-app-and-api-gets-killed-just-months-after-launch/)\n>\n> https://the-decoder.com/disney-pulls-out-of-openai-partnership-after-sora-app-and-api-gets-killed-just-months-after-launch/\n\n### 一言で言うと\n\n[[OpenAI]]は動画生成[[AI]]「[[Sora]]」のアプリと[[Sora API]]（アプリケーションプログラミングインターフェース: Application Programming Interface）の提供を停止し、これに伴い[[Disney]]との提携も解消されました。これは、計算資源の制約と[[B2B]]（企業間取引: Business to Business）事業への戦略的集中を明確に示す動きです。\n\n### 何が起きているのか\n\n[[OpenAI]]は、動画生成[[AI]]である[[Sora]]のアプリと[[Sora API]]の提供を中止すると発表しました。この決定を受け、昨年12月に締結されたばかりの[[Disney]]と[[OpenAI]]の提携も解消に至っています。[[Disney]]は[[OpenAI]]に10億ドルを投資し、[[Sora]]で自社キャラクターのライセンス供与を行う計画でした。\n\n[[Sora]]アプリはローンチ直後に話題を集めたものの、その後のアプリランキングは低迷しました。背景には、中国企業がより高性能な動画モデルを低価格で提供していたこと、[[OpenAI]]が著作権侵害の懸念に直面していたこと、そして[[B2B]]事業への注力と、大規模言語モデル（[[LLM: Large Language Model]]）開発に必要な計算資源の不足が挙げられます。[[OpenAI]]の最高財務責任者（[[CFO]]）である[[Sarah Friar]]氏は、計算資源の不足が今回の決定の主要因であると説明しています。\n\n### AI業界の文脈では\n\nこの[[Sora]]アプリと[[Sora API]]の停止は、[[AI]]モデル開発と商用化において、計算資源の確保が企業戦略を左右する重要な条件になっていることを示しています。特に動画生成のように計算負荷が高い分野では、限られた資源をどの製品や研究に配分するかが、事業継続を左右します。\n\nまた、[[OpenAI]]が[[B2B]]事業へのシフトを強めていることは、消費者向けアプリ市場の競争激化を受け、より安定した収益源を求める動きとして理解できます。消費者向け市場では価格競争や差別化が難しくなる一方で、企業向けでは継続契約や高付加価値サービスを作りやすいからです。\n\n### 私の見立て\n\n今回の[[Sora]]アプリと[[Sora API]]の停止は、`良い技術を出せば事業化できる` という単純な話ではないことを示しています。生成[[AI]]では、性能だけでなく、計算資源を維持できるか、権利処理に耐えられるか、継続的に収益化できるかまでそろわなければ、注目された製品でも撤退が起こりえます。\n\n[[OpenAI]]が[[Sora]]の基盤技術を[[世界モデル]]研究に転用する方針は、短期的な製品展開よりも、長期的な人工汎用知能（[[AGI: Artificial General Intelligence]]）実現に向けた基礎研究を優先する姿勢を示しています。これは、[[AI]]開発競争が激化する中で、各社が自社の強みと資源配分を再考し、戦略的な選択と集中を進める必要性を強調しています。\n\n**→ 何が変わるか**: 消費者向け動画生成[[AI]]市場は、計算資源の効率性や著作権対応、そして価格競争力がより重視されるようになり、中国勢などの台頭が加速するでしょう。\n\n**→ 何をすべきか**: 自社で[[AI]]サービスを開発・導入する際は、技術的な実現可能性だけでなく、長期的な計算資源の確保、知的財産権への対応、そして市場での競争優位性を総合的に評価し、戦略的な投資判断を行うべきです。\n\n---",
+    "tags": [
+      "OpenAI",
+      "Sora",
+      "資源制約",
+      "動画生成AI"
+    ],
+    "hashtags": [
+      "#OpenAI",
+      "#Sora",
+      "#資源制約",
+      "#動画生成AI"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  },
+  {
+    "articleId": "2026-03-25_evening_2",
+    "title": "Armが自社CPUで市場参入、ライセンスモデルに亀裂か",
+    "publishedAt": "2026-03-25T00:00:00+00:00",
+    "edition": "evening",
+    "orderInEdition": 2,
+    "originalSourceUrl": "https://www.wired.com/story/arms-ceo-insists-the-market-needs-his-new-cpu-it-could-piss-everyone-off/",
+    "sourceName": "",
+    "summary": "半導体設計大手Armが、これまでの中核事業である「半導体の設計図を他社に提供するライセンス事業」に加え、自社ブランドの完成品に近い形でデータセンター向けCPU（中央演算処理装置: Central Processing Unit）「Arm AGI CPU」を前面に打ち出しました。",
+    "body": "> [> Arm’s CEO Insists the Market Needs His New CPU. It Could Piss Everyone Off](https://www.wired.com/story/arms-ceo-insists-the-market-needs-his-new-cpu-it-could-piss-everyone-off/)\n>\n> https://www.wired.com/story/arms-ceo-insists-the-market-needs-his-new-cpu-it-could-piss-everyone-off/\n\n### 一言で言うと\n\n半導体設計大手[[Arm]]が、これまでの中核事業である「半導体の設計図を他社に提供するライセンス事業」に加え、自社ブランドの完成品に近い形でデータセンター向け[[CPU]]（中央演算処理装置: Central Processing Unit）「[[Arm AGI CPU]]」を前面に打ち出しました。これは、長年のビジネスモデルからの大きな転換であり、既存の顧客企業との関係に緊張をもたらす可能性があります。\n\n### 何が起きているのか\n\n[[Arm]]は、データセンター向け[[CPU]]「[[Arm AGI CPU]]」を発表しました。同社はこれまで、[[Apple]]、[[Nvidia]]、[[Microsoft]]、[[Amazon]]、[[Samsung]]、[[Qualcomm]]といった企業に[[CPU]]アーキテクチャの設計図をライセンス供与し、その設計に基づいて各社が独自のチップを製造するというビジネスモデルを主軸としてきました。つまり、Arm 自身が設計をしてこなかったわけではなく、完成品に近い[[CPU]]を自社の名前で前面に出す動きがこれまでより強まった、という変化です。\n\n今回の戦略転換について、[[Arm]]の[[Rene Haas]]最高経営責任者（[[CEO]]）は、`パートナー企業から求められたことが最大の理由` だと説明しています。背景には、[[エージェントAI]]（自律的に目標を達成する[[AI]]）の広がりにより、[[GPU]]だけでなく、処理全体をさばく[[CPU]]需要が大きく増えていることがあります。特にAIデータセンターでは、電力効率の高い[[CPU]]へのニーズが強まっており、すべての企業が自前で半導体を設計できるわけではありません。そこで[[Arm]]は、自社で一からチップを作れない企業にも使いやすい選択肢を出そうとしているとみられます。\n\n最初の顧客は[[Meta]]になる予定で、[[SK Hynix]]、[[Cisco]]、[[SAP]]、[[Cloudflare]]なども顧客として挙げられています。なお、製造そのものは[[Arm]]が行うのではなく、[[TSMC]]（台湾積体電路製造: Taiwan Semiconductor Manufacturing Company）が担当します。\n\n### AI業界の文脈では\n\n[[Arm]]のこの動きは、[[AI]]時代における半導体業界の競争構造に新たな波紋を投げかけるものです。これまで[[Arm]]は「中立的に設計資産を提供する側」として、エコシステム全体を支える存在でした。しかし、自社ブランドの[[CPU]]を前面に出すことで、顧客であるチップメーカー（[[Nvidia]]、[[Amazon]]など）と直接競合する可能性が生じます。\n\nこの戦略転換の背景には、[[AI]]ワークロードの多様化と、データセンターにおける電力効率の重要性の高まりがあります。特に[[エージェントAI]]の台頭で、[[GPU]]が推論を回すだけでなく、その前後の制御やデータの受け渡しを担う[[CPU]]の役割が再評価されています。加えて、[[Arm]]にとっては、設計ライセンスとロイヤリティだけに頼るより、自社ブランドの製品を前面に出した方が大きな収益機会を取り込みやすいという事情もあります。つまり今回は、技術トレンドと収益構造の両方が、この転換を後押ししていると見られます。\n\n### 私の見立て\n\n[[Arm]]が自社ブランドの[[CPU]]を前面に出す決断は、[[AI]]時代における半導体業界のバリューチェーン再編の兆候と見るべきです。これまで主に設計資産の提供で成長してきた企業が、あえて顧客と競合しうる位置まで踏み出すのは、AIデータセンター向け[[CPU]]市場にそれだけ大きな成長余地があると見ているからです。\n\nこの動きは、[[Intel]]や[[AMD]]といった既存の[[x86]]アーキテクチャの[[CPU]]ベンダーにとっては直接的な圧力になる一方で、[[Arm]]アーキテクチャを採用する顧客企業にとっては複雑です。自社でチップを設計できない企業には魅力的な選択肢になりますが、すでに自前チップを持つ大手にとっては、これまでの供給元が競合相手にもなりうるからです。今後は、Arm がどこまで `みんなの基盤` であり続けられるのかが大きな焦点になります。\n\n**→ 何が変わるか**: データセンター向け[[CPU]]市場における[[Arm]]アーキテクチャの存在感がさらに高まり、既存の[[x86]]アーキテクチャとの競争が激化するでしょう。\n\n**→ 何をすべきか**: [[Arm]]ベースの[[CPU]]を採用している企業は、[[Arm]]の新たな戦略が自社の製品ロードマップやサプライチェーンに与える影響を評価し、競合と協業のバランスを見極める必要があります。\n\n---",
+    "tags": [
+      "Arm",
+      "ArmAGICPU",
+      "ビジネスモデル転換",
+      "データセンター"
+    ],
+    "hashtags": [
+      "#Arm",
+      "#ArmAGICPU",
+      "#ビジネスモデル転換",
+      "#データセンター"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  },
+  {
+    "articleId": "2026-03-25_evening_3",
+    "title": "AIが原子力建設を加速、MicrosoftとNvidiaが挑む",
+    "publishedAt": "2026-03-25T00:00:00+00:00",
+    "edition": "evening",
+    "orderInEdition": 3,
+    "originalSourceUrl": "https://www.tomshardware.com/tech-industry/microsoft-and-nvidia-launch-ai-tools-to-speed-up-nuclear-power-plant-permitting-and-construction",
+    "sourceName": "",
+    "summary": "MicrosoftとNvidiaが提携し、AIとデジタルツイン技術を駆使して原子力発電所の許認可取得と建設プロセスを大幅に加速させるソリューションを発表しました。",
+    "body": "> [> Microsoft and Nvidia launch AI partnership to speed up nuclear power plant permitting and construction — simulation tools and generative models could hasten historically lengthy processes](https://www.tomshardware.com/tech-industry/microsoft-and-nvidia-launch-ai-tools-to-speed-up-nuclear-power-plant-permitting-and-construction)\n>\n> https://www.tomshardware.com/tech-industry/microsoft-and-nvidia-launch-ai-tools-to-speed-up-nuclear-power-plant-permitting-and-construction\n\n### 一言で言うと\n\n[[Microsoft]]と[[Nvidia]]が提携し、[[AI]]と[[デジタルツイン]]技術を駆使して原子力発電所の許認可取得と建設プロセスを大幅に加速させるソリューションを発表しました。これは、[[AI]]データセンターの電力需要増大に対応するため、エネルギーインフラのボトルネック解消を目指すものです。\n\n### 何が起きているのか\n\n[[Microsoft]]と[[Nvidia]]は、原子力発電所の開発と導入を加速するための[[AI]]を活用した協業を発表しました。この提携は、[[生成AI]]（テキストや画像、動画などを自動生成する[[AI]]）、[[デジタルツイン]]（物理的なオブジェクトやプロセスの仮想レプリカ）、そして[[Nvidia]]の[[Omniverse]]プラットフォームを組み合わせることで、設計から許認可、建設、運用までの原子力発電所のライフサイクル全体を効率化します。\n\n具体的には、設計・エンジニアリング段階では[[デジタルツイン]]と高精度シミュレーションを用いて設計パターンを再利用し、変更の影響を事前にモデル化します。許認可段階では、[[生成AI]]が数万ページに及ぶ規制文書のドラフト作成やギャップ分析を支援します。建設段階では、時間とコストを追跡する4D/5Dシミュレーションを導入し、仮想空間で建設を事前に行うことで、物理的な進捗をデジタル計画と照合し、潜在的なスケジュール衝突を早期に特定します。運用段階では、[[AI]]搭載センサーと[[デジタルツイン]]が異常検知と予知保全を提供します。\n\n[[Aalo Atomics]]というスタートアップは、[[Microsoft]]の[[生成AI]]許認可ソリューションを利用して、許認可プロセスにかかる作業量を92%削減し、年間8000万ドルの節約を見込んでいると報告しています。\n\n### AI業界の文脈では\n\nこの提携は、[[AI]]の進化がもたらす電力需要の増大という、業界全体の喫緊の課題への直接的な対応策として位置づけられます。[[AI]]データセンターの爆発的な増加は、安定した大規模な電力供給を不可欠にしており、原子力発電はその有力な選択肢の一つです。しかし、原子力発電所の建設は、長期間にわたる許認可プロセスと複雑なエンジニアリングがボトルネックとなっていました。\n\n[[Microsoft]]と[[Nvidia]]は、それぞれの強み（[[Microsoft Azure]]の[[生成AI]]と[[Nvidia]]のシミュレーションプラットフォーム[[Omniverse]]、画像処理装置（[[GPU]]: Graphics Processing Unit）技術）を組み合わせることで、このボトルネックを解消し、[[AI]]インフラを支えるエネルギー基盤の構築を加速しようとしています。これは、[[AI]]が単なるソフトウェア技術に留まらず、物理インフラの変革にまで影響を及ぼすことを明確に示しています。\n\n### 私の見立て\n\n[[AI]]と[[デジタルツイン]]技術が原子力発電所の建設プロセスに適用されることは、[[AI]]が極めて複雑で規制の厳しい産業分野においても、具体的な課題解決に貢献できる可能性を示しています。特に、許認可プロセスの短縮につながれば、プロジェクトの経済性と実現可能性を押し上げる余地があります。\n\nこの取り組みは、[[AI]]が単なる効率化ツールではなく、社会インフラの根本的な変革を促す戦略的ツールであることを示唆しています。医療分野においても、新薬開発の臨床試験プロセスや病院建設の許認可など、同様に時間とコストがかかる領域への[[AI]]とシミュレーション技術の応用が期待されます。\n\n**→ 何が変わるか**: 原子力発電所の許認可や建設の一部工程が効率化されれば、[[AI]]データセンターの電力需要増大に対応しやすくなる可能性があります。\n\n**→ 何をすべきか**: 医療機関や関連企業は、自院の建設・改修プロジェクトや、医療機器・医薬品の許認可業務で、[[生成AI]]や[[デジタルツイン]]がどこまで実務の負担軽減に使えるかを検証テーマとして持っておくとよいでしょう。",
+    "tags": [
+      "Microsoft",
+      "Nvidia",
+      "原子力建設加速",
+      "デジタルツイン"
+    ],
+    "hashtags": [
+      "#Microsoft",
+      "#Nvidia",
+      "#原子力建設加速",
+      "#デジタルツイン"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  }
+]
