@@ -1,0 +1,73 @@
+[
+  {
+    "articleId": "2026-03-25_morning_1",
+    "title": "ティーン向けAI安全策、OpenAIが開発支援",
+    "publishedAt": "2026-03-25T00:00:00+00:00",
+    "edition": "morning",
+    "orderInEdition": 1,
+    "originalSourceUrl": "https://openai.com/index/teen-safety-policies-gpt-oss-safeguard",
+    "sourceName": "",
+    "summary": "OpenAIが、開発者がティーン向けAI体験を安全に構築できるよう、プロンプト形式の安全ポリシーと、外部の開発者も使いやすい公開モデル「gpt-oss-safeguard」を公開しました。",
+    "body": "> [> Helping developers build safer AI experiences for teens](https://openai.com/index/teen-safety-policies-gpt-oss-safeguard)\n>\n> https://openai.com/index/teen-safety-policies-gpt-oss-safeguard\n\n### 一言で言うと\n[[OpenAI]]が、開発者がティーン向けAI体験を安全に構築できるよう、プロンプト形式の安全ポリシーと、外部の開発者も使いやすい公開モデル「[[gpt-oss-safeguard]]」を公開しました。これにより、年齢に応じた保護機能の実装が容易になります。\n\n### 何が起きているのか\n[[OpenAI]]は、ティーン向けのAI体験をより安全にするための具体的な手段として、プロンプトベースの安全ポリシーを新たに公開しました。このポリシーは、外部の開発者も使いやすい公開型の安全モデルである[[gpt-oss-safeguard]]と連携するように設計されており、開発者が安全要件を実際のシステムで利用可能な分類器に変換するプロセスを簡素化します。\n\n具体的には、グラフィックな暴力や性的コンテンツ、有害な身体イメージ、危険な活動、年齢制限のある商品・サービスなど、ティーンが直面しうる一般的なリスクに対応するポリシーが含まれています。\n\nこれらのポリシーは、リアルタイムのコンテンツフィルタリングだけでなく、ユーザー生成コンテンツのオフライン分析にも利用可能です。[[OpenAI]]は、[[Common Sense Media]]や[[everyone.ai]]といった外部組織からの意見も取り入れ、ティーンのユニークな発達段階を考慮したリスク定義とポリシー構造を構築しました。\n\n### AI業界の文脈では\n[[OpenAI]]が安全ポリシーをプロンプト形式で提供し、オープンソース化することは、AI開発における「責任あるAI」の原則を具体的に推進するものです。特に、大規模言語モデル（LLM: Large Language Model）の普及に伴い、未成年者保護の重要性が高まる中で、開発者が安全機能を実装する際の障壁を下げる効果が期待されます。これは、AI技術の民主化と安全性の両立を目指す業界全体の動きを加速させ、より広範なAIアプリケーションの社会受容性を高める上で重要な一歩と言えます。\n\n### 私の見立て\nAIの社会実装が進む中で、特定のユーザー層、特に未成年者に対する安全対策は、技術的進歩と並行して最も優先されるべき課題の一つです。\n\nこの取り組みは、単に有害コンテンツをフィルタリングするだけでなく、開発者が具体的なリスクを特定し、それに対応するポリシーをシステムに組み込むための実用的なフレームワークを提供します。これにより、AIアプリケーションの信頼性が向上し、より広範な社会受容につながるでしょう。\n\n**→ 何が変わるか**: 開発者は、ティーン向けAIアプリケーションの安全対策を、より迅速かつ一貫性のある方法で実装できるようになります。\n\n**→ 何をすべきか**: ティーン向けサービスを提供する企業は、これらのオープンソースポリシーを自社製品に適用し、既存の安全対策と組み合わせて多層的な防御を構築することを検討すべきです。\n\n---",
+    "tags": [
+      "OpenAI",
+      "gpt_oss_safeguard"
+    ],
+    "hashtags": [
+      "#OpenAI",
+      "#gpt_oss_safeguard"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  },
+  {
+    "articleId": "2026-03-25_morning_2",
+    "title": "NVIDIA、GPU管理をオープン化しAI加速",
+    "publishedAt": "2026-03-25T00:00:00+00:00",
+    "edition": "morning",
+    "orderInEdition": 2,
+    "originalSourceUrl": "https://blogs.nvidia.com/blog/nvidia-at-kubecon-2026/",
+    "sourceName": "",
+    "summary": "NVIDIAが、画像処理半導体（GPU: Graphics Processing Unit）を必要なときに必要な分だけ使いやすくする仕組みをKubernetesコミュニティに渡し、AI基盤をより運用しやすくしようとしています。",
+    "body": "> [> Advancing Open Source AI, NVIDIA Donates Dynamic Resource Allocation Driver for GPUs to Kubernetes Community](https://blogs.nvidia.com/blog/nvidia-at-kubecon-2026/)\n>\n> https://blogs.nvidia.com/blog/nvidia-at-kubecon-2026/\n\n### 一言で言うと\n[[NVIDIA]]が、画像処理半導体（GPU: Graphics Processing Unit）を必要なときに必要な分だけ使いやすくする仕組みを[[Kubernetes]]コミュニティに渡し、AI基盤をより運用しやすくしようとしています。\n\n### 何が起きているのか\n[[NVIDIA]]は、[[GPU]]（Graphics Processing Unit）リソースの動的割り当て（DRA: Dynamic Resource Allocation）を管理する重要なソフトウェアドライバーを、[[Cloud Native Computing Foundation]]（CNCF）に寄贈しました。\n\nこれまでの課題は、AI開発で重要な[[GPU]]が高価で数も限られる一方、運用方法が複雑で、必要なチームに必要な分だけきめ細かく割り当てにくかったことです。結果として、ある処理では[[GPU]]が余り、別の処理では足りないといった無駄や待ち時間が起きやすく、運用も特定ベンダーの仕組みに寄りがちでした。\n\n今回の寄贈により、このドライバーは[[Kubernetes]]プロジェクトのコミュニティ側で育てられる形に移り、[[GPU]]をより柔軟に配分しやすくなります。たとえば、軽い処理には少なめ、重い学習や推論には多めに割り当てるといった調整がしやすくなり、限られた[[GPU]]を無駄なく使える方向に進みます。このドライバーは、[[NVIDIA Multi-Process Service]]や[[NVIDIA Multi-Instance GPU]]技術をサポートし、[[NVIDIA Multi-Node NVlink]]によるシステム間接続にも対応することで、大規模なAIモデルのトレーニングや推論に必要なリソース管理を柔軟にします。\n\nさらに、[[NVIDIA]]は[[CNCF]]の[[Confidential Containers]]コミュニティと協力し、[[Kata Containers]]向けに[[GPU]]サポートを導入しました。これにより、より強力な隔離環境でAIワークロードを実行できるようになり、データの機密性を高めることが可能になります。\n\n### AI業界の文脈では\n[[NVIDIA]]の今回の動きが重要なのは、単に技術を公開したからではありません。企業がAIを本格導入するうえでの現実的な壁だった「高価な[[GPU]]をどう無駄なく安全に回すか」に、標準的な運用方法を作ろうとしている点にあります。これまでベンダー主導で複雑になりがちだった[[GPU]]管理が、[[Kubernetes]]の標準的な流れに近づくことで、導入や運用のハードルが下がりやすくなります。また、[[Confidential Containers]]への[[GPU]]サポートは、機密データを扱う企業でもAIを使いやすくする方向に働きます。\n\n### 私の見立て\nAIワークロードの増加に伴い、[[GPU]]をどう配るかは、企業のAI活用における大きなボトルネックになっています。\n\n今回の寄贈が意味するのは、限られた[[GPU]]を一部の大企業だけがうまく回せる状態から、より多くの企業が標準的な方法で扱いやすくなる方向への前進です。もし運用がこなれてくれば、AI基盤のコストを抑えながら、学習や推論の待ち時間も減らしやすくなります。これは、中小企業から大企業まで、より多くの組織がAI基盤を現実的に整えやすくなることにつながります。\n\n**→ 何が変わるか**: 限られた[[GPU]]をより細かく配分しやすくなり、遊休時間や取り合いが減って、AI開発・運用の効率改善につながります。\n\n**→ 何をすべきか**: AIインフラを[[Kubernetes]]で運用している、または検討している企業は、この[[NVIDIA DRA Driver]]の導入を評価し、[[GPU]]リソースの最適化戦略に組み込むべきです。\n\n---",
+    "tags": [
+      "NVIDIA",
+      "Kubernetes",
+      "GPUリソース管理",
+      "オープンソース"
+    ],
+    "hashtags": [
+      "#NVIDIA",
+      "#Kubernetes",
+      "#GPUリソース管理",
+      "#オープンソース"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  },
+  {
+    "articleId": "2026-03-25_morning_3",
+    "title": "ペンタゴン、Palantir AIを軍事中核に",
+    "publishedAt": "2026-03-25T00:00:00+00:00",
+    "edition": "morning",
+    "orderInEdition": 3,
+    "originalSourceUrl": "https://www.tomshardware.com/tech-industry/artificial-intelligence/pentagon-formalizes-palantirs-maven-ai-as-a-core-military-system-with-multi-year-funding-platforms-investment-grows-to-usd13-billion-from-usd480-million-in-2024",
+    "sourceName": "",
+    "summary": "米国防総省がPalantirのAIプラットフォーム「Maven Smart System」を正式な中核システムとして扱い始め、軍事の判断をAIに深く組み込む方向を鮮明にしました。",
+    "body": "> [> Pentagon formalizes Palantir's Maven AI as a core military system with multi-year funding — platform's investment grows to $13 billion from $480 million in 2024](https://www.tomshardware.com/tech-industry/artificial-intelligence/pentagon-formalizes-palantirs-maven-ai-as-a-core-military-system-with-multi-year-funding-platforms-investment-grows-to-usd13-billion-from-usd480-million-in-2024)\n>\n> https://www.tomshardware.com/tech-industry/artificial-intelligence/pentagon-formalizes-palantirs-maven-ai-as-a-core-military-system-with-multi-year-funding-platforms-investment-grows-to-usd13-billion-from-usd480-million-in-2024\n\n### 一言で言うと\n[[米国防総省]]が[[Palantir]]のAIプラットフォーム「[[Maven Smart System]]」を正式な中核システムとして扱い始め、軍事の判断をAIに深く組み込む方向を鮮明にしました。\n\n### 何が起きているのか\n[[米国防総省]]は、[[Palantir]]が開発したAIプラットフォーム「[[Maven Smart System]]」を、正式なプログラム・オブ・レコードに指定する意向を明らかにしました。これは、単発の実証実験ではなく、継続的に予算をつけて運用する中核システムとして扱うことを意味します。これにより、[[Maven]]への投資は2024年の4億8000万ドルから、今年度には130億ドルを超える規模に拡大します。\n\n[[Maven]]は、衛星画像、ドローン映像、レーダー、赤外線センサー、信号情報、地理位置情報など150以上の情報源からデータを集め、コンピュータービジョンを使って戦場の対象物を検出し、ターゲティングの推奨を行う仕組みです。要するに、人が大量の情報を順に読んで判断していた工程の一部を、AIが前さばきし、優先順位までつけて返すシステムだと言えます。\n\n[[Maven]]はすでに全ての[[米国]]戦闘コマンドに配備されており、2021年の[[カブール]]空輸、2022年の[[ウクライナ]]軍への標的座標提供、そして最近の2026年の[[イラン]]に対する[[Operation Epic Fury]]などで使用されました。[[NATO]]も2025年3月に[[Maven]]のバージョンを取得しています。\n\n### AI業界の文脈では\nこの決定が重いのは、AIが軍事の周辺業務を助ける段階から、軍事判断の中核に入り始めたことを示しているからです。しかも、その土台を作っているのは国家の内部組織だけではなく、[[Palantir]]のような民間企業です。これは、国家の安全保障と民間の技術基盤が深く結びつく流れが強まっていることを意味します。\n\nもう一つの論点は、責任の所在です。AIが標的候補を絞り込み、優先順位をつけ、現場の判断を速めるほど、人間は最終承認者として残っていても、実際にはAIが作った選択肢の中で判断する形に近づきます。すると、誤判断が起きたときに、現場、指揮官、導入を決めた国家、技術を提供した企業のどこに責任があるのかが見えにくくなります。[[米国]]だけでなく、[[中国]]や[[ロシア]]も軍事AIを加速させており、AIが新たな軍拡競争の主要な要素になっていることは明らかです。\n\n### 私の見立て\nこのニュースで本当に重いのは、AIの性能が上がったことそのものではなく、暴力の判断過程が人間の熟慮から少しずつ切り離されていくことです。AIが膨大な情報を整理し、標的候補を提示し、優先順位をつけるようになると、人間は「最終判断している」ように見えても、実際にはAIが前提を作った判断の枠内で動くことになりやすいからです。\n\nその結果、攻撃判断の心理的な重みも薄れやすくなります。相手が生身の人間ではなく、画像、座標、確率、推奨候補として処理されるほど、暴力の行使は現場の重い決断というより、効率化された業務フローに近づきます。ここで問われるのは、AIがどれだけ賢いかではなく、こうした仕組みを社会がどこまで統制できるかです。\n\nさらに見逃せないのは、国家が民間企業の技術基盤に依存しながら軍事システムを強化していく構図です。安全保障の名目が前に出るほど、技術導入は既成事実化しやすく、市民社会が是非を議論する余地は狭まりがちです。私は、この動きは軍事AIの拡大だけでなく、民主的な統制の弱まりという問題としても見ておく必要があると考えます。\n\n**→ 何が変わるか**: 軍事作戦では、情報整理から標的候補の提示までをAIが担う比重が増え、人間の判断は「最初から考える」より「AIの提案を承認する」方向へ寄りやすくなります。\n\n**→ 何をすべきか**: AI技術を扱う企業や研究者、政策担当者は、性能やスピードだけでなく、責任の所在、人間の関与の実効性、民主的統制の仕組みまで含めて議論し、軍事利用の境界線を明確にしていく必要があります。",
+    "tags": [
+      "Palantir",
+      "MavenSmartSystem",
+      "軍事AI",
+      "米国防総省"
+    ],
+    "hashtags": [
+      "#Palantir",
+      "#MavenSmartSystem",
+      "#軍事AI",
+      "#米国防総省"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  }
+]
