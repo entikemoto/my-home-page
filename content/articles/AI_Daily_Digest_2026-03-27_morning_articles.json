@@ -1,0 +1,77 @@
+[
+  {
+    "articleId": "2026-03-27_morning_1",
+    "title": "AIは人をどこまで「動かして」しまうか——DeepMindが安全性の新基準を打ち出す",
+    "publishedAt": "2026-03-27T00:00:00+00:00",
+    "edition": "morning",
+    "orderInEdition": 1,
+    "originalSourceUrl": "https://deepmind.google/blog/protecting-people-from-harmful-manipulation/",
+    "sourceName": "",
+    "summary": "Google DeepMindが、AIが人の判断を不適切な方向へ動かしてしまう危険を測る研究を公表しました。",
+    "body": "> [> Protecting people from harmful manipulation](https://deepmind.google/blog/protecting-people-from-harmful-manipulation/)\n>\n> https://deepmind.google/blog/protecting-people-from-harmful-manipulation/\n\n### 一言で言うと\n[[Google DeepMind]]が、[[AI]]が人の判断を不適切な方向へ動かしてしまう危険を測る研究を公表しました。焦点は、金融や医療のように意思決定の重みが大きい場面です。\n\n### 何が起きているのか\n今回の研究が見ているのは、[[AI]]が誤情報を出すかどうかではありません。たとえ事実として正確でも、対話の中で人の判断や行動を好ましくない方向へ動かしうるかを測ろうとしている点に特徴があります。\n\n元記事で示される分かりやすい対比は医療です。健康にとってより良い判断につながる事実を整理して示すなら支援に近い一方で、不安や恐怖をあおって好ましくない判断へ押していくなら、それは「有害な操作」に近づきます。\n\nそのうえで[[Google DeepMind]]は、金融の模擬投資判断や、健康分野でどの栄養補助食品を好ましいと感じるかといった場面を使い、[[AI]]との対話が人の選択をどこまで動かしうるかを検証しました。見ているのは主に二つです。\n\nひとつは `efficacy` で、AIとの対話によって実際に人の考えや選択が変わったか。もうひとつは `propensity` で、AIが対話の中で操作的な手法をどれくらい使おうとしたかです。後者は、実験の対話記録をもとに、操作的な戦術が現れているかを数える形で評価されています。\n\nつまり安全性の論点が、`何を答えるか` だけでなく、`人をどう動かすか` と `そのためにどんな対話手法を使ったか` にまで広がっているということです。[[Google DeepMind]]は、こうした力を測る枠組みを公開し、今後の規制議論や業界標準づくりにつなげようとしています。\n\n### AI業界の文脈では\n[[OpenAI]]や[[Anthropic]]を含む主要なAI企業は、これまで有害コンテンツの生成抑制や誤情報対策を中心に安全性対策を講じてきました。一方で、「正確な情報を使って人を誘導する」という、より巧妙なリスクへの対応は遅れていました。\n\n今回の研究は、[[AI]]の性能競争だけでなく、「社会的影響の評価」を安全性の中核に据える流れを強める可能性があります。欧州の[[EU AI Act]]がすでに「禁止されるAIの使用」に操作的手法を含めていることとも平仄が合っており、規制の方向性と技術研究が接近しつつあります。\n\n### 私の見立て\n医療の意思決定支援や患者教育への[[AI]]活用が広がるほど、「情報提供」と「誘導」の境界をどう見極めるかは避けて通れません。治療選択肢や健康情報を提示するだけのつもりでも、表現しだいで患者を特定の方向へ押してしまうからです。DeepMindのような評価枠組みは、今後の医療AIの設計や審査基準を考えるうえで参考になる可能性があります。\n\n**→ 何が変わるか**: [[AI]]の安全性評価に「人への影響力」という新たな軸が加わり、金融・医療分野での導入審査がより厳しくなる可能性があります。\n\n**→ 何をすべきか**: 医療AI開発者や導入を検討する医療機関は、自社システムが患者や医療者の意思決定にどう影響するかを事前に評価する仕組みを設計段階から組み込むことを検討すべきです。\n\n---",
+    "tags": [
+      "GoogleDeepMind",
+      "AI安全性",
+      "AI倫理",
+      "有害な操作"
+    ],
+    "hashtags": [
+      "#GoogleDeepMind",
+      "#AI安全性",
+      "#AI倫理",
+      "#有害な操作"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  },
+  {
+    "articleId": "2026-03-27_morning_2",
+    "title": "NVIDIAの中国戦略に暗雲——チップ輸出規制強化論が拡大",
+    "publishedAt": "2026-03-27T00:00:00+00:00",
+    "edition": "morning",
+    "orderInEdition": 2,
+    "originalSourceUrl": "https://www.tomshardware.com/tech-industry/us-senators-call-for-a-halt-to-nvidia-gpu-exports-in-the-wake-of-the-super-micro-scandal-looming-chip-security-act-may-put-a-wrench-into-huangs-china-ambitions",
+    "sourceName": "",
+    "summary": "サーバーメーカーのSuper Micro ComputerをめぐるNVIDIA製GPUの不正輸出疑惑を受け、米上院議員が対中輸出の停止を求めています。",
+    "body": "> [> US Senators call for a halt to Nvidia GPU exports in the wake of the Super Micro scandal](https://www.tomshardware.com/tech-industry/us-senators-call-for-a-halt-to-nvidia-gpu-exports-in-the-wake-of-the-super-micro-scandal-looming-chip-security-act-may-put-a-wrench-into-huangs-china-ambitions)\n>\n> https://www.tomshardware.com/tech-industry/us-senators-call-for-a-halt-to-nvidia-gpu-exports-in-the-wake-of-the-super-micro-scandal-looming-chip-security-act-may-put-a-wrench-into-huangs-china-ambitions\n\n### 一言で言うと\nサーバーメーカーの[[Super Micro Computer]]をめぐる[[NVIDIA]]製[[GPU]]の不正輸出疑惑を受け、米上院議員が対中輸出の停止を求めています。[[Chip Security Act]]が立法化されれば、[[NVIDIA]]の中国戦略だけでなく、世界のAI計算資源の流通にも影響が及ぶ可能性があります。\n\n### 何が起きているのか\n発端となったのは、サーバーメーカーの[[Super Micro Computer]]をめぐる[[NVIDIA]]製[[GPU]]の対中不正輸出疑惑です。これを受け、米上院議員らは[[NVIDIA]]製[[GPU]]全体の対中輸出停止を政府に求める書簡を送りました。\n\nこれと並行して、米下院の[[外交委員会（Foreign Affairs Committee）]]では[[Chip Security Act]]の立法化が準備されています。この法案は、輸出したチップの実際の利用先を企業が追跡・管理する仕組みを義務付けるものです。成立すれば、[[NVIDIA]]が中国市場向けに投入してきた[[H20]]などの販売にも、新たな制限が課される可能性があります。\n\n[[NVIDIA]]の[[ジェンスン・フアン]]CEOは中国市場を重要な成長機会と位置づけており、[[H20]]は2024年に数十億ドル規模の売上をあげていたとされています。規制が強化されれば、その収益に直接響く可能性があります。\n\n### AI業界の文脈では\n[[バイデン]]政権が導入した輸出規制以降も、規制を回避する輸出経路が残っていたのではないかという疑念はくすぶってきました。今回の[[Super Micro Computer]]をめぐる問題は、そうした懸念を具体的に示す事例として受け止められ、議会での規制強化論を後押ししています。\n\n一方で、AIに必要な計算資源の「地政学的分断」は、すでに各国・各企業の[[AI]]開発戦略に影響を与えています。中国が独自の[[AI]]半導体サプライチェーンの構築を加速させている背景には、こうした輸出規制の強化への備えがあります。\n\n### 私の見立て\nAIインフラの供給制約は、最終的には[[AI]]導入コストを押し上げ、スタートアップや医療機関のような比較的小規模な導入主体に重い負担を与えます。規制の範囲や実施時期はまだ流動的ですが、計算資源を安定して確保できるかがAI戦略の重要要素であることは変わりません。\n\n半導体の地政学的な動向は短期的に見れば遠い話に聞こえますが、[[クラウドサービス]]の価格や[[AI]]推論コストに直結するため、中長期の事業計画では視野に入れておく必要があります。\n\n**→ 何が変わるか**: [[Chip Security Act]]が成立すれば、[[NVIDIA]]の中国向け売上が縮小し、[[GPU]]の供給量・価格・入手経路に影響が出る可能性があります。\n\n**→ 何をすべきか**: [[AI]]インフラへの投資を計画している組織は、特定のハードウェアベンダー・クラウド事業者への依存度を分散させる戦略を今から検討しておくことが有効です。\n\n---",
+    "tags": [
+      "NVIDIA",
+      "ChipSecurityAct",
+      "対中輸出規制",
+      "GPU"
+    ],
+    "hashtags": [
+      "#NVIDIA",
+      "#ChipSecurityAct",
+      "#対中輸出規制",
+      "#GPU"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  },
+  {
+    "articleId": "2026-03-27_morning_3",
+    "title": "Copilotが学ぶのはあなたのコード——GitHubのデータ方針変更が問うもの",
+    "publishedAt": "2026-03-27T00:00:00+00:00",
+    "edition": "morning",
+    "orderInEdition": 3,
+    "originalSourceUrl": "https://the-decoder.com/github-will-use-copilot-interaction-data-to-train-ai-models-starting-april-2026/",
+    "sourceName": "",
+    "summary": "GitHubが2026年4月24日から、Free・Pro・Pro+プランのCopilot利用者のインタラクションデータを、利用者が明示的に拒否しない限りAI学習に使う方針へ変更します。",
+    "body": "> [> GitHub will use Copilot interaction data to train AI models starting April 2026](https://the-decoder.com/github-will-use-copilot-interaction-data-to-train-ai-models-starting-april-2026/)\n>\n> https://the-decoder.com/github-will-use-copilot-interaction-data-to-train-ai-models-starting-april-2026/\n\n### 一言で言うと\n[[GitHub]]が2026年4月24日から、[[Free]]・[[Pro]]・[[Pro+]]プランの[[Copilot]]利用者のインタラクションデータを、利用者が明示的に拒否しない限りAI学習に使う方針へ変更します。個人ユーザーや組織にとって、設定確認の重要性が高まります。\n\n### 何が起きているのか\n[[GitHub]]は利用規約を改定し、[[Copilot]]とのやりとり——具体的にはプロンプト、出力、コード断片、ファイル名、リポジトリ構造、フィードバックなどのインタラクションデータ——を、[[AI]]モデルの学習に使用できるようになります。適用開始は2026年4月24日。対象は個人向けの[[Free]]・[[Pro]]・[[Pro+]]プランのユーザーです。\n\n重要なのは**オプトイン（明示的な同意）ではなく、オプトアウト（明示的な拒否）方式**であることです。設定を変更しない限り、利用データは自動的に学習対象になります。なお、すでにオプトアウトしている利用者は設定が維持され、[[GitHub Enterprise]]など法人向けプランは対象外とされています。\n\n### AI業界の文脈では\n[[OpenAI]]の[[ChatGPT]]や[[Google]]の[[Gemini]]も、利用データの学習利用をめぐって議論を呼んできました。[[GitHub Copilot]]は開発者が日常的に使うツールであり、元記事によれば学習対象にはプロンプト、出力、コード断片、ファイル名、リポジトリ構造、フィードバックが含まれます。業務上の機微な情報が意図せず学習対象に含まれる可能性が論点になります。\n\n「[[Copilot]]を使いながら、その学習に貢献していることを知らない」状態は、個人ユーザーにとどまらず、企業の情報セキュリティポリシーにも関わる問題です。なお、元記事ではデータ共有先は[[Microsoft]]までで、第三者のAIモデル事業者は含まれないとされています。機密性を重視する組織では、この条件も含めて利用規約との整合性確認が必要になります。\n\n### 私の見立て\n[[AI]]ツールの「使うほど賢くなる」仕組みと、「使うほどデータを渡す」リスクは表裏一体です。問題は、AIが学習で賢くなること自体ではなく、その過程でクラウド側に蓄積された利用データが、本人や組織の意図しない形で再利用されうる点にあります。これはCopilotに限った話ではなく、業務で利用するあらゆるAIサービスに共通する構造的な問題です。\n\n医療・研究現場でも、開発途中のシステムのコードや、患者情報を扱うシステムの仕様をプロンプトに含めてしまう可能性はあります。4月24日の変更前に、組織内でCopilotの利用範囲と設定を確認するプロセスを設けることが重要です。\n\n**→ 何が変わるか**: [[Copilot]]の利用データがAI学習に使われるようになり、意図せず機密情報が学習対象となるリスクが生まれます。\n\n**→ 何をすべきか**: 個人ユーザーは設定からデータ共有をオプトアウトする。組織・医療機関は、[[GitHub Enterprise]]など対象外プランの利用要否や、社内AIポリシーの更新（[[Copilot]]利用範囲の明文化）を4月24日までに確認することを検討してください。",
+    "tags": [
+      "GitHub",
+      "Copilot",
+      "データプライバシー",
+      "オプトアウト"
+    ],
+    "hashtags": [
+      "#GitHub",
+      "#Copilot",
+      "#データプライバシー",
+      "#オプトアウト"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  }
+]
