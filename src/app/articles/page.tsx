@@ -29,7 +29,7 @@ export default function ArticlesPage() {
       <h1 className="font-serif text-3xl lg:text-4xl font-bold mb-2 text-gray-900">記事一覧</h1>
       <p className="text-sm text-gray-400 mb-3">{articles.length}件</p>
       <p className="text-sm text-gray-500 leading-relaxed mb-12">
-        AI Daily Digest は 1本ずつに分解して掲載し、単独で公開した note 記事もあわせて収録しています。
+        noteで1日2回（朝・夜）配信している「AI Daily Digest」をトピックごとに再構成して掲載するほか、医療・経営・テクノロジーに関する専門的な考察記事もあわせて収録しています。
       </p>
 
       <div className="flex gap-12">
