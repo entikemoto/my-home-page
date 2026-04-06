@@ -32,7 +32,7 @@
 
 ## Blockers / Risks
 
-- ② 実装開始には「実装してよい」の明示的な指示が必要（CLAUDE.md ゲート）
+- ② `docs/` が揃えば実装開始可能（`続けてください` でも進む）
 
 ## Operational Commands
 

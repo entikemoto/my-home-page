@@ -118,7 +118,7 @@ export default function HomePage() {
               <div>
                 <p className="text-[10px] tracking-[0.4em] text-gray-400 uppercase mb-3">Essays</p>
                 <h2 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900">
-                  考察・エッセイ
+                  エッセイ
                 </h2>
               </div>
               <Link
