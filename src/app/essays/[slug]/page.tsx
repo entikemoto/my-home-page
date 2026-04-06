@@ -170,11 +170,6 @@ function bodyToBlocks(body: string): BodyBlock[] {
 // ページ本体
 // ---------------------------------------------------------------------------
 
-const SOURCE_LABEL: Record<string, string> = {
-  'ai-assisted': 'AI初稿 → 本人執筆',
-  'human-written': '本人執筆',
-};
-
 export default async function EssayPage({ params }: Props) {
   const { slug } = await params;
   const essay = getEssay(slug);
@@ -197,8 +192,6 @@ export default async function EssayPage({ params }: Props) {
           <span className="text-teal-600 uppercase tracking-[0.2em]">Essay</span>
           <span>·</span>
           <time dateTime={essay.publishedAt}>{dateLabel}</time>
-          <span>·</span>
-          <span>{SOURCE_LABEL[essay.source]}</span>
         </div>
 
         <h1 className="font-serif text-2xl lg:text-4xl font-bold leading-tight mb-6 text-gray-900">
