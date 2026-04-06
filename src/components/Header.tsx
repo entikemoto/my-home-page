@@ -10,9 +10,18 @@ export default function Header() {
           </p>
           <p className="text-[10px] tracking-[0.3em] text-gray-400">医療 × 経営 × テクノロジー</p>
         </Link>
-        <nav className="flex gap-6 lg:gap-8 text-sm text-gray-500">
+        <nav className="flex gap-4 lg:gap-6 text-xs sm:text-sm text-gray-500">
           <Link href="/articles" className="hover:text-gray-900 transition-colors tracking-wide">
             Articles
+          </Link>
+          <Link href="/essays" className="hover:text-gray-900 transition-colors tracking-wide">
+            Essays
+          </Link>
+          <Link href="/dev-diary" className="hover:text-gray-900 transition-colors tracking-wide">
+            Dev Log
+          </Link>
+          <Link href="/talks" className="hover:text-gray-900 transition-colors tracking-wide">
+            Talks
           </Link>
           <Link href="/publications" className="hover:text-gray-900 transition-colors tracking-wide">
             Publications

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "2026-04-06-clubhouse-ai-news",
+    "title": "AIニュースを医療視点で読む：Daily Digestの作り方と使い方",
+    "date": "2026-04-06",
+    "venue": "Clubhouse",
+    "topic": "医療AI・AI活用",
+    "description": "毎日2回配信しているAI Daily Digestの制作フロー、CortexFlow 2.0による自動化の仕組み、そして医師起業家として「なぜ毎日AIニュースを追うのか」について話しました。",
+    "url": "",
+    "tags": ["医療AI", "AI活用", "CortexFlow", "起業"]
+  },
+  {
+    "id": "2026-03-15-clubhouse-medical-ai-startup",
+    "title": "医療AIスタートアップの現在地：FDA承認から日本市場参入まで",
+    "date": "2026-03-15",
+    "venue": "Clubhouse",
+    "topic": "医療AIスタートアップ",
+    "description": "CortexFlow for Medical Founderで分析した米国医療AIスタートアップの事例を紹介。FDA承認戦略・資金調達・日本市場参入のパターンを医師Founder目線で解説しました。",
+    "url": "",
+    "tags": ["医療AI", "スタートアップ", "FDA", "起業"]
+  }
+]
