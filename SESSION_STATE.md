@@ -1,10 +1,10 @@
 # SESSION_STATE — 20260317_MyHomePage
 
-> 最終更新: 2026-03-23
+> 最終更新: 2026-04-08
 
 ## 現在フェーズ
 
-**Phase 4: コンテンツ仕上げ → デプロイ**
+**Phase 4: デプロイ・本番化 ✅ 完了**
 
 ## 決定済み事項
 
@@ -19,70 +19,53 @@
 - Next.js 16.1.7 (App Router) + TypeScript + Tailwind CSS
 - フォント: Noto Serif JP（知的・学術的な雰囲気）
 - 検索: Pagefind（未実装）
-- デプロイ: GitHub + Vercel
+- デプロイ: GitHub + Vercel（自動デプロイ連携済み）
 
 ### デザイン（確定）
-- アクセントカラー: **amber-700**（ティールから変更済み）
+- アクセントカラー: **amber-700**
 - カラー: ホワイト・グレー・ブラック (#0c0c0c)・amber-700
 - レイアウト: max-w-7xl（ホームページ・記事一覧）、max-w-3xl（記事本文）
-- h1/h2: letter-spacing: -0.02em
 
 ### 人物情報（確定）
-- 名前: 池本毅
-- 肩書き: 医師　MBA　AIビルダー（全ページ統一済み）
+- 名前: 池本毅 / 肩書き: 医師 MBA AIビルダー
 - note: https://note.com/entikemoto
 - X: https://x.com/Ikemoto1966
-- Slack: medai-co-lab（招待URL未取得）
 
 ### 記事データ契約（確定）
-- CortexFlow2.0 の出力形式: JSON 配列（`content/articles/*.json`）
-- `articleId`: `{date}_{edition}_{n}`（例: `2026-03-18_morning_1`）
-- データソースは `HP_ARTICLES_DIR` 環境変数で切り替え可能
+- CortexFlow の `HpPublisher` が `content/articles/*.json` に書き出す
+- git push → Vercel 自動ビルド（約3分）
 
 ## 現在の状態
 
 | 部品 | 状態 |
 |------|------|
 | ① 記事データ契約 | ✅ 完了 |
-| ② 記事取り込み層 | ✅ 完了（Vitest 11件パス） |
+| ② 記事取り込み層 | ✅ 完了 |
 | ③ 個別記事表示 | ✅ 完了 |
 | ④ 一覧・アーカイブ導線 | ✅ 完了 |
 | ⑤ ブランドページ群 | ✅ 完了 |
 | ⑥ 媒体導線 | ✅ 完了 |
-| UI リデザイン（luxury brand style） | ✅ 完了 |
-| Publications ページ | ✅ 完了（書籍説明文は仮） |
-| Lab ページ | ✅ 完了（Slack URL 未設定） |
+| GitHub push | ✅ 完了（entikemoto/my-home-page） |
+| Vercel デプロイ | ✅ 完了（push で自動デプロイ） |
+| CortexFlow → HP 自動連携 | ✅ 完了（HpPublisher → git push → Vercel） |
 | About ページ原稿 | 🔲 未完了（原稿待ち） |
-
-## 実装済みルート
-
-| URL | 内容 |
-|-----|------|
-| `/` | Brand Statement → Hero（名前+見出し） → 記事グリッド → Mission+Vision → CTA |
-| `/articles` | 記事一覧（カードグリッド3列） |
-| `/articles/[articleId]` | 個別記事（SSG） |
-| `/articles/tag/[tag]` | タグ絞り込み（SSG） |
-| `/articles/archive/[year]/[month]` | 月別アーカイブ（SSG） |
-| `/publications` | Kindle本 6冊（3テーマ×日英ペア） |
-| `/lab` | 医療AI共創ラボ紹介 |
-| `/about` | プロフィール・Vision・発信媒体 |
+| カスタムドメイン | 🔲 未完了 |
 
 ## 次のアクション（優先順）
 
-1. **書籍説明文の確定** — Publications ページの仮テキストをユーザー確認後に更新
-2. **About ページ原稿** — 以下をユーザーが執筆
-   - このサイトを訪れた人へのメッセージ（2〜3文）
-   - 医師→AI/テックへの転換点エピソード（3〜5文）
-3. **Slack 招待URL** — 取得できたら `/lab` の CTA に追加
-4. ~~**GitHub push**~~ — ✅ 完了（entikemoto/my-home-page）
-5. ~~**Vercel デプロイ**~~ — ✅ 設定済み（pushで自動デプロイ）
-6. ~~**HP_ARTICLES_DIR 連携**~~ — ✅ 完了（content/articles/にCortexFlow記事を追加、Vercel環境変数不要）
-7. ~~**記事重複問題修正**~~ — ✅ 完了（2026-03-23: deduplicateArticles追加）
-8. ~~**Markdownレンダリング修正**~~ — ✅ 完了（2026-03-23: page.tsx inlineレンダラー実装）
+1. **カスタムドメイン設定** — 本番URLを確定させる
+2. **About ページ原稿** — 医師→AI/テックへの転換点エピソード等をユーザーが執筆
+3. **書籍説明文の確定** — Publications ページの仮テキストをユーザー確認後に更新
+4. **Slack 招待URL** — 取得できたら `/lab` の CTA に追加
 
-### 記事更新フロー（確立済み）
-CortexFlow2.0 が hp_articles/*.json を生成 → `content/articles/` にコピー → git commit/push → Vercel自動デプロイ
+## 記事更新フロー（確立済み）
+
+```bash
+# CortexFlow が自動実行（note 確認後に実行）
+cortexflow publish --auto --company "企業名" --social-only
+# → X+Slack+HP（HP: JSON書き出し → git push → Vercel 自動ビルド）
+```
 
 ## 関連プロジェクト
 
-- `projects/20260222_CortexFlow2.0` — HP向け個別記事データ供給元
+- `projects/20260220_CortexFlow_for_Medical_Founder` — HP向け記事データ供給元
