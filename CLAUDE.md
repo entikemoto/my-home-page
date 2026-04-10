@@ -25,12 +25,21 @@
 ## Operational Commands
 
 ```bash
-npm run dev       # 開発サーバー起動
-npm run build     # 本番ビルド（Pagefind インデックス生成含む）
-npm run test      # テスト実行（Vitest + Playwright）
-npm run lint      # ESLint 実行
-npx tsc --noEmit  # 型チェック
+npm run dev          # 開発サーバー起動
+npm run sync:dev-log # Vault の docs/dev_env_changelog.md を日付見出しごとに content/dev-diary/*.md へ分割同期
+npm run build        # 本番ビルド（prebuild で sync:dev-log → import:note の順に実行）
+npm run test         # テスト実行（Vitest + Playwright）
+npm run lint         # ESLint 実行
+npx tsc --noEmit     # 型チェック
 ```
+
+### Dev Log と開発環境ログの同期
+
+- **正本**: Vault ルートの `docs/dev_env_changelog.md`
+- **サイト側**: `## YYYY-MM-DD ── タイトル` 形式の見出しごとに 1 ファイル（`generated_from: dev_env_changelog` が付く。手編集しない）。`## 技術メモ…` も 1 エントリになる
+- **手書きの Dev Log**（例: `2026-04-06-agentic-dev-os-v2.md`）は `generated_from` が無いため同期で削除されない
+- **反映タイミング**: `npm run sync:dev-log` または `npm run build` の prebuild（ローカルで Vault の `docs/dev_env_changelog.md` が見えるときだけ再生成。CI ではスキップし、コミット済みの `content/dev-diary/*.md` を使用）
+- **新しい更新をサイトへ載せる流れ**: Vault に `## 2026-xx-xx ── …` で追記 → `npm run sync:dev-log` → 増えた・変わった `.md` を MyHomePage リポジトリにコミット・push（**Vercel に上げるのはここまで**）
 
 ---
 
