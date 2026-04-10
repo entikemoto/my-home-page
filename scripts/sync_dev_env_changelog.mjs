@@ -1,10 +1,14 @@
 /**
- * Vault の docs/dev_env_changelog.md を、日付見出し（## YYYY-MM-DD ── …）と
- * 「## 技術メモ…」ごとに content/dev-diary/{日付}-{slug}-{短いhash}.md へ分割して同期する。
+ * Vault の docs 以下の開発環境系 Markdown を、MyHomePage の content/dev-diary/*.md へ同期する。
  *
- * - 手書きの Dev Log（generated_from なし）は触らない
- * - 前回同期分（generated_from: dev_env_changelog）は毎回削除してから再生成（正本と常に一致）
- * - CI でソースが無いときはスキップし、リポジトリ内の生成済みファイルをそのまま使う
+ * 対象（存在するものだけ読む）:
+ * - dev_env_changelog.md … ## YYYY-MM-DD ── 見出し、## 技術メモ…
+ * - last_tool_audit.md … ### YYYY-MM-DD — …（Tool Audit 履歴）
+ * - last_changelog_check.md … ### YYYY-MM-DD（…）チェック履歴
+ *
+ * 手書きの Dev Log（vault_hp_sync なし）は削除しない。
+ * 前回の同期分（vault_hp_sync または旧 generated_from）は毎回削除してから再生成。
+ * CI で Vault が無いときはスキップ。
  *
  * 使い方: npm run sync:dev-log
  */
@@ -18,9 +22,17 @@ import slugify from '@sindresorhus/slugify';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const MY_HOMEPAGE_ROOT = path.join(__dirname, '..');
 const VAULT_ROOT = path.join(MY_HOMEPAGE_ROOT, '..', '..');
-const SOURCE = path.join(VAULT_ROOT, 'docs', 'dev_env_changelog.md');
+const DOCS = path.join(VAULT_ROOT, 'docs');
 const DEV_DIARY_DIR = path.join(MY_HOMEPAGE_ROOT, 'content', 'dev-diary');
-const GENERATED_MARKER = 'dev_env_changelog';
+
+/** @typedef {'env' | 'audit' | 'ccp'} SourceKey */
+
+/** @type {Record<SourceKey, string[]>} */
+const TAGS_BY_SOURCE = {
+  env: ['claude-code', 'workflow', 'changelog', 'dev-env-log'],
+  audit: ['claude-code', 'workflow', 'tool-audit', 'dev-env-log'],
+  ccp: ['claude-code', 'workflow', 'changelog-check', 'dev-env-log'],
+};
 
 function yamlEscape(s) {
   if (/["\n]/.test(s)) {
@@ -29,13 +41,10 @@ function yamlEscape(s) {
   return `"${s.replace(/\\/g, '\\\\')}"`;
 }
 
-/** @typedef {{ kind: 'dated', date: string, title: string, body: string } | { kind: 'tech', title: string, body: string }} ParsedSection */
-
 /**
  * @param {string} text
- * @returns {ParsedSection[]}
  */
-function parseChangelogSections(text) {
+function parseEnvChangelog(text) {
   const normalized = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
   const headingRegex = /^## (.+)$/gm;
   /** @type {{ full: string, content: string, index: number }[]} */
@@ -45,7 +54,7 @@ function parseChangelogSections(text) {
     matches.push({ full: m[0], content: m[1], index: m.index });
   }
 
-  /** @type {ParsedSection[]} */
+  /** @type {{ kind: 'dated' | 'tech', date?: string, title: string, body: string }[]} */
   const sections = [];
 
   for (let i = 0; i < matches.length; i++) {
@@ -74,18 +83,106 @@ function parseChangelogSections(text) {
     }
   }
 
-  return sections;
+  const datedOnly = sections.filter((s) => s.kind === 'dated' && s.date);
+  const maxDate =
+    datedOnly.length === 0
+      ? new Date().toISOString().slice(0, 10)
+      : datedOnly.map((s) => /** @type {string} */ (s.date)).reduce((a, b) => (a > b ? a : b));
+
+  /** @type {{ source: SourceKey, date: string, title: string, body: string, tags: string[] }[]} */
+  const out = [];
+
+  for (const sec of sections) {
+    if (sec.kind === 'dated' && sec.date) {
+      out.push({
+        source: 'env',
+        date: sec.date,
+        title: sec.title,
+        body: sec.body,
+        tags: TAGS_BY_SOURCE.env,
+      });
+    } else if (sec.kind === 'tech') {
+      out.push({
+        source: 'env',
+        date: maxDate,
+        title: sec.title,
+        body: sec.body,
+        tags: [...TAGS_BY_SOURCE.env, 'technical-memo'],
+      });
+    }
+  }
+
+  return out;
+}
+
+/**
+ * ### 2026-04-03 — 第8回 Tool Audit
+ */
+function parseToolAudit(text) {
+  const normalized = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  const re = /^### (\d{4}-\d{2}-\d{2})\s*(?:—|–|-)\s*(.+)$/gm;
+  const matches = [...normalized.matchAll(re)];
+
+  /** @type {{ source: SourceKey, date: string, title: string, body: string, tags: string[] }[]} */
+  const out = [];
+
+  for (let k = 0; k < matches.length; k++) {
+    const row = matches[k];
+    const date = row[1];
+    const title = row[2].trim();
+    const start = /** @type {number} */ (row.index) + row[0].length;
+    const end = matches[k + 1] ? /** @type {number} */ (matches[k + 1].index) : normalized.length;
+    const body = normalized.slice(start, end).replace(/^\n+/, '').trimEnd();
+    out.push({
+      source: 'audit',
+      date,
+      title,
+      body,
+      tags: TAGS_BY_SOURCE.audit,
+    });
+  }
+
+  return out;
+}
+
+/**
+ * ### 2026-02-16（初回リサーチ実施）
+ */
+function parseChangelogCheck(text) {
+  const normalized = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  const re = /^### (\d{4}-\d{2}-\d{2})（([^）]+)）\s*$/gm;
+  const matches = [...normalized.matchAll(re)];
+
+  /** @type {{ source: SourceKey, date: string, title: string, body: string, tags: string[] }[]} */
+  const out = [];
+
+  for (let k = 0; k < matches.length; k++) {
+    const row = matches[k];
+    const date = row[1];
+    const sub = row[2].trim();
+    const title = `Claude Code 更新チェック（${sub}）`;
+    const start = /** @type {number} */ (row.index) + row[0].length;
+    const end = matches[k + 1] ? /** @type {number} */ (matches[k + 1].index) : normalized.length;
+    const body = normalized.slice(start, end).replace(/^\n+/, '').trimEnd();
+    out.push({
+      source: 'ccp',
+      date,
+      title,
+      body,
+      tags: TAGS_BY_SOURCE.ccp,
+    });
+  }
+
+  return out;
 }
 
 /**
  * @param {string} body
- * @returns {string}
  */
 function makeSummary(body) {
   const ver = body.match(/\*\*バージョン\*\*[：:]\s*(.+)$/m);
   if (ver) {
-    const s = `バージョン ${ver[1].trim()}`.slice(0, 220);
-    return s;
+    return `バージョン ${ver[1].trim()}`.slice(0, 220);
   }
   const lines = body.split('\n');
   for (const line of lines) {
@@ -94,33 +191,50 @@ function makeSummary(body) {
       return t.replace(/\*\*/g, '').slice(0, 220);
     }
   }
-  return '開発環境アップデートの記録';
+  return '開発環境・ツールに関する記録';
 }
 
 /**
  * @param {string} date
  * @param {string} titleJp
- * @returns {string} 拡張子なしファイル名
+ * @param {SourceKey} sourceKey
  */
-function buildFileStem(date, titleJp) {
+function buildFileStem(date, titleJp, sourceKey) {
   const ascii = slugify(titleJp, { lowercase: true, strict: true });
-  const h = crypto.createHash('sha256').update(`${date}\0${titleJp}`).digest('hex').slice(0, 8);
-  if (ascii.length >= 4) {
-    return `${date}-${ascii}-${h}`;
-  }
-  return `${date}-dev-env-${h}`;
+  const h = crypto
+    .createHash('sha256')
+    .update(`${sourceKey}\0${date}\0${titleJp}`)
+    .digest('hex')
+    .slice(0, 8);
+  const slugPart = ascii.length >= 4 ? ascii : 'entry';
+  return `${date}-${sourceKey}-${slugPart}-${h}`;
 }
 
 /**
- * 既存の自動生成ファイルを削除
+ * @param {{ title: string; date: string; summary: string; tags: string[]; vault_sync_source: SourceKey }} data
  */
+function buildFrontmatterBlock(data) {
+  const lines = ['---'];
+  lines.push(`title: ${yamlEscape(data.title)}`);
+  lines.push(`date: "${data.date}"`);
+  lines.push(`summary: ${yamlEscape(data.summary)}`);
+  lines.push('tags:');
+  for (const t of data.tags) {
+    lines.push(`  - ${t}`);
+  }
+  lines.push('vault_hp_sync: true');
+  lines.push(`vault_sync_source: ${data.vault_sync_source}`);
+  lines.push('---');
+  return lines.join('\n');
+}
+
 function removePreviousGenerated() {
   if (!fs.existsSync(DEV_DIARY_DIR)) return;
 
   const legacy = path.join(DEV_DIARY_DIR, 'dev-env-changelog.md');
   if (fs.existsSync(legacy)) {
     fs.unlinkSync(legacy);
-    console.log('[sync_dev_env_changelog] 旧単一ファイルを削除: dev-env-changelog.md');
+    console.log('[vault_hp_sync] 旧単一ファイルを削除: dev-env-changelog.md');
   }
 
   for (const name of fs.readdirSync(DEV_DIARY_DIR)) {
@@ -133,97 +247,81 @@ function removePreviousGenerated() {
       continue;
     }
     const { data } = matter(raw);
-    if (data.generated_from === GENERATED_MARKER) {
+    if (data.vault_hp_sync === true || data.generated_from === 'dev_env_changelog') {
       fs.unlinkSync(full);
-      console.log(`[sync_dev_env_changelog] 削除（再同期）: ${name}`);
+      console.log(`[vault_hp_sync] 削除（再同期）: ${name}`);
     }
   }
 }
 
-/**
- * @param {ParsedSection[]} sections
- * @returns {string}
- */
-function maxDateFromSections(sections) {
-  const dates = sections.filter((s) => s.kind === 'dated').map((s) => s.date);
-  if (dates.length === 0) return new Date().toISOString().slice(0, 10);
-  return dates.reduce((a, b) => (a > b ? a : b));
-}
-
-/**
- * @param {import('gray-matter').GrayMatterFile<{ generated_from?: string }>['data']} data
- */
-function buildFrontmatterBlock(data) {
-  const lines = ['---'];
-  lines.push(`title: ${yamlEscape(data.title)}`);
-  lines.push(`date: "${data.date}"`);
-  lines.push(`summary: ${yamlEscape(data.summary)}`);
-  lines.push('tags:');
-  for (const t of data.tags) {
-    lines.push(`  - ${t}`);
-  }
-  lines.push(`generated_from: ${GENERATED_MARKER}`);
-  lines.push('---');
-  return lines.join('\n');
-}
-
 function main() {
-  if (!fs.existsSync(SOURCE)) {
+  if (!fs.existsSync(DOCS)) {
     console.warn(
-      `[sync_dev_env_changelog] スキップ: ソースが見つかりません (${SOURCE})\n` +
+      `[vault_hp_sync] スキップ: Vault の docs が見つかりません (${DOCS})\n` +
         '  CI ではリポジトリにコミット済みの dev-diary をそのまま使います。',
     );
     process.exit(0);
   }
 
-  const raw = fs.readFileSync(SOURCE, 'utf-8');
-  const sections = parseChangelogSections(raw);
+  /** @type {{ path: string; label: string; fn: (s: string) => { source: SourceKey; date: string; title: string; body: string; tags: string[] }[] }}[] */
+  const readers = [
+    {
+      path: path.join(DOCS, 'dev_env_changelog.md'),
+      label: 'dev_env_changelog',
+      fn: parseEnvChangelog,
+    },
+    {
+      path: path.join(DOCS, 'last_tool_audit.md'),
+      label: 'last_tool_audit',
+      fn: parseToolAudit,
+    },
+    {
+      path: path.join(DOCS, 'last_changelog_check.md'),
+      label: 'last_changelog_check',
+      fn: parseChangelogCheck,
+    },
+  ];
 
-  if (sections.length === 0) {
-    console.warn('[sync_dev_env_changelog] 日付見出し（## YYYY-MM-DD ── …）が見つかりません。');
-    process.exit(0);
+  /** @type {{ source: SourceKey; date: string; title: string; body: string; tags: string[] }[]} */
+  const all = [];
+
+  for (const r of readers) {
+    if (!fs.existsSync(r.path)) {
+      console.warn(`[vault_hp_sync] 省略（ファイルなし）: ${r.label}`);
+      continue;
+    }
+    const raw = fs.readFileSync(r.path, 'utf-8');
+    const part = r.fn(raw);
+    console.log(`[vault_hp_sync] ${r.label}: ${part.length} セクション`);
+    all.push(...part);
   }
 
-  const maxDate = maxDateFromSections(sections);
+  if (all.length === 0) {
+    console.warn('[vault_hp_sync] 取り込むセクションがありません。');
+    process.exit(0);
+  }
 
   removePreviousGenerated();
   fs.mkdirSync(DEV_DIARY_DIR, { recursive: true });
 
-  /** @type {string[]} */
-  const written = [];
-
-  for (const sec of sections) {
-    let date;
-    let title;
-    let body;
-
-    if (sec.kind === 'dated') {
-      date = sec.date;
-      title = sec.title;
-      body = sec.body;
-    } else {
-      date = maxDate;
-      title = sec.title;
-      body = sec.body;
-    }
-
-    const stem = buildFileStem(date, title);
+  let n = 0;
+  for (const sec of all) {
+    const stem = buildFileStem(sec.date, sec.title, sec.source);
     const dest = path.join(DEV_DIARY_DIR, `${stem}.md`);
-    const summary = makeSummary(body);
-
+    const summary = makeSummary(sec.body);
     const fm = buildFrontmatterBlock({
-      title,
-      date,
+      title: sec.title,
+      date: sec.date,
       summary,
-      tags: ['claude-code', 'workflow', 'changelog', 'dev-env-log'],
+      tags: sec.tags,
+      vault_sync_source: sec.source,
     });
-
-    fs.writeFileSync(dest, `${fm}\n\n${body.trim()}\n`, 'utf-8');
-    written.push(path.basename(dest));
-    console.log(`[sync_dev_env_changelog] 書き出し: ${path.basename(dest)} (${date})`);
+    fs.writeFileSync(dest, `${fm}\n\n${sec.body.trim()}\n`, 'utf-8');
+    n += 1;
+    console.log(`[vault_hp_sync] 書き出し: ${path.basename(dest)}`);
   }
 
-  console.log(`[sync_dev_env_changelog] 完了: ${written.length} 件`);
+  console.log(`[vault_hp_sync] 完了: ${n} 件`);
 }
 
 main();
