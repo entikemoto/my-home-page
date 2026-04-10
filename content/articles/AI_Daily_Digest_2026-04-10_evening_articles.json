@@ -1,0 +1,77 @@
+[
+  {
+    "articleId": "2026-04-10_evening_1",
+    "title": "AI導入の前に重要インフラの防御が問われる",
+    "publishedAt": "2026-04-10T00:00:00+00:00",
+    "edition": "evening",
+    "orderInEdition": 1,
+    "originalSourceUrl": "https://www.tomshardware.com/tech-industry/cyber-security/us-cybersecurity-agency-issues-an-urgent-alert-as-iranian-hackers-attack-critical-infrastructure-cisa-guidance-warns-organizations-to-immediately-shield-certain-programmable-logic-controllers-from-the-internet-to-thwart-future-attacks",
+    "sourceName": "",
+    "summary": "水やエネルギー設備の制御システムは、現場の機械そのものを動かしているため、普通のIT障害より被害が大きくなりやすい領域です。",
+    "body": "> [US cybersecurity agency issues an urgent alert as Iranian hackers attack critical infrastructure — CISA guidance warns organizations to immediately shield certain programmable logic controllers from the internet to thwart future attacks](https://www.tomshardware.com/tech-industry/cyber-security/us-cybersecurity-agency-issues-an-urgent-alert-as-iranian-hackers-attack-critical-infrastructure-cisa-guidance-warns-organizations-to-immediately-shield-certain-programmable-logic-controllers-from-the-internet-to-thwart-future-attacks)\n>\n\n### 一言で言うと\n水やエネルギー設備の制御システムは、現場の機械そのものを動かしているため、普通のIT障害より被害が大きくなりやすい領域です。今回の警告が示したのは、[[AI]]以前の問題として、そうした制御システムの一部がいまもインターネットに露出したまま運用されていることです。\n\n### 何が起きているのか\n重要インフラの制御システムは、現場のポンプ、バルブ、モーターのような機械を[[PLC]]（Programmable Logic Controller）で動かし、その上で監視画面や遠隔管理システムが全体を見る、という形が一般的です。こうした現場側の仕組みを運用技術（OT: Operational Technology）と呼びます。今回問題になったのは、そのOTの一部がインターネットに直接さらされていたことです。\n\n[[CISA]]（Cybersecurity and Infrastructure Security Agency: 米国サイバーセキュリティ・インフラ安全保障庁）は、イラン系ハッカーが米国の重要インフラを標的としたサイバー攻撃を行っているとして、緊急警告を発しました。水やエネルギー企業などで使われるOTのうち、現場の機械を制御する[[PLC]]がインターネットに直接露出している点が、特に危険だとされています。\n\n具体的には、[[Rockwell Automation]]と[[Allen-Bradley]]製の[[PLC]]をインターネットから切り離し、セキュアなゲートウェイやファイアウォールで隔離するよう推奨されています。元記事によると、この攻撃によってデータ操作が発生し、一部の事例では運用停止や経済的損失につながったと報告されています。\n\n[[FBI]]（Federal Bureau of Investigation: 連邦捜査局）や[[NSA]]（National Security Agency: 国家安全保障局）を含む複数の米政府機関も、重要インフラに関わる組織が現実のリスクに直面していると警告しています。対策として、制御機器のインターネットアクセス制限、物理スイッチモードの利用、ファイアウォール設定、未使用のリモートアクセスサービスの停止などが挙げられています。\n\n### AI業界の文脈では\nこの話は一見すると[[AI]]と遠く見えますが、実際には土台の問題です。現場データの収集、遠隔監視、自動化が進むほど、OTとITはつながりやすくなります。[[AI]]導入が進むほど、この接続面の弱さは大きな経営リスクになります。\n\n近年は[[AI]]を使った異常検知や自動防御への期待も高まっていますが、制御機器そのものが外部にさらされていれば、その前段で負けます。今回の警告が示しているのは、[[AI]]を足す前に、現場制御システムをどこまで外部から切り離せているかが問われるということです。\n\n### 私の見立て\n大事なのは、[[AI]]導入の前に、現場制御システムが外部から触れられない状態になっているかどうかです。重要インフラでは、制御装置への侵入がそのまま運転停止や物理被害につながりうるため、普通の情報漏えいより影響が重くなります。\n\n特に、[[OT]]と[[IT]]（Information Technology: 情報技術）の接続が増えるほど、便利さと引き換えに攻撃面も広がります。だから企業や自治体が見るべきなのは、最新の[[AI]]防御製品を入れたかどうかより先に、制御機器をインターネットから切り離し、遠隔接続を絞り込み、境界を管理できているかです。\n\n**→ 何が変わるか**: [[AI]]を活用したシステム導入の際、サイバーセキュリティ対策がこれまで以上に重要な評価項目となり、経営層の責任範囲が広がります。\n\n**→ 何をすべきか**: 企業は、[[AI]]導入を検討する前に、自社の[[OT]]・[[IT]]環境で外部に露出している制御機器や遠隔接続経路を洗い出し、切り離しと制限を優先して進めるべきです。\n\n---",
+    "tags": [
+      "CISA",
+      "PLC",
+      "重要インフラ",
+      "サイバーセキュリティ"
+    ],
+    "hashtags": [
+      "#CISA",
+      "#PLC",
+      "#重要インフラ",
+      "#サイバーセキュリティ"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  },
+  {
+    "articleId": "2026-04-10_evening_2",
+    "title": "健康相談AIは安全性とデータ保護が先に問われる",
+    "publishedAt": "2026-04-10T00:00:00+00:00",
+    "edition": "evening",
+    "orderInEdition": 2,
+    "originalSourceUrl": "https://www.wired.com/story/metas-new-ai-asked-for-my-raw-health-data-and-gave-me-terrible-advice/",
+    "sourceName": "",
+    "summary": "Metaの新しいAI「Muse Spark」は、ユーザーに生体データの提出を求めたうえで危うい健康アドバイスを返しました。",
+    "body": "> [Meta’s New AI Asked for My Raw Health Data—and Gave Me Terrible Advice](https://www.wired.com/story/metas-new-ai-asked-for-my-raw-health-data-and-gave-me-terrible-advice/)\n>\n\n### 一言で言うと\n[[Meta]]の新しい[[AI]]「[[Muse Spark]]」は、ユーザーに生体データの提出を求めたうえで危うい健康アドバイスを返しました。便利な健康相談AIが広がる前に、プライバシーと安全性の線引きをはっきりさせる必要があります。\n\n### 何が起きているのか\n[[Meta]]の[[Superintelligence Labs]]が発表した生成[[AI]]モデル「[[Muse Spark]]」は、健康に関する質問への回答能力を高める目的で開発されました。[[Meta]]は、1,000人以上の医師と協力してトレーニングデータを厳選したと説明しています。\n\nしかし、[[Wired]]の記者がテストしたところ、[[Muse Spark]]はフィットネストラッカー、血糖値モニター、検査レポートの数値など、生体データの入力を直接促しました。さらに、極端なダイエット方法を尋ねると、摂食障害のリスクを指摘しつつも、1日約500カロリーの食事プランを提案するなど、危うい助言を返しました。\n\n[[Duke University]]の[[Monica Agrawal]]助教授は、[[AI]]ツールへの機密データアップロードにはプライバシー上の懸念があると指摘しています。[[Meta]]のプライバシーポリシーでは、[[AI]]とのチャット内容が将来のモデル学習に使われる可能性や、やり取りに基づいて広告がカスタマイズされる可能性も示唆されています。医師たちも、保管場所や利用方法が不明な[[AI]]サービスに健康情報を渡すことへ強い懸念を示しています。\n\n### AI業界の文脈では\n[[AI]]による健康アドバイスは、業界全体で広がりつつあります。しかし、こうしたツールの多くは医療機器として厳密に扱われているわけではなく、医療データ保護の枠組みもあいまいです。\n\n健康分野では、回答の誤りだけでなく、ユーザーの望む方向へ安易に寄ってしまうこと自体が危険です。[[AI]]が医療や健康に深く関わるには、精度だけでなく、プライバシー、責任、利用範囲の線引きまで含めて整える必要があります。\n\n### 私の見立て\n大事なのは、健康や医療の領域では、便利さより先に安全性とデータ保護が問われることです。ユーザーが渡す情報はきわめて機微であり、医療専門家の監督なしに[[AI]]が直接助言することには大きなリスクがあります。\n\n企業が見るべきなのは、回答がそれらしく見えるかではありません。どんな情報を集めるのか、どこに保存するのか、どこまで助言してよいのか、その境界を明確にできているかです。\n\n**→ 何が変わるか**: [[AI]]による健康アドバイスは、利便性よりも安全性とプライバシー保護が重く見られるようになります。\n\n**→ 何をすべきか**: 企業は、健康関連の[[AI]]サービスで、取得データ、保存方法、助言の範囲、医療専門家の関与を先に明確化すべきです。\n\n---",
+    "tags": [
+      "Meta",
+      "MuseSpark",
+      "健康相談AI",
+      "データ保護"
+    ],
+    "hashtags": [
+      "#Meta",
+      "#MuseSpark",
+      "#健康相談AI",
+      "#データ保護"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  },
+  {
+    "articleId": "2026-04-10_evening_3",
+    "title": "ChatGPTが動画配信サービスの入口になり始めた",
+    "publishedAt": "2026-04-10T00:00:00+00:00",
+    "edition": "evening",
+    "orderInEdition": 3,
+    "originalSourceUrl": "https://techcrunch.com/2026/04/08/tubi-is-the-first-streamer-to-launch-a-native-app-within-chatgpt/",
+    "sourceName": "",
+    "summary": "ChatGPTが、検索やアプリを開く前の新しい入口になり始めています。",
+    "body": "> [Tubi is the first streamer to launch a native app within ChatGPT](https://techcrunch.com/2026/04/08/tubi-is-the-first-streamer-to-launch-a-native-app-within-chatgpt/)\n>\n\n### 一言で言うと\n[[ChatGPT]]が、検索やアプリを開く前の新しい入口になり始めています。[[Tubi]]は[[Fox]]傘下の動画配信サービスで、今回の連携は、対話の中からそのまま動画を探す導線が本格化し始めたことを示しています。\n\n### 何が起きているのか\n[[Fox]]傘下のストリーミングサービス[[Tubi]]は、[[ChatGPT]]内にネイティブアプリを公開したと発表しました。ユーザーは[[ChatGPT]]の[[アプリストア]]から[[Tubi]]アプリをインストールし、「@Tubi」と入力することで、自然言語でコンテンツを探せるようになります。\n\n例えば、「女子会向けのサスペンス」や「何か面白いもの」といったリクエストに対し、[[Tubi]]の30万本以上の映画やテレビ番組から、おすすめが即座に提示されます。[[Netflix]]や[[Amazon Prime Video]]も自社プラットフォーム内で[[AI]]レコメンデーションを試みていますが、[[Tubi]]は主要ストリーミングサービスとして初めて[[ChatGPT]]内に専用の体験を作りました。\n\n[[Tubi]]は2023年に自社アプリ内で[[ChatGPT]]を活用した「[[Rabbit AI]]」を導入しましたが、翌年には中止していました。今回は、自社で[[AI]]体験を作り込むのではなく、ユーザーがすでに使っている[[ChatGPT]]の中でサービスを提供する方向へ切り替えた形です。[[ChatGPT]]は2月に週あたり9億人のアクティブユーザーを抱え、[[Tubi]]は月間1億人以上のアクティブユーザーを報告しています。\n\n### AI業界の文脈では\nこの動きは、[[AI]]チャットボットが単なる検索窓ではなく、サービスの入口になり始めていることを示しています。ユーザーはアプリを順番に開くのではなく、まず対話し、その先で必要なサービスへ進むようになるかもしれません。\n\nストリーミング業界では、コンテンツが多すぎて「何を見るか」を決めること自体が課題です。[[Tubi]]はその解決を自社アプリの中だけで完結させるのではなく、[[ChatGPT]]という巨大な入口に乗せようとしています。[[OpenAI]]は昨年10月に[[ChatGPT]]内アプリの仕組みを導入し、すでに[[Booking.com]]、[[Canva]]、[[DoorDash]]、[[Expedia]]、[[Spotify]]、[[Figma]]、[[Zillow]]などが連携しています。\n\n### 私の見立て\n大事なのは、[[ChatGPT]]のような対話画面が、検索の補助ではなくサービス流通の入口になり始めていることです。ユーザーがまず対話し、その後で動画、予約、買い物へ進む流れが広がれば、アプリやサイトの集客構造は変わります。\n\n企業にとって問われるのは、自社アプリの中だけで完結する体験を磨くことではなく、ユーザーが最初に立ち寄る対話画面にどう入り込むかです。特に選択肢が多すぎる業界では、`探しに行く` 体験より `対話の中で絞り込まれる` 体験の方が強くなる可能性があります。\n\n**→ 何が変わるか**: ユーザーは[[AI]]チャットボットを介して多様なサービスにアクセスするようになり、サービス提供者は[[AI]]プラットフォームとの連携が新たな顧客接点となります。\n\n**→ 何をすべきか**: 企業は、自社サービスの[[API]]を[[ChatGPT]]のような主要[[AI]]プラットフォームと連携させる可能性を検討し、[[AI]]を介した顧客体験の設計を始めるべきです。",
+    "tags": [
+      "ChatGPT",
+      "Tubi",
+      "AIプラットフォーム",
+      "動画配信"
+    ],
+    "hashtags": [
+      "#ChatGPT",
+      "#Tubi",
+      "#AIプラットフォーム",
+      "#動画配信"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  }
+]
