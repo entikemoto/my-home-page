@@ -1,7 +1,7 @@
 ---
 title: "第8回 Tool Audit"
 date: "2026-04-03"
-summary: "調査方法: Gemini CLI + Haiku サブエージェント（GitHub リリースページ直接確認）+ 実機バージョン確認"
+summary: "- 変わったこと: Claude Code・Codex CLI・Gemini CLI のバージョンと、各ツールの新機能・更新状況を整理した。Codex は更新済み、Gemini は手動更新が必要など、次のアクションが分かるようにした。"
 tags:
   - claude-code
   - workflow
@@ -10,6 +10,12 @@ tags:
 vault_hp_sync: true
 vault_sync_source: audit
 ---
+
+### この回の要点（先に読む）
+
+- **変わったこと**: Claude Code・Codex CLI・Gemini CLI のバージョンと、各ツールの新機能・更新状況を整理した。Codex は更新済み、Gemini は手動更新が必要など、次のアクションが分かるようにした。
+- **いままでとの違い**: 複数ツールが同時に動くため、どれが古いままかを取りこぼしやすい。
+- **メリット**: 実機と公式リリースに寄せた確認が続き、誤ったバージョン認識を減らせる。
 
 調査方法: Gemini CLI + Haiku サブエージェント（GitHub リリースページ直接確認）+ 実機バージョン確認
 

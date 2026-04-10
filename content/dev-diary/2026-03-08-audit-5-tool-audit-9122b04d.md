@@ -1,7 +1,7 @@
 ---
 title: "第5回 Tool Audit"
 date: "2026-03-08"
-summary: "調査方法: Gemini CLI + 実機バージョン確認"
+summary: "- 変わったこと: Codex と Gemini CLI を大きく更新し、CLAUDE.md の委譲ルール（軽い作業は Gemini に任せる等）を現行の CLI の能力に合わせて書いた。"
 tags:
   - claude-code
   - workflow
@@ -10,6 +10,12 @@ tags:
 vault_hp_sync: true
 vault_sync_source: audit
 ---
+
+### この回の要点（先に読む）
+
+- **変わったこと**: Codex と Gemini CLI を大きく更新し、CLAUDE.md の委譲ルール（軽い作業は Gemini に任せる等）を現行の CLI の能力に合わせて書いた。
+- **いままでとの違い**: 古い CLI の前提のままだと、新しい並列実行やモデル切り替えの恩恵を活かしきれない。
+- **メリット**: コストと速度のバランスを取りやすくなった。
 
 調査方法: Gemini CLI + 実機バージョン確認
 

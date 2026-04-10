@@ -1,7 +1,7 @@
 ---
 title: "第6回 Tool Audit"
 date: "2026-03-11"
-summary: "調査方法: Gemini CLI + 実機バージョン確認 + GPT-5.4 動作テスト"
+summary: "- 変わったこと: AI の報告したバージョンと実機のズレを再確認し、GPT-5.4（Codex）の動作と Gemini のモデル切り替えの恩恵を記録した。"
 tags:
   - claude-code
   - workflow
@@ -10,6 +10,12 @@ tags:
 vault_hp_sync: true
 vault_sync_source: audit
 ---
+
+### この回の要点（先に読む）
+
+- **変わったこと**: AI の報告したバージョンと実機のズレを再確認し、GPT-5.4（Codex）の動作と Gemini のモデル切り替えの恩恵を記録した。
+- **いままでとの違い**: 調査ツールが提示する番号をそのまま信じると誤認しやすい。
+- **メリット**: 「実機で確認」を優先する運用が定着しやすい。
 
 調査方法: Gemini CLI + 実機バージョン確認 + GPT-5.4 動作テスト
 

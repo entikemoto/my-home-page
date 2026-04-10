@@ -1,7 +1,7 @@
 ---
 title: "第7回 Tool Audit"
 date: "2026-03-20"
-summary: "調査方法: Gemini CLI + GitHub リリースページ直接確認 + 実機バージョン確認"
+summary: "- 変わったこと: Claude Code に StopFailure や `/effort` など新機能が続々入ったことを把握し、Codex は大きく更新済みと記録した。"
 tags:
   - claude-code
   - workflow
@@ -10,6 +10,12 @@ tags:
 vault_hp_sync: true
 vault_sync_source: audit
 ---
+
+### この回の要点（先に読む）
+
+- **変わったこと**: Claude Code に StopFailure や `/effort` など新機能が続々入ったことを把握し、Codex は大きく更新済みと記録した。
+- **いままでとの違い**: ツールごとに更新タイミングが違い、Claude 本体は手元の更新手順が要ることがある。
+- **メリット**: 何をいつ更新すべきかが一覧で追いやすい。
 
 調査方法: Gemini CLI + GitHub リリースページ直接確認 + 実機バージョン確認
 

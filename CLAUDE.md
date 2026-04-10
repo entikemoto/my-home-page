@@ -43,6 +43,7 @@ npx tsc --noEmit     # 型チェック
 - **手書きの Dev Log**（例: `2026-04-06-agentic-dev-os-v2.md`）は `vault_hp_sync` が無いため同期で削除されない
 - **反映タイミング**: `npm run sync:dev-log` または `npm run build` の prebuild（ローカルで Vault の `docs/` が見えるときだけ再生成。CI ではスキップし、コミット済みの `content/dev-diary/*.md` を使用）
 - **新しい更新をサイトへ載せる流れ**: Vault の該当ファイルを更新 → `npm run sync:dev-log` → MyHomePage で `content/dev-diary/` の差分をコミット・push（**Vercel はここで更新**）
+- **平易な書き方**: Vault の `docs/DEV_LOG_PLAIN_LANGUAGE.md`。最低限は**これからの追記**から型に合わせること。**過去分にも**「この回の要点」を足すとサイトで変遷と意味が伝わりやすい（任意・二層のうち「目指す姿」）
 
 ---
 

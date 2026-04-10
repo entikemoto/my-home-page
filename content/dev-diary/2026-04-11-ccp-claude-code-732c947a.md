@@ -1,7 +1,7 @@
 ---
 title: "Claude Code 更新チェック（定期チェック実施）"
 date: "2026-04-11"
-summary: "- 実行時バージョン: v2.1.91 → `claude install latest` で v2.1.101 に更新"
+summary: "- 変わったこと: Claude Code を v2.1.101 に上げ、Monitor ツールなど新機能の公式情報を GitHub から直接確認した。運用ガイドと CLAUDE.md に Monitor を追記した。"
 tags:
   - claude-code
   - workflow
@@ -10,6 +10,12 @@ tags:
 vault_hp_sync: true
 vault_sync_source: ccp
 ---
+
+### この回の要点（先に読む）
+
+- **変わったこと**: Claude Code を v2.1.101 に上げ、Monitor ツールなど新機能の公式情報を GitHub から直接確認した。運用ガイドと CLAUDE.md に Monitor を追記した。
+- **いままでとの違い**: 調査を AI に任せるときの当たり外れを減らすため、一次ソース（公式リリース）を優先するやり方に寄せた。
+- **メリット**: バージョンと機能の対応が確認しやすく、誤った期待を持ちにくい。
 
 - 実行時バージョン: **v2.1.91** → `claude install latest` で **v2.1.101** に更新
 - 調査範囲: v2.1.78〜v2.1.101（GitHub Releases 直接取得）

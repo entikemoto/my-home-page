@@ -1,7 +1,7 @@
 ---
 title: "第2回 Tool Audit"
 date: "2026-02-24"
-summary: "調査方法: Gemini CLI + Claude Code Web検索（クロスチェック）"
+summary: "- 変わったこと: Codex を大きく更新し、Gemini の認証を API キー中心から OAuth に切り替えて期限切れに強くした。スキル類から古いモデル指定を外してデフォルトに揃えた。"
 tags:
   - claude-code
   - workflow
@@ -10,6 +10,12 @@ tags:
 vault_hp_sync: true
 vault_sync_source: audit
 ---
+
+### この回の要点（先に読む）
+
+- **変わったこと**: Codex を大きく更新し、Gemini の認証を API キー中心から OAuth に切り替えて期限切れに強くした。スキル類から古いモデル指定を外してデフォルトに揃えた。
+- **いままでとの違い**: 認証やモデル名が古いままだと、突然使えなくなることがあった。
+- **メリット**: 日常運用の止まりどころが減り、設定の保守が楽になる。
 
 調査方法: Gemini CLI + Claude Code Web検索（クロスチェック）
 

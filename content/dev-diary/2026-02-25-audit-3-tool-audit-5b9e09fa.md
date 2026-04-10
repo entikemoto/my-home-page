@@ -1,7 +1,7 @@
 ---
 title: "第3回 Tool Audit"
 date: "2026-02-25"
-summary: "調査方法: Gemini CLI + 実機テスト（env var 検証）"
+summary: "- 変わったこと: Agent Teams 用の環境変数がフックに渡るかを実測し、未実装であることを確認した。Gemini の `/plan` や Codex の trace など、周辺ツールの新機能もメモした。"
 tags:
   - claude-code
   - workflow
@@ -10,6 +10,12 @@ tags:
 vault_hp_sync: true
 vault_sync_source: audit
 ---
+
+### この回の要点（先に読む）
+
+- **変わったこと**: Agent Teams 用の環境変数がフックに渡るかを実測し、未実装であることを確認した。Gemini の `/plan` や Codex の trace など、周辺ツールの新機能もメモした。
+- **いままでとの違い**: ドキュメントや AI の説明では「入る」と書いてあっても、実機では違うことがある。
+- **メリット**: チーム連携の自動化を進める前に、前提を揃えられる。
 
 調査方法: Gemini CLI + 実機テスト（env var 検証）
 

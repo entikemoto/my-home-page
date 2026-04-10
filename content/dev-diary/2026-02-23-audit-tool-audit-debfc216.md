@@ -1,7 +1,7 @@
 ---
 title: "初回 Tool Audit 実行"
 date: "2026-02-23"
-summary: "調査方法: Claude Code Web検索（Gemini API キー期限切れのため代替）"
+summary: "- 変わったこと: 各ツールの直近リリースの話題を洗い、Gemini の API キー更新を最優先の対応にした。"
 tags:
   - claude-code
   - workflow
@@ -10,6 +10,12 @@ tags:
 vault_hp_sync: true
 vault_sync_source: audit
 ---
+
+### この回の要点（先に読む）
+
+- **変わったこと**: 各ツールの直近リリースの話題を洗い、Gemini の API キー更新を最優先の対応にした。
+- **いままでとの違い**: ツールが増えると、どこが詰まりか分かりにくい。
+- **メリット**: 「まず認証と接続」を直す優先順位が明確になった。
 
 調査方法: Claude Code Web検索（Gemini API キー期限切れのため代替）
 
