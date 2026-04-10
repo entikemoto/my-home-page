@@ -4,11 +4,9 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
-  experimental: {
-    outputFileTracingIncludes: {
-      "/dev-diary": ["./content/dev-diary/**/*"],
-      "/dev-diary/[slug]": ["./content/dev-diary/**/*"],
-    },
+  outputFileTracingIncludes: {
+    "/dev-diary": ["./content/dev-diary/**/*"],
+    "/dev-diary/[slug]": ["./content/dev-diary/**/*"],
   },
 };
 

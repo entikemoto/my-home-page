@@ -64,7 +64,8 @@ function parseEnvChangelog(text) {
     const bodyEnd = next ? next.index : normalized.length;
     let body = normalized.slice(bodyStart, bodyEnd).replace(/^\n+/, '').trimEnd();
 
-    const dated = h.content.match(/^(\d{4}-\d{2}-\d{2})\s*──\s*(.+)$/);
+    // ダッシュ種別（── — – - など）の表記ゆれに対応
+    const dated = h.content.match(/^(\d{4}-\d{2}-\d{2})\s*[─—–\-]+\s*(.+)$/);
     if (dated) {
       sections.push({
         kind: 'dated',
@@ -150,7 +151,8 @@ function parseToolAudit(text) {
  */
 function parseChangelogCheck(text) {
   const normalized = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-  const re = /^### (\d{4}-\d{2}-\d{2})（([^）]+)）\s*$/gm;
+  // 全角括弧（）・半角括弧()の両方に対応
+  const re = /^### (\d{4}-\d{2}-\d{2})[（(]([^）)]+)[）)]\s*$/gm;
   const matches = [...normalized.matchAll(re)];
 
   /** @type {{ source: SourceKey, date: string, title: string, body: string, tags: string[] }[]} */
@@ -220,7 +222,8 @@ function buildFrontmatterBlock(data) {
   lines.push(`summary: ${yamlEscape(data.summary)}`);
   lines.push('tags:');
   for (const t of data.tags) {
-    lines.push(`  - ${t}`);
+    // : # [ ] 改行などの特殊文字によるYAML破損を防ぐため必ずクオート
+    lines.push(`  - ${yamlEscape(t)}`);
   }
   lines.push('vault_hp_sync: true');
   lines.push(`vault_sync_source: ${data.vault_sync_source}`);
@@ -292,7 +295,14 @@ function main() {
     }
     const raw = fs.readFileSync(r.path, 'utf-8');
     const part = r.fn(raw);
-    console.log(`[vault_hp_sync] ${r.label}: ${part.length} セクション`);
+    if (part.length === 0) {
+      console.warn(
+        `[vault_hp_sync] ⚠ ${r.label}: セクションが0件です。` +
+        `見出し形式を確認してください（例: ## YYYY-MM-DD ── タイトル）`,
+      );
+    } else {
+      console.log(`[vault_hp_sync] ${r.label}: ${part.length} セクション`);
+    }
     all.push(...part);
   }
 

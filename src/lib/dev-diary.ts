@@ -9,6 +9,9 @@ const DEV_DIARY_DIR = path.join(process.cwd(), 'content', 'dev-diary');
 // キャッシュ
 // ---------------------------------------------------------------------------
 
+// キャッシュはビルド時の静的生成専用。
+// SSR（動的レンダリング）では各リクエストで再読込するため、
+// Vercel サーバーレス環境でも鮮度の問題は起きない。
 let _cache: DevDiaryEntry[] | null = null;
 
 export function _resetDevDiaryCache(): void {
@@ -29,9 +32,7 @@ function loadEntries(): DevDiaryEntry[] {
 
   const files = fs
     .readdirSync(DEV_DIARY_DIR)
-    .filter((f) => f.endsWith('.md'))
-    .sort()
-    .reverse();
+    .filter((f) => f.endsWith('.md'));
 
   const entries: DevDiaryEntry[] = [];
 

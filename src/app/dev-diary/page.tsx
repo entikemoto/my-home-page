@@ -19,11 +19,13 @@ function collectTags(entries: DevDiaryEntryMeta[]): string[] {
 }
 
 function DevDiaryCard({ entry }: { entry: DevDiaryEntryMeta }) {
-  const date = new Date(entry.date);
-  const dateLabel = date.toLocaleDateString('ja-JP', {
+  // YYYY-MM-DD を UTC 固定でパースし、サーバーのタイムゾーンによる
+  // 前日/翌日ズレを防ぐ
+  const dateLabel = new Date(`${entry.date}T00:00:00Z`).toLocaleDateString('ja-JP', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
+    timeZone: 'UTC',
   });
 
   return (
