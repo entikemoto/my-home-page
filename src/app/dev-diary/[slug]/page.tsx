@@ -2,7 +2,9 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { getDevDiaryEntry, getDevDiaryEntries, _resetDevDiaryCache } from '@/lib/dev-diary';
+import { getDevDiaryEntry, _resetDevDiaryCache } from '@/lib/dev-diary';
+
+export const dynamic = 'force-dynamic';
 
 if (process.env.NODE_ENV === 'development') {
   _resetDevDiaryCache();
@@ -11,10 +13,6 @@ if (process.env.NODE_ENV === 'development') {
 // ---------------------------------------------------------------------------
 // 静的パス生成
 // ---------------------------------------------------------------------------
-
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  return getDevDiaryEntries().map((e) => ({ slug: e.slug }));
-}
 
 // ---------------------------------------------------------------------------
 // メタデータ

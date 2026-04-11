@@ -1,15 +1,11 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { getArticlesByTag, getAllTags } from '@/lib/articles';
-import { slugToTag, tagToSlug } from '@/lib/tag-slug';
+import { getArticlesByTag } from '@/lib/articles';
+import { slugToTag } from '@/lib/tag-slug';
 import ArticleCard from '@/components/ArticleCard';
 
 type Props = { params: Promise<{ tag: string }> };
-
-export async function generateStaticParams(): Promise<{ tag: string }[]> {
-  return getAllTags().map(({ tag }) => ({ tag: tagToSlug(tag) }));
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { tag } = await params;

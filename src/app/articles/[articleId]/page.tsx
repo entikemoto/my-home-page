@@ -1,7 +1,7 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { getArticle, getArticles, _resetCache } from '@/lib/articles';
+import { getArticle, _resetCache } from '@/lib/articles';
 
 // ビルド時にキャッシュをリセット（HMR での二重読み込み対策）
 if (process.env.NODE_ENV === 'development') {
@@ -11,10 +11,6 @@ if (process.env.NODE_ENV === 'development') {
 // ---------------------------------------------------------------------------
 // 静的パス生成
 // ---------------------------------------------------------------------------
-
-export async function generateStaticParams(): Promise<{ articleId: string }[]> {
-  return getArticles().map((a) => ({ articleId: a.articleId }));
-}
 
 // ---------------------------------------------------------------------------
 // メタデータ
