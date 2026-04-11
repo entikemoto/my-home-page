@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "sync:dev-log": "node scripts/sync_dev_env_changelog.mjs",
-    "prebuild": "npm run sync:dev-log && npm run import:note",
+    "prebuild": "npm run sync:dev-log && node -e \"if(!process.env.CI){const{execSync}=require('child_process');execSync('npm run import:note',{stdio:'inherit'})}\"",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
