@@ -3,10 +3,10 @@ title: "第6回 Tool Audit"
 date: "2026-03-11"
 summary: "- 変わったこと: AI の報告したバージョンと実機のズレを再確認し、GPT-5.4（Codex）の動作と Gemini のモデル切り替えの恩恵を記録した。"
 tags:
-  - claude-code
-  - workflow
-  - tool-audit
-  - dev-env-log
+  - "claude-code"
+  - "workflow"
+  - "tool-audit"
+  - "dev-env-log"
 vault_hp_sync: true
 vault_sync_source: audit
 ---

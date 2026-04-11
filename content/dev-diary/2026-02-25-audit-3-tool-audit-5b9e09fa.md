@@ -3,10 +3,10 @@ title: "第3回 Tool Audit"
 date: "2026-02-25"
 summary: "- 変わったこと: Agent Teams 用の環境変数がフックに渡るかを実測し、未実装であることを確認した。Gemini の `/plan` や Codex の trace など、周辺ツールの新機能もメモした。"
 tags:
-  - claude-code
-  - workflow
-  - tool-audit
-  - dev-env-log
+  - "claude-code"
+  - "workflow"
+  - "tool-audit"
+  - "dev-env-log"
 vault_hp_sync: true
 vault_sync_source: audit
 ---

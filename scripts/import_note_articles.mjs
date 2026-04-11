@@ -223,6 +223,14 @@ async function fetchNoteDetail(key) {
 }
 
 async function main() {
+  // CI（Vercel など）ではコミット済みの note_import.json をそのまま使う。
+  // 外部 API への毎回リクエストはビルド時間の増大・タイムアウトの原因になるため。
+  // ローカルで `npm run import:note` を実行してから差分をコミット・push する運用。
+  if (process.env.CI === '1' || process.env.VERCEL === '1') {
+    console.log('[import:note] スキップ: CI 環境ではコミット済みの note_import.json を使います。');
+    process.exit(0);
+  }
+
   const allNotes = await fetchAllNotes();
   const articles = [];
 

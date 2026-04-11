@@ -3,10 +3,10 @@ title: "Claude Code を最新版に更新・監視機能を追加"
 date: "2026-04-11"
 summary: "バージョン v2.1.91 → v2.1.101"
 tags:
-  - claude-code
-  - workflow
-  - changelog
-  - dev-env-log
+  - "claude-code"
+  - "workflow"
+  - "changelog"
+  - "dev-env-log"
 vault_hp_sync: true
 vault_sync_source: env
 ---

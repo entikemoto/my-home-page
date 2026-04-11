@@ -3,10 +3,10 @@ title: "初回セットアップ"
 date: "2026-02-23"
 summary: "- 変わったこと: 月次でツール横断を見る `/tool-audit` スキルを用意し、委譲ルールと Gemini の既定モデル表記を更新した。"
 tags:
-  - claude-code
-  - workflow
-  - tool-audit
-  - dev-env-log
+  - "claude-code"
+  - "workflow"
+  - "tool-audit"
+  - "dev-env-log"
 vault_hp_sync: true
 vault_sync_source: audit
 ---

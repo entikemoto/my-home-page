@@ -3,10 +3,10 @@ title: "第5回 Tool Audit"
 date: "2026-03-08"
 summary: "- 変わったこと: Codex と Gemini CLI を大きく更新し、CLAUDE.md の委譲ルール（軽い作業は Gemini に任せる等）を現行の CLI の能力に合わせて書いた。"
 tags:
-  - claude-code
-  - workflow
-  - tool-audit
-  - dev-env-log
+  - "claude-code"
+  - "workflow"
+  - "tool-audit"
+  - "dev-env-log"
 vault_hp_sync: true
 vault_sync_source: audit
 ---

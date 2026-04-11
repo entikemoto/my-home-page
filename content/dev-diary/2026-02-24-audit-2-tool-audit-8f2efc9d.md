@@ -3,10 +3,10 @@ title: "第2回 Tool Audit"
 date: "2026-02-24"
 summary: "- 変わったこと: Codex を大きく更新し、Gemini の認証を API キー中心から OAuth に切り替えて期限切れに強くした。スキル類から古いモデル指定を外してデフォルトに揃えた。"
 tags:
-  - claude-code
-  - workflow
-  - tool-audit
-  - dev-env-log
+  - "claude-code"
+  - "workflow"
+  - "tool-audit"
+  - "dev-env-log"
 vault_hp_sync: true
 vault_sync_source: audit
 ---

@@ -3,10 +3,10 @@ title: "Claude Code 更新チェック（定期チェック実施）"
 date: "2026-03-18"
 summary: "- 変わったこと: 通信エラーで止まったときも記録を残す設定と、長い会話を圧縮したあとの要約メモを残す設定を追加した。"
 tags:
-  - claude-code
-  - workflow
-  - changelog-check
-  - dev-env-log
+  - "claude-code"
+  - "workflow"
+  - "changelog-check"
+  - "dev-env-log"
 vault_hp_sync: true
 vault_sync_source: ccp
 ---

@@ -3,10 +3,10 @@ title: "初回 Tool Audit 実行"
 date: "2026-02-23"
 summary: "- 変わったこと: 各ツールの直近リリースの話題を洗い、Gemini の API キー更新を最優先の対応にした。"
 tags:
-  - claude-code
-  - workflow
-  - tool-audit
-  - dev-env-log
+  - "claude-code"
+  - "workflow"
+  - "tool-audit"
+  - "dev-env-log"
 vault_hp_sync: true
 vault_sync_source: audit
 ---

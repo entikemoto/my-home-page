@@ -3,10 +3,10 @@ title: "Claude Code 更新チェック（定期チェック実施）"
 date: "2026-03-27"
 summary: "- 変わったこと: AI に調査を任せた結果を、そのまま採用せず、実際のバージョンと照合した（記録の更新が中心）。"
 tags:
-  - claude-code
-  - workflow
-  - changelog-check
-  - dev-env-log
+  - "claude-code"
+  - "workflow"
+  - "changelog-check"
+  - "dev-env-log"
 vault_hp_sync: true
 vault_sync_source: ccp
 ---

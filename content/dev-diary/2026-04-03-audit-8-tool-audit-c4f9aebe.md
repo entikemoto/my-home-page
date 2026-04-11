@@ -3,10 +3,10 @@ title: "第8回 Tool Audit"
 date: "2026-04-03"
 summary: "- 変わったこと: Claude Code・Codex CLI・Gemini CLI のバージョンと、各ツールの新機能・更新状況を整理した。Codex は更新済み、Gemini は手動更新が必要など、次のアクションが分かるようにした。"
 tags:
-  - claude-code
-  - workflow
-  - tool-audit
-  - dev-env-log
+  - "claude-code"
+  - "workflow"
+  - "tool-audit"
+  - "dev-env-log"
 vault_hp_sync: true
 vault_sync_source: audit
 ---

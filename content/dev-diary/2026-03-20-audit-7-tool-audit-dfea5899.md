@@ -3,10 +3,10 @@ title: "第7回 Tool Audit"
 date: "2026-03-20"
 summary: "- 変わったこと: Claude Code に StopFailure や `/effort` など新機能が続々入ったことを把握し、Codex は大きく更新済みと記録した。"
 tags:
-  - claude-code
-  - workflow
-  - tool-audit
-  - dev-env-log
+  - "claude-code"
+  - "workflow"
+  - "tool-audit"
+  - "dev-env-log"
 vault_hp_sync: true
 vault_sync_source: audit
 ---

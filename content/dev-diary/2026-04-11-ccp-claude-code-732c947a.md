@@ -3,10 +3,10 @@ title: "Claude Code 更新チェック（定期チェック実施）"
 date: "2026-04-11"
 summary: "- 変わったこと: Claude Code を v2.1.101 に上げ、Monitor ツールなど新機能の公式情報を GitHub から直接確認した。運用ガイドと CLAUDE.md に Monitor を追記した。"
 tags:
-  - claude-code
-  - workflow
-  - changelog-check
-  - dev-env-log
+  - "claude-code"
+  - "workflow"
+  - "changelog-check"
+  - "dev-env-log"
 vault_hp_sync: true
 vault_sync_source: ccp
 ---
