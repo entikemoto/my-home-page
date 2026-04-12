@@ -31,8 +31,7 @@ export default function DevDiaryPage() {
       <h1 className="font-serif text-3xl lg:text-4xl font-bold mb-2 text-gray-900">Dev Log</h1>
       <div className="text-sm text-gray-500 leading-relaxed mb-6 max-w-3xl space-y-2">
         <p>
-          開発環境・AI エージェント構成・ワークフローの変遷を記録しています。本文の正本は Obsidian Vault の{' '}
-          <code className="text-xs bg-gray-100 px-1 py-0.5 rounded">docs/</code> 配下から同期したものと、手書きのエントリがあります。
+          開発環境・AI エージェント構成・ワークフローの変遷を記録しています。
         </p>
         <p>
           タグで種類を絞り込めます（例: <span className="font-mono text-xs">tool-audit</span> はツール横断の定期チェック、
