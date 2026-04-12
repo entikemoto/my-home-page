@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { getArticles } from '@/lib/articles';
 import { getEssays } from '@/lib/essays';
+import { getDevDiaryEntries } from '@/lib/dev-diary';
 import ArticleCard from '@/components/ArticleCard';
 
 export default function HomePage() {
   const latestArticles = getArticles().slice(0, 3);
   const latestEssays = getEssays().slice(0, 2);
+  const latestDevLogs = getDevDiaryEntries().slice(0, 3);
 
   return (
     <main>
@@ -165,7 +167,67 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* ─── Section 4: Mission + Vision ─── */}
+      {/* ─── Section 4: Latest Dev Logs ─── */}
+      {latestDevLogs.length > 0 && (
+        <section className="bg-gray-50 py-20 lg:py-28">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="flex items-baseline justify-between mb-12">
+              <div>
+                <p className="text-[10px] tracking-[0.4em] text-gray-400 uppercase mb-3">Dev Log</p>
+                <h2 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900">
+                  開発記録
+                </h2>
+              </div>
+              <Link
+                href="/dev-diary"
+                className="text-xs tracking-[0.15em] text-gray-400 hover:text-gray-900 transition-colors"
+              >
+                すべて見る →
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {latestDevLogs.map((entry) => {
+                const dateLabel = new Date(`${entry.date}T00:00:00Z`).toLocaleDateString('ja-JP', {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric',
+                  timeZone: 'UTC',
+                });
+                return (
+                  <article key={entry.slug} className="bg-white border-l-2 border-l-transparent border border-gray-100 hover:border-l-gray-400 hover:border-gray-200 transition-all duration-200 flex flex-col">
+                    <div className="px-5 pt-5 pb-1">
+                      <span className="text-[10px] text-gray-400 tracking-[0.3em] uppercase">Dev Log</span>
+                    </div>
+                    <div className="px-5 py-4 flex-1 flex flex-col">
+                      <h3 className="font-serif text-base font-bold leading-snug mb-3 flex-1">
+                        <Link href={`/dev-diary/${entry.slug}`} className="hover:text-gray-500 transition-colors">
+                          {entry.title}
+                        </Link>
+                      </h3>
+                      {entry.summary && (
+                        <p className="text-sm text-gray-500 line-clamp-2 mb-4 leading-relaxed">{entry.summary}</p>
+                      )}
+                      <div className="mt-auto pt-4 border-t border-gray-50">
+                        <time dateTime={entry.date} className="text-xs text-gray-400 block mb-2">{dateLabel}</time>
+                        <div className="flex flex-wrap gap-1">
+                          {entry.tags.slice(0, 3).map((tag) => (
+                            <span key={tag} className="px-2 py-0.5 text-[10px] bg-gray-50 text-gray-400 font-mono">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ─── Section 5: Mission + Vision ─── */}
       <section className="bg-white py-24 lg:py-36">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
@@ -210,7 +272,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── Section 5: CTA ─── */}
+      {/* ─── Section 6: CTA ─── */}
       <section className="bg-[#14261F] text-white py-20 lg:py-28">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <p className="text-[10px] tracking-[0.5em] text-[#C2CEC7] uppercase mb-6">Follow</p>
