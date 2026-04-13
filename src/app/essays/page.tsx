@@ -5,7 +5,7 @@ import type { EssayMeta } from '@/types/content';
 
 export const metadata: Metadata = {
   title: 'Essays',
-  description: '医療・経営・テクノロジーをテーマに、AI初稿をベースに本人が加筆・編集した考察記事。',
+  description: '医療・経営・テクノロジーをテーマに考えていることを書いた考察記事。',
 };
 
 function EssayCard({ essay }: { essay: EssayMeta }) {
@@ -71,7 +71,7 @@ export default function EssaysPage() {
       <h1 className="font-serif text-3xl lg:text-4xl font-bold mb-2 text-gray-900">Essays</h1>
       <p className="text-sm text-gray-400 mb-3">{essays.length}件</p>
       <p className="text-sm text-gray-500 leading-relaxed mb-12">
-        医療・経営・テクノロジーの交差点で考えていることを書いています。AI初稿をベースに本人が加筆・編集した考察記事です。
+        医療・経営・テクノロジーの交差点で考えていることを書いています。
       </p>
 
       {essays.length === 0 ? (
