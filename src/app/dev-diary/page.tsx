@@ -3,8 +3,6 @@ import type { Metadata } from 'next';
 import { getDevDiaryEntries } from '@/lib/dev-diary';
 import DevDiaryClient from './DevDiaryClient';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   title: 'Dev Log',
   description: '開発環境・ツール・ワークフローの進化記録。Claude Code や AI エージェント連携を日々アップデートしている記録。',
