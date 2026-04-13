@@ -1,6 +1,6 @@
 # SESSION_STATE — 20260317_MyHomePage
 
-> 最終更新: 2026-04-08
+> 最終更新: 2026-04-13
 
 ## 現在フェーズ
 
@@ -57,6 +57,7 @@
 2. **About ページ原稿** — 医師→AI/テックへの転換点エピソード等をユーザーが執筆
 3. **書籍説明文の確定** — Publications ページの仮テキストをユーザー確認後に更新
 4. **Slack 招待URL** — 取得できたら `/lab` の CTA に追加
+5. **未コミット変更の整理** — `content/articles/note_import.json` / `src/lib/__tests__/articles.test.ts` の変更を確認してコミット。`src/app/articles/20260317_MyHomePage.code-workspace` を `.gitignore` に追加するか検討
 
 ## 記事更新フロー（確立済み）
 

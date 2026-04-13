@@ -56,9 +56,9 @@ describe('getArticles()', () => {
 
 describe('getArticle()', () => {
   it('存在する ID で記事（body 含む）を返す', () => {
-    const article = getArticle('note-na999d9aba013-1');
+    const article = getArticle('2026-03-28_standalone_1');
     expect(article).not.toBeNull();
-    expect(article?.title).toBe('OpenAIの小型モデルは、エージェント普及の鍵か');
+    expect(article?.title).toBe('トランプ政権のイラン攻撃と「例外状態」の常態化');
     expect(article?.body).toBeTruthy();
   });
 
@@ -70,7 +70,7 @@ describe('getArticle()', () => {
     fs.writeFileSync(
       TEST_OVERRIDES_FILE,
       JSON.stringify({
-        'note-na999d9aba013-1': {
+        '2026-03-28_standalone_1': {
           title: '上書き後タイトル',
           summary: '上書き後の要約',
         },
@@ -78,7 +78,7 @@ describe('getArticle()', () => {
     );
 
     _resetCache();
-    const article = getArticle('note-na999d9aba013-1');
+    const article = getArticle('2026-03-28_standalone_1');
 
     expect(article?.title).toBe('上書き後タイトル');
     expect(article?.summary).toBe('上書き後の要約');
