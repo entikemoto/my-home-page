@@ -96,13 +96,11 @@ function bodyToBlocks(body: string): BodyBlock[] {
       i++;
       continue;
     }
-    if (line.startsWith('### ')) {
-      blocks.push({ type: 'heading', level: 3, content: line.slice(4).trim() });
-      i++;
-      continue;
-    }
-    if (line.startsWith('## ')) {
-      blocks.push({ type: 'heading', level: 2, content: line.slice(3).trim() });
+    if (line.startsWith('#')) {
+      // ## / ### / #### ... すべての見出しレベルを h2/h3 にマップ
+      const level = line.match(/^(#{1,6})\s/)?.[1].length ?? 2;
+      const content = line.replace(/^#{1,6}\s+/, '').trim();
+      blocks.push({ type: 'heading', level: level <= 2 ? 2 : 3, content });
       i++;
       continue;
     }
@@ -149,6 +147,9 @@ function bodyToBlocks(body: string): BodyBlock[] {
     }
     if (paraLines.length > 0) {
       blocks.push({ type: 'paragraph', content: paraLines.join(' ') });
+    } else {
+      // フォールバック: 無限ループ防止のため未処理行をスキップ
+      i++;
     }
   }
 
