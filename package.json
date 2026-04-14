@@ -9,6 +9,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "lint:devlog": "node scripts/lint_devlog_tables.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "import:note": "node scripts/import_note_articles.mjs"
