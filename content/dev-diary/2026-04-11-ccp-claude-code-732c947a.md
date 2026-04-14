@@ -18,21 +18,22 @@ vault_sync_source: ccp
 - **メリット**: バージョンと機能の対応が確認しやすく、誤った期待を持ちにくい。
 
 - 実行時バージョン: **v2.1.91** → `claude install latest` で **v2.1.101** に更新
-- 調査範囲: v2.1.78〜v2.1.101（GitHub Releases 直接取得）
 - **教訓の実践**: Gemini は補助のみ。GitHub API で一次ソース確認を優先 → ハルシネーションなし
 
 #### 発見した新機能と対応
 
-| 機能 | バージョン | 判定 | 対応 |
-|------|-----------|------|------|
-| hooks の `if` 条件フィルタ | v2.1.85 | 即適用（保留） | 次回 `.claude/settings.json` で適用予定 |
-| Monitor ツール | v2.1.98 | 即適用 | 下記 |
-| `rate_limits` statusline | v2.1.80 | 検討 | 現行 statusline が充実しているため低優先 |
-| `CwdChanged` / `FileChanged` hook | v2.1.83 | 不要 | このVaultでは用途限定的 |
-| `TaskCreated` hook | v2.1.84 | 不要 | 現行運用で不要 |
-| `refreshInterval` statusline | v2.1.97 | 不要 | セッション開始時のみで十分 |
-| `/team-onboarding` | v2.1.101 | 不要 | ソロ運用 |
-| デフォルト effort → `high` | v2.1.94 | 確認のみ | API キーユーザーに影響、意識して使う |
+調査範囲: v2.1.78〜v2.1.101
+
+| 機能 | 判定 | メモ |
+|------|------|------|
+| hooks の `if` 条件フィルタ（v2.1.85） | 即適用（保留） | 次回 settings.json で適用予定 |
+| Monitor ツール（v2.1.98） | 即適用 | 下記参照 |
+| `rate_limits` statusline（v2.1.80） | 検討 | 現行 statusline が充実のため低優先 |
+| `CwdChanged` / `FileChanged` hook（v2.1.83） | 不要 | このVaultでは用途限定的 |
+| `TaskCreated` hook（v2.1.84） | 不要 | 現行運用で不要 |
+| `refreshInterval` statusline（v2.1.97） | 不要 | セッション開始時のみで十分 |
+| `/team-onboarding`（v2.1.101） | 不要 | ソロ運用 |
+| デフォルト effort → `high`（v2.1.94） | 確認のみ | APIキーユーザーに影響あり |
 
 #### 適用した変更
 

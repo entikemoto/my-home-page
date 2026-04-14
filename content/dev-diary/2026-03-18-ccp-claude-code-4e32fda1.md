@@ -22,18 +22,29 @@ vault_sync_source: ccp
 
 #### 発見した新機能と対応
 
-「判定」は Vault への採用可否、「対応」は実際に入れた変更。
+「判定」は Vault への採用可否。採用したものの対応内容は下に記載。
 
-| 機能 | 判定 | 対応 |
-|------|------|------|
-| StopFailure hook | 即適用 | `auto-save-session.sh` を拡張し、APIエラー時にも LAST_SESSION を自動保存するよう追加 |
-| PostCompact hook | 即適用 | `LAST_COMPACT.md` を補助メモとして保存し、次回開始時に補足参照できるよう追加 |
-| `/effort` + `effortLevel` | 検討 | 設計・監査時の推論強度切替に有用。Vault ルールへの落とし込みは要設計 |
-| MCP elicitation / Elicitation hooks | 検討 | 将来 MCP を増やしたときに有効。現行運用では優先度は高くない |
-| `/loop` | 不要 | 既存 hook 中心の運用で十分。定期実行を増やすとノイズ化しやすい |
-| Agent 継続方式の変更（`resume` 廃止、`SendMessage` に集約） | 検討 | 将来 agent 運用手順を明文化する際に反映したい |
-| `/branch` への改名（`/fork` は互換） | 不要 | 互換性があり、現時点での運用影響は小さい |
-| `worktree.sparsePaths` | 不要 | この Vault では恩恵が薄い |
+| 機能 | 判定 |
+|------|------|
+| StopFailure hook | 即適用 |
+| PostCompact hook | 即適用 |
+| `/effort` + `effortLevel` | 検討 |
+| MCP elicitation / Elicitation hooks | 検討 |
+| `/loop` | 不要 |
+| Agent 継続方式（`resume` 廃止→`SendMessage`） | 検討 |
+| `/branch` への改名（`/fork` は互換） | 不要 |
+| `worktree.sparsePaths` | 不要 |
+
+**即適用した機能の詳細:**
+
+- **StopFailure hook**: `auto-save-session.sh` を拡張。APIエラー時にも LAST_SESSION を自動保存するよう追加
+- **PostCompact hook**: `LAST_COMPACT.md` を補助メモとして保存し、次回開始時に補足参照できるよう追加
+
+**検討中の機能:**
+
+- **`/effort` + `effortLevel`**: 設計・監査時の推論強度切替に有用。Vault ルールへの落とし込みは要設計
+- **MCP elicitation**: 将来 MCP を増やしたときに有効。現行運用では優先度は高くない
+- **Agent 継続方式**: 将来 agent 運用手順を明文化する際に反映したい
 
 #### 適用した変更
 
