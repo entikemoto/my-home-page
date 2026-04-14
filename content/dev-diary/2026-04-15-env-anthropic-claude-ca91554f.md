@@ -1,6 +1,6 @@
 ---
 title: "Anthropic の新記事「Claude の知能を引き出す方法」を読んで学んだこと"
-date: "2026-04-13"
+date: "2026-04-15"
 summary: "- 変わったこと: Anthropic が「AIエージェント設計の新しいベストプラクティス」を公開した。"
 tags:
   - "claude-code"
