@@ -1,6 +1,6 @@
 # SESSION_STATE — 20260317_MyHomePage
 
-> 最終更新: 2026-04-15
+> 最終更新: 2026-04-15 08:15
 
 ## 現在フェーズ
 
@@ -48,32 +48,48 @@
 | GitHub push | ✅ 完了（entikemoto/my-home-page） |
 | Vercel デプロイ | ✅ 完了（本番: https://my-home-page-ruby.vercel.app） |
 | CortexFlow → HP 自動連携 | ✅ 完了（HpPublisher → git push → Vercel） |
-| Dev Log 投稿自動化 | ✅ 完了（CortexFlow2.0 の publish-devlog コマンド） |
+| Dev Log 投稿自動化 | ✅ 完了（2ステップ: note確認後にX・Slack） |
 | About ページ原稿 | 🔲 未完了（原稿待ち） |
 | カスタムドメイン | 🔲 未完了 |
 | 英語版（多言語対応） | 🔲 設計メモあり（`docs/multilingual-english-ja-design.md`）・実装未着手 |
 
 ## 次のアクション（優先順）
 
-1. **publish-devlog 実投稿テスト** — dry-run は通過済み。`--draft` で下書き保存→確認→本番投稿の流れを試す
-2. **カバー画像デザインの確認** — 生成済み画像（`CortexFlow2.0/data/covers/Dev_Log_*.png`）を確認し、調整があれば `generate_devlog()` を修正
-3. **カスタムドメイン設定** — 本番URLを確定させる
-4. **About ページ原稿** — 医師→AI/テックへの転換点エピソード等をユーザーが執筆
-5. **英語版の実装** — 英語圏への発信が本格化したタイミングで着手（設計メモ: `docs/multilingual-english-ja-design.md`）
+1. **note記事を確認してX・Slack投稿** — 投稿済み: https://note.com/entikemoto/n/n5078c8114a99
+   ```bash
+   cd ~/Obsidian\ Vaults/MainVault/projects/20260222_CortexFlow2.0
+   source .venv/bin/activate
+   python -m cortexflow2 publish-devlog \
+     --url "https://my-home-page-ruby.vercel.app/dev-diary/2026-04-12-env-entry-ca5c3b34" \
+     --social --note-url "https://note.com/entikemoto/n/n5078c8114a99"
+   ```
+2. **カスタムドメイン設定** — 本番URLを確定させる
+3. **About ページ原稿** — 医師→AI/テックへの転換点エピソード等をユーザーが執筆
+4. **英語版の実装** — 英語圏への発信が本格化したタイミングで着手（設計メモ: `docs/multilingual-english-ja-design.md`）
 
-## Dev Log 投稿フロー（新規確立）
+## Dev Log 投稿フロー（確立済み・2ステップ）
 
 ```bash
-cd /path/to/CortexFlow2.0
+cd ~/Obsidian\ Vaults/MainVault/projects/20260222_CortexFlow2.0
+source .venv/bin/activate
 
-# 下書き保存で確認（推奨）
-.venv/bin/python -m cortexflow2 publish-devlog \
-  --url "https://my-home-page-ruby.vercel.app/dev-diary/SLUG" \
-  --draft
-
-# 本番投稿（note → X → Slack）
-.venv/bin/python -m cortexflow2 publish-devlog \
+# ステップ1: noteに投稿（URLが表示されて停止）
+python -m cortexflow2 publish-devlog \
   --url "https://my-home-page-ruby.vercel.app/dev-diary/SLUG"
+
+# ↑ 記事を確認してOKなら ↓
+
+# ステップ2: X・Slackに投稿
+python -m cortexflow2 publish-devlog \
+  --url "https://my-home-page-ruby.vercel.app/dev-diary/SLUG" \
+  --social --note-url "https://note.com/entikemoto/n/NOTE_ID"
+```
+
+## Dev Log 品質チェック
+
+```bash
+cd ~/Obsidian\ Vaults/MainVault/projects/20260317_MyHomePage
+npm run lint:devlog  # 表が残っていないか確認（4列以上はエラー）
 ```
 
 ## 記事更新フロー（確立済み）
