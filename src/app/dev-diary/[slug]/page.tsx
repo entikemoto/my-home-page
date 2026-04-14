@@ -182,8 +182,6 @@ export default async function DevDiaryPage({ params }: Props) {
           <span className="uppercase tracking-[0.2em]">Dev Log</span>
           <span>·</span>
           <time dateTime={entry.date}>{dateLabel}</time>
-          <span>·</span>
-          <span>本人執筆</span>
         </div>
 
         <h1 className="font-serif text-2xl lg:text-4xl font-bold leading-tight mb-6 text-gray-900">
