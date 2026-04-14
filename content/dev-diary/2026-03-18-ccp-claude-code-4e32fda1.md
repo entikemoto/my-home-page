@@ -22,29 +22,19 @@ vault_sync_source: ccp
 
 #### 発見した新機能と対応
 
-「判定」は Vault への採用可否。採用したものの対応内容は下に記載。
+**即適用:**
+- **StopFailure hook** — `auto-save-session.sh` を拡張。APIエラー時にも LAST_SESSION を自動保存
+- **PostCompact hook** — `LAST_COMPACT.md` を補助メモとして保存し、次回開始時に補足参照できるよう追加
 
-| 機能 | 判定 |
-|------|------|
-| StopFailure hook | 即適用 |
-| PostCompact hook | 即適用 |
-| `/effort` + `effortLevel` | 検討 |
-| MCP elicitation / Elicitation hooks | 検討 |
-| `/loop` | 不要 |
-| Agent 継続方式（`resume` 廃止→`SendMessage`） | 検討 |
-| `/branch` への改名（`/fork` は互換） | 不要 |
-| `worktree.sparsePaths` | 不要 |
+**検討中:**
+- `/effort` + `effortLevel` — 設計・監査時の推論強度切替に有用。Vault ルールへの落とし込みは要設計
+- MCP elicitation / Elicitation hooks — 将来 MCP を増やしたときに有効。現行は優先度低
+- Agent 継続方式（`resume` 廃止→`SendMessage`）— 将来 agent 運用手順を明文化する際に反映
 
-**即適用した機能の詳細:**
-
-- **StopFailure hook**: `auto-save-session.sh` を拡張。APIエラー時にも LAST_SESSION を自動保存するよう追加
-- **PostCompact hook**: `LAST_COMPACT.md` を補助メモとして保存し、次回開始時に補足参照できるよう追加
-
-**検討中の機能:**
-
-- **`/effort` + `effortLevel`**: 設計・監査時の推論強度切替に有用。Vault ルールへの落とし込みは要設計
-- **MCP elicitation**: 将来 MCP を増やしたときに有効。現行運用では優先度は高くない
-- **Agent 継続方式**: 将来 agent 運用手順を明文化する際に反映したい
+**見送り:**
+- `/loop` — 既存 hook 中心の運用で十分。定期実行を増やすとノイズ化しやすい
+- `/branch` への改名（`/fork` は互換）— 互換性があり現時点で運用影響なし
+- `worktree.sparsePaths` — このVaultでは恩恵が薄い
 
 #### 適用した変更
 
