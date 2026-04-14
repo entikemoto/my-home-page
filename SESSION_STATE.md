@@ -1,6 +1,6 @@
 # SESSION_STATE — 20260317_MyHomePage
 
-> 最終更新: 2026-04-13
+> 最終更新: 2026-04-15
 
 ## 現在フェーズ
 
@@ -46,18 +46,35 @@
 | ⑤ ブランドページ群 | ✅ 完了 |
 | ⑥ 媒体導線 | ✅ 完了 |
 | GitHub push | ✅ 完了（entikemoto/my-home-page） |
-| Vercel デプロイ | ✅ 完了（push で自動デプロイ） |
+| Vercel デプロイ | ✅ 完了（本番: https://my-home-page-ruby.vercel.app） |
 | CortexFlow → HP 自動連携 | ✅ 完了（HpPublisher → git push → Vercel） |
+| Dev Log 投稿自動化 | ✅ 完了（CortexFlow2.0 の publish-devlog コマンド） |
 | About ページ原稿 | 🔲 未完了（原稿待ち） |
 | カスタムドメイン | 🔲 未完了 |
+| 英語版（多言語対応） | 🔲 設計メモあり（`docs/multilingual-english-ja-design.md`）・実装未着手 |
 
 ## 次のアクション（優先順）
 
-1. **カスタムドメイン設定** — 本番URLを確定させる
-2. **About ページ原稿** — 医師→AI/テックへの転換点エピソード等をユーザーが執筆
-3. **書籍説明文の確定** — Publications ページの仮テキストをユーザー確認後に更新
-4. **Slack 招待URL** — 取得できたら `/lab` の CTA に追加
-5. **未コミット変更の整理** — `content/articles/note_import.json` / `src/lib/__tests__/articles.test.ts` の変更を確認してコミット。`src/app/articles/20260317_MyHomePage.code-workspace` を `.gitignore` に追加するか検討
+1. **publish-devlog 実投稿テスト** — dry-run は通過済み。`--draft` で下書き保存→確認→本番投稿の流れを試す
+2. **カバー画像デザインの確認** — 生成済み画像（`CortexFlow2.0/data/covers/Dev_Log_*.png`）を確認し、調整があれば `generate_devlog()` を修正
+3. **カスタムドメイン設定** — 本番URLを確定させる
+4. **About ページ原稿** — 医師→AI/テックへの転換点エピソード等をユーザーが執筆
+5. **英語版の実装** — 英語圏への発信が本格化したタイミングで着手（設計メモ: `docs/multilingual-english-ja-design.md`）
+
+## Dev Log 投稿フロー（新規確立）
+
+```bash
+cd /path/to/CortexFlow2.0
+
+# 下書き保存で確認（推奨）
+.venv/bin/python -m cortexflow2 publish-devlog \
+  --url "https://my-home-page-ruby.vercel.app/dev-diary/SLUG" \
+  --draft
+
+# 本番投稿（note → X → Slack）
+.venv/bin/python -m cortexflow2 publish-devlog \
+  --url "https://my-home-page-ruby.vercel.app/dev-diary/SLUG"
+```
 
 ## 記事更新フロー（確立済み）
 
@@ -69,4 +86,4 @@ cortexflow publish --auto --company "企業名" --social-only
 
 ## 関連プロジェクト
 
-- `projects/20260220_CortexFlow_for_Medical_Founder` — HP向け記事データ供給元
+- `projects/20260222_CortexFlow2.0` — HP向け記事データ供給元・Dev Log 投稿自動化
