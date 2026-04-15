@@ -1,0 +1,77 @@
+[
+  {
+    "articleId": "2026-04-15_morning_1",
+    "title": "AIが企業ネットワークを自律攻撃、基本防御の強化が急務",
+    "publishedAt": "2026-04-15T00:00:00+00:00",
+    "edition": "morning",
+    "orderInEdition": 1,
+    "originalSourceUrl": "https://the-decoder.com/claude-mythos-can-autonomously-compromise-weakly-defended-enterprise-networks-end-to-end/",
+    "sourceName": "",
+    "summary": "英国のAI Security InstituteがAnthropicの「Claude Mythos Preview」を評価したところ、模擬企業ネットワークに対する32ステップの攻撃シミュレーションを自律的に完了しました。",
+    "body": "> [Claude Mythos can autonomously compromise weakly defended enterprise networks end-to-end](https://the-decoder.com/claude-mythos-can-autonomously-compromise-weakly-defended-enterprise-networks-end-to-end/)\n> 公開日: 2026-04-14\n>\n\n### 一言で言うと\n英国の[[AI Security Institute]]が[[Anthropic]]の「[[Claude Mythos Preview]]」を評価したところ、模擬企業ネットワークに対する32ステップの攻撃シミュレーションを自律的に完了しました。今回の本質は、AIが助言役を超えて、攻撃手順そのものを連続実行できる段階に入ったことです。\n\n### 何が起きているのか\n英国の[[AI Security Institute]]（[[AISI]]）は、[[Anthropic]]のAIモデル「[[Claude Mythos Preview]]」のサイバー攻撃能力を評価しました。\n\nこの評価で、[[Mythos Preview]]は専門家レベルの[[キャプチャー・ザ・フラッグ]]（[[CTF]]: Capture The Flag）チャレンジにおいて73%の成功率を達成しました。さらに、AIモデルとして初めて、模擬企業ネットワークに対する32ステップの完全な攻撃シミュレーション「[[The Last Ones]]（[[TLO]]）」をエンドツーエンドで完了し、10回の試行中3回でネットワーク全体を乗っ取ることに成功しています。\n\n[[AISI]]は、このモデルが「小規模で防御が手薄な脆弱な企業システム」を自律的に攻撃できる能力を持つと指摘しています。ただし、テスト環境には能動的な防御者やセキュリティ監視がなく、現実の堅牢なシステムに対する有効性は今回の結果だけでは判断できないとも述べています。\n\n### AI業界の文脈では\n今回の評価で重要なのは「自律的に」という点です。これまでAIは脅威検出や脆弱性分析の補助に使われることが多かったのに対し、[[Claude Mythos Preview]]は攻撃の各ステップを人間の細かな指示なしに連鎖実行できることを示しました。\n\nつまり論点は、AIが危険なコードを書けるかどうかではなく、偵察から侵入までの流れを一つの行動として回せるかに移っていることです。一方で、[[AISI]]が指摘するように、こうした能力は攻撃にも防御にも使える「デュアルユース（二重用途）」であり、防御側のAI活用も同時に進むと考えられます。\n\n### 私の見立て\n今回の変化で重くなるのは、攻撃の難しさより攻撃の手間です。人が一つずつ進めていた工程をAIがつなげて実行できるなら、防御が弱い企業ほど狙われやすくなります。\n\n特に中小企業や古いシステムを抱える組織では、基本設定の甘さがそのまま突破口になりかねません。サイバー対策は、もはやIT部門だけの課題ではなく、経営として優先順位を上げる必要があります。\n\n一方で、この能力は防御側にも使えます。脅威検知や初動対応をAIで速める動きも強まるため、攻撃と防御の両方でAI活用が進むと考えた方が自然です。\n\n**→ 何が変わるか**: AIが自律的にサイバー攻撃を実行する能力を持つことで、企業はより高度で自動化された脅威に直面し、従来のセキュリティ対策だけでは不十分になる可能性があります。特に、基本的なセキュリティ衛生が不十分な企業は、AIによる攻撃の標的となりやすくなります。\n\n**→ 何をすべきか**: 企業は、基本的なサイバーセキュリティ対策（定期的なパッチ適用、厳格なアクセス制御、安全なシステム設定、詳細なログ記録と監視）を徹底し、その上でAIを活用した脅威検知・対応システムの導入を検討すべきです。また、AIのデュアルユース性を理解し、防御側でのAI活用戦略を早期に策定することが求められます。\n\n---",
+    "tags": [
+      "ClaudeMythosPreview",
+      "AISecurityInstitute",
+      "自律型AI攻撃",
+      "サイバーセキュリティ"
+    ],
+    "hashtags": [
+      "#ClaudeMythosPreview",
+      "#AISecurityInstitute",
+      "#自律型AI攻撃",
+      "#サイバーセキュリティ"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  },
+  {
+    "articleId": "2026-04-15_morning_2",
+    "title": "AI学習データ利用巡り、ニュース社がアーカイブをブロック",
+    "publishedAt": "2026-04-15T00:00:00+00:00",
+    "edition": "morning",
+    "orderInEdition": 2,
+    "originalSourceUrl": "https://www.tomshardware.com/tech-industry/big-tech/news-outlets-are-blocking-wayback-machine-from-archiving-their-pages-23-outlets-concerned-ai-companies-might-abuse-fair-use-and-use-it-to-train-their-models",
+    "sourceName": "",
+    "summary": "23の主要ニュースメディアが、AI企業に学習データとして使われることを警戒し、Wayback Machineによる自社記事の保存を止め始めています。",
+    "body": "> [News outlets are blocking Wayback Machine from archiving their pages — 23 outlets concerned AI companies might abuse fair use and use it to train their models](https://www.tomshardware.com/tech-industry/big-tech/news-outlets-are-blocking-wayback-machine-from-archiving-their-pages-23-outlets-concerned-ai-companies-might-abuse-fair-use-and-use-it-to-train-their-models)\n> 公開日: 2026-04-14\n>\n\n### 一言で言うと\n23の主要ニュースメディアが、[[AI]]企業に学習データとして使われることを警戒し、[[Wayback Machine]]による自社記事の保存を止め始めています。今回の本質は、[[AI]]と著作権をめぐる対立が、過去の記事をあとから確認できる公共的な記録にも影響し始めたことです。\n\n### 何が起きているのか\n23の主要ニュースメディアが、[[Internet Archive]]（インターネット上の情報を保存する非営利団体）が運営する[[Wayback Machine]]（ウェブサイトの過去のバージョンを閲覧できるアーカイブサービス）による自社ウェブページのアーカイブをブロックしていることが報じられました。\n\n具体的には、[[USA Today]]や[[The New York Times]]を含むこれらのメディアは、[[AI]]企業が「フェアユース（公正利用）」の原則を悪用し、アーカイブされた記事を[[大規模言語モデル]]（LLM: Large Language Model）の学習に利用することを懸念しています。\n\n[[Wayback Machine]]は、ウェブサイトの過去のバージョンを保存することで、歴史的な情報へのアクセスを提供し、誤情報の検証にも役立つ公共性の高いサービスです。[[Internet Archive]]の活動は、裁判所によって合法であり、コンテンツの発見、研究、新たな洞察を可能にする「変革的な目的」を持つフェアユースの一部と認められています。\n\nしかし、メディア側のブロックにより、誤情報が蔓延する現代において、社会が歴史的なニュース記事や重要な情報にアクセスする機会が減少するリスクが生じています。\n\n### AI業界の文脈では\n[[AI]]業界では、[[大規模言語モデル]]（LLM）の性能向上のため、ニュース記事や書籍、ウェブコンテンツなど、インターネット上の膨大なテキストデータが学習データとして利用されてきました。しかし、コンテンツ制作者側からは、無許可でのデータ利用が著作権侵害にあたるという主張が強まっています。\n\n特に、[[The New York Times]]が[[OpenAI]]と[[Microsoft]]を著作権侵害で提訴した事例など、大手メディアと[[AI]]企業の間で法的な争いが顕在化しています。\n\n今回の[[Wayback Machine]]のブロックは、[[AI]]企業によるデータ利用への対抗策として、コンテンツ提供者が直接的なアクセス制限に踏み切った事例であり、法廷闘争だけでなく、技術的な手段によるデータ保護の動きが広がっていることを示唆しています。\n\nこれは、[[AI]]モデルの学習データ確保が今後さらに困難になる可能性を示しており、質の高いデータを合法的に取得するための新たなビジネスモデルや契約形態が求められるでしょう。\n\n### 私の見立て\n今回の問題は、AI学習データを守りたいメディアの論理と、過去の記事を残したい公共アーカイブの論理が正面からぶつかったことです。\n\nメディア側が警戒するのは、自社コンテンツがAI学習に使われることで価値が薄まることです。一方で、[[Wayback Machine]]のようなアーカイブは、過去の報道を確認したり、誤情報を検証したりするうえで欠かせません。\n\nそのため今回のブロックは、自衛策としては理解できても、社会全体では情報を振り返る力を弱める可能性があります。大事なのは、ブロックか無制限利用かの二択ではなく、どういう条件なら使えるのかを整理することです。\n\n**→ 何が変わるか**: AI企業は質の高いニュースデータを使いにくくなり、同時に社会側も過去記事をたどりにくくなる可能性があります。\n\n**→ 何をすべきか**: AI企業とコンテンツホルダーは、データ利用条件や対価のルールを明文化し、アーカイブの公共性を損なわない形を探るべきです。\n\n---",
+    "tags": [
+      "WaybackMachine",
+      "InternetArchive",
+      "著作権",
+      "AI学習データ"
+    ],
+    "hashtags": [
+      "#WaybackMachine",
+      "#InternetArchive",
+      "#著作権",
+      "#AI学習データ"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  },
+  {
+    "articleId": "2026-04-15_morning_3",
+    "title": "医療AIチャットボット導入加速も、効果と安全性に検証が急務",
+    "publishedAt": "2026-04-15T00:00:00+00:00",
+    "edition": "morning",
+    "orderInEdition": 3,
+    "originalSourceUrl": "https://arstechnica.com/health/2026/04/americans-ask-ai-for-health-care-hospitals-think-the-answer-is-more-chatbots/",
+    "sourceName": "",
+    "summary": "アメリカの医療機関が患者向けにAIチャットボットの導入を進めています。",
+    "body": "> [Americans ask AI for health care. Hospitals think the answer is more chatbots.](https://arstechnica.com/health/2026/04/americans-ask-ai-for-health-care-hospitals-think-the-answer-is-more-chatbots/)\n> 公開日: 2026-04-14\n>\n\n### 一言で言うと\nアメリカの医療機関が患者向けに[[AIチャットボット]]の導入を進めています。今回の本質は、患者接点でのAI活用が先に広がる一方、その効果と安全性の検証がまだ追いついていない点です。\n\n### 何が起きているのか\n多くのアメリカ人が健康に関するアドバイスを[[大規模言語モデル]]（LLM: Large Language Model）に求める中、全米の医療システムは自社ブランドの[[チャットボット]]導入を検討し、一部では既に展開しています。\n\n例えば、臨床AI企業[[K Health]]は、[[Hartford HealthCare]]と提携し、[[PatientGPT]]というチャットボットを数万人の既存患者に提供しています。医療機関は、これらのチャットボットが患者の利便性を高め、市販のAIよりも安全な代替手段となると説明しています。\n\nしかし、専門家からは、チャットボットが医療現場での本格的な導入に足る準備ができているか、十分な監視体制が整うか、法的責任は誰が負うのか、そして患者の根本的なケア問題の解決につながるのかといった懸念が示されています。\n\n[[Beth Israel Deaconess Medical Center]]の内科医[[Adam Rodman]]氏は、チャットボットを医療システムに統合することで患者の転帰（治療結果）が改善するというエビデンスはまだないと指摘しており、患者への利益は現時点では仮説段階にとどまっています。\n\n### AI業界の文脈では\n一般向けのAI相談が広がる中で、医療機関が自社ブランドのチャットボットを出すのは、患者を外部の曖昧な情報源へ流さず、自分たちの管理下で案内したいからです。\n\nただし医療では、顧客対応のチャットボットとは重みが違います。誤情報がそのまま受診行動や健康判断に影響するため、便利さだけで導入を広げることはできません。\n\n### 私の見立て\n医療機関が患者向けチャットボットを出す流れ自体は自然ですが、いま足りないのは「本当に患者のためになっているか」の検証です。\n\n患者がすでに市販AIへ相談している以上、病院がより信頼できる窓口を作る意義はあります。ただ、現時点では転帰改善の証拠が乏しく、便利な案内窓口にとどまる可能性もあります。\n\n特に医療では、誤情報、プライバシー、責任の所在を曖昧にしたまま運用できません。導入するなら、何を答え、どこから先は人が引き取るのかまで明確に決める必要があります。\n\n**→ 何が変わるか**: 医療AIでは、導入したかどうかより、患者にとって本当に安全で役立つかが厳しく問われるようになります。\n\n**→ 何をすべきか**: 医療機関は、AIチャットボットが扱う範囲、人へ引き継ぐ条件、効果測定の方法、責任体制を先に定めてから導入すべきです。",
+    "tags": [
+      "AIチャットボット",
+      "KHealth",
+      "PatientGPT",
+      "医療AIの安全性"
+    ],
+    "hashtags": [
+      "#AIチャットボット",
+      "#KHealth",
+      "#PatientGPT",
+      "#医療AIの安全性"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  }
+]
