@@ -1,0 +1,77 @@
+[
+  {
+    "articleId": "2026-04-15_evening_1",
+    "title": "ChromeがAIプロンプトを「スキル」化し日常業務を効率化",
+    "publishedAt": "2026-04-15T00:00:00+00:00",
+    "edition": "evening",
+    "orderInEdition": 1,
+    "originalSourceUrl": "https://www.theverge.com/tech/911658/google-chrome-gemini-ai-skills-availability-launch",
+    "sourceName": "",
+    "summary": "Googleは、ウェブブラウザのChromeでGeminiの指示文（プロンプト）を「スキル」として保存し、繰り返し使える新機能を導入しました。",
+    "body": "> [Chrome now lets you turn AI prompts into repeatable &#8216;Skills&#8217;](https://www.theverge.com/tech/911658/google-chrome-gemini-ai-skills-availability-launch)\n> 公開日: 2026-04-14\n>\n\n### 一言で言うと\n[[Google]]は、ウェブブラウザの[[Chrome]]で[[Gemini]]の指示文（プロンプト）を「スキル」として保存し、繰り返し使える新機能を導入しました。今回の本質は、[[AI]]利用がその場ごとの質問から、再利用できる作業手順へ変わり始めたことです。\n\n### 何が起きているのか\n[[Google]]は、ウェブブラウザの[[Chrome]]に、[[Gemini]]で使う指示文（プロンプト）を「スキル」として保存し、再利用できる新機能を発表しました。これまで、レシピの材料をヴィーガン向けに置き換えるといった作業を別のページでも繰り返したい場合、同じプロンプトを毎回入力し直す必要がありました。\n\nこの「スキル」機能を使うと、一度作成したプロンプトを保存し、クリック一つで複数のタブにわたって実行できるようになります。例えば、オンラインレシピの栄養情報を計算したり、複数のショッピングサイトで商品の仕様を並べて比較したりする際に役立ちます。\n\n「スキル」は、[[Gemini]]のチャット履歴から直接保存でき、同じ[[Google]]アカウントでログインしている他の[[Chrome]]デスクトップデバイスでも利用可能です。また、[[Google]]はあらかじめ用意されたプリセットの「スキル」ライブラリも提供しており、ユーザーはこれをカスタマイズして使うこともできます。この機能は、まず米国英語設定の[[Chrome]]ユーザーから順次展開されています。\n\n### AI業界の文脈では\nこれまで[[AI]]の利用は、毎回その場で聞く形が中心で、定型作業では手間が残っていました。今回の「スキル」機能は、その手間を減らし、[[AI]]を日常的なツールとして定着させる一歩です。\n\nこれは、[[AI]]が単なる質問応答から、作業フローに組み込まれたアシスタントへ進んでいることを示しています。ブラウザという最も身近な入口で再利用性を高めることで、[[Google]]は[[AI]]を使うハードルを下げ、日常の利用導線そのものを握ろうとしています。\n\n### 私の見立て\n今回の変化は、[[AI]]が単発で助ける道具から、日常作業に組み込まれた自動化ツールへ進み始めたことを示しています。プロンプトを保存して再利用できるようになると、使うたびに考え直す負担が減るからです。\n\n企業にとっても意味は大きく、定型業務で使うプロンプトを「スキル」として共有すれば、組織全体で使い方をそろえやすくなります。\n\n**→ 何が変わるか**: [[AI]]の利用が、一時的な問い合わせから、個人の作業習慣に深く組み込まれた効率化ツールへと進化します。\n\n**→ 何をすべきか**: 企業は、従業員が日常業務で繰り返し使う[[AI]]プロンプトを特定し、「スキル」として共有・標準化することで、組織全体の生産性向上を推進すべきです。\n\n---",
+    "tags": [
+      "Chrome",
+      "Gemini",
+      "AIスキル",
+      "業務効率化"
+    ],
+    "hashtags": [
+      "#Chrome",
+      "#Gemini",
+      "#AIスキル",
+      "#業務効率化"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  },
+  {
+    "articleId": "2026-04-15_evening_2",
+    "title": "OpenAIがサイバー防御特化AI「GPT-5.4-Cyber」を投入",
+    "publishedAt": "2026-04-15T00:00:00+00:00",
+    "edition": "evening",
+    "orderInEdition": 2,
+    "originalSourceUrl": "https://the-decoder.com/openai-releases-gpt-5-4-cyber-a-model-built-specifically-for-defensive-cybersecurity/",
+    "sourceName": "",
+    "summary": "OpenAIは、防御的サイバーセキュリティに特化した大規模言語モデル（LLM: Large Language Model）「GPT-5.4-Cyber」をリリースしました。",
+    "body": "> [OpenAI releases GPT-5.4-Cyber, a model built specifically for defensive cybersecurity](https://the-decoder.com/openai-releases-gpt-5-4-cyber-a-model-built-specifically-for-defensive-cybersecurity/)\n> 公開日: 2026-04-15\n>\n\n### 一言で言うと\n[[OpenAI]]は、防御的サイバーセキュリティに特化した[[大規模言語モデル]]（LLM: Large Language Model）「[[GPT-5.4-Cyber]]」をリリースしました。今回の本質は、汎用モデルではなく、防御用途に絞った専門モデルが前面に出てきたことです。\n\n### 何が起きているのか\n[[OpenAI]]は、防御的サイバーセキュリティ作業に特化した[[大規模言語モデル]]（LLM: Large Language Model）「[[GPT-5.4-Cyber]]」をリリースしました。汎用モデルではなく防御用途に絞ったモデルを出したことは、セキュリティ分野での実用化競争が本格化していることを示しています。\n\nこのモデルは、ソースコードが見えない実行ファイルを解析して動作を調べる「バイナリリバースエンジニアリング（Binary Reverse Engineering）」のような高度な作業にも対応するとされています。要するに `GPT-5.4-Cyber` は、難しい防御分析をこなすための専門家向けモデルです。\n\n「[[GPT-5.4-Cyber]]」は、[[OpenAI]]が提供する「Trusted Access for Cyber」（TAC）プログラムを通じて、まず数百人の認証されたセキュリティ専門家に限定的に提供されます。このモデルは防御的なセキュリティ作業において、従来の[[LLM]]よりも制約が少ない一方で、悪用を防ぐためにアクセスには厳格な管理が適用されます。\n\n一方で、[[OpenAI]]があわせて強調している「[[Codex Security]]」は、既存コードを点検して脆弱性（セキュリティ上の弱点）を見つけ、修正案を出す実務ツールです。こちらは `難しい解析をする新しい専門モデル` というより、開発現場で日常的に使う `脆弱性チェック用の道具` に近い位置づけです。これまでに3,000件以上の重要な脆弱性の修正に貢献したと報告されています。\n\n### AI業界の文脈では\nサイバーセキュリティ分野では、[[AI]]の活用が攻撃と防御の両面で急速に進んでいます。今回の「[[GPT-5.4-Cyber]]」は、[[OpenAI]]が防御側の専門化を進めていることを示す動きです。\n\nこの動きは、競合他社の動向とも連動しています。例えば、[[Anthropic]]はわずか1週間前に、OSやブラウザの脆弱性を見つけて悪用することに特化した[[AI]]モデル「[[Claude Mythos]]」を発表しました。\n\nこれらの専門化された[[AI]]モデルは、その強力さゆえに金融機関や政府機関から懸念の声が上がるほど、サイバーセキュリティの風景を大きく変えつつあります。[[OpenAI]]は、モデルの提供を限定的なアクセスにすることで、悪用リスクを管理しながら、防御側の能力向上に貢献しようとしています。\n\n### 私の見立て\nサイバーセキュリティでは、攻撃側の進化が速く、防御側は後手に回りがちでした。しかし、[[GPT-5.4-Cyber]]のような専門モデルは、防御側の手数を増やす可能性があります。\n\n特に、バイナリリバースエンジニアリングのような分析は、専門知識と時間を強く要します。[[AI]]がここを支援できれば、未知の脅威や複雑なマルウェア（悪意のあるソフトウェア）の解析が速くなり、初動対応も早めやすくなります。\n\n**→ 何が変わるか**: [[AI]]がサイバーセキュリティの専門家を強力に支援し、高度な攻撃に対する防御能力を引き上げる局面に入ります。\n\n**→ 何をすべきか**: 企業は、サイバーセキュリティ戦略において[[AI]]の活用を積極的に検討し、専門家と連携して最新の[[AI]]防御ツールを導入・評価する体制を構築すべきです。\n\n---",
+    "tags": [
+      "OpenAI",
+      "GPT-5.4-Cyber",
+      "サイバーセキュリティ",
+      "LLM"
+    ],
+    "hashtags": [
+      "#OpenAI",
+      "#GPT-5.4-Cyber",
+      "#サイバーセキュリティ",
+      "#LLM"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  },
+  {
+    "articleId": "2026-04-15_evening_3",
+    "title": "米国従業員の半数が業務でAI活用、生産性向上への期待高まる",
+    "publishedAt": "2026-04-15T00:00:00+00:00",
+    "edition": "evening",
+    "orderInEdition": 3,
+    "originalSourceUrl": "https://www.tomshardware.com/tech-industry/artificial-intelligence/half-of-all-us-employees-now-use-artificial-intelligence-at-work-crossing-landmark-threshold-for-first-time-gallup-data-shows-daily-and-weekly-usage-hitting-all-time-high-of-28-percent-in-q1-2026-with-65-percent-feeling-positive-about-its-impact-on-productivity",
+    "sourceName": "",
+    "summary": "Gallupの最新調査によると、2026年第1四半期に米国で働く従業員の半数が業務でAIを利用しており、そのうち65%が生産性向上に肯定的な見方を示しています。",
+    "body": "> [Half of all US employees now use artificial intelligence at work, crossing landmark threshold for first time — Gallup data shows daily and weekly usage hitting all-time high of 28% in Q1 2026, with 65% feeling positive about its impact on productivity](https://www.tomshardware.com/tech-industry/artificial-intelligence/half-of-all-us-employees-now-use-artificial-intelligence-at-work-crossing-landmark-threshold-for-first-time-gallup-data-shows-daily-and-weekly-usage-hitting-all-time-high-of-28-percent-in-q1-2026-with-65-percent-feeling-positive-about-its-impact-on-productivity)\n> 公開日: 2026-04-14\n>\n\n### 一言で言うと\n[[Gallup]]の最新調査によると、2026年第1四半期に米国で働く従業員の半数が業務で[[AI]]を利用しており、そのうち65%が生産性向上に肯定的な見方を示しています。今回の本質は、[[AI]]が一部の実験利用ではなく、職場の標準ツールに近づいていることです。\n\n### 何が起きているのか\n[[Gallup]]が2026年2月4日から19日にかけて実施した調査では、特定の先進企業だけではなく、米国で働く現役従業員23,717人を広く対象にしています。その結果、全従業員の50%が何らかの形で業務に[[AI]]を利用していることが判明しました。この割合は、2023年第2四半期の21%から大幅に増加し、初めて半数を超えたことになります。\n\nさらに、毎日または週に数回[[AI]]を利用する従業員の割合は28%に達し、これも過去最高を記録しています。[[AI]]を利用している従業員の65%が、[[AI]]が生産性や効率性に良い影響を与えていると肯定的に評価しています。\n\n一方で、[[AI]]が情報要約などの特定のタスクには有用であるものの、職場環境全体の改善にはまだ課題があるという声も聞かれます。\n\n### AI業界の文脈では\nこの調査結果は、[[AI]]が一部の先進企業だけでなく、米国の労働現場全体に急速に浸透していることを示しています。\n\n一方で、使われていることと、成果が十分に出ていることは別です。利用率が上がっても、生産性向上を本当に引き出すには、ツール導入だけでなく業務プロセスの見直しが必要になります。\n\n### 私の見立て\n米国で働く人の半数が業務で[[AI]]を使っているという数字は、[[AI]]がもはや一部の試験導入ではなく、職場の前提条件に近づいていることを示しています。\n\nただし、個人が使っていることと、会社全体の成果につながっていることは同じではありません。次の論点は、導入率ではなく、どの業務でどう成果が出ているかを見極められるかです。\n\n**→ 何が変わるか**: [[AI]]は特定の専門家だけのツールではなく、あらゆる職種の従業員が日常的に使う基盤技術に近づき、企業の競争力に直結する要素になります。\n\n**→ 何をすべきか**: 企業は、[[AI]]ツールの導入だけでなく、従業員の[[AI]]リテラシー向上、[[AI]]を活用した業務プロセスの再構築、そして[[AI]]がもたらす生産性向上を測定・最適化する戦略を策定し、実行すべきです。",
+    "tags": [
+      "Gallup",
+      "米国",
+      "AI活用",
+      "生産性向上"
+    ],
+    "hashtags": [
+      "#Gallup",
+      "#米国",
+      "#AI活用",
+      "#生産性向上"
+    ],
+    "category": "",
+    "noteArticleUrl": ""
+  }
+]
