@@ -23,14 +23,12 @@ vault_sync_source: ccp
 
 #### 発見した新機能と対応
 
-| 機能 | バージョン | 判定 | 対応 |
-|------|-----------|------|------|
-| PreCompact hook コンパクションブロック（exit 2） | v2.1.105 | 即適用 | `auto-save-session.sh` に exit 2 分岐を追加 |
-| Skill ツールで built-in slash commands を自律呼び出し | v2.1.108 | 即適用 | CLAUDE.md §5 にセキュリティレビュー自律呼び出しルールを追記 |
-| PushNotification ツール | v2.1.110 | 検討 | CLAUDE.md 便利コマンド表に追記（Remote Control 設定が必要） |
-| `/recap` コマンド | v2.1.108 | 検討 | CLAUDE.md 便利コマンド表に追記 |
-| `ENABLE_PROMPT_CACHING_1H` | v2.1.108 | 不要 | サブスク利用のため対象外 |
-| `/tui fullscreen` | v2.1.110 | 不要 | UI の好みの問題 |
+- **PreCompact hook コンパクションブロック（exit 2）**: v2.1.105 — 判定: 即適用 — 対応: `auto-save-session.sh` に exit 2 分岐を追加
+- **Skill ツールで built-in slash commands を自律呼び出し**: v2.1.108 — 判定: 即適用 — 対応: `CLAUDE.md` §5 にセキュリティレビュー自律呼び出しルールを追記
+- **PushNotification ツール**: v2.1.110 — 判定: 検討 — 対応: `CLAUDE.md` 便利なコマンド表に追記（Remote Control 設定が必要）
+- **`/recap` コマンド**: v2.1.108 — 判定: 検討 — 対応: `CLAUDE.md` 便利なコマンド表に追記
+- **`ENABLE_PROMPT_CACHING_1H`**: v2.1.108 — 判定: 不要 — 対応: サブスク利用のため対象外
+- **`/tui fullscreen`**: v2.1.110 — 判定: 不要 — 対応: UI の好みの問題
 
 #### 適用した変更
 
@@ -41,5 +39,5 @@ vault_sync_source: ccp
 #### 次回の最優先候補
 
 1. **Push notification の有効化** — Claude.ai Settings → Remote Control → "Push when Claude decides" をオンにする（手動設定）
-2. **Monitor ツールの実運用** — richmanbtc の RSI 待機に Monitor ツールを使ってみる
+2. **Monitor ツールの実運用** — 長時間の待機や監視タスクで Monitor ツールを使ってみる
 3. hooks の `if` 条件フィルタを `.claude/settings.json` に適用（継続）
