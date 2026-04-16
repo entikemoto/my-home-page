@@ -36,15 +36,15 @@ vault_sync_source: ccp
 
 #### 適用した変更
 
-1. Claude Code を v2.1.91 → v2.1.101 に更新（`claude install latest`）
-2. `claude_orchestra_lite/運用ガイド.md` に Monitor ツールセクションを追加
-   - パラメータ解説、Bash `run_in_background` との使い分け、実用例3パターン
-3. `CLAUDE.md` 便利なコマンド表に Monitor ツールを追記
-4. `docs/last_changelog_check.md` を更新
+- Claude Code を v2.1.91 → v2.1.101 に更新（`claude install latest`）
+- `claude_orchestra_lite/運用ガイド.md` に Monitor ツールセクションを追加
+  - パラメータ解説、Bash `run_in_background` との使い分け、実用例3パターン
+- `CLAUDE.md` 便利なコマンド表に Monitor ツールを追記
+- `docs/last_changelog_check.md` を更新
 
 #### 次回の最優先候補
 
-1. hooks の `if` 条件フィルタを `.claude/settings.json` に適用（validate-file-location 等）
-2. Monitor ツールを実プロジェクト（20260204_richmanbtc 等）で実際に試す
+- hooks の `if` 条件フィルタを `.claude/settings.json` に適用（validate-file-location 等）
+- Monitor ツールを実プロジェクト（20260204_richmanbtc 等）で実際に試す
 
 ---

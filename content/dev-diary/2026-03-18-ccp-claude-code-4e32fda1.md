@@ -37,22 +37,22 @@ vault_sync_source: ccp
 
 #### 適用した変更
 
-1. `docs/last_changelog_check.md` を更新
-   - 最終チェック日を `2026-03-18` に更新
-   - 直近リリースの要点と Vault への判定を追記
-2. `.claude/settings.json` に `StopFailure` hook を追加
-   - API エラーや認証失敗などでターンが終わったときも自動保存
-3. `_tools/hooks/auto-save-session.sh` を拡張
-   - `StopFailure` に対応
-   - 失敗終了時は LAST_SESSION に失敗情報を追記
-4. `.claude/settings.json` に `PostCompact` hook を追加
-   - compact 後の要約を `LAST_COMPACT.md` に保存
-5. `_tools/hooks/post-compact-brief.sh` を新規作成
-   - `compact_summary` / `trigger` / `transcript_path` を補助メモとして保存
-6. `_tools/hooks/session-start.sh` を拡張
-   - `LAST_COMPACT.md` を補足コンテキストとして読み込む
+- `docs/last_changelog_check.md` を更新
+  - 最終チェック日を `2026-03-18` に更新
+  - 直近リリースの要点と Vault への判定を追記
+- `.claude/settings.json` に `StopFailure` hook を追加
+  - API エラーや認証失敗などでターンが終わったときも自動保存
+- `_tools/hooks/auto-save-session.sh` を拡張
+  - `StopFailure` に対応
+  - 失敗終了時は LAST_SESSION に失敗情報を追記
+- `.claude/settings.json` に `PostCompact` hook を追加
+  - compact 後の要約を `LAST_COMPACT.md` に保存
+- `_tools/hooks/post-compact-brief.sh` を新規作成
+  - `compact_summary` / `trigger` / `transcript_path` を補助メモとして保存
+- `_tools/hooks/session-start.sh` を拡張
+  - `LAST_COMPACT.md` を補足コンテキストとして読み込む
 
 #### 次回の最優先候補
 
-1. `LAST_COMPACT.md` の運用微調整
-   - compact 補助メモの粒度や注入量が適切かを実運用で確認する
+- `LAST_COMPACT.md` の運用微調整
+  - compact 補助メモの粒度や注入量が適切かを実運用で確認する

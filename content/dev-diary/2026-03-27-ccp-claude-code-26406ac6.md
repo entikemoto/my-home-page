@@ -29,9 +29,9 @@ vault_sync_source: ccp
 
 #### 適用した変更
 
-1. `docs/last_changelog_check.md` の最終チェック日を `2026-03-27` に更新（記録のみ）
+- `docs/last_changelog_check.md` の最終チェック日を `2026-03-27` に更新（記録のみ）
 
 #### 次回の最優先候補
 
-1. Claude Code の GitHub Releases を直接参照（https://github.com/anthropics/claude-code/releases）して Gemini 結果と照合する運用に切り替える
-2. `LAST_COMPACT.md` の運用微調整（継続）
+- Claude Code の GitHub Releases を直接参照して Gemini 結果と照合する運用に切り替える
+- `LAST_COMPACT.md` の運用微調整（継続）

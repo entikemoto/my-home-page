@@ -32,12 +32,12 @@ vault_sync_source: ccp
 
 #### 適用した変更
 
-1. `_tools/hooks/auto-save-session.sh` — PreCompact 書き込み失敗時に exit 2 でコンパクションをブロック
-2. `CLAUDE.md` §5 コア原則 — セキュリティレビュー自律呼び出しルールを追記
-3. `CLAUDE.md` 便利なコマンド表 — PushNotification ツール・/recap を追記
+- `_tools/hooks/auto-save-session.sh` — PreCompact 書き込み失敗時に exit 2 でコンパクションをブロック
+- `CLAUDE.md` §5 コア原則 — セキュリティレビュー自律呼び出しルールを追記
+- `CLAUDE.md` 便利なコマンド表 — PushNotification ツール・/recap を追記
 
 #### 次回の最優先候補
 
-1. **Push notification の有効化** — Claude.ai Settings → Remote Control → "Push when Claude decides" をオンにする（手動設定）
-2. **Monitor ツールの実運用** — 長時間の待機や監視タスクで Monitor ツールを使ってみる
-3. hooks の `if` 条件フィルタを `.claude/settings.json` に適用（継続）
+- **Push notification の有効化** — Claude.ai Settings → Remote Control → "Push when Claude decides" をオンにする（手動設定）
+- **Monitor ツールの実運用** — 長時間の待機や監視タスクで Monitor ツールを使ってみる
+- hooks の `if` 条件フィルタを `.claude/settings.json` に適用（継続）
