@@ -19,16 +19,14 @@ vault_sync_source: ccp
 
 #### 追加した機能（8件すべて完了）
 
-| # | 機能 | 種類 | 場所 |
-|---|------|------|------|
-| 1 | gitleaks PreCommit hook | Hook | `_tools/hooks/gitleaks-precommit.sh` |
-| 2 | pip-audit PostToolUse hook | Hook | `_tools/hooks/pip-audit-guard.sh` |
-| 3 | UserPromptSubmit hook（外部コンテンツマーカー） | Hook | `_tools/hooks/external-content-marker.sh` |
-| 4 | VoiceClinical 専用厳格設定 | Config | `projects/20260216_VoiceClinical/.claude/settings.local.json` |
-| 5 | Semgrep MCP server | MCP | `~/.claude.json`（user scope） |
-| 6 | GitHub MCP server | MCP | `~/.claude.json`（user scope, OAuth 認証必要） |
-| 7 | `/security-audit` スキル | Skill | `~/.claude/skills/security-audit/` |
-| 8 | `/threat-model` スキル | Skill | `~/.claude/skills/threat-model/` |
+- **gitleaks PreCommit hook**（Hook）: `_tools/hooks/gitleaks-precommit.sh`
+- **pip-audit PostToolUse hook**（Hook）: `_tools/hooks/pip-audit-guard.sh`
+- **UserPromptSubmit hook（外部コンテンツマーカー）**（Hook）: `_tools/hooks/external-content-marker.sh`
+- **VoiceClinical 専用厳格設定**（Config）: `projects/20260216_VoiceClinical/.claude/settings.local.json`
+- **Semgrep MCP server**（MCP）: `~/.claude.json`（user scope）
+- **GitHub MCP server**（MCP）: `~/.claude.json`（user scope, OAuth 認証必要）
+- **`/security-audit` スキル**（Skill）: `~/.claude/skills/security-audit/`
+- **`/threat-model` スキル**（Skill）: `~/.claude/skills/threat-model/`
 
 #### 前提インストール（実施済）
 

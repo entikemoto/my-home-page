@@ -8,6 +8,8 @@
 
 **対象ユーザー**: AIニュースを素早く把握したい読者・過去記事を探したい既存読者・医療AI領域での活動を知りたい見込み顧客・協業先・メディア関係者
 
+- **data-class**: public（公開Webサイト）
+
 ---
 
 ## Tech Stack
@@ -44,6 +46,7 @@ npx tsc --noEmit     # 型チェック
 - **反映タイミング**: `npm run sync:dev-log` または `npm run build` の prebuild（ローカルで Vault の `docs/` が見えるときだけ再生成。CI ではスキップし、コミット済みの `content/dev-diary/*.md` を使用）
 - **新しい更新をサイトへ載せる流れ**: Vault の該当ファイルを更新 → `npm run sync:dev-log` → MyHomePage で `content/dev-diary/` の差分をコミット・push（**Vercel はここで更新**）
 - **平易な書き方**: Vault の `docs/DEV_LOG_PLAIN_LANGUAGE.md`。最低限は**これからの追記**から型に合わせること。**過去分にも**「この回の要点」を足すとサイトで変遷と意味が伝わりやすい（任意・二層のうち「目指す姿」）
+- **表は使わない**: サイトへ同期する開発ログ本文では Markdown の表を使わず、箇条書きで書く。`npm run sync:dev-log` は表を検出すると停止する
 
 ---
 

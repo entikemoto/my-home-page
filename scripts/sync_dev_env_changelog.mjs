@@ -197,6 +197,34 @@ function makeSummary(body) {
 }
 
 /**
+ * サイト掲載用の Dev Log は、非エンジニアにも読みやすいよう
+ * Markdown の表を禁止し、箇条書きへ寄せる。
+ * @param {string} text
+ */
+function hasMarkdownTable(text) {
+  return /(?:^|\n)\|.+\|\n\|[\-:| ]+\|(?:\n|$)/m.test(text);
+}
+
+/**
+ * @param {{ source: SourceKey; date: string; title: string; body: string; tags: string[] }[]} sections
+ */
+function assertNoMarkdownTables(sections) {
+  const hits = sections.filter((sec) => hasMarkdownTable(sec.body));
+  if (hits.length === 0) return;
+
+  const details = hits
+    .map((sec) => `- ${sec.date} / ${sec.title} [source=${sec.source}]`)
+    .join('\n');
+
+  throw new Error(
+    '[vault_hp_sync] Markdown の表が残っているため同期を中止しました。\n' +
+      'サイト掲載用の開発ログは表ではなく箇条書きで記述してください。\n' +
+      '該当セクション:\n' +
+      `${details}`,
+  );
+}
+
+/**
  * @param {string} date
  * @param {string} titleJp
  * @param {SourceKey} sourceKey
@@ -310,6 +338,8 @@ function main() {
     console.warn('[vault_hp_sync] 取り込むセクションがありません。');
     process.exit(0);
   }
+
+  assertNoMarkdownTables(all);
 
   removePreviousGenerated();
   fs.mkdirSync(DEV_DIARY_DIR, { recursive: true });

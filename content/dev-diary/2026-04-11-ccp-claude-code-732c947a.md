@@ -23,16 +23,14 @@ vault_sync_source: ccp
 
 #### 発見した新機能と対応
 
-| 機能 | バージョン | 判定 | 対応 |
-|------|-----------|------|------|
-| hooks の `if` 条件フィルタ | v2.1.85 | 即適用（保留） | 次回 `.claude/settings.json` で適用予定 |
-| Monitor ツール | v2.1.98 | 即適用 | 下記 |
-| `rate_limits` statusline | v2.1.80 | 検討 | 現行 statusline が充実しているため低優先 |
-| `CwdChanged` / `FileChanged` hook | v2.1.83 | 不要 | このVaultでは用途限定的 |
-| `TaskCreated` hook | v2.1.84 | 不要 | 現行運用で不要 |
-| `refreshInterval` statusline | v2.1.97 | 不要 | セッション開始時のみで十分 |
-| `/team-onboarding` | v2.1.101 | 不要 | ソロ運用 |
-| デフォルト effort → `high` | v2.1.94 | 確認のみ | API キーユーザーに影響、意識して使う |
+- **hooks の `if` 条件フィルタ**（v2.1.85）: 判定は即適用（保留）。次回 `.claude/settings.json` で適用予定。
+- **Monitor ツール**（v2.1.98）: 判定は即適用。詳細は下記。
+- **`rate_limits` statusline**（v2.1.80）: 判定は検討。現行 statusline が充実しているため優先度は低い。
+- **`CwdChanged` / `FileChanged` hook**（v2.1.83）: 判定は不要。この Vault では用途が限定的。
+- **`TaskCreated` hook**（v2.1.84）: 判定は不要。現行運用で不要。
+- **`refreshInterval` statusline**（v2.1.97）: 判定は不要。セッション開始時のみで十分。
+- **`/team-onboarding`**（v2.1.101）: 判定は不要。ソロ運用のため。
+- **デフォルト effort → `high`**（v2.1.94）: 判定は確認のみ。API キーユーザーに影響するため意識して使う。
 
 #### 適用した変更
 
