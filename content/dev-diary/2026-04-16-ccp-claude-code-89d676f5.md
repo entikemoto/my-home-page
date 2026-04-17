@@ -41,3 +41,5 @@ vault_sync_source: ccp
 - **Push notification の有効化** — Claude.ai Settings → Remote Control → "Push when Claude decides" をオンにする（手動設定）
 - **Monitor ツールの実運用** — 長時間の待機や監視タスクで Monitor ツールを使ってみる
 - hooks の `if` 条件フィルタを `.claude/settings.json` に適用（継続）
+
+---

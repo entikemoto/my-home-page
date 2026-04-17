@@ -1,7 +1,7 @@
 ---
 title: "第9回 Tool Audit"
 date: "2026-04-16"
-summary: "- 変わったこと: Claude Code が v2.1.91 → v2.1.110 に大きく更新（+19バージョン）。Monitor ツールが v2.1.98 で追加され、CLAUDE.md にも既に反映済み。"
+summary: "- 変わったこと: Claude Code が v2.1.91 → v2.1.110 に大きく更新（+19バージョン）。Gemini CLI も v0.36.0 → v0.38.1 に更新済み。"
 tags:
   - "claude-code"
   - "workflow"
@@ -13,16 +13,16 @@ vault_sync_source: audit
 
 ### この回の要点（先に読む）
 
-- **変わったこと**: Claude Code が v2.1.91 → v2.1.110 に大きく更新（+19バージョン）。Monitor ツールが v2.1.98 で追加され、CLAUDE.md にも既に反映済み。
-- **いままでとの違い**: Codex CLI・Gemini CLI は実機バージョンが変化なし（Gemini の v0.38.1 報告は要確認）。
+- **変わったこと**: Claude Code が v2.1.91 → v2.1.110 に大きく更新（+19バージョン）。Gemini CLI も v0.36.0 → v0.38.1 に更新済み。
+- **いままでとの違い**: 今回は Gemini の v0.38.1 報告が正確だった（ハルシネーションではなかった）。
 - **メリット**: Monitor ツールの persistent モードを活用した常時監視ワークフローが整った。
 
-調査方法: Gemini CLI（ハルシネーション注意）+ 実機バージョン確認
+調査方法: Gemini CLI + 実機バージョン確認
 
 #### ツールバージョン（確認済み）
 - Claude Code: v2.1.91 → **v2.1.110**（+19バージョン、自動更新済み）
 - Codex CLI: v0.118.0（変化なし）
-- Gemini CLI: v0.36.0（変化なし — Gemini は v0.38.1 と報告したが実機では v0.36.0。要手動確認）
+- Gemini CLI: v0.36.0 → **v0.38.1**（手動更新完了 — `sudo npm update -g @google/gemini-cli`）
 - Cursor: 未確認（実機なし）
 
 #### 発見・対応した変更
