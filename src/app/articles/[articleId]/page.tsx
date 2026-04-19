@@ -23,12 +23,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = getArticle(articleId);
   if (!article) return {};
 
+  const description = article.todayPoint || article.summary;
   return {
     title: article.title,
-    description: article.summary,
+    description,
     openGraph: {
       title: article.title,
-      description: article.summary,
+      description,
       type: 'article',
       publishedTime: article.publishedAt,
     },
@@ -183,6 +184,12 @@ export default async function ArticlePage({ params }: Props) {
       </div>
 
       <hr className="border-gray-100 mb-10" />
+
+      {article.todayPoint && (
+        <p className="mb-10 text-base leading-[1.9] text-gray-800 font-medium border-l-2 border-amber-700 pl-5">
+          {article.todayPoint}
+        </p>
+      )}
 
       {/* 本文 */}
       <article className="space-y-5 text-base leading-[1.9] text-gray-700">

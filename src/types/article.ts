@@ -17,6 +17,7 @@ export interface HpArticle {
   tags: string[];
   category: string;
   summary: string;
+  todayPoint?: string;        // 今日のポイント該当bullet。優先的に冒頭に表示する
   noteArticleUrl: string;     // note 公開後に追記。公開前は空文字列
 }
 
@@ -25,5 +26,5 @@ export type HpArticleMeta = Omit<HpArticle, 'body'>;
 
 /** 手動修正用: note 取り込み後に一部項目だけ上書きする */
 export type HpArticleOverride = Partial<
-  Pick<HpArticle, 'title' | 'summary' | 'body' | 'tags' | 'category' | 'sourceName'>
+  Pick<HpArticle, 'title' | 'summary' | 'todayPoint' | 'body' | 'tags' | 'category' | 'sourceName'>
 >;

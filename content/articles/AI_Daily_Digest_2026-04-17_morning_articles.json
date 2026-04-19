@@ -22,7 +22,8 @@
       "#画面操作AI"
     ],
     "category": "",
-    "noteArticleUrl": ""
+    "noteArticleUrl": "",
+    "todayPoint": "OpenAIが開発者ツールCodexをエージェント化し、AIによる自律的なソフトウェア開発の可能性を広げました。"
   },
   {
     "articleId": "2026-04-17_morning_2",
@@ -47,7 +48,8 @@
       "#AIインフラ"
     ],
     "category": "",
-    "noteArticleUrl": ""
+    "noteArticleUrl": "",
+    "todayPoint": "エージェントAIと検索拡張生成（RAG: Retrieval Augmented Generation）システムがCPU需要を喚起し、AMDとIntelの株価が過去最高値を更新しました。"
   },
   {
     "articleId": "2026-04-17_morning_3",
@@ -72,6 +74,7 @@
       "#ライフサイエンス"
     ],
     "category": "",
-    "noteArticleUrl": ""
+    "noteArticleUrl": "",
+    "todayPoint": "OpenAIがライフサイエンス特化AI「GPT-Rosalind」を発表し、専門分野でのAI活用を加速させます。"
   }
 ]

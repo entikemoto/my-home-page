@@ -50,9 +50,9 @@ export default function ArticleCard({ article }: Props) {
           </Link>
         </h2>
 
-        {article.summary && (
+        {(article.todayPoint || article.summary) && (
           <p className="text-sm text-gray-500 line-clamp-2 mb-4 leading-relaxed">
-            {article.summary}
+            {article.todayPoint || article.summary}
           </p>
         )}
 
