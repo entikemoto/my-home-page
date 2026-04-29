@@ -1,0 +1,28 @@
+[
+  {
+    "articleId": "2026-04-29_evening_1",
+    "title": "AIが27年来のバグを掘り出した — 汎用モデルでも深い脆弱性を見つける段階に入った",
+    "publishedAt": "2026-04-29T00:00:00+00:00",
+    "edition": "evening",
+    "orderInEdition": 1,
+    "originalSourceUrl": "https://spectrum.ieee.org/anthropic-claude-mythos-preview-code",
+    "sourceName": "",
+    "summary": "専用訓練を受けていない汎用AIが、主要なOSやウェブブラウザで大量の深刻な脆弱性を見つけられる段階に来た、という話です。",
+    "todayPoint": "Anthropic の Claude Mythos Preview が27年来の OpenBSD バグを含む数千件の高深刻度脆弱性を専用訓練なしで掘り出し、Amazon Web Services (AWS)・Apple・Google・Microsoft・Nvidia と組む Project Glasswing が立ち上がるなど、AI による発見の速さに、修正の速さが追いつかない局面が見え始めています。",
+    "body": "> [Claude Mythos Preview Requires New Ways to Keep Code Secure](https://spectrum.ieee.org/anthropic-claude-mythos-preview-code)\n> 公開日: 2026-04-27\n>\n\n### 一言で言うと\n\n専用訓練を受けていない汎用AIが、主要なOSやウェブブラウザで大量の深刻な脆弱性を見つけられる段階に来た、という話です。\n\n### 何が起きているのか\n\n[[Anthropic]] の社内チーム [[Frontier Red Team]] が、自社のAIモデル [[Claude Mythos Preview]] による脆弱性発見の結果を公表しました。このチームはAIのリスクと能力の限界を内部で検証する役割を担っています。\n\nこのモデルが見つけたのは、主要なオペレーティングシステムとウェブブラウザに含まれる、数千件の高・重大深刻度の脆弱性です。注目すべき点は、モデルが脆弱性発見のための特別な訓練を受けていなかったことです。汎用の対話モデルが、副産物として大量のバグを掘り出した、という性質のものです。\n\n発見された中には、オープンソースのUnix系OS [[OpenBSD]] に27年間残っていたバグも含まれます。このバグを使うと、遠くにいる攻撃者が任意の OpenBSD マシンを止められます。記事の中では、このモデルが複数のバグをつなげて Linux カーネルの管理者権限を奪う一連の手順まで組み立てられる、とも書かれています。\n\nこれらの発見を受けて、[[Anthropic]] はAIを使ったサイバー攻撃を防ぐためのプロジェクト [[Project Glasswing]] を立ち上げました。ローンチパートナーは [[Amazon Web Services (AWS)]]・[[Apple]]・[[Google]]・[[Microsoft]]・[[Nvidia]] の5社です。各社は自社ソフトウェアのスキャンと安全性確保に [[Claude Mythos Preview]] を使うとされています。\n\n### AI業界の文脈では\n\nこのニュースの中心は、AIが防御を助けたことだけではありません。専用の脆弱性探索モデルではなく、汎用の対話モデルがここまで来たこと自体が大きな変化です。記事や Anthropic の公開情報では、Mythos Preview は特別な脆弱性発見訓練なしに、主要なOSやブラウザでゼロデイ脆弱性を見つけて悪用できたとされています。\n\n### 私の見立て\n\nここで重要なのは、脆弱性を見つける力と悪用する力が、同じ汎用モデルの改善の中から一緒に伸びていることです。Anthropic 自身も、脆弱性の修正に効く改善が、そのまま悪用能力の向上にもつながると書いています。記事では、OpenBSD に27年間残っていたバグや、複数のバグをつないで Linux カーネルの管理者権限を奪う手順まで例として挙げられています。\n\nそのため [[Anthropic]] は、見つけた脆弱性を防御側で先に洗い出して安全性を高めるための枠組みとして [[Project Glasswing]] を立ち上げました。[[Amazon Web Services (AWS)]]・[[Apple]]・[[Google]]・[[Microsoft]]・[[Nvidia]] が参加しているのは、この能力を個社の話ではなく、業界全体の備えとして扱い始めたからです。\n\n**→ 何が変わるか**: 汎用の対話モデルでも、主要ソフトウェアの深い脆弱性を見つけられる段階に入りました。これからは、AIを使った脆弱性探索を前提に防御を考える必要が出てきます。\n\n**→ 何をすべきか**: ソフトウェアを作る企業や大きなシステムを運用する企業は、AIで脆弱性を見つける体制だけでなく、見つかった結果を安全に修正し、公開まで管理する体制もセットで整える必要があります。今回 [[Anthropic]] が [[Project Glasswing]] を立ち上げたのも、その作業を個社任せではなく、先に業界側で回し始める必要があるからです。",
+    "tags": [
+      "ClaudeMythosPreview",
+      "Anthropic",
+      "脆弱性発見",
+      "ProjectGlasswing"
+    ],
+    "hashtags": [
+      "#ClaudeMythosPreview",
+      "#Anthropic",
+      "#脆弱性発見",
+      "#ProjectGlasswing"
+    ],
+    "category": "",
+    "noteArticleUrl": "https://note.com/entikemoto/n/n539e5ba65810"
+  }
+]
