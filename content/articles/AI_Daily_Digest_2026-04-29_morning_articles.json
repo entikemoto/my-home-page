@@ -1,0 +1,28 @@
+[
+  {
+    "articleId": "2026-04-29_morning_1",
+    "title": "Photoshopが部品の側にまわる — Anthropicが作りに行った一段上の層",
+    "publishedAt": "2026-04-29T00:00:00+00:00",
+    "edition": "morning",
+    "orderInEdition": 1,
+    "originalSourceUrl": "https://www.theverge.com/ai-artificial-intelligence/919648/anthropic-claude-creative-connectors-adobe-blender",
+    "sourceName": "",
+    "summary": "Claude が、Photoshop や Blender などのクリエイティブソフトを外から呼び出して使う入口になり始めた、という話です。",
+    "todayPoint": "Anthropic の Claude が Adobe Creative Cloud・Blender・Ableton などのクリエイティブソフトと直接連携できる仕組み（コネクタ）をリリースし、アプリが上からAIに呼び出される部品側にまわる構図が見え始めています。",
+    "body": "> [Claude can now plug directly into Photoshop, Blender, and Ableton](https://www.theverge.com/ai-artificial-intelligence/919648/anthropic-claude-creative-connectors-adobe-blender)\n> 公開日: 2026-04-28\n>\n\n### 一言で言うと\n\n[[Claude]] が、[[Photoshop]] や [[Blender]] などのクリエイティブソフトを外から呼び出して使う入口になり始めた、という話です。\n\n### 何が起きているのか\n\n[[Anthropic]] が、自社のAIチャットボット [[Claude]] を主要なクリエイティブソフトと直接つなぐ仕組み（コネクタ）を発表しました。対象は [[Adobe Creative Cloud]] アプリ、[[Affinity]]、[[Blender]]、[[Ableton]]、[[Autodesk]] です。\n\nこのコネクタを使うと、[[Claude]] から接続先のアプリのデータを取り出したり、アプリ内の操作を実行したりできます。これまでAIと外部ソフトのやり取りは、画像ファイルや書き出した素材を介する間接的なものが中心でした。今回はレイヤーの構成や3Dシーンの中身のようなアプリの内部状態に、[[Claude]] から直接アクセスできます。\n\nあわせて [[Anthropic]] は、オープンソースの3Dソフト [[Blender]] の開発を支える [[Blender Development Fund]] のコーポレートパトロンになり、年間最低24万ユーロ（約28万1千ドル）を支払うと表明しました。\n\n### AI業界の文脈では\n\nポイントは、AIが業務アプリの中に埋め込まれる段階から、AIが仕事の入口に立ってアプリを呼び出す段階へ進み始めたことです。[[Adobe]] が自社の生成AI [[Adobe Firefly]] を [[Photoshop]] の中に入れた形に対して、今回は [[Claude]] が前に立ち、[[Photoshop]] や [[Blender]] が後ろで呼ばれる側にまわります。\n\n狙いは、ユーザーが一日の仕事で最初に開く場所を [[Claude]] にすることです。最初に開く場所を握ると、その日の作業の流れ全体を握れます。\n\n### 私の見立て\n\nここで動いているのは、便利機能が1つ増えたことではなく、誰がユーザーの作業全体を見渡せる位置に立つか、という配置の変化です。[[Claude]] 経由で操作が進むと、[[Photoshop]] や [[Blender]] の中で行われていた手順や意図が [[Claude]] 側に流れます。アプリを売る会社より、その上に立つAIのほうが現場の情報を広く持ちやすい構図になります。\n\n経済の向きも同じです。コネクタが普及しても、[[Anthropic]] が [[Adobe]] から直接お金を取れるわけではありません。代わりに伸びるのは、[[Claude]] が使われる時間と、そこでやり取りされる文字（AIへの入出力単位で、ここに課金が乗る）の量です。これまで会話で終わっていた時間が、画像修正や3Dシーン制作の作業時間まで地続きになります。[[Blender]] への年24万ユーロは、[[Claude]] の法人契約1社分で回収できる規模です。これは寄付というより、自分の道具がオープンソース部品の上で動き続けるための保険と見たほうが自然です。\n\n実際に連携が強く効く場面も限られます。プロが手でやったほうが速い細かな作業そのものより、同じ処理を大量に回す反復作業か、ソフトの操作を知らない人が結果だけほしい場面です。つまりこれは、プロをさらに2倍速にする話というより、プロでない人がプロ向けの道具を使えるようになる話です。クリエイティブ業界の裾野拡大は、この方向で進みます。\n\n**→ 何が変わるか**: ソフトウェアを売っている会社は、AIから呼び出される部品の側にまわるか、自社アプリの中でAIを動かす入口側に立つかを選ばされます。ユーザーから見ると、日常的に最初に開く場所が、特定の業務ソフトから対話型AIに置き換わっていきます。\n\n**→ 何をすべきか**: 企業は、いま使っている業務ソフトがAIから操作できる状態かを点検します。具体的には、外から操作するための窓口（API）が公開されているか、データを外へ取り出せるかです。閉じたアプリは、AI経由の利用から外れやすくなります。個人で活動するクリエイターは、ツール操作の巧みさだけで差別化するやり方を見直したほうが安全です。これからは、どのソフトを速く触れるかより、何を作るかを決める力のほうに重心を移すのが現実的です。",
+    "tags": [
+      "Claude",
+      "Photoshop",
+      "Anthropic",
+      "AIワークフロー"
+    ],
+    "hashtags": [
+      "#Claude",
+      "#Photoshop",
+      "#Anthropic",
+      "#AIワークフロー"
+    ],
+    "category": "",
+    "noteArticleUrl": "https://note.com/entikemoto/n/n9437e9ce20b4"
+  }
+]
