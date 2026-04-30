@@ -1,0 +1,28 @@
+[
+  {
+    "articleId": "2026-04-30_morning_1",
+    "title": "Metaが買ったのは1GWの宇宙太陽光ではなく、5〜6年先の24時間グリーン電源の予約席",
+    "publishedAt": "2026-04-30T00:00:00+00:00",
+    "edition": "morning",
+    "orderInEdition": 1,
+    "originalSourceUrl": "https://www.tomshardware.com/tech-industry/artificial-intelligence/meta-will-beam-sunlight-from-space-to-power-ai-data-centers-solar-collecting-satellites-will-orbit-22-000-miles-above-earth-firm-reserves-1-gigawatt-of-orbital-solar-energy-and-100-gigawatt-hours-of-long-duration-storage",
+    "sourceName": "",
+    "summary": "これは Meta が宇宙太陽光発電を買った話ではありません。",
+    "todayPoint": "Meta が Overview Energy と最大1ギガワットの宇宙太陽光発電（軌道実証2028年、商業供給は早くて2030年）、Noon Energy と最大1ギガワット／100ギガワット時の超長時間エネルギー貯蔵の予約契約を結び、AIデータセンターの24時間連続グリーン電源を実物が動く前から契約で押さえる競争が始まっています。",
+    "body": "> [Zuckerberg's Meta will beam sunlight from space to power AI data centers, solar-collecting satellites will orbit 22,000 miles above Earth — firm reserves 1 Gigawatt of orbital solar energy and 100 Gigawatt-hours of long-duration storage](https://www.tomshardware.com/tech-industry/artificial-intelligence/meta-will-beam-sunlight-from-space-to-power-ai-data-centers-solar-collecting-satellites-will-orbit-22-000-miles-above-earth-firm-reserves-1-gigawatt-of-orbital-solar-energy-and-100-gigawatt-hours-of-long-duration-storage)\n> 公開日: 2026-04-29\n>\n\n### 一言で言うと\n\nこれは [[Meta]] が宇宙太陽光発電を買った話ではありません。実物がまだ動かない24時間連続グリーン電源を、契約だけで5〜6年先まで先取りした話です。\n\n### 何が起きているのか\n\n[[Meta]] が、宇宙太陽光発電の [[Overview Energy]] と、超長時間エネルギー貯蔵の [[Noon Energy]] という2社と、それぞれ別の契約を結びました。\n\n[[Overview Energy]] とは、すでに大規模な発電所を動かしている電力会社ではなく、宇宙太陽光発電を実用化しようとしている開発企業です。地球上空約22,000マイル（およそ36,000キロメートル）の静止軌道に置く太陽光収集衛星から、最大1ギガワットの電力を地上に送る予約契約を結んでいます。届け先は新しい受信施設ではなく、すでに地上にあるソーラーファーム（太陽光発電所）です。Overview の軌道実証は2028年に予定され、米国の電力網への商業供給が始まるのは早くても2030年とされています。\n\n[[Noon Energy]] は、超長時間エネルギー貯蔵を開発している企業です。装置は、可逆型の固体酸化物燃料電池という方式で、100時間以上にわたって電気を貯めておける設計です。[[Meta]] はこの会社と、最大1ギガワットの出力を出せて、その状態を長時間続けられるだけの電気を100ギガワット時ぶん貯めておける設備について予約契約を結びました。本格稼働の前段として、25メガワットの出力を出せて、2.5ギガワット時ぶんの電気を貯められるパイロットが2028年に予定されています。\n\nつまりどちらも、いま動いている発電・貯蔵ではなく、5〜6年先に届くかもしれない電力枠を契約として押さえる種類の話です。\n\n### AI業界の文脈では\n\nこのニュースの本質は、Meta がAIデータセンター向けの24時間連続グリーン電源を、実物が動く前の段階から契約で押さえ始めたことです。焦点は宇宙そのものではなく、将来の電力供給枠を先に確保する動きにあります。\n\n[[Overview Energy]] の宇宙太陽光は、静止軌道にあるため原理的には24時間発電を続けやすい仕組みです。[[Noon Energy]] の超長時間貯蔵は、地上の太陽光や風力が止まる夜間や悪天候を埋める役割です。どちらも、AIデータセンターが求める「止まらないグリーン電源」を形にするための部品としてつながっています。\n\n### 私の見立て\n\nここで動いているのは、まだ実物が動いていない電源を、契約だけで先に押さえる予約市場の立ち上がりです。[[Meta]] が買っているのは、今日の電気ではなく、2030年前後に届くかもしれない24時間グリーン電源の優先枠です。実物が動くかどうかの技術リスクは主に [[Overview Energy]] と [[Noon Energy]] 側に残りますが、Meta は先に並ぶことで将来の供給枠を取りにいっています。\n\nスタートアップ側にとっても、この契約は大きな意味を持ちます。[[Meta]] のような巨大企業がアンカー顧客になるだけで、資金調達や採用で使える信用が増えます。実物の稼働前でも、「Meta と契約済み」という事実そのものが事業の後押しになります。\n\nAIデータセンターの電力は、設備の設計や財務計画を含めて長期で組まれます。そのため、まだ建っていない発電設備でも、将来の供給枠として契約できれば、今の計画の中に織り込めます。電力調達は、実物の奪い合いだけでなく、将来の供給枠の奪い合いにも広がり始めています。\n\n**→ 何が変わるか**: AIデータセンターの電源契約は、いま動いている発電所だけでなく、5〜6年先の予約枠まで含めて評価されるようになります。再生可能エネルギー100%というラベルの中に、実物の供給と将来の予約が混ざり始めます。\n\n**→ 何をすべきか**: 大規模な計算資源を使う企業や、AIを本格運用する見込みのある事業は、自社の電源契約を「いま届いている実物」と「将来の予約枠」に分けて点検したほうが安全です。投資家も、Overview や Noon のような企業を評価するときは、Meta のような大手との契約が技術そのものの完成を意味するわけではない、と切り分けて見る必要があります。",
+    "tags": [
+      "Meta",
+      "OverviewEnergy",
+      "宇宙太陽光発電",
+      "グリーン電源"
+    ],
+    "hashtags": [
+      "#Meta",
+      "#OverviewEnergy",
+      "#宇宙太陽光発電",
+      "#グリーン電源"
+    ],
+    "category": "",
+    "noteArticleUrl": "https://note.com/entikemoto/n/n185d1d7660f3"
+  }
+]
