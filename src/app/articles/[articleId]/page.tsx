@@ -237,7 +237,10 @@ export default async function ArticlePage({ params }: Props) {
               rel="noopener noreferrer"
               className="underline underline-offset-4 hover:text-gray-700 transition-colors"
             >
-              {article.edition === 'standalone' ? 'noteで読む' : '3本まとめ記事で読む'}
+              {(article.edition === 'standalone' ||
+                article.publishedAt.slice(0, 10) > '2026-04-18' ||
+                (article.publishedAt.slice(0, 10) === '2026-04-18' && article.edition === 'evening'))
+                ? 'noteで読む' : '3本まとめ記事で読む'}
             </a>
           </p>
         )}
