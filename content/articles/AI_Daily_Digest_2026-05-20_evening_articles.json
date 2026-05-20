@@ -1,0 +1,28 @@
+[
+  {
+    "articleId": "2026-05-20_evening_1",
+    "title": "Gemini 3.5 Flash の値上げが映す、「Flash＝安いモデル」前提の終わり",
+    "publishedAt": "2026-05-20T00:00:00+00:00",
+    "edition": "evening",
+    "orderInEdition": 1,
+    "originalSourceUrl": "https://simonwillison.net/2026/May/19/gemini-35-flash/#atom-entries",
+    "sourceName": "",
+    "summary": "今回の本質は、新機能より料金戦略の変化です。",
+    "todayPoint": "Google は Gemini 3.5 Flash の API 料金を 3〜6 倍に値上げしました。一般ユーザー向け Gemini アプリは据え置きで、Google が値上げ分を負担します。",
+    "body": "> [Gemini 3.5 Flash: more expensive, but Google plan to use it for everything](https://simonwillison.net/2026/May/19/gemini-35-flash/#atom-entries)\n> 公開日（原文）: 2026-05-19\n\n### 一言で言うと\n今回の本質は、新機能より**料金戦略の変化**です。主要 3 社が揃って値上げに踏み出し、「Flash＝安い」「Pro＝高い」という分け方自体が薄れてきました。[[Google]] だけが少し違う動きをしています。Google は一般ユーザー向け Gemini アプリの料金を据え置きにし、値上げ分を自己負担。開発者向け API には 3〜6 倍の値上げを反映しています。OpenAI・Anthropic が主に API 値上げで採算を取りに行くのに対し、Google は広告や検索の収益で一般向けの値上げを肩代わりできる、という違いがあります。\n\n### 何が起きているのか：3.5 Flash の発表内容と値上げ幅\n2026 年 5 月 19 日、[[Google]] は開発者会議 [[Google I/O]] で [[Gemini 3.5 Flash]] を発表しました。今回は `-preview` を飛ばして、最初から一般提供開始（GA: General Availability）扱いです。\n\n**1. 提供範囲**\n- [[Gemini]] アプリと [[Google Search]] の AI モード\n- 開発者向け: [[Google Antigravity]]、API（Application Programming Interface）、[[Android Studio]]\n- 企業向け: [[Gemini Enterprise Agent Platform]] と [[Gemini Enterprise]]\n\nモデル ID は `gemini-3.5-flash`、知識の打ち切りは 2025 年 1 月、入力 1,048,576 トークン、出力 65,536 トークンです。前世代の [[Gemini 3.x]] にあった computer use 機能は今回外されています。\n\n**2. 価格**\n- 入力 $1.50 / 100 万トークン\n- 出力 $9 / 100 万トークン\n- 前モデル [[Gemini 3 Flash Preview]] の 3 倍\n- 軽量版 [[Gemini 3.1 Flash-Lite]] の 6 倍\n- [[Gemini 3.1 Pro]]（入力 $2、出力 $12）にかなり接近\n\n来月（next month）には [[Gemini 3.5 Pro]] が控えており、こちらはさらに高い価格帯が予告されています。\n\n**3. 業界横断のトレンド**\n- [[OpenAI]] の [[GPT-5.5]] は [[GPT-5.4]] の 2 倍\n- [[Anthropic]] の [[Claude Opus 4.7]] は [[Claude Opus 4.6]] の約 1.46 倍（新トークナイザー込みでの試算）\n\n**4. ベンチマーク 1 回あたりの実行コスト（Artificial Analysis 調べ）**\n- Gemini 3.5 Flash (high): $1,551.60\n- Gemini 3.1 Pro Preview: $892.28\n- Gemini 3 Flash Preview (Reasoning): $278.26\n- Gemini 3.1 Flash-Lite Preview: $93.60\n- Claude Opus 4.7 (Adaptive Reasoning, Max Effort): $5,117.14\n- Claude Opus 4.7 (Non-reasoning, High Effort): $1,217.23\n- GPT-5.5 (xhigh): $3,357.00\n- GPT-5.5 (medium): $1,199.14\n\nArtificial Analysis の試算では、Gemini 3.5 Flash の「高設定」での 1 回あたりの実行コストが、上位モデルの 3.1 Pro Preview を上回っています。これまでの「Flash＝安い」という感覚を裏切る結果です。\n\n### AI業界の文脈では\n「Google も値上げに踏み切った」と一行で要約すると、大事な点を見落としがちです。\n\n**「Flash＝安く大量処理する用」という前提が崩れた**\n[[Flash]] 系列はこれまで、大量バッチや RAG（検索拡張生成）の中継ぎなど「とにかく安く回す」用途で選ばれてきました。3 倍〜6 倍の値上げは、その設計を見直さざるを得ない水準です。一方で性能は [[Gemini 3.1 Pro]] にかなり近づいており、「安くて速いモデル」と「高性能だが高いモデル」の境目自体がぼけてきました。\n\n**Google だけが一般向けアプリでも新モデルを載せている**\n[[OpenAI]] と [[Anthropic]] の値上げは、主に開発者向け API の料金改定でした。一般ユーザー向けアプリの料金は、今回の話の中心ではありません。一方 [[Google]] は、利用者数が最も多い [[Gemini]] アプリと [[Google Search]] の AI モードにも、値上がりした 3.5 Flash を載せ替えています。一般ユーザーには料金を据え置きのまま提供するので、Google は値上げ分を自己負担します。\n\n**3 社とも「どこまで上げても使われるか」を試している**\n[[GPT-5.5]] は前世代の 2 倍、[[Claude Opus 4.7]] は約 1.46 倍、[[Gemini 3.5 Flash]] は 3 倍。3 社いずれも 1 世代で 1.5 倍以上の値上げを通しました。各社とも「どこまで上げると開発者が離れるか」を確かめにいっている段階です。AI 業界全体が、赤字覚悟の囲い込みから、そろそろ採算を取りに行くフェーズへ移りつつあります。\n\n### 私の見立て\n今回の発表は、AI 業界の収益化が本格化したサインでもあります。\n**「同じ価格で性能が上がる」期待は終わる**\nこれまで開発者は、Flash 系列に乗っていれば毎年「同じ価格で性能が上がる」恩恵を得ていました。今回の 3 倍〜6 倍の値上げで、その前提は崩れます。新世代に乗り換える際は、性能向上だけでなく、トークン単価と利用回数を掛け合わせた「実コスト」を毎回見積もり直す必要があります。\n\n**ベンチマークより「同じタスクをいくらで解けるか」が重要になる**\nArtificial Analysis の試算では、同じベンチマークでもモデルによって実行コストが 50 倍以上違います。「スコア 1 位」よりも「同じタスクをいくらで解けるか」が重要な指標に変わっていきます。個人開発者にも企業の導入担当者にも当てはまる視点です。\n\n**Google の一般向け値上げ肩代わりは、どこまで続くか**\n[[Google]] は広告と検索の収益で一般向けの値上げを吸収できる体力があります。ここは [[OpenAI]] や [[Anthropic]] にない強みです。一方、開発者向け [[Gemini API]] の値上げを開発者が受け入れるかどうかは、競合 2 社の動向にも左右されます。来月発表予定の 3.5 Pro で、開発者の反応が次の値付けを決めることになります。\n\n**→ 何が変わるか**: 個人開発者と中規模スタートアップにとって、「Flash で雑に回す」前提の設計は経済的に成立しにくくなります。Pro と Flash の価格差が縮まったことで、「最初から Pro を使う」選択肢も現実的になりました。AI 製品の 1 リクエストあたりの利益の見直しが、今後 3〜6 か月で開発者コミュニティ全体に広がっていきそうです。\n\n**→ 何をすべきか**: 既に Gemini Flash を組み込んだサービスを運用している方は、月次のトークン消費量と新価格での試算を並べてみてください。3 倍を吸収できないなら、プロンプト圧縮・キャッシュ・モデル切替の検討に入る合図です。これから AI 機能を組み込む方は、Flash と Pro の両方で同じタスクを動かし、コスト効率を比べる癖をつけると、今後の値上げにも耐えやすくなります。",
+    "tags": [
+      "Gemini3.5Flash",
+      "Google",
+      "料金戦略",
+      "API値上げ"
+    ],
+    "hashtags": [
+      "#Gemini3.5Flash",
+      "#Google",
+      "#料金戦略",
+      "#API値上げ"
+    ],
+    "category": "",
+    "noteArticleUrl": "https://note.com/entikemoto/n/nb369c72fb08b"
+  }
+]
