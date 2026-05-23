@@ -16,7 +16,7 @@ type Book = {
 type BookGroup = {
   theme: string;
   themeEn: string;
-  books: [Book, Book]; // [ja, en]
+  books: Book[];
 };
 
 const bookGroups: BookGroup[] = [
@@ -78,6 +78,39 @@ const bookGroups: BookGroup[] = [
       },
     ],
   },
+  {
+    theme: 'MCP活用',
+    themeEn: 'MCP × AI Tools',
+    books: [
+      {
+        title: 'AIはどうやって外と話すのか',
+        subtitle: 'MCPで学ぶ非エンジニアのための教科書',
+        lang: 'ja',
+        asin: 'B0GX2QJMQR',
+        description: 'Claude・ChatGPT・Cursorが「外の道具」を使う仕組みを、USB-Cのような共通口として読み解く。MCPの概念を非エンジニアが直感的に理解できる教科書。',
+      },
+      {
+        title: 'AIエージェントは何を危険にするか',
+        subtitle: 'MCPで学ぶ非エンジニアのためのセキュリティ入門',
+        lang: 'ja',
+        asin: 'B0GX524DH3',
+        description: 'Claude・ChatGPT・Cursorが「外の道具」を使う時、どこで事故が起き、どう止めるか。MCPを通じてAIセキュリティの基礎を非エンジニア向けに解説する。',
+      },
+    ],
+  },
+  {
+    theme: '医療・健康',
+    themeEn: 'Medicine & Health',
+    books: [
+      {
+        title: '眠れているのに、眠れていない',
+        subtitle: 'あなたの「慢性疲労」は、夜に呼吸が止まっているせいかもしれない',
+        lang: 'ja',
+        asin: 'B0H1TGYCK4',
+        description: '「疲れているのに眠れない」「熟睡できない」に悩む人へ。耳鼻咽喉科医が解説する睡眠時無呼吸と慢性疲労の深い関係。',
+      },
+    ],
+  },
 ];
 
 export default function PublicationsPage() {
@@ -94,11 +127,11 @@ export default function PublicationsPage() {
               出版物
             </h1>
             <p className="text-[10px] tracking-[0.4em] text-amber-700 uppercase border-l border-amber-700 pl-3 mb-10">
-              6 Kindle Books — 日英同時リリース
+              9 Kindle Books
             </p>
             <p className="text-gray-600 text-sm leading-relaxed max-w-lg">
               医療×AI×テクノロジーをテーマに、現場医師の視点から書いた実践的なKindle本。
-              全6冊を日本語・英語で同時リリース。
+              医療・AI活用・MCP・セキュリティ・睡眠健康まで幅広くカバー。
             </p>
           </div>
         </div>
