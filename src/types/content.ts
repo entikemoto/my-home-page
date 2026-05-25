@@ -42,6 +42,19 @@ export interface DevDiaryEntry {
 export type DevDiaryEntryMeta = Omit<DevDiaryEntry, 'body'>;
 
 // ---------------------------------------------------------------------------
+// YouTube（動画）
+// ---------------------------------------------------------------------------
+
+export interface YouTubeVideo {
+  id: string;          // サイト内一意ID
+  videoId: string;     // YouTube 動画ID（URLの v= 以降）
+  title: string;
+  publishedAt: string; // YYYY-MM-DD
+  summary: string;
+  tags: string[];
+}
+
+// ---------------------------------------------------------------------------
 // Talk（登壇・発表実績）
 // ---------------------------------------------------------------------------
 

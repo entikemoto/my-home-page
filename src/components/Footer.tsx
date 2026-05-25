@@ -94,7 +94,7 @@ export default function Footer() {
                   YouTube
                 </a>
                 <p className="text-xs text-gray-500 leading-relaxed mt-1">
-                  医療AI解説動画を配信
+                  いびき・睡眠時無呼吸チャンネル（いけもと耳鼻咽喉科クリニック監修）
                 </p>
               </li>
               <li>

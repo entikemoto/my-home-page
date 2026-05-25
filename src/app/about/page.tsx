@@ -185,7 +185,7 @@ export default function AboutPage() {
                 YouTube
               </a>
               <p className="text-xs text-gray-500 leading-relaxed">
-                医療AI解説の動画コンテンツを配信
+                いびき・睡眠時無呼吸チャンネル。SASの原因・治療・睡眠習慣を医師が解説
               </p>
             </div>
             <div className="border-l-2 border-amber-700 pl-5">

@@ -1,13 +1,16 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { getArticles } from '@/lib/articles';
 import { getEssays } from '@/lib/essays';
 import { getDevDiaryEntries } from '@/lib/dev-diary';
+import { getLatestYouTubeVideos, getThumbnailUrl, getVideoUrl } from '@/lib/youtube';
 import ArticleCard from '@/components/ArticleCard';
 
 export default function HomePage() {
   const latestArticles = getArticles().slice(0, 3);
   const latestEssays = getEssays().slice(0, 2);
   const latestDevLogs = getDevDiaryEntries().slice(0, 3);
+  const latestVideos = getLatestYouTubeVideos(3);
 
   return (
     <main>
@@ -220,6 +223,76 @@ export default function HomePage() {
                       </div>
                     </div>
                   </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ─── Section 4.5: Latest YouTube Videos ─── */}
+      {latestVideos.length > 0 && (
+        <section className="bg-white py-20 lg:py-28">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="flex items-baseline justify-between mb-12">
+              <div>
+                <p className="text-[10px] tracking-[0.4em] text-gray-400 uppercase mb-3">YouTube</p>
+                <h2 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900">
+                  いびき・睡眠時無呼吸
+                </h2>
+              </div>
+              <Link
+                href="/youtube"
+                className="text-xs tracking-[0.15em] text-gray-400 hover:text-gray-900 transition-colors"
+              >
+                すべて見る →
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {latestVideos.map((video) => {
+                const dateLabel = new Date(video.publishedAt).toLocaleDateString('ja-JP', {
+                  year: 'numeric', month: 'short', day: 'numeric',
+                });
+                return (
+                  <a
+                    key={video.id}
+                    href={getVideoUrl(video.videoId)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block border border-gray-100 hover:border-gray-200 hover:shadow-sm transition-all duration-200 bg-white"
+                  >
+                    <div className="relative aspect-video overflow-hidden bg-gray-100">
+                      <Image
+                        src={getThumbnailUrl(video.videoId)}
+                        alt={video.title}
+                        fill
+                        className="object-cover group-hover:scale-[1.02] transition-transform duration-300"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/10">
+                        <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center shadow">
+                          <svg width="14" height="14" viewBox="0 0 18 18" fill="none">
+                            <path d="M6 4l9 5-9 5V4z" fill="#14261F" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="px-5 pt-4 pb-1">
+                      <span className="text-[10px] text-red-600 tracking-[0.3em] uppercase font-medium">YouTube</span>
+                    </div>
+                    <div className="px-5 py-3 flex flex-col">
+                      <h3 className="font-serif text-base font-bold leading-snug mb-2 flex-1 group-hover:text-gray-500 transition-colors">
+                        {video.title}
+                      </h3>
+                      {video.summary && (
+                        <p className="text-sm text-gray-500 line-clamp-2 mb-3 leading-relaxed">{video.summary}</p>
+                      )}
+                      <div className="text-xs text-gray-400 mt-auto pt-3 border-t border-gray-50">
+                        <time dateTime={video.publishedAt}>{dateLabel}</time>
+                      </div>
+                    </div>
+                  </a>
                 );
               })}
             </div>
