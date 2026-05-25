@@ -161,7 +161,7 @@ export default function AboutPage() {
       <section className="bg-gray-50 py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <h2 className="font-serif text-2xl font-bold mb-12">Publishing Channels</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             <div className="border-l-2 border-amber-700 pl-5">
               <a
                 href="https://note.com/entikemoto"
@@ -173,6 +173,19 @@ export default function AboutPage() {
               </a>
               <p className="text-xs text-gray-500 leading-relaxed">
                 AI Daily Digest の朝版・夜版を中心に、そのほかの記事も掲載
+              </p>
+            </div>
+            <div className="border-l-2 border-amber-700 pl-5">
+              <a
+                href="https://www.youtube.com/@drikemoto"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-gray-900 hover:text-teal-600 transition-colors block mb-2 text-sm"
+              >
+                YouTube
+              </a>
+              <p className="text-xs text-gray-500 leading-relaxed">
+                医療AI解説の動画コンテンツを配信
               </p>
             </div>
             <div className="border-l-2 border-amber-700 pl-5">

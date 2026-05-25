@@ -85,6 +85,19 @@ export default function Footer() {
                 </p>
               </li>
               <li>
+                <a
+                  href="https://www.youtube.com/@drikemoto"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  YouTube
+                </a>
+                <p className="text-xs text-gray-500 leading-relaxed mt-1">
+                  医療AI解説動画を配信
+                </p>
+              </li>
+              <li>
                 <p className="text-gray-500">
                   Slack — medai-co-lab
                 </p>

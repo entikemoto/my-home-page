@@ -281,7 +281,7 @@ export default function HomePage() {
             一緒に追いかけませんか？
           </h2>
           <p className="text-[#C2CEC7] mb-10 text-sm tracking-wide">
-            毎日の解説記事を note で配信中。X でも随時更新。
+            毎日の解説記事を note で配信中。YouTube・X でも随時更新。
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
             <a
@@ -291,6 +291,14 @@ export default function HomePage() {
               className="px-8 py-3 bg-[#E3EADF] text-[#14261F] text-xs tracking-[0.2em] font-medium hover:bg-[#F7F4EC] transition-colors"
             >
               note で読む
+            </a>
+            <a
+              href="https://www.youtube.com/@drikemoto"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3 border border-[#3F5A50] text-[#C2CEC7] text-xs tracking-[0.2em] font-medium hover:border-[#E3EADF] hover:text-[#F7F4EC] transition-colors"
+            >
+              YouTube で見る
             </a>
             <a
               href="https://x.com/Ikemoto1966"
