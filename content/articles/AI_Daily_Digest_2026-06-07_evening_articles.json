@@ -1,0 +1,28 @@
+[
+  {
+    "articleId": "2026-06-07_evening_1",
+    "title": "ChatGPTが「チャットは死んだ」と宣言、自律型エージェントアプリへ大変革",
+    "publishedAt": "2026-06-07T00:00:00+00:00",
+    "edition": "evening",
+    "orderInEdition": 1,
+    "originalSourceUrl": "https://the-decoder.com/openai-says-chat-is-dead-and-plans-to-rebuild-chatgpt-as-a-full-blown-agent-app/",
+    "sourceName": "",
+    "summary": "ChatGPTはこれまで「質問すれば答えが返ってくる」ツールでした。",
+    "todayPoint": "OpenAIが「チャットは死んだ」と宣言し、ChatGPTをCodex・Canva・Booking.comなどを統合した「スーパーアプリ（OpenAI: 複数サービスを一つに統合したアプリ）」に大規模刷新——2022年のローンチ以来最大の変更",
+    "body": "> [OpenAI says \"chat is dead\" and plans to rebuild ChatGPT as a full-blown agent app](https://the-decoder.com/openai-says-chat-is-dead-and-plans-to-rebuild-chatgpt-as-a-full-blown-agent-app/)\n> 公開日: 2026-06-07\n>\n\n### 一言で言うと\n[[ChatGPT]]はこれまで「質問すれば答えが返ってくる」ツールでした。[[OpenAI]]が目指すのはその先——複数のアプリやサービスをまたいで仕事を自律的に進める「個人エージェント」です。\n\n### 何が起きているのか\n[[Financial Times]]への取材で、[[OpenAI]]の幹部が「チャットは死んだ」と語りました。同社最高製品責任者の[[Thibault Sottiaux]]氏は「目指しているのは、仕事でも日常でもあらゆる場面で支援できる個人エージェントだ」と述べています。\n\n今後数週間のうちに、[[ChatGPT]]のウェブとモバイルのインターフェースが刷新され、コーディング・画像生成・[[Canva]]や[[Booking.com]]などパートナーアプリへの誘導機能が加わります。[[ChatGPT]]と[[Codex]]の製品チームはすでに[[Thibault Sottiaux]]氏のもとに統合済みです。なお、時間が経つにつれてこれらの誘導機能は減り、AIが個々のユーザーの行動パターンを学んで自動で最適化していく設計だとしています。\n\n### AI業界の文脈では\nこれは[[OpenAI]]にとって2022年のリリース以来最大の製品転換です。対話型インターフェースから、ユーザーに代わって複数のツールを動かす「エージェント」へのシフトは、業界全体で進んでいます。[[OpenAI]]が「チャットは死んだ」と言い切った背景には、質問と回答を繰り返すモデルから、依頼した仕事を完遂させるモデルへとユーザーの期待が移り始めているという認識があります。\n\n### 私の見立て\n私の見立てでは、これは[[ChatGPT]]のUIアップデートにとどまらず、AIサービスの評価軸が「応答の質」から「仕事の完遂能力」に変わる節目です。\n\nコーディング・画像・外部サービス連携を一つのアプリに収めることで、AIが「ハブ」になり、ユーザーが複数のツールを切り替える手間がなくなります。企業が[[AI]]を導入する際も、単体機能の精度より「何をどこまで任せられるか」が問われるようになるでしょう。\n\n**→ 何が変わるか**: [[ChatGPT]]はチャットボットから、複数サービスをまたいでタスクを進める「スーパーアプリ」に変わります。\n\n**→ 何をすべきか**: 現在のAIツール選定基準（応答精度・コスト）に加えて、「外部サービスとの連携範囲」と「どこまで自律的に動けるか」を評価軸に加える時期です。\n\n---",
+    "tags": [
+      "ChatGPT",
+      "OpenAI",
+      "自律型エージェント",
+      "製品戦略"
+    ],
+    "hashtags": [
+      "#ChatGPT",
+      "#OpenAI",
+      "#自律型エージェント",
+      "#製品戦略"
+    ],
+    "category": "",
+    "noteArticleUrl": "https://note.com/entikemoto/n/n04ec0838e835"
+  }
+]
