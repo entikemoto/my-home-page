@@ -1,0 +1,28 @@
+[
+  {
+    "articleId": "2026-06-08_morning_1",
+    "title": "産業ロボットから工場全体へ——NVIDIAとDoosan Groupが物理AI協業を拡大",
+    "publishedAt": "2026-06-08T00:00:00+00:00",
+    "edition": "morning",
+    "orderInEdition": 1,
+    "originalSourceUrl": "https://blogs.nvidia.com/blog/nvidia-and-doosan-group-physical-ai/",
+    "sourceName": "",
+    "summary": "産業ロボットの知能化を超えて、工場全体をAIで統合する競争が始まっています。",
+    "todayPoint": "NVIDIAとDoosan Groupが物理AIとAIファクトリーインフラの協業拡大を発表——Doosan Robotics・Doosan Bobcat・Doosan Enerbilityの3事業にまたがり、産業ロボットの知能化から工場インフラ全体への展開を狙う",
+    "body": "> [NVIDIA and Doosan Group Collaborate to Advance Physical AI and AI Factory Infrastructure](https://blogs.nvidia.com/blog/nvidia-and-doosan-group-physical-ai/)\n> 公開日: 2026-06-07\n>\n\n### 一言で言うと\n産業ロボットの知能化を超えて、工場全体を[[AI]]で統合する競争が始まっています。\n\n### 何が起きているのか\n[[NVIDIA]]と[[Doosan Group]]が、物理AI（Physical AI: 現実空間で自律的に動くAI）とAIファクトリーインフラ（AI Factory Infrastructure: AIが生産プロセスを統合・最適化する工場基盤）の分野で協業を拡大すると発表しました。\n\n対象は[[Doosan Group]]の複数事業にまたがります。[[Doosan Robotics]]（産業用ロボット）、[[Doosan Bobcat]]（建設・農業機械）、[[Doosan Enerbility]]（発電設備）、そして[[Doosan Corporation Electro-Materials BG]]（AIデータセンター向け先進電子材料）です。\n\n[[Doosan Robotics]]は具体的に、[[NVIDIA Isaac Sim]]・[[NVIDIA Isaac Lab]]・[[NVIDIA Cosmos]]・オープンソースの[[Newton physics engine]]・[[NVIDIA Jetson Thor]]を自社の[[Agentic Robot OS]]に統合します。[[Agentic Robot OS]]は、知覚・推論・学習・デバイス上での推論を一つのプラットフォームにまとめたものです。両社はデパレタイジング（パレットからの荷下ろし）やサンディング（表面研磨）といった産業タスク、およびデュアルアームやヒューマノイドを含む新型ロボットのリファレンスユースケース開発も検討しています。\n\nさらに[[NVIDIA MGX]]（モジュラー構成のAIサーバー・ラック向けリファレンスアーキテクチャ）が、AIファクトリーインフラの構築を支援する役割を担います。\n\n### AI業界の文脈では\nこれまでの産業AIは個々の機械や工程の自動化が中心でした。今回の協業が示すのは、ロボット単体の賢さだけでなく、電力・材料・機械をまとめた工場システム全体を[[AI]]で統合する方向性です。\n\n[[NVIDIA]]が構築してきた「シミュレーションで学ばせて実機に展開する」開発基盤に、[[Doosan Group]]の実工場での知見が加わることで、現場への導入ハードルが下がると期待されます。\n\n### 私の見立て\n私の見立てでは、この協業で注目すべきは[[Doosan Group]]の事業範囲の広さです。ロボットだけでなく、発電設備（[[Doosan Enerbility]]）とデータセンター向け電子材料（Electro-Materials BG）も含まれており、AIファクトリーに必要な「電力・材料・制御」を一社グループで担えます。\n\n**→ 何が変わるか**: 産業ロボットが個別の自動化機械から、工場インフラ全体と連動して動くAI搭載システムへ移行する流れが加速します。\n\n**→ 何をすべきか**: 製造・物流・建設分野の企業は、ロボット単体の性能比較だけでなく、シミュレーション環境との連携可否と工場インフラ全体との統合性を調達基準に加える時期です。\n\n---",
+    "tags": [
+      "NVIDIA",
+      "DoosanGroup",
+      "物理AI",
+      "AIファクトリー"
+    ],
+    "hashtags": [
+      "#NVIDIA",
+      "#DoosanGroup",
+      "#物理AI",
+      "#AIファクトリー"
+    ],
+    "category": "",
+    "noteArticleUrl": "https://note.com/entikemoto/n/nb6462b9c5311"
+  }
+]
