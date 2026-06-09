@@ -1,0 +1,28 @@
+[
+  {
+    "articleId": "2026-06-09_morning_1",
+    "title": "TSMCに頼れない——GoogleとNvidiaが、Intelをチップ製造の代替候補に",
+    "publishedAt": "2026-06-09T00:00:00+00:00",
+    "edition": "morning",
+    "orderInEdition": 1,
+    "originalSourceUrl": "https://the-decoder.com/intel-gets-a-second-life-as-google-and-nvidia-explore-it-as-a-tsmc-backup-for-ai-chips/",
+    "sourceName": "",
+    "summary": "AI向けチップの需要がTSMC（Taiwan Semiconductor Manufacturing Company: 台湾の半導体受託製造最大手）の供給能力を超えてきたため、GoogleとNvidiaの2社が同時にIntelのファウンドリ（受託製造）部門を代替先として動かし始めました。",
+    "todayPoint": "TSMCのCEO自身が「AI需要には数年間対応できない」と認めるなか、GoogleがIntelに300万個超のTPU（Tensor Processing Unit: AI演算専用チップ）を2028年向けに発注し、Nvidiaも次世代チップの製造検証先としてIntelを使い始めた",
+    "body": "> [Intel gets a second life as Google and Nvidia explore it as a TSMC backup for AI chips - The Decoder](https://the-decoder.com/intel-gets-a-second-life-as-google-and-nvidia-explore-it-as-a-tsmc-backup-for-ai-chips/)\n> 公開日: 2026-06-08\n> 原情報源: The Information\n\n### 一言で言うと\nAI向けチップの需要が[[TSMC]]（Taiwan Semiconductor Manufacturing Company: 台湾の半導体受託製造最大手）の供給能力を超えてきたため、[[Google]]と[[Nvidia]]の2社が同時に[[Intel]]のファウンドリ（受託製造）部門を代替先として動かし始めました。\n\n### 何が起きているのか\nThe Information の報道によると、3つの動きが確認されました。\n\n1. **[[Google]]のTPU発注** — [[Google]]は2028年向けに300万個超のTPUをIntelに製造委託する注文をすでに入れています。\n2. **[[Nvidia]]のFeynmanアーキテクチャ検証** — [[Nvidia]]は次世代の画像処理装置（GPU: Graphics Processing Unit）「Feynman」の製造技術をIntelで検証中ですが、現時点では発注には至っていません。\n3. **SK HynixによるパッケージングHBM互換確認** — メモリメーカーのSK Hynixが、自社チップとIntelのパッケージング技術との互換性を確かめています。SK HynixがOKを出せば、Intelは他のチップ設計会社からも受託製造先として評価されやすくなります。\n\n一方、[[TSMC]]のCEO・C.C. Wei氏は「AIが牽引するチップ需要に、世界の供給体制は今後数年間対応できない」と明言しました。[[Intel]]株はこの報道を受けて10%超上昇しています。\n\n### AI業界の文脈では\n[[Intel]]のファウンドリ事業は長年にわたって赤字と納期遅延を繰り返しており、TSMCとの競争では後退し続けてきました。今回の動きはその評価を反転させるものではなく、「[[TSMC]]の供給能力に限界が来た」という外部環境の変化によって生じた機会です。\n\n構造として重要なのは、[[Google]]と[[Nvidia]]が別々にではなく、ほぼ同時に動いている点です。業界最大のAIチップ需要者2社が同じ方向を向いたとき、それは個社の戦略判断というより、業界全体における供給制約への対応として読めます。\n\n### 私の見立て\n私の見立てでは、今回の発注と検証の組み合わせが示すのは「TSMCへの一極集中を分散させる」という意図というより、「TSMCが埋められない分を物理的に調達しなければならない」という切実な需給事情です。\n\nAIチップの製造は回路設計から完成まで数年がかかります。2028年向けに今から動いているということは、[[TSMC]]の増産が間に合わないという判断が2025年末の段階で既についていたことを意味します。\n\n**→ 何が変わるか**: Intelがサーバー・PC向けCPUメーカーから「AIチップの製造請負先」としての地位を得られるかどうかの試験段階に入りました。SK HynixのHBM互換確認が通れば、他のファブレス（自社工場を持たないチップ設計）企業が続く可能性があります。\n\n**→ 何をすべきか**: AI基盤を使ったサービスを構築・運用している事業者にとって、チップ製造の地政学的分散が進むことは中長期のコストと調達安定性に直接影響します。今は単価ではなく、どのサプライチェーンに依拠しているかを把握しておく段階です。\n\n---",
+    "tags": [
+      "Intel",
+      "TSMC",
+      "ファウンドリ",
+      "AIチップ"
+    ],
+    "hashtags": [
+      "#Intel",
+      "#TSMC",
+      "#ファウンドリ",
+      "#AIチップ"
+    ],
+    "category": "",
+    "noteArticleUrl": "https://note.com/entikemoto/n/n74367168ba0e"
+  }
+]
