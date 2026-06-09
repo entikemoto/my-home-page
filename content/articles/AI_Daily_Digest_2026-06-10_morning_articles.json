@@ -1,0 +1,28 @@
+[
+  {
+    "articleId": "2026-06-10_morning_1",
+    "title": "Opusの上に、新しい階層ができた——AnthropicがClaude Fable 5を一般公開",
+    "publishedAt": "2026-06-10T00:00:00+00:00",
+    "edition": "morning",
+    "orderInEdition": 1,
+    "originalSourceUrl": "https://the-decoder.com/anthropic-releases-claude-fable-5-and-mythos-5-with-major-gains-in-coding-and-science/",
+    "sourceName": "",
+    "summary": "Anthropicが新世代モデル「Claude Fable 5」を一般公開しました。",
+    "todayPoint": "Anthropicが新世代モデル体系「Mythosクラス」から初めて一般公開する「Claude Fable 5」をリリース。コーディングベンチマーク SWE-Bench Pro で80.3%を記録し（Opus 4.8は69.2%）、Stripeの5,000万行Rubyコードベース移行を1日で完了した事例が報告されている",
+    "body": "> [Anthropic releases Claude Fable 5 and Mythos 5 with major gains in coding and science - The Decoder](https://the-decoder.com/anthropic-releases-claude-fable-5-and-mythos-5-with-major-gains-in-coding-and-science/)\n> 公開日: 2026-06-09\n\n### 一言で言うと\n[[Anthropic]]が新世代モデル「Claude Fable 5」を一般公開しました。従来の最上位だった Claude Opus 4.8 を全主要ベンチマークで上回り、コーディング・知識業務・ビジョンで大幅な性能向上を示しています。Fable 5 は[[Anthropic]]が「Mythosクラス」と呼ぶ新しいモデル体系の、初めての一般公開版です。\n\n### 先に理解しておくこと\nこれまで[[Anthropic]]のモデルは Haiku（速度重視）・Sonnet（バランス）・Opus（高難度タスク）の3階層でした。今回登場した「Mythosクラス」はその上に置かれた新しい最上位層です。ただし Mythos クラスはサイバーセキュリティや生物学で非常に高い能力を持つため、安全上の理由から一般公開が困難とされてきました。新しい安全ガードの実装により、今回「Fable 5」として一般提供が実現しています。\n\n### 何が起きているのか\n[[Anthropic]]は2026年6月9日、2つのモデルを発表しました。\n\n1. **Claude Fable 5（一般公開）** — ソフトウェア同士をつなぐ接続仕様（API: Application Programming Interface）およびエンタープライズプランで利用可能。\n2. **Claude Mythos 5（限定公開）** — 同じ基盤モデルを持ちますが、一部の安全制限を解除した版。サイバーセキュリティ・生物学領域の限られたパートナー企業（Project Glasswing 参加者）に限定。\n\n**主なベンチマーク結果（Fable 5）:**\n\n- **SWE-Bench Pro**（実務ソフトウェアエンジニアリング）: Fable 5 **80.3%** / Opus 4.8 69.2% / GPT-5.5 58.6% / Gemini 3.1 Pro 54.2%\n- **FrontierCode**（本番基準の高難度コーディング）: Fable 5 **29.3%** / Opus 4.8 13.4% / GPT-5.5 5.7%\n- **空間推論**: Fable 5 **38.6%** / Opus 4.8 14.5%\n- **法律推論**: Fable 5 **13.3%** / GPT-5.5 2.1% / Gemini 3.1 Pro 0.0%\n\n**実務での報告事例:**\n- **Stripe**: 5,000万行規模のRubyコードベースの移行を1日で完了（チームの見積もりは2ヶ月超）\n- **IMC**（トレーディンググループ）: 自社のトレーディング分析評価をほぼ全項目でパス\n- **Pokémon FireRed**: 地図・補助ツールなしにスクリーンショットのみでクリア（従来モデルは外部補助が必要だった）\n\n**Mythos 5 の医療・科学分野での実績:**\n- 創薬プロセスの一部を10倍高速化\n- タンパク質標的14件中9件で有望な創薬候補を生成（人間の補助なしで実行）\n- 新規科学的仮説の生成：盲検比較で80%の確率で先行モデルを上回る\n\n**安全機能と価格:**\n- 危険なリクエストを検知し Claude Opus 4.8 へ自動切り替え。外部テスト1,000時間超で汎用的な安全制限の突破を検知せず。全セッションの95%が切り替えなしで完結。\n- 価格: 入力 $10/MTok（100万トークン）・出力 $50/MTok。Opus 4.8の約2倍。2026年6月22日まで Claude.ai 有料プラン向けに追加コストなし。\n\n### AI業界の文脈では\n今回のリリースには、2つの構造的な変化があります。\n\n1つ目は「Opusの上に層が増えた」こと。これまで[[Anthropic]]の最上位は Opus でしたが、Mythos クラスがその上に加わり、モデル体系の命名と階層が変わりました。\n\n2つ目は「安全機能がリリース判断を変えた」こと。The Verge の報道によると、[[Anthropic]]はこれまで Mythos クラスを「公開するには危険すぎる」と判断してきました。今回の一般公開を可能にしたのは、高リスク領域のリクエストをブロックする新しい安全機構です。The Verge は、モデルが「5」と命名されている理由（Fable 1〜4 や Mythos 1〜4 にあたる公開モデルが存在しないため）について、[[Anthropic]]はコメントを回答しなかったと報じています。\n\n### 私の見立て\n私の見立てでは、Fable 5 で注目すべきは「タスクが長く複雑になるほど差が開く」という[[Anthropic]]自身の説明です。短い一問一答では差は目立たず、長期にわたる複数ステップの作業ほど優位性が際立つ設計だということです。\n\nStripe の5,000万行移行事例が示すのは、「人間のチームが何ヶ月もかかる」と前提されていた作業の定義が変わる可能性です。ただし事例はまだ限られており、適用領域・コードベースの構造・テスト体制によって結果は変わりえます。\n\n**→ 何が変わるか**: [[Anthropic]]は Opus の上位に Mythos クラスを位置づけ、Fable 5 のリリースによって Haiku・Sonnet・Opus・Mythos の4階層体系が確立されました。Fable 5 は「長時間・複雑タスク向け」の最上位として API から利用できます。\n\n**→ 何をすべきか**: 現在 Opus 4.8 を使っているチームにとって、6月22日まで追加コストなしで試用できる期間は比較検討の機会です。入力コストは約2倍ですが、長時間タスクで作業時間が大幅に短縮される場合は、コスト効率が改善する可能性があります。\n\n---",
+    "tags": [
+      "Anthropic",
+      "ClaudeFable5",
+      "Mythosクラス",
+      "LLM性能向上"
+    ],
+    "hashtags": [
+      "#Anthropic",
+      "#ClaudeFable5",
+      "#Mythosクラス",
+      "#LLM性能向上"
+    ],
+    "category": "",
+    "noteArticleUrl": "https://note.com/entikemoto/n/neddd18bff1fc"
+  }
+]
