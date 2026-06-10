@@ -12,8 +12,13 @@ if (process.env.NODE_ENV === 'development') {
 // 静的パス生成
 // ---------------------------------------------------------------------------
 
+// 直近 20 件だけビルド時に事前生成。それ以外はアクセス時にオンデマンド生成。
+export const dynamicParams = true;
+
 export function generateStaticParams() {
-  return getDevDiaryEntries().map((entry) => ({ slug: entry.slug }));
+  return getDevDiaryEntries()
+    .slice(0, 20)
+    .map((entry) => ({ slug: entry.slug }));
 }
 
 // ---------------------------------------------------------------------------
