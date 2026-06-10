@@ -1,0 +1,28 @@
+[
+  {
+    "articleId": "2026-06-11_morning_1",
+    "title": "安全にするほど使いにくくなる——Fable 5 のデータ保持要件が Microsoft 社内展開を止めた",
+    "publishedAt": "2026-06-11T00:00:00+00:00",
+    "edition": "morning",
+    "orderInEdition": 1,
+    "originalSourceUrl": "https://www.theverge.com/report/947575/microsoft-claude-fable-5-restricted-internally",
+    "sourceName": "",
+    "summary": "Anthropic の Claude Fable 5 が公開された翌日、Microsoft は従業員の社内利用を制限しました。",
+    "todayPoint": "Anthropicの Claude Fable 5 がリリース翌日、Microsoft 社内での利用を制限された。Fable 5 の安全対策として設けられたデータ保持要件が、Microsoft の情報管理ポリシーと衝突したためで、法務チームが評価中。",
+    "body": "> [Microsoft restricts Claude Fable for employees over data retention concerns - The Verge](https://www.theverge.com/report/947575/microsoft-claude-fable-5-restricted-internally)\n> 公開日: 2026-06-10\n\n### 一言で言うと\n[[Anthropic]] の Claude Fable 5 が公開された翌日、[[Microsoft]] は従業員の社内利用を制限しました。理由は Anthropic が Fable 5 に設けた新しいデータ保持要件です。Microsoft の法務チームが要件の評価を進めており、現時点で Microsoft はコメントを拒否しています。\n\n### 何が起きているのか\n\n**なぜ Fable 5 だけデータ保持が必要なのか**\n\n[[Anthropic]] の Mythos クラスは、コーディングだけでなくサイバーセキュリティの作業にも非常に強いモデルです。悪用されればハッキング支援につながりかねないため、Anthropic は数週間前まで「一般公開には危険すぎる」としていました。\n\n一般公開に踏み切るには、性能を落とすのではなく**安全装置**を足す必要がありました。Fable 5 では、危険な質問をブロックする仕組みや、リスクが高いと判断したときに従来の Opus 4.8 へ自動で切り替える仕組みなどが導入されています。The Verge が報じる「データ保持」は、その安全装置の一部です。\n\n具体的には、**安全分類器**（ユーザーの入力と AI の出力を監視し、悪用の兆候を検知する仕組み）を動かすために、Anthropic 側で会話内容を一時的に保存する必要がある、とされています。The Verge によると、通常は **30日後に削除** され、利用規約違反の疑いがある場合は **最大2年** 保存されうる、とのことです。従来の Claude モデルが企業向けに採用されてきた **ゼロデータ保持**（会話を一切残さない方式）とは方針が異なります。\n\n**Microsoft が社内利用を止めた理由**\n\nThe Verge の Tom Warren 記者が複数の社内情報筋をもとに報じたところによると、[[Microsoft]] はこの新しいデータ保持要件を理由に、従業員による Claude Fable 5 の利用を制限しています。顧客データや社内の機密情報が Anthropic 側に一定期間残ることへの懸念があり、法務チームが評価中です。一方、Microsoft は GitHub Copilot や Foundry の**顧客向け**には Fable 5 を提供しています。社内のモデル選択画面では、他の Claude モデルは引き続き使えるが、Fable 5 だけが選べない状態だ、と報じられています。\n\n[[Microsoft]] は 2026年6月10日時点でコメントを拒否しています。\n\n### AI業界の文脈では\nこの事例は、高性能モデルの安全管理と企業のデータ機密管理が衝突する構造的な問題を示しています。\n\n[[Anthropic]] にとって、Mythos クラスのモデルはサイバーセキュリティ分野での悪用リスクが高く、データ保持によるモニタリングは必要な措置です。一方で企業にとっては、社内の機密コードや業務データが第三者のシステムで保持されることは、情報管理ポリシーや顧客との契約上、許容できないケースがあります。\n\n今回の [[Microsoft]] の対応は一社の判断にとどまりますが、同様の立場に置かれうる大手企業は少なくありません。Azure や Microsoft 365 を通じて Anthropic モデルを顧客に提供している [[Microsoft]] が、同一モデルを社内で制限するという状況は、エンタープライズ向け AI の導入判断において、性能と管理ポリシーの両立がより重要な変数になることを示唆しています。\n\n### 私の見立て\n私の見立てでは、今回の件で注目すべきは「モデルが強力になるほど、安全対策の範囲が広がり、それが企業導入の障壁になりうる」という逆説的な構図です。\n\nFable 5 のデータ保持変更は、[[Anthropic]] が公開を正当化するために必要だった措置です。安全対策がなければリリースできず、安全対策があると企業の情報管理と衝突する。このトレードオフは Fable 5 固有の問題ではなく、能力の高いモデルが今後広まるにつれて繰り返されうる構造です。\n\nMicrosoft の法務チームの評価結果や、[[Anthropic]] が企業向けに設ける例外対応の有無が、今後の注目点になります。\n\n**→ 何が変わるか**: 最高性能クラスの AI モデルを社内展開する際、性能評価だけでなくデータ保持ポリシーの確認が必須の検討項目になっていく。\n\n**→ 何をすべきか**:\n- **企業の IT・法務担当**: AI ベンダーのデータ保持要件を製品導入前に確認するプロセスを整備する\n- **AI 開発者**: 使用するモデルのデータ保持要件と自社の情報管理ポリシーの整合を事前に確認する\n- **経営層**: 高性能モデルの採用判断に、能力評価と並行してデータポリシーのデューデリジェンスを組み込む\n\n---",
+    "tags": [
+      "ClaudeFable5",
+      "Microsoft",
+      "データ保持",
+      "Anthropic"
+    ],
+    "hashtags": [
+      "#ClaudeFable5",
+      "#Microsoft",
+      "#データ保持",
+      "#Anthropic"
+    ],
+    "category": "",
+    "noteArticleUrl": "https://note.com/entikemoto/n/n8d5c8a2a0e51"
+  }
+]
