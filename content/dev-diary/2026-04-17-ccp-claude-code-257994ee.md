@@ -38,3 +38,5 @@ vault_sync_source: ccp
 
 - **GitHub MCP の OAuth 認証** — Claude Code 内で `/mcp` を実行し、`github` を選択してブラウザで認証する
 - **Semgrep MCP の動作確認** — 実プロジェクト（CortexFlow2.0 等）でセキュリティ分析を実行して動作確認
+
+---
