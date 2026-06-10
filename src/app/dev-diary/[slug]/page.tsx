@@ -12,12 +12,14 @@ if (process.env.NODE_ENV === 'development') {
 // 静的パス生成
 // ---------------------------------------------------------------------------
 
-// 直近 20 件だけビルド時に事前生成。それ以外はアクセス時にオンデマンド生成。
+// 最新1件だけビルド時に事前生成。それ以外は初回アクセス時に生成→永続キャッシュ。
+// 記事が何件になっても、デプロイ時に作るのは新着1件のみ。
 export const dynamicParams = true;
+export const revalidate = false; // 一度生成したページは次のデプロイまで永続キャッシュ
 
 export function generateStaticParams() {
   return getDevDiaryEntries()
-    .slice(0, 20)
+    .slice(0, 1)
     .map((entry) => ({ slug: entry.slug }));
 }
 
