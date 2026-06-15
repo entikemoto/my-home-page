@@ -1,0 +1,28 @@
+[
+  {
+    "articleId": "2026-06-16_morning_1",
+    "title": "人を通じてAIを広める——AnthropicのClaude Corpsが問いかける、普及の次の形",
+    "publishedAt": "2026-06-16T00:00:00+00:00",
+    "edition": "morning",
+    "orderInEdition": 1,
+    "originalSourceUrl": "https://www.anthropic.com/news/claude-corps",
+    "sourceName": "",
+    "summary": "Anthropicは1.5億ドルをかけて、Claude専門家という「人的インフラ」を米国中の非営利団体に送り込む計画を始めました。",
+    "todayPoint": "Anthropicが若手1,000人にClaudeの使い方を習得させ、米国の非営利団体に12ヶ月間派遣する「Claude Corps」を発表しました。1.5億ドルを投じるこの取り組みは、社会貢献である一方で、AIが最も遅れているセクターへの人的浸透戦略でもあります。",
+    "body": "> [Introducing Claude Corps — Anthropic](https://www.anthropic.com/news/claude-corps)\n> 公開日: 2026-06-11\n\n### 一言で言うと\n\nAnthropicは1.5億ドルをかけて、Claude専門家という「人的インフラ」を米国中の非営利団体に送り込む計画を始めました。\n\n### 何が起きているのか\n\n2026年6月11日、AnthropicはフェローシッププログラムClaude Corpsを発表しました。\n\n対象はキャリア初期（正規雇用が通算2年以下・18歳以上・米国就労可能者）の若手で、Claudeを中心としたAIスキルを習得した上で、米国の非営利団体に12ヶ月間フルタイムで派遣されます。年収は85,000ドルで福利厚生も付きます。\n\n初期予算は1億5,000万ドルです。目標は1,000人のフェローを最低400団体のホスト組織に配置することで、第1コホートは2026年10月開始（定員100人、応募締切7月17日）、第2コホートは2027年1月、第3コホートは2027年8月の予定です。\n\nプログラムの役割は3者に分かれています。Anthropicが資金と戦略・Claudeの専門知識を提供し、教育に特化した非営利団体CodePathがフェローの雇用と日常管理を担い、Social Financeが成果の測定と拡大設計を受け持ちます。\n\nホスト組織として発表された9団体には、食料銀行（Montgomery County Food Bank）、退役軍人支援団体（Team Red, White & Blue）、地域教育NPO（StriveTogether、Braven）など幅広い分野が含まれています。\n\n### AI業界の文脈では\n\n非営利セクターは、AIツールの普及が最も遅れている領域の一つです。予算制約・人材不足・ITリソースの薄さが重なり、テクノロジー企業や行政機関よりも変化が遅い。\n\nAI企業が非営利へ関与する動きはAnthropicが初めてではありません。OpenAIは非営利向けの割引プランを持ち、Googleはgoogle.orgを通じてAI活用への助成金事業を展開しています。ただし、これらはツールやリソースを「渡す」形です。Claude Corpsの特徴は、訓練した人材を「送り込む」点にあります。\n\n「ツールを提供する」から「人を介在させる」への転換は、AIの定着率という問題意識から来ています。ツールがあっても使われなければ意味がない。その橋渡しを人がやるという発想です。\n\n### 私の見立て\n\nClaude Corpsの表面的な読み方は「Anthropicが社会に貢献するプログラム」ですが、仕組みを分解すると別の構造が見えます。\n\nまず、1,000人のフェローがもたらすものです。フェローは仕事の最初からClaudeを日常的に使う経験を積みます。1年後には、400以上の非営利団体にClaudeを使った現場が残り、1,000人の「Claudeに詳しい人材」がそれぞれの職場や次のキャリアへ広がります。表面は社会貢献でも、Anthropicにとっては1.5億ドルで手に入れた「Claudeの普及基盤」でもあります。\n\n次に、誰がフェローを雇うかです。前文のとおり、このプログラムはAnthropic・CodePath・Social Financeの3組織で運営されます。Anthropicはお金とプログラム設計を出しますが、フェローの雇用主は教育に特化した非営利CodePathです。給与や採用・管理はCodePathが担うため、労務上のトラブルが起きてもAnthropicは直接の雇用主ではありません。それでも、人材の育成と非営利団体への広がりという効果は、Anthropic側に残ります。\n\n### 次に注目すること\n\n- 第1コホートの応募倍率（7月17日締切）\n- フェロー派遣後、ホスト組織がClaudeの有料API（外部からClaudeを呼び出す接続仕様）を継続利用するかどうか\n- OpenAI・Googleが同種の「人材派遣型」アプローチで追随するか",
+    "tags": [
+      "Anthropic",
+      "ClaudeCorps",
+      "AI普及",
+      "非営利団体"
+    ],
+    "hashtags": [
+      "#Anthropic",
+      "#ClaudeCorps",
+      "#AI普及",
+      "#非営利団体"
+    ],
+    "category": "",
+    "noteArticleUrl": "https://note.com/entikemoto/n/nbcd248faaca5"
+  }
+]
