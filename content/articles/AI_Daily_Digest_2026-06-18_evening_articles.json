@@ -1,0 +1,28 @@
+[
+  {
+    "articleId": "2026-06-18_evening_1",
+    "title": "$2.7Bで2年しか引き留められなかった——AI研究者の流動化が、報酬で解決できない段階に入った",
+    "publishedAt": "2026-06-18T00:00:00+00:00",
+    "edition": "evening",
+    "orderInEdition": 1,
+    "originalSourceUrl": "https://the-decoder.com/googles-gemini-co-lead-noam-shazeer-joins-openai-after-two-year-return-stint/",
+    "sourceName": "",
+    "summary": "$2.7Bという前例のない額を出しても2年で移籍が起きた事実が示すのは、AI研究者を引き留めるものは報酬ではなく「最も重要な仕事の中心にいられる環境」だということです。",
+    "todayPoint": "現代のAIモデルすべての基礎となった論文「Attention Is All You Need」の共著者、Noam Shazeerが、$2.7Bで迎え入れたGoogleを2年で去り、OpenAIへ移籍します。",
+    "body": "> [Google's Gemini co-lead Noam Shazeer joins OpenAI after two-year return stint](https://the-decoder.com/googles-gemini-co-lead-noam-shazeer-joins-openai-after-two-year-return-stint/)\n> 公開日: 2026-06-18\n\n### 一言で言うと\n\n$2.7Bという前例のない額を出しても2年で移籍が起きた事実が示すのは、AI研究者を引き留めるものは報酬ではなく「最も重要な仕事の中心にいられる環境」だということです。\n\n### 何が起きているのか\n\n現代の大規模言語モデル（LLM: Large Language Model）の基礎となった論文「Attention Is All You Need」の共著者、Noam Shazeerが、GoogleからOpenAIへ移籍します。LLMとは大量の文章で学習させてテキストを生成するAIの総称で、ChatGPTやGeminiなどがこれに当たります。\n\nShazeerは2000年にGoogleに入社し、検索エンジンのスペルチェッカー開発から始めた人物です。2021年に退社してAIチャットボット企業のCharacter.AIを共同創業。その後2024年に、GoogleがCharacter.AIの創業者らと研究チームを取り込む形で$2.7Bの契約を結び、Shazeerはエンジニアリング担当副社長（VP of Engineering）としてGoogleに戻りました。復帰後はGoogleのAIモデル「Gemini（ジェミニ）」の開発をJeff DeanやOriol Vinyalsとともに共同でリードしてきました。\n\n移籍について本人は「移ることは難しい決断だった」とコメントしています。\n\n### AI業界の文脈では\n\n「GoogleがまたトップAI人材を失った」という見方が先行しがちです。ただしその見方は「報酬が高ければ優秀な研究者は留まる」という前提に立っています。今回、その前提が崩れました。\n\nGoogleは$2.7Bを使って一度は引き戻したにもかかわらず、2年で去りました。同じ論文「Attention Is All You Need」の共著者8人は、その後それぞれCohere、NEAR Protocol（ブロックチェーン基盤）、Sakana AI（日本の研究機関）、Adept AIなどへ移っており、現在Googleに残っている共著者はいません。これは個々の事情によるものですが、一本の流れとして読めます。\n\n### 私の見立て\n\n研究者の動機という面から見ると、「最も影響力のある仕事に近い場所にいたい」という欲求は、報酬水準とは独立して動きます。Googleは世界最大のAI組織の一つであり、調整やプロセスのコストも大きい。一方、OpenAIはモデル開発のコアに近い位置で動いています。Shazeerほどの研究者にとって、「自分の設計判断が直接モデルに反映される環境」の選択は、報酬の比較と並行して行われるはずです。\n\n情報の流れという面でも変化があります。「誰がGPT-4を設計したか」と「誰がGeminiを設計したか」を知っている人の数は大きく違います。研究者が「自分の仕事が世界に届いている」と実感できるかどうかは、その後のキャリア選択に影響します。\n\nただし、この移籍がGoogleの競争力をすぐに低下させるとは言い切れません。Shazeerが関わったGeminiの設計・コード・チームの文化はGoogleに残っています。見方を変えれば、$2.7Bという契約の主な価値は「一人の研究者」ではなく、Character.AIが積み上げた技術と研究チーム全体にあった可能性もあります。\n\nこの移籍がモデルの性能差として表に出るとしても、現れるのは数年先でしょう。Shazeerの設計思想が今後のOpenAIのモデルに反映されて初めて見えてくるからです。だからこそ、各社にとって差し迫った論点は移籍そのものの勝ち負けではなく、報酬以外に何を用意すれば中核の研究者がとどまるのか、という引き留めの仕組みの再設計にあります。\n\n**→ 何が変わるか**: AI研究者の流動性が業界全体でさらに高まります。$2.7Bでも2年という事実は、採用・報酬設計の「天井」が報酬水準にないことを示しており、「最先端の研究環境をどう用意するか」の競争が加速します。\n\n**→ 何をすべきか**: AIツールを採用する企業は、研究者一人の移籍ニュースで提供元の評価をすぐ変える必要はありません。すでに公開されているモデルの性能はコードと設計に焼き込まれており、個人が抜けても急に落ちることはないからです。見るべきは「誰がいるか」ではなく、「その組織が最先端のモデルを出し続けられているか」です。一方、自社でAI開発を担うチームは逆の備えが要ります。特定の研究者だけが要点を把握している状態を避け、設計や判断の理由を記録・共有しておくと、人が抜けても開発が揺らぎにくくなります。\n\n---",
+    "tags": [
+      "NoamShazeer",
+      "Google",
+      "OpenAI",
+      "AI人材流動化"
+    ],
+    "hashtags": [
+      "#NoamShazeer",
+      "#Google",
+      "#OpenAI",
+      "#AI人材流動化"
+    ],
+    "category": "",
+    "noteArticleUrl": "https://note.com/entikemoto/n/n42dd02ea2904"
+  }
+]
