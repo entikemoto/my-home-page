@@ -25,9 +25,12 @@ function loadVideos(): YouTubeVideo[] {
     throw new Error(`[youtube] youtube.json must be an array`);
   }
 
-  const videos = (parsed as YouTubeVideo[]).sort(
-    (a, b) => b.publishedAt.localeCompare(a.publishedAt)
-  );
+  const videos = (parsed as YouTubeVideo[]).sort((a, b) => {
+    if (a.episode !== undefined && b.episode !== undefined) {
+      return a.episode - b.episode;
+    }
+    return b.publishedAt.localeCompare(a.publishedAt);
+  });
   _cache = videos;
   return _cache;
 }

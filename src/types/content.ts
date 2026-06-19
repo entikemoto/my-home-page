@@ -50,6 +50,7 @@ export interface YouTubeVideo {
   videoId: string;     // YouTube 動画ID（URLの v= 以降）
   title: string;
   publishedAt: string; // YYYY-MM-DD
+  episode?: number;    // 回数（並び順用）
   summary: string;
   tags: string[];
 }
