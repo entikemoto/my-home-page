@@ -11,6 +11,7 @@ type Book = {
   lang: 'ja' | 'en';
   asin: string;
   description: string;
+  publishedAt?: string;
 };
 
 type BookGroup = {
@@ -29,6 +30,7 @@ const bookGroups: BookGroup[] = [
         subtitle: 'AIがひらく、人間の限界の先へ',
         lang: 'ja',
         asin: 'B0GHZRDLYG',
+        publishedAt: '2026-01-23',
         description: 'AIが切り拓く医療の未来。現場医師の視点から、人間の限界を越えた医療の可能性を問い直す。',
       },
       {
@@ -36,6 +38,7 @@ const bookGroups: BookGroup[] = [
         subtitle: 'Beyond Human Limits with AI',
         lang: 'en',
         asin: 'B0GJJWV482',
+        publishedAt: '2026-01-24',
         description: 'An English exploration of how AI augments medical practice, written from the perspective of a practicing physician.',
       },
     ],
@@ -48,6 +51,7 @@ const bookGroups: BookGroup[] = [
         title: '非エンジニアでもできる生成AI事業開発入門',
         lang: 'ja',
         asin: 'B0GJPN6H5Q',
+        publishedAt: '2026-01-25',
         description: 'Claude Code・Cursor・Windsurfを使い、アイデアをプロトタイプへ変える実践的なAI事業開発の入門書。',
       },
       {
@@ -55,6 +59,7 @@ const bookGroups: BookGroup[] = [
         subtitle: "How to Build Your 'AI Team' with Claude Code, Cursor, and Windsurf",
         lang: 'en',
         asin: 'B0GJPCWMJP',
+        publishedAt: '2026-01-25',
         description: 'A practical English guide to turning business ideas into prototypes using AI tools—no engineering background required.',
       },
     ],
@@ -67,6 +72,7 @@ const bookGroups: BookGroup[] = [
         title: '非エンジニアのためのAIペアライティング',
         lang: 'ja',
         asin: 'B0GJGCNSZL',
+        publishedAt: '2026-01-23',
         description: 'AIとペアを組んで書く実践ガイド。信頼性を保ちながら深掘り・改訂・監査を行うワークフローを解説する。',
       },
       {
@@ -74,6 +80,7 @@ const bookGroups: BookGroup[] = [
         subtitle: 'How to Deep Dive, Revise, and Audit While Maintaining Reliability',
         lang: 'en',
         asin: 'B0GJJZ5VZ6',
+        publishedAt: '2026-01-24',
         description: 'The English counterpart—a hands-on guide to collaborative AI writing that preserves accuracy and depth.',
       },
     ],
@@ -87,6 +94,7 @@ const bookGroups: BookGroup[] = [
         subtitle: 'MCPで学ぶ非エンジニアのための教科書',
         lang: 'ja',
         asin: 'B0GX2QJMQR',
+        publishedAt: '2026-04-25',
         description: 'Claude・ChatGPT・Cursorが「外の道具」を使う仕組みを、USB-Cのような共通口として読み解く。MCPの概念を非エンジニアが直感的に理解できる教科書。',
       },
       {
@@ -94,6 +102,7 @@ const bookGroups: BookGroup[] = [
         subtitle: 'MCPで学ぶ非エンジニアのためのセキュリティ入門',
         lang: 'ja',
         asin: 'B0GX524DH3',
+        publishedAt: '2026-04-25',
         description: 'Claude・ChatGPT・Cursorが「外の道具」を使う時、どこで事故が起き、どう止めるか。MCPを通じてAIセキュリティの基礎を非エンジニア向けに解説する。',
       },
     ],
@@ -107,6 +116,7 @@ const bookGroups: BookGroup[] = [
         subtitle: 'あなたの「慢性疲労」は、夜に呼吸が止まっているせいかもしれない',
         lang: 'ja',
         asin: 'B0H1TGYCK4',
+        publishedAt: '2026-05-15',
         description: '「疲れているのに眠れない」「熟睡できない」に悩む人へ。耳鼻咽喉科医が解説する睡眠時無呼吸と慢性疲労の深い関係。',
       },
     ],
@@ -170,6 +180,11 @@ export default function PublicationsPage() {
                       }`}>
                         {book.lang === 'ja' ? '日本語' : 'English'}
                       </span>
+                      {book.publishedAt && (
+                        <span className="text-[9px] tracking-[0.2em] text-gray-400">
+                          {book.publishedAt.replace(/-/g, '/')}
+                        </span>
+                      )}
                     </div>
 
                     <h3 className="font-serif text-base lg:text-lg font-bold text-gray-900 leading-snug mb-2 flex-1">
