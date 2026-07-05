@@ -7,6 +7,7 @@ const navLinks = [
   { href: '/youtube', label: 'YouTube' },
   { href: '/articles', label: 'Articles' },
   { href: '/essays', label: 'Essays' },
+  { href: '/posts', label: 'Posts' },
   { href: '/dev-diary', label: 'Dev Log' },
   { href: '/talks', label: 'Talks' },
   { href: '/publications', label: 'Publications' },
