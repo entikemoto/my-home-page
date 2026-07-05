@@ -1,10 +1,17 @@
 # SESSION_STATE — 20260317_MyHomePage
 
-> 最終更新: 2026-04-15 08:15
+> 最終更新: 2026-07-05 21:30
 
 ## 現在フェーズ
 
 **Phase 4: デプロイ・本番化 ✅ 完了**
+
+## 2026-07-05 の更新（発信基盤セッション）
+
+- `/posts` 発信一覧ページを公開（PR #1）。VaultPublisher（共通配信パイプライン）が content/posts.md に1行追記 → 自動反映
+- 6/24 から本番デプロイが edition:null で全滅していたのを発見・修正（articles テスト12件失敗も同因・解消）
+- 既知問題を docs/known-issues.md に記録: ローカル next build は17ルート以上で静的生成停止（環境問題）→ 検証は「vitest + tsc + Vercel プレビュー」で行う
+- 残課題: deep_dive 記事の生成側（CortexFlow 2.0）が edition を設定していない可能性の確認
 
 ## 決定済み事項
 
