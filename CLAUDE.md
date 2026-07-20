@@ -22,6 +22,21 @@
 | Search | Pagefind（静的検索、ビルド後インデックス） |
 | Deploy | GitHub + Vercel |
 
+技術スタックと採用理由（なぜこれを選んだか）の正本は `docs/architecture.md`。
+
+---
+
+## 重要ドキュメント
+
+| ドキュメント | 役割 |
+|-------------|------|
+| `docs/service-overview.md` | 要件定義・サービス概要 |
+| `docs/business-flow.md` | 業務フロー・自動化範囲（Before/After） |
+| `docs/business-and-system-overview.md` | 仕様書：部品分解・依存関係・データ設計（SSOT） |
+| `docs/architecture.md` | 技術スタックと採用理由 |
+| `docs/development-progress.md` | 開発進捗・現在フェーズ・作業状況 |
+| `docs/project-status.md` | プロジェクト状態管理（Phase・Next Actions・Blockers） |
+
 ---
 
 ## Operational Commands
