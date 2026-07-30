@@ -30,12 +30,25 @@ Codex CLI（レビュー・セキュリティ・DevOps）に相談します。
 - ルール・スキル・テンプレート・`CLAUDE.md` の責務分担を整理したい
 - 設計原則の文言に曖昧さや運用破綻リスクがないか点検したい
 
-Codex CLI 経由で GPT-5.4 が利用可能な場合のみ、追加のセカンドオピニオンを取る:
+Codex CLI 経由で GPT-5.5 が利用可能な場合のみ、追加のセカンドオピニオンを取る:
 ```bash
-codex exec -m gpt-5.4 -C /path/to/project "Review this design decision. Focus on ambiguity, enforceability, hierarchy placement, operational failure modes, and missing exceptions: {設計質問を英語で}"
+codex exec -m gpt-5.5 -C /path/to/project "Review this design decision. Focus on ambiguity, enforceability, hierarchy placement, operational failure modes, and missing exceptions: {設計質問を英語で}"
 ```
 
 利用できない場合は、Codex CLI の標準モデルで代替する。
+
+### エスカレーション提案: Fugu Ultra（高リスク・難しいレビュー）
+
+以下のいずれかに該当する場合は、Sakana Fugu Ultra の使用を**提案し、ユーザーの一言確認を得てから**使う（確認なしで自動実行しない）：
+- 認証・個人情報・外部送信・DB変更を含む変更
+- 医療関連の実装
+- 修正が2回以上失敗している不具合
+- 大きなリファクタリング
+- リリース／マージ前の最終レビュー
+
+該当しない通常のレビュー・監査は標準モデル（`codex exec` / `codex review`）でよい。
+
+**Fugu の結論はそのまま採用しない**: 具体的なファイル・行・再現条件が伴う指摘だけを採用する。根拠が薄い・一般論的な指摘は再検証してから扱う。Fugu でも判断がつかない場合のみ GPT-5.5（または利用可能な上位モデル）で第三者確認する。
 
 使わない場面:
 - 小修正、定型実装、テスト修正
@@ -68,6 +81,12 @@ codex review --commit {SHA}
 
 # セキュリティ監査
 codex exec "Security audit: check for vulnerabilities, dependency issues, and OWASP top 10 risks"
+
+# 高リスク・難しいレビュー（上記条件に該当 → 提案・ユーザー確認後に実行）
+# ⚠ Codex CLI 0.144 以降 `-p fugu` は解決しない。`-c` 直接指定が正
+source ~/.zprofile; codex exec --skip-git-repo-check \
+  -c model="fugu-ultra" -c model_provider="sakana" \
+  -c features.image_generation=false "{質問を英語で}"
 ```
 
 **注意**: プロジェクトの git リポジトリ内で実行すること。別ディレクトリから実行する場合は `-C /path/to/project` を付ける。
@@ -106,10 +125,11 @@ codex exec "Security audit: check for vulnerabilities, dependency issues, and OW
 
 ## 注意事項
 
-- 現在の実測環境: Codex CLI v0.111.0、既定モデルは gpt-5.4
+- 現在の実測環境: Codex CLI v0.146.0、既定モデルは gpt-5.5（2026-07-30 tool-audit 実測）
+- Fugu Ultra は上記条件に該当するとき**提案 → ユーザー確認後**に使用。要 `SAKANA_API_KEY`（`~/.zprofile` 管理・非ログインシェルでは `source` 必須）。⚠ 2026-07-19: Codex CLI 0.144 でプロファイル機構が変更され `-p fugu` は動作しない（`-c` 直接指定が正）。`-c features.image_generation=false` は必須 — Sakana responses API が hosted ツールを拒否するため
 - **git リポジトリ内**での実行が前提（`-C` でパス指定 or `--skip-git-repo-check`）
 - 非対話実行は `codex exec`、レビューは `codex review` を使用
-- `gpt-5.4` 指定は Codex CLI 側で利用可能な場合のみ使う
+- `gpt-5.5` 指定は Codex CLI 側で利用可能な場合のみ使う
 - 単純な質問には使わない（コスト節約）
 - レビュー・監査・DevOps で精度が必要な場面で使用
 - 結果は必ずユーザーに日本語で報告
