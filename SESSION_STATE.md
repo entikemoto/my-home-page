@@ -64,7 +64,7 @@
 
 1. **note記事を確認してX・Slack投稿** — 投稿済み: https://note.com/entikemoto/n/n5078c8114a99
    ```bash
-   cd ~/Obsidian\ Vaults/MainVault/projects/20260222_CortexFlow2.0
+   cd ~/Obsidian\ Vaults/MainVault/projects/20260222_AINews_Digest
    source .venv/bin/activate
    python -m cortexflow2 publish-devlog \
      --url "https://my-home-page-ruby.vercel.app/dev-diary/2026-04-12-env-entry-ca5c3b34" \
@@ -77,7 +77,7 @@
 ## Dev Log 投稿フロー（確立済み・2ステップ）
 
 ```bash
-cd ~/Obsidian\ Vaults/MainVault/projects/20260222_CortexFlow2.0
+cd ~/Obsidian\ Vaults/MainVault/projects/20260222_AINews_Digest
 source .venv/bin/activate
 
 # ステップ1: noteに投稿（URLが表示されて停止）
@@ -109,4 +109,4 @@ cortexflow publish --auto --company "企業名" --social-only
 
 ## 関連プロジェクト
 
-- `projects/20260222_CortexFlow2.0` — HP向け記事データ供給元・Dev Log 投稿自動化
+- `projects/20260222_AINews_Digest` — HP向け記事データ供給元・Dev Log 投稿自動化

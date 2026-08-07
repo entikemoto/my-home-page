@@ -41,11 +41,21 @@
 
 ## 参考：期間外の既刊書籍（2026年1月）
 
-| 書名 | 出版日 | ASIN |
-|------|--------|------|
-| 拡張する医療 | 2026/1/23 | B0GHZRDLYG |
-| Medicine × AI: Augmented Healthcare | 2026/1/24 | B0GJJWV482 |
-| 非エンジニアでもできる生成AI事業開発入門 | 2026/1/25 | B0GJPN6H5Q |
-| AI-Driven Business Development for Non-Engineers | 2026/1/25 | B0GJPCWMJP |
-| 非エンジニアのためのAIペアライティング | 2026/1/23 | B0GJGCNSZL |
-| AI Pair Writing for Non-Engineers | 2026/1/24 | B0GJJZ5VZ6 |
+- 拡張する医療
+  - 出版日: 2026/1/23
+  - ASIN: `B0GHZRDLYG`
+- Medicine × AI: Augmented Healthcare
+  - 出版日: 2026/1/24
+  - ASIN: `B0GJJWV482`
+- 非エンジニアでもできる生成AI事業開発入門
+  - 出版日: 2026/1/25
+  - ASIN: `B0GJPN6H5Q`
+- AI-Driven Business Development for Non-Engineers
+  - 出版日: 2026/1/25
+  - ASIN: `B0GJPCWMJP`
+- 非エンジニアのためのAIペアライティング
+  - 出版日: 2026/1/23
+  - ASIN: `B0GJGCNSZL`
+- AI Pair Writing for Non-Engineers
+  - 出版日: 2026/1/24
+  - ASIN: `B0GJJZ5VZ6`

@@ -33,7 +33,7 @@ content/
 3. Pagefind がビルド後のHTMLをインデックス化 → 検索機能
 
 【CortexFlow 連携】
-- 20260222_CortexFlow2.0 が個別記事データを MDX 形式で出力する
+- 20260222_AINews_Digest が個別記事データを MDX 形式で出力する
 - HP は受け取った MDX ファイルを content/articles/ に配置するだけ
 - フロントマター形式は tech-stack.mdc の記事スキーマに準拠する
 
