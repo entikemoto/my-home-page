@@ -249,3 +249,9 @@ docker run --rm -v "$(pwd)":/app -w /app node:24 sh -c "<コマンド>"
 
 - 正（SSOT）は必ずファイル（`CLAUDE.md` / `.cursor/rules/*` / `docs/*`）
 - 指示は「次の1アクション」単位で渡す（大きく混ぜない）
+
+## 文書側
+
+企画・進捗・セッション記録は vault 側にある:
+`/Users/takeshiikemoto/Obsidian Vaults/MainVault/projects/20260317_MyHomePage`
+（2026-08-08 分業型移行・第9号）
