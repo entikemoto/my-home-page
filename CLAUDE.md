@@ -32,10 +32,10 @@
 |-------------|------|
 | `docs/service-overview.md` | 要件定義・サービス概要 |
 | `docs/business-flow.md` | 業務フロー・自動化範囲（Before/After） |
-| `docs/business-and-system-overview.md` | 仕様書：部品分解・依存関係・データ設計（SSOT） |
+| `MainVault/projects/20260317_MyHomePage/docs/business-and-system-overview.md`（**vault 側**） | 仕様書：部品分解・依存関係・データ設計（SSOT） |
 | `docs/architecture.md` | 技術スタックと採用理由 |
-| `docs/development-progress.md` | 開発進捗・現在フェーズ・作業状況 |
-| `docs/project-status.md` | プロジェクト状態管理（Phase・Next Actions・Blockers） |
+| `MainVault/projects/20260317_MyHomePage/docs/development-progress.md`（**vault 側**） | 部品ごとの進捗マップ |
+| `docs/project-status.md` | **コード側の現在地の正本**（Phase・Next Actions・Blockers）。実装状況はここを見る |
 
 ---
 
@@ -83,8 +83,8 @@ npx tsc --noEmit     # 型チェック
 
 以下が揃っていれば、実装を進めてよい。
 
-1. `docs/business-and-system-overview.md` が作成済みで、テンプレのままではない
-2. `docs/development-progress.md` または `docs/project-status.md` に現在地が書かれている
+1. vault 側 `business-and-system-overview.md` が作成済みで、テンプレのままではない
+2. `docs/project-status.md` に現在地が書かれている（`development-progress.md` は vault 側にある）
 
 `続けてください` `おすすめで` `お願いします` はすべて実装続行の指示とみなす。
 タスクが完了したら次のタスクへ自動で進む。都度確認しない。
@@ -154,22 +154,22 @@ docker run --rm -v "$(pwd)":/app -w /app node:24 sh -c "<コマンド>"
 
 | ファイル | 内容 |
 |----------|------|
-| `docs/business-and-system-overview.md` | 業務プロセス、システム全体像、部品の説明、依存関係 |
-| `docs/development-progress.md` | 開発進捗、現在作業中の部品、完了状況 |
+| `MainVault/projects/20260317_MyHomePage/docs/business-and-system-overview.md`（**vault 側**） | 業務プロセス、システム全体像、部品の説明、依存関係 |
+| `MainVault/projects/20260317_MyHomePage/docs/development-progress.md`（**vault 側**） | 部品ごとの進捗マップ |
 
 ### 依存関係を考慮した開発方針
 
 - **依存関係を最小化**: 各部品はなるべく独立して動作するよう設計する
 - **インターフェースで分離**: 部品間は明確なインターフェース（API、型定義）で接続し、実装の詳細に依存しない
 - **モック/スタブで並行開発**: 依存先が未完成でも、モックやスタブを使って開発を進める
-- **依存関係の明示**: 新しい部品を作る際は、依存関係を `docs/business-and-system-overview.md` に記載する
+- **依存関係の明示**: 新しい部品を作る際は、依存関係を vault 側 `business-and-system-overview.md` に記載する
 
 ### 開発セッション開始時
 
 新しい開発セッションを開始する際は、以下を確認・提示すること：
-1. `docs/development-progress.md` を読み、現在の進捗を把握
+1. `docs/project-status.md` を読み、現在の進捗を把握（部品単位の内訳が要るときだけ vault 側 `development-progress.md`）
 2. これから作業する部品と、それが業務フローのどこに対応するかを簡潔に説明
-3. `docs/business-and-system-overview.md` または `docs/development-progress.md` がテンプレのままなら、実装せずにその更新を提案する
+3. 上記がテンプレのまま、または `git log` の実態と食い違っているなら、実装せずにその更新を提案する
 
 ### 開発の区切り（マイルストーン）での報告
 
@@ -208,7 +208,7 @@ docker run --rm -v "$(pwd)":/app -w /app node:24 sh -c "<コマンド>"
 
 ### 進捗ファイルの更新
 
-部品の作業が完了したら、`docs/development-progress.md` を更新すること
+部品の作業が完了したら、`docs/project-status.md` を更新すること（部品マップも動いたなら vault 側 `development-progress.md` も）
 
 ---
 
