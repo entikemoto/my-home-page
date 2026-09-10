@@ -30,9 +30,9 @@ Codex CLI（レビュー・セキュリティ・DevOps）に相談します。
 - ルール・スキル・テンプレート・`CLAUDE.md` の責務分担を整理したい
 - 設計原則の文言に曖昧さや運用破綻リスクがないか点検したい
 
-Codex CLI 経由で GPT-5.5 が利用可能な場合のみ、追加のセカンドオピニオンを取る:
+追加のセカンドオピニオンは**モデル無指定**の `codex exec` で取る（Codex CLI の最上位モデルに解決される。実行ヘッダの `model:` を作業ログに記録する）:
 ```bash
-codex exec -m gpt-5.5 -C /path/to/project "Review this design decision. Focus on ambiguity, enforceability, hierarchy placement, operational failure modes, and missing exceptions: {設計質問を英語で}"
+codex exec -C /path/to/project "Review this design decision. Focus on ambiguity, enforceability, hierarchy placement, operational failure modes, and missing exceptions: {設計質問を英語で}"
 ```
 
 利用できない場合は、Codex CLI の標準モデルで代替する。
@@ -48,7 +48,7 @@ codex exec -m gpt-5.5 -C /path/to/project "Review this design decision. Focus on
 
 該当しない通常のレビュー・監査は標準モデル（`codex exec` / `codex review`）でよい。
 
-**Fugu の結論はそのまま採用しない**: 具体的なファイル・行・再現条件が伴う指摘だけを採用する。根拠が薄い・一般論的な指摘は再検証してから扱う。Fugu でも判断がつかない場合のみ GPT-5.5（または利用可能な上位モデル）で第三者確認する。
+**Fugu の結論はそのまま採用しない**: 具体的なファイル・行・再現条件が伴う指摘だけを採用する。根拠が薄い・一般論的な指摘は再検証してから扱う。Fugu でも判断がつかない場合のみ、モデル無指定の `codex exec` で第三者確認する。
 
 使わない場面:
 - 小修正、定型実装、テスト修正
@@ -125,11 +125,11 @@ source ~/.zprofile; codex exec --skip-git-repo-check \
 
 ## 注意事項
 
-- 現在の実測環境: Codex CLI v0.146.0、既定モデルは gpt-5.5（2026-07-30 tool-audit 実測）
+- 現在の実測環境: Codex CLI 0.154.0。モデル無指定は gpt-6-astra に解決（2026-09-10 tool-audit 実測・ChatGPT Plus）。バージョン・モデルは変わるので、正本は `codex --version` と実行ヘッダ
 - Fugu Ultra は上記条件に該当するとき**提案 → ユーザー確認後**に使用。要 `SAKANA_API_KEY`（`~/.zprofile` 管理・非ログインシェルでは `source` 必須）。⚠ 2026-07-19: Codex CLI 0.144 でプロファイル機構が変更され `-p fugu` は動作しない（`-c` 直接指定が正）。`-c features.image_generation=false` は必須 — Sakana responses API が hosted ツールを拒否するため
 - **git リポジトリ内**での実行が前提（`-C` でパス指定 or `--skip-git-repo-check`）
 - 非対話実行は `codex exec`、レビューは `codex review` を使用
-- `gpt-5.5` 指定は Codex CLI 側で利用可能な場合のみ使う
+- `-m` でモデル名を固定しない（廃止予告が出ても気づかず格下を呼び続けるため）。実行ヘッダの実動値を記録する
 - 単純な質問には使わない（コスト節約）
 - レビュー・監査・DevOps で精度が必要な場面で使用
 - 結果は必ずユーザーに日本語で報告
