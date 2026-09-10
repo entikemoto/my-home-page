@@ -2,6 +2,7 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getEssay, getEssays, _resetEssayCache } from '@/lib/essays';
+import { bodyToBlocks } from '@/lib/essay-markdown';
 
 if (process.env.NODE_ENV === 'development') {
   _resetEssayCache();
@@ -42,14 +43,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 // Markdown レンダラー
 // ---------------------------------------------------------------------------
 
-type BodyBlock =
-  | { type: 'heading'; level: 2 | 3; content: string }
-  | { type: 'list'; items: string[] }
-  | { type: 'blockquote'; lines: string[] }
-  | { type: 'code'; content: string }
-  | { type: 'hr' }
-  | { type: 'paragraph'; content: string };
-
 function renderInline(text: string): React.ReactNode {
   const pattern = /(\*\*[^*]+\*\*|\[\[[^\]]+\]\]|\[[^\]]*\]\([^)]+\)|`[^`]+`)/g;
   const parts = text.split(pattern);
@@ -74,96 +67,6 @@ function renderInline(text: string): React.ReactNode {
     }
     return part;
   });
-}
-
-function bodyToBlocks(body: string): BodyBlock[] {
-  const lines = body.split('\n');
-  const blocks: BodyBlock[] = [];
-  let i = 0;
-
-  while (i < lines.length) {
-    const line = lines[i];
-
-    // コードブロック
-    if (line.startsWith('```')) {
-      const codeLines: string[] = [];
-      i++;
-      while (i < lines.length && !lines[i].startsWith('```')) {
-        codeLines.push(lines[i]);
-        i++;
-      }
-      blocks.push({ type: 'code', content: codeLines.join('\n') });
-      i++;
-      continue;
-    }
-
-    // 見出し
-    if (line.startsWith('### ')) {
-      blocks.push({ type: 'heading', level: 3, content: line.slice(4).trim() });
-      i++;
-      continue;
-    }
-    if (line.startsWith('## ')) {
-      blocks.push({ type: 'heading', level: 2, content: line.slice(3).trim() });
-      i++;
-      continue;
-    }
-
-    // HR
-    if (line.trim() === '---') {
-      blocks.push({ type: 'hr' });
-      i++;
-      continue;
-    }
-
-    // 空行
-    if (line.trim() === '') {
-      i++;
-      continue;
-    }
-
-    // リスト
-    if (line.trimStart().startsWith('- ')) {
-      const items: string[] = [];
-      while (i < lines.length && lines[i].trimStart().startsWith('- ')) {
-        items.push(lines[i].replace(/^\s*-\s/, '').trim());
-        i++;
-      }
-      blocks.push({ type: 'list', items });
-      continue;
-    }
-
-    // ブロッククォート
-    if (line.startsWith('>')) {
-      const quoteLines: string[] = [];
-      while (i < lines.length && lines[i].startsWith('>')) {
-        quoteLines.push(lines[i].replace(/^>\s?/, ''));
-        i++;
-      }
-      blocks.push({ type: 'blockquote', lines: quoteLines });
-      continue;
-    }
-
-    // 段落（連続する行をまとめる）
-    const paraLines: string[] = [];
-    while (
-      i < lines.length &&
-      lines[i].trim() !== '' &&
-      !lines[i].startsWith('#') &&
-      !lines[i].startsWith('```') &&
-      !lines[i].startsWith('>') &&
-      !lines[i].trimStart().startsWith('- ') &&
-      lines[i].trim() !== '---'
-    ) {
-      paraLines.push(lines[i]);
-      i++;
-    }
-    if (paraLines.length > 0) {
-      blocks.push({ type: 'paragraph', content: paraLines.join(' ') });
-    }
-  }
-
-  return blocks;
 }
 
 // ---------------------------------------------------------------------------
