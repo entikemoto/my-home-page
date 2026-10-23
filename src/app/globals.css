@@ -8,20 +8,33 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  /* 見出し・名前・ブランド文言は明朝（Noto Serif JP） */
   --font-serif: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Yu Mincho",
     Georgia, serif;
-  --font-sans: var(--font-noto-serif-jp), "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans", Meiryo, sans-serif;
+  /* 本文・UI は端末のゴシック（2026-10-24: 以前は本文も明朝にマッピングされていて長文が重かった） */
+  --font-sans: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
+    "Yu Gothic", Meiryo, system-ui, -apple-system, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-noto-serif-jp), "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans", Meiryo, sans-serif;
+  font-family: var(--font-sans);
+  font-feature-settings: "palt";
+  text-rendering: optimizeLegibility;
 }
 
 h1,
 h2 {
   letter-spacing: -0.02em;
+}
+
+::selection {
+  background: #e3eadf;
+  color: #14261f;
+}
+
+/* 記事本文の中の長い URL を折り返す */
+.article-body a {
+  overflow-wrap: anywhere;
 }

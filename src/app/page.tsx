@@ -5,381 +5,266 @@ import { getEssays } from '@/lib/essays';
 import { getDevDiaryEntries } from '@/lib/dev-diary';
 import { getLatestYouTubeVideos, getThumbnailUrl, getVideoUrl } from '@/lib/youtube';
 import ArticleCard from '@/components/ArticleCard';
+import { formatDateJa } from '@/lib/article-labels';
+import { SOCIAL } from '@/lib/site';
+
+/**
+ * トップページ（2026-10-24 刷新）
+ * 方針: 「人物が主役」は維持しつつ、最新記事を最初の画面の直後に置く。
+ * 以前は ブランド文 → 92vh のヒーロー → 記事 → エッセイ → 開発記録 → YouTube → Mission → CTA と長く、
+ * 記事に辿り着くまでに 2 画面スクロールが必要だった。
+ */
+
+function XGlyph({ className = 'h-3.5 w-3.5' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden className={className} fill="currentColor">
+      <path d="M18.244 2H21.5l-7.52 8.59L22.8 22h-6.93l-5.42-7.08L4.26 22H1l8.04-9.19L.6 2h7.1l4.9 6.48L18.24 2Zm-1.21 18h1.8L7.03 3.9H5.1L17.03 20Z" />
+    </svg>
+  );
+}
+
+function SectionHeading({ eyebrow, title, href, linkLabel = 'すべて見る' }: { eyebrow: string; title: string; href: string; linkLabel?: string }) {
+  return (
+    <div className="mb-10 flex items-end justify-between gap-6">
+      <div>
+        <p className="mb-2 text-[10px] tracking-[0.4em] text-gray-400 uppercase">{eyebrow}</p>
+        <h2 className="font-serif text-2xl font-bold text-gray-900 lg:text-3xl">{title}</h2>
+      </div>
+      <Link href={href} className="shrink-0 text-xs tracking-[0.15em] text-gray-500 transition-colors hover:text-gray-900">
+        {linkLabel} →
+      </Link>
+    </div>
+  );
+}
 
 export default function HomePage() {
-  const latestArticles = getArticles().slice(0, 3);
-  const latestEssays = getEssays().slice(0, 2);
+  const articles = getArticles();
+  const [featured, ...rest] = articles.slice(0, 7);
+  const latestEssays = getEssays().slice(0, 3);
   const latestDevLogs = getDevDiaryEntries().slice(0, 3);
   const latestVideos = getLatestYouTubeVideos(3);
+  const latestDate = featured ? formatDateJa(featured.publishedAt) : null;
 
   return (
     <main>
-      {/* ─── Brand Statement ─── */}
-      <section className="bg-[#14261F] text-white py-16 lg:py-24">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <h2 className="font-serif text-[clamp(1.8rem,4.5vw,3.5rem)] font-black tracking-tight text-[#F7F4EC] mb-5">
-            Beyond Medicine. Beyond Imagination.
-          </h2>
-          <p className="text-[#C2CEC7] text-sm lg:text-base leading-relaxed">
-            医療を越え、想像を越えて。<br />
-            人とAIの叡智で、「次の医療」を創り出す。
-          </p>
-        </div>
-      </section>
-
-      {/* ─── Section 1: Hero ─── */}
-      <section className="min-h-[92vh] flex flex-col justify-center">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-
-            {/* Left: Name + Title + CTA */}
-            <div className="flex flex-col gap-12 order-2 lg:order-1">
-              <div>
-                <p className="text-[10px] tracking-[0.5em] text-gray-300 uppercase mb-6">
-                  Takeshi Ikemoto
-                </p>
-                <p className="font-serif text-5xl lg:text-6xl font-black text-gray-900 leading-none mb-5">
-                  池本毅
-                </p>
-                <p className="text-[10px] tracking-[0.4em] text-amber-700 uppercase border-l border-amber-700 pl-3">
-                  医師　MBA　AIビルダー
-                </p>
-              </div>
-              <div>
-                <p className="text-sm text-gray-500 leading-relaxed max-w-xs mb-8">
-                  医療現場で積み上げた臨床知と、AIの最前線。<br />
-                  その交差点から、医療の未来を描く。
-                </p>
-                <div className="flex gap-4">
-                  <Link
-                    href="/articles"
-                    className="px-7 py-3 bg-[#14261F] text-white text-xs tracking-[0.15em] hover:bg-[#1D342B] transition-colors"
-                  >
-                    解説記事を読む
-                  </Link>
-                  <Link
-                    href="/about"
-                    className="px-7 py-3 border border-gray-200 text-gray-600 text-xs tracking-[0.15em] hover:border-gray-900 hover:text-gray-900 transition-colors"
-                  >
-                    プロフィール
-                  </Link>
-                </div>
-              </div>
+      {/* ─── Hero（名前・肩書・一言・導線） ─── */}
+      <section className="border-b border-gray-100">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-16 lg:grid-cols-[1.1fr_1fr] lg:gap-20 lg:px-12 lg:py-24">
+          <div>
+            <p className="mb-5 text-[10px] tracking-[0.5em] text-gray-400 uppercase">Takeshi Ikemoto</p>
+            <h1 className="font-serif text-[2.6rem] font-black leading-[1.15] tracking-tight text-gray-900 lg:text-[3.6rem]">
+              医師だから見える、
+              <br />
+              医療AIの現実。
+            </h1>
+            <p className="mt-6 max-w-md text-[0.95rem] leading-[1.9] text-gray-600">
+              池本毅。医師・MBA・AIビルダー。
+              診察室で見えた問いを手がかりに、毎日の AI ニュースを臨床の眼で読み解き、
+              「次の医療」を構想しています。
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Link
+                href="/articles"
+                className="inline-flex items-center bg-[#14261F] px-7 py-3 text-xs tracking-[0.15em] text-white transition-colors hover:bg-[#1D342B]"
+              >
+                解説記事を読む
+              </Link>
+              <a
+                href={SOCIAL.x}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-gray-300 px-7 py-3 text-xs tracking-[0.15em] text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+              >
+                <XGlyph /> X でフォロー
+              </a>
             </div>
-
-            {/* Right: Large Headline */}
-            <div className="text-right order-1 lg:order-2">
-              <h1 className="font-serif leading-none tracking-tight">
-                <span className="block text-lg lg:text-xl font-light text-gray-300 mb-4 tracking-[0.2em]">
-                  医師だから
-                </span>
-                <span className="block text-[clamp(5rem,11vw,9.5rem)] font-black text-gray-900">
-                  見える。
-                </span>
-                <span className="block text-[clamp(1.8rem,4vw,3.5rem)] font-semibold text-gray-400 mt-4">
-                  医療AIの現実。
-                </span>
-              </h1>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Section 2: Latest Articles ─── */}
-      <section className="bg-gray-50 py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex items-baseline justify-between mb-12">
-            <div>
-              <p className="text-[10px] tracking-[0.4em] text-gray-400 uppercase mb-3">Latest</p>
-              <h2 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900">
-                解説記事
-              </h2>
-            </div>
-            <Link
-              href="/articles"
-              className="text-xs tracking-[0.15em] text-gray-400 hover:text-gray-900 transition-colors"
-            >
-              すべて見る →
-            </Link>
+            <p className="mt-8 text-xs leading-relaxed text-gray-400">
+              Beyond Medicine. Beyond Imagination. ── 医療を越え、想像を越えて。
+            </p>
           </div>
 
-          {latestArticles.length === 0 ? (
-            <p className="text-gray-400 text-sm">まだ記事がありません。</p>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {latestArticles.map((article) => (
-                <ArticleCard key={article.articleId} article={article} />
-              ))}
+          {/* 右: 最新記事を大きく 1 本 */}
+          {featured && (
+            <div className="lg:justify-self-end lg:w-full">
+              <p className="mb-3 flex items-center gap-3 text-[10px] tracking-[0.35em] text-gray-400 uppercase">
+                <span className="h-px w-6 bg-amber-700" />
+                Latest {latestDate && <span className="normal-case tracking-normal text-gray-400">{latestDate}</span>}
+              </p>
+              <ArticleCard article={featured} featured={false} />
             </div>
           )}
         </div>
       </section>
 
-      {/* ─── Section 3: Latest Essays ─── */}
-      {latestEssays.length > 0 && (
-        <section className="bg-white py-20 lg:py-28">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="flex items-baseline justify-between mb-12">
-              <div>
-                <p className="text-[10px] tracking-[0.4em] text-gray-400 uppercase mb-3">Essays</p>
-                <h2 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900">
-                  エッセイ
-                </h2>
-              </div>
-              <Link
-                href="/essays"
-                className="text-xs tracking-[0.15em] text-gray-400 hover:text-gray-900 transition-colors"
-              >
-                すべて見る →
-              </Link>
+      {/* ─── 最新の解説記事 ─── */}
+      <section className="bg-gray-50 py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-12">
+          <SectionHeading eyebrow="Articles" title="最新の解説記事" href="/articles" />
+          {rest.length === 0 ? (
+            <p className="text-sm text-gray-400">まだ記事がありません。</p>
+          ) : (
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {rest.map((a) => (
+                <ArticleCard key={a.articleId} article={a} />
+              ))}
             </div>
+          )}
+          <p className="mt-10 text-xs leading-relaxed text-gray-500">
+            記事は X に投稿したものと同じ内容を全文で保存しています。X・note でも読めます。
+          </p>
+        </div>
+      </section>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
-              {latestEssays.map((essay) => {
-                const date = new Date(essay.publishedAt);
-                const dateLabel = date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'short', day: 'numeric' });
-                return (
-                  <article key={essay.slug} className="bg-white border-l-2 border-l-transparent border border-gray-100 hover:border-l-teal-600 hover:border-gray-200 transition-all duration-200 flex flex-col">
-                    <div className="px-5 pt-5 pb-1 flex items-center justify-between">
-                      <span className="text-[10px] text-teal-600 tracking-[0.3em] uppercase">Essay</span>
-                      {essay.noteUrl && (
-                        <a href={essay.noteUrl} target="_blank" rel="noopener noreferrer"
-                          className="text-[10px] text-gray-400 hover:text-gray-600 transition-colors">
-                          note ↗
-                        </a>
-                      )}
-                    </div>
-                    <div className="px-5 py-4 flex-1 flex flex-col">
-                      <h3 className="font-serif text-base font-bold leading-snug mb-3 flex-1">
-                        <Link href={`/essays/${essay.slug}`} className="hover:text-gray-500 transition-colors">
-                          {essay.title}
-                        </Link>
-                      </h3>
-                      {essay.summary && (
-                        <p className="text-sm text-gray-500 line-clamp-2 mb-4 leading-relaxed">{essay.summary}</p>
-                      )}
-                      <div className="text-xs text-gray-400 mt-auto pt-4 border-t border-gray-50">
-                        <time dateTime={essay.publishedAt}>{dateLabel}</time>
-                      </div>
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
+      {/* ─── エッセイ ／ 開発記録（2 列のリスト） ─── */}
+      {(latestEssays.length > 0 || latestDevLogs.length > 0) && (
+        <section className="py-16 lg:py-24">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-14 px-6 lg:grid-cols-2 lg:gap-20 lg:px-12">
+            {latestEssays.length > 0 && (
+              <div>
+                <SectionHeading eyebrow="Essays" title="エッセイ" href="/essays" />
+                <ul className="divide-y divide-gray-100 border-t border-gray-100">
+                  {latestEssays.map((e) => (
+                    <li key={e.slug} className="py-5">
+                      <Link href={`/essays/${e.slug}`} className="group block">
+                        <time dateTime={e.publishedAt} className="text-xs text-gray-400">
+                          {formatDateJa(e.publishedAt, 'short')}
+                        </time>
+                        <p className="mt-1 font-serif text-base font-bold leading-snug text-gray-900 transition-colors group-hover:text-amber-800">
+                          {e.title}
+                        </p>
+                        {e.summary && <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-gray-500">{e.summary}</p>}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {latestDevLogs.length > 0 && (
+              <div>
+                <SectionHeading eyebrow="Dev Log" title="開発記録" href="/dev-diary" />
+                <ul className="divide-y divide-gray-100 border-t border-gray-100">
+                  {latestDevLogs.map((d) => (
+                    <li key={d.slug} className="py-5">
+                      <Link href={`/dev-diary/${d.slug}`} className="group block">
+                        <time dateTime={d.date} className="text-xs text-gray-400">
+                          {formatDateJa(`${d.date}T00:00:00+09:00`, 'short')}
+                        </time>
+                        <p className="mt-1 font-serif text-base font-bold leading-snug text-gray-900 transition-colors group-hover:text-amber-800">
+                          {d.title}
+                        </p>
+                        {d.summary && <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-gray-500">{d.summary}</p>}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </section>
       )}
 
-      {/* ─── Section 4: Latest Dev Logs ─── */}
-      {latestDevLogs.length > 0 && (
-        <section className="bg-gray-50 py-20 lg:py-28">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="flex items-baseline justify-between mb-12">
-              <div>
-                <p className="text-[10px] tracking-[0.4em] text-gray-400 uppercase mb-3">Dev Log</p>
-                <h2 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900">
-                  開発記録
-                </h2>
-              </div>
-              <Link
-                href="/dev-diary"
-                className="text-xs tracking-[0.15em] text-gray-400 hover:text-gray-900 transition-colors"
-              >
-                すべて見る →
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {latestDevLogs.map((entry) => {
-                const dateLabel = new Date(`${entry.date}T00:00:00Z`).toLocaleDateString('ja-JP', {
-                  year: 'numeric',
-                  month: 'short',
-                  day: 'numeric',
-                  timeZone: 'UTC',
-                });
-                return (
-                  <article key={entry.slug} className="bg-white border-l-2 border-l-transparent border border-gray-100 hover:border-l-gray-400 hover:border-gray-200 transition-all duration-200 flex flex-col">
-                    <div className="px-5 pt-5 pb-1">
-                      <span className="text-[10px] text-gray-400 tracking-[0.3em] uppercase">Dev Log</span>
-                    </div>
-                    <div className="px-5 py-4 flex-1 flex flex-col">
-                      <h3 className="font-serif text-base font-bold leading-snug mb-3 flex-1">
-                        <Link href={`/dev-diary/${entry.slug}`} className="hover:text-gray-500 transition-colors">
-                          {entry.title}
-                        </Link>
-                      </h3>
-                      {entry.summary && (
-                        <p className="text-sm text-gray-500 line-clamp-2 mb-4 leading-relaxed">{entry.summary}</p>
-                      )}
-                      <div className="mt-auto pt-4 border-t border-gray-50">
-                        <time dateTime={entry.date} className="text-xs text-gray-400 block mb-2">{dateLabel}</time>
-                        <div className="flex flex-wrap gap-1">
-                          {entry.tags.slice(0, 3).map((tag) => (
-                            <span key={tag} className="px-2 py-0.5 text-[10px] bg-gray-50 text-gray-400 font-mono">
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
+      {/* ─── Mission ─── */}
+      <section className="bg-[#14261F] py-16 text-white lg:py-24">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 lg:grid-cols-2 lg:gap-20 lg:px-12">
+          <div>
+            <p className="mb-5 text-[10px] tracking-[0.4em] text-[#C2CEC7] uppercase">Mission</p>
+            <h2 className="font-serif text-3xl font-black leading-[1.2] text-[#F7F4EC] lg:text-4xl">
+              診察室で見えた問いを、
+              <br />
+              AIで世界に問う。
+            </h2>
+            <div className="my-8 h-px w-8 bg-[#D9A86A]" />
+            <p className="max-w-md text-sm leading-[1.9] text-[#C2CEC7]">
+              医師にしか見えない課題がある。AIにしか解けない問いがある。
+              その接点に立って、毎日のAIニュースを臨床の眼で読み解く。
+              将来の医療AI起業に向け、医師・エンジニア・ビジネスパーソンが集える場をつくる。
+            </p>
+            <Link href="/about" className="mt-8 inline-block text-xs tracking-[0.15em] text-[#E3EADF] transition-colors hover:text-white">
+              プロフィールを見る →
+            </Link>
           </div>
-        </section>
-      )}
-
-      {/* ─── Section 4.5: Latest YouTube Videos ─── */}
-      {latestVideos.length > 0 && (
-        <section className="bg-white py-20 lg:py-28">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="flex items-baseline justify-between mb-12">
-              <div>
-                <p className="text-[10px] tracking-[0.4em] text-gray-400 uppercase mb-3">YouTube</p>
-                <h2 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900">
-                  いびき・睡眠時無呼吸
-                </h2>
-              </div>
-              <Link
-                href="/youtube"
-                className="text-xs tracking-[0.15em] text-gray-400 hover:text-gray-900 transition-colors"
-              >
-                すべて見る →
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {latestVideos.map((video) => {
-                const dateLabel = new Date(video.publishedAt).toLocaleDateString('ja-JP', {
-                  year: 'numeric', month: 'short', day: 'numeric',
-                });
-                return (
-                  <a
-                    key={video.id}
-                    href={getVideoUrl(video.videoId)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group block border border-gray-100 hover:border-gray-200 hover:shadow-sm transition-all duration-200 bg-white"
-                  >
-                    <div className="relative aspect-video overflow-hidden bg-gray-100">
-                      <Image
-                        src={getThumbnailUrl(video.videoId)}
-                        alt={video.title}
-                        fill
-                        className="object-cover group-hover:scale-[1.02] transition-transform duration-300"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/10">
-                        <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center shadow">
-                          <svg width="14" height="14" viewBox="0 0 18 18" fill="none">
-                            <path d="M6 4l9 5-9 5V4z" fill="#14261F" />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="px-5 pt-4 pb-1">
-                      <span className="text-[10px] text-red-600 tracking-[0.3em] uppercase font-medium">YouTube</span>
-                    </div>
-                    <div className="px-5 py-3 flex flex-col">
-                      <h3 className="font-serif text-base font-bold leading-snug mb-2 flex-1 group-hover:text-gray-500 transition-colors">
-                        {video.title}
-                      </h3>
-                      {video.summary && (
-                        <p className="text-sm text-gray-500 line-clamp-2 mb-3 leading-relaxed">{video.summary}</p>
-                      )}
-                      <div className="text-xs text-gray-400 mt-auto pt-3 border-t border-gray-50">
-                        <time dateTime={video.publishedAt}>{dateLabel}</time>
-                      </div>
-                    </div>
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ─── Section 5: Mission + Vision ─── */}
-      <section className="bg-white py-24 lg:py-36">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-
-            {/* Left: Mission */}
-            <div className="flex flex-col justify-center">
-              <p className="text-[10px] tracking-[0.4em] text-gray-400 uppercase mb-6">Mission</p>
-              <h2 className="font-serif text-3xl lg:text-5xl font-black text-gray-900 leading-[1.15] mb-8">
-                診察室で見えた問いを、<br />
-                AIで世界に問う。
-              </h2>
-              <div className="w-8 h-px bg-amber-700 mb-8" />
-              <p className="text-sm text-gray-500 leading-relaxed mb-4 max-w-sm">
-                医師にしか見えない課題がある。AIにしか解けない問いがある。
-                その接点に立って、毎日のAIニュースを臨床の眼で読み解く。
-              </p>
-              <p className="text-sm text-gray-400 leading-relaxed max-w-sm mb-10">
-                将来の医療AI起業に向け、現場発のイノベーションを模索しながら、
-                医師・エンジニア・ビジネスパーソンが集える場をつくる。
-              </p>
-              <Link
-                href="/about"
-                className="text-xs tracking-[0.15em] text-gray-700 hover:text-gray-400 transition-colors"
-              >
-                プロフィールを見る →
-              </Link>
-            </div>
-
-            {/* Right: Vision Quote */}
-            <div className="flex flex-col justify-center border-l border-gray-100 lg:pl-16">
-              <span className="font-serif text-7xl text-gray-100 leading-none mb-2 select-none">&ldquo;</span>
-              <p className="font-serif text-xl lg:text-2xl font-bold text-gray-800 leading-relaxed mb-8">
-                診察室の現実と最先端AIを結び、<br />
-                医師が主導する医療イノベーションを実現する。
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-6 h-px bg-gray-300" />
-                <span className="text-xs text-gray-400 tracking-[0.2em]">池本毅</span>
-              </div>
-            </div>
+          <div className="flex flex-col justify-center border-l border-[#3F5A50] lg:pl-16">
+            <span className="mb-2 select-none font-serif text-6xl leading-none text-[#3F5A50]">&ldquo;</span>
+            <p className="font-serif text-xl font-bold leading-relaxed text-[#F7F4EC] lg:text-2xl">
+              診察室の現実と最先端AIを結び、
+              <br />
+              医師が主導する医療イノベーションを実現する。
+            </p>
+            <p className="mt-6 text-xs tracking-[0.2em] text-[#C2CEC7]">池本毅</p>
           </div>
         </div>
       </section>
 
-      {/* ─── Section 6: CTA ─── */}
-      <section className="bg-[#14261F] text-white py-20 lg:py-28">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-[10px] tracking-[0.5em] text-[#C2CEC7] uppercase mb-6">Follow</p>
-          <h2 className="font-serif text-2xl lg:text-4xl font-bold mb-6 leading-relaxed text-[#F7F4EC]">
-            AIの最前線を、<br />
-            一緒に追いかけませんか？
+      {/* ─── YouTube（クリニックの専門チャンネル・控えめに） ─── */}
+      {latestVideos.length > 0 && (
+        <section className="py-16 lg:py-24">
+          <div className="mx-auto max-w-7xl px-6 lg:px-12">
+            <SectionHeading eyebrow="YouTube" title="いびき・睡眠時無呼吸チャンネル" href="/youtube" />
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+              {latestVideos.map((video) => (
+                <a
+                  key={video.id}
+                  href={getVideoUrl(video.videoId)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block border border-gray-100 bg-white transition-all duration-200 hover:border-gray-300"
+                >
+                  <div className="relative aspect-video overflow-hidden bg-gray-100">
+                    <Image
+                      src={getThumbnailUrl(video.videoId)}
+                      alt={video.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  <div className="px-5 py-4">
+                    <p className="font-serif text-sm font-bold leading-snug text-gray-900 transition-colors group-hover:text-amber-800">
+                      {video.title}
+                    </p>
+                    <time dateTime={video.publishedAt} className="mt-2 block text-xs text-gray-400">
+                      {formatDateJa(video.publishedAt, 'short')}
+                    </time>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ─── Follow ─── */}
+      <section className="border-t border-gray-100 bg-gray-50 py-16 lg:py-20">
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <p className="mb-5 text-[10px] tracking-[0.5em] text-gray-400 uppercase">Follow</p>
+          <h2 className="font-serif text-2xl font-bold leading-relaxed text-gray-900 lg:text-3xl">
+            AI の最前線を、一緒に追いかけませんか。
           </h2>
-          <p className="text-[#C2CEC7] mb-10 text-sm tracking-wide">
-            毎日の解説記事を note で配信中。YouTube・X でも随時更新。
+          <p className="mt-4 text-sm leading-relaxed text-gray-500">
+            解説記事は X に投稿し、同じ内容を note とこのサイトに保存しています。
           </p>
-          <div className="flex justify-center gap-4 flex-wrap">
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
-              href="https://note.com/entikemoto"
+              href={SOCIAL.x}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 bg-[#E3EADF] text-[#14261F] text-xs tracking-[0.2em] font-medium hover:bg-[#F7F4EC] transition-colors"
+              className="inline-flex items-center gap-2 bg-gray-900 px-7 py-3 text-xs tracking-[0.2em] text-white transition-colors hover:bg-gray-700"
+            >
+              <XGlyph /> X でフォロー
+            </a>
+            <a
+              href={SOCIAL.note}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center border border-gray-300 px-7 py-3 text-xs tracking-[0.2em] text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
             >
               note で読む
             </a>
             <a
-              href="https://www.youtube.com/@drikemoto"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 border border-[#3F5A50] text-[#C2CEC7] text-xs tracking-[0.2em] font-medium hover:border-[#E3EADF] hover:text-[#F7F4EC] transition-colors"
+              href="/feed.xml"
+              className="inline-flex items-center border border-gray-300 px-7 py-3 text-xs tracking-[0.2em] text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
             >
-              YouTube で見る
-            </a>
-            <a
-              href="https://x.com/Ikemoto1966"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 border border-[#3F5A50] text-[#C2CEC7] text-xs tracking-[0.2em] font-medium hover:border-[#E3EADF] hover:text-[#F7F4EC] transition-colors"
-            >
-              X でフォロー
+              RSS
             </a>
           </div>
         </div>

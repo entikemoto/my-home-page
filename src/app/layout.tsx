@@ -3,6 +3,7 @@ import { Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, SITE_URL, SOCIAL } from "@/lib/site";
 
 const notoSerifJP = Noto_Serif_JP({
   weight: ["400", "700", "900"],
@@ -13,12 +14,27 @@ const notoSerifJP = Noto_Serif_JP({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Takeshi Ikemoto — 医療×経営×テクノロジー",
-    template: "%s | Takeshi Ikemoto",
+    default: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "Takeshi Ikemoto の公式サイト。医療×経営×テクノロジーの視点から、AIと次の医療を考える。",
+  description: SITE_DESCRIPTION,
+  alternates: {
+    types: { "application/rss+xml": [{ url: "/feed.xml", title: `${SITE_NAME} — 解説記事` }] },
+  },
+  openGraph: {
+    type: "website",
+    locale: "ja_JP",
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: SOCIAL.xHandle,
+    creator: SOCIAL.xHandle,
+  },
 };
 
 export default function RootLayout({
