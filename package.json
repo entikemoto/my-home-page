@@ -17,7 +17,7 @@
   "dependencies": {
     "@sindresorhus/slugify": "^3.0.0",
     "gray-matter": "^4.0.3",
-    "next": "16.3.8",
+    "next": "16.4.3",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
@@ -28,7 +28,7 @@
     "@types/react-dom": "^19",
     "@vitest/coverage-v8": "^4.1.0",
     "eslint": "^9",
-    "eslint-config-next": "16.1.7",
+    "eslint-config-next": "16.4.3",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.1.0"
