@@ -1,20 +1,19 @@
-import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { getArticle, _resetCache } from '@/lib/articles';
+import { getArticle, getAdjacentArticles, getRelatedArticles, _resetCache } from '@/lib/articles';
+import { tagToSlug } from '@/lib/tag-slug';
+import { absoluteUrl } from '@/lib/site';
+import MarkdownBody, { headingsOf, parseBody } from '@/components/MarkdownBody';
+import ChannelLinks from '@/components/ChannelLinks';
+import ArticleCard from '@/components/ArticleCard';
+import { formatDateJa } from '@/lib/article-labels';
 
 // ビルド時にキャッシュをリセット（HMR での二重読み込み対策）
 if (process.env.NODE_ENV === 'development') {
   _resetCache();
 }
-
-// ---------------------------------------------------------------------------
-// 静的パス生成
-// ---------------------------------------------------------------------------
-
-// ---------------------------------------------------------------------------
-// メタデータ
-// ---------------------------------------------------------------------------
 
 type Props = { params: Promise<{ articleId: string }> };
 
@@ -24,231 +23,187 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!article) return {};
 
   const description = article.todayPoint || article.summary;
+  const url = absoluteUrl(`/articles/${article.articleId}`);
   return {
     title: article.title,
     description,
+    alternates: { canonical: url },
     openGraph: {
       title: article.title,
       description,
       type: 'article',
+      url,
       publishedTime: article.publishedAt,
+      tags: article.tags,
     },
+    twitter: { card: 'summary_large_image', title: article.title, description },
   };
-}
-
-// ---------------------------------------------------------------------------
-// ページ本体
-// ---------------------------------------------------------------------------
-
-const EDITION_LABEL: Record<string, string> = {
-  morning: '朝便',
-  evening: '夜便',
-  standalone: 'note記事',
-};
-
-type BodyBlock =
-  | { type: 'heading'; content: string }
-  | { type: 'list'; items: string[] }
-  | { type: 'blockquote'; lines: string[] }
-  | { type: 'hr' }
-  | { type: 'paragraph'; content: string };
-
-/**
- * インラインマークダウンを React ノードに変換する。
- * 対応: **bold**, [[WikiLink]], [text](url)
- */
-function renderInline(text: string): React.ReactNode {
-  const pattern = /(\*\*[^*]+\*\*|\[\[[^\]]+\]\]|\[[^\]]*\]\([^)]+\))/g;
-  const parts = text.split(pattern);
-  return parts.map((part, i) => {
-    if (part.startsWith('**') && part.endsWith('**')) {
-      return <strong key={i}>{part.slice(2, -2)}</strong>;
-    }
-    if (part.startsWith('[[') && part.endsWith(']]')) {
-      return <span key={i}>{part.slice(2, -2)}</span>;
-    }
-    const linkMatch = part.match(/^\[([^\]]*)\]\(([^)]+)\)$/);
-    if (linkMatch) {
-      const label = linkMatch[1].replace(/^>\s*/, '');
-      return (
-        <a
-          key={i}
-          href={linkMatch[2]}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline underline-offset-4 hover:text-gray-900 transition-colors"
-        >
-          {label}
-        </a>
-      );
-    }
-    return part;
-  });
-}
-
-/** Markdown 風ブロック化 */
-function bodyToBlocks(body: string): BodyBlock[] {
-  const blocks = body
-    .split(/\n{2,}/)
-    .map((block) => block.trim())
-    .filter(Boolean);
-
-  return blocks.flatMap((block): BodyBlock[] => {
-    if (block === '---') {
-      return [{ type: 'hr' }];
-    }
-
-    // ### heading\n本文 のように1つの改行でつながっている場合を分離する
-    if (block.startsWith('### ') || block.startsWith('## ')) {
-      const firstNewline = block.indexOf('\n');
-      if (firstNewline === -1) {
-        const prefix = block.startsWith('### ') ? '### ' : '## ';
-        return [{ type: 'heading', content: block.replace(new RegExp(`^${prefix.trim()}\\s+`), '').trim() }];
-      }
-      const headingLine = block.slice(0, firstNewline);
-      const rest = block.slice(firstNewline + 1).trim();
-      const prefix = headingLine.startsWith('### ') ? /^###\s+/ : /^##\s+/;
-      const result: BodyBlock[] = [{ type: 'heading', content: headingLine.replace(prefix, '').trim() }];
-      if (rest) result.push(...bodyToBlocks(rest));
-      return result;
-    }
-
-    // blockquote: 全行が > で始まるブロック
-    const lines = block.split('\n');
-    if (lines.every((l) => l.startsWith('>'))) {
-      const stripped = lines.map((l) => l.replace(/^>\s?/, '')).filter(Boolean);
-      return [{ type: 'blockquote', lines: stripped }];
-    }
-
-    const trimmedLines = lines.map((l) => l.trim()).filter(Boolean);
-    if (trimmedLines.length > 0 && trimmedLines.every((l) => l.startsWith('- '))) {
-      return [{ type: 'list', items: trimmedLines.map((l) => l.replace(/^- /, '').trim()) }];
-    }
-
-    return [{ type: 'paragraph', content: block }];
-  });
 }
 
 export default async function ArticlePage({ params }: Props) {
   const { articleId } = await params;
   const article = getArticle(articleId);
-
   if (!article) notFound();
 
-  const publishedDate = new Date(article.publishedAt);
-  const dateLabel = publishedDate.toLocaleDateString('ja-JP', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-  const editionLabel = EDITION_LABEL[article.edition] ?? article.edition;
-  const blocks = bodyToBlocks(article.body);
-  const articleMetaLabel =
-    article.edition === 'standalone' ? editionLabel : `${editionLabel} ${article.orderInEdition}本目`;
+  const blocks = parseBody(article.body, article.format === 'digest');
+  const headings = headingsOf(blocks).filter((h) => h.level === 2 || h.level === 3);
+  const showToc = headings.length >= 3;
+  const { newer, older } = getAdjacentArticles(article.articleId);
+  const related = getRelatedArticles(article.articleId, 3);
 
   return (
-    <main className="max-w-3xl mx-auto px-6 lg:px-8 py-16">
-      {/* ヘッダー */}
-      <div className="mb-8">
-        <div className="flex items-center gap-3 mb-5 text-xs text-gray-400 tracking-wide">
-          <time dateTime={article.publishedAt}>{dateLabel}</time>
-          <span>·</span>
-          <span>{articleMetaLabel}</span>
-          <span>·</span>
-          <span>{article.sourceName}</span>
-          {article.category && (
-            <>
-              <span>·</span>
-              <span className="text-teal-600 uppercase">{article.category}</span>
-            </>
+    <main className="px-6 lg:px-8">
+      <article className="mx-auto max-w-[42rem] py-14 lg:py-20">
+        {/* ─── 見出し ─── */}
+        <header className="mb-10">
+          <p className="mb-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs tracking-[0.12em] text-gray-500">
+            <time dateTime={article.publishedAt}>{formatDateJa(article.publishedAt)}</time>
+            {article.format === 'digest' && article.sourceName && (
+              <>
+                <span aria-hidden className="text-gray-300">/</span>
+                <span>{article.sourceName}</span>
+              </>
+            )}
+          </p>
+
+          <h1 className="font-serif text-[1.7rem] lg:text-[2.35rem] font-bold leading-[1.35] tracking-tight text-gray-900">
+            {article.title}
+          </h1>
+
+          {article.todayPoint && (
+            <p className="mt-6 border-l-2 border-amber-700 pl-5 text-[1.02rem] leading-[1.95] text-gray-800">
+              {article.todayPoint}
+            </p>
           )}
-        </div>
 
-        <h1 className="font-serif text-2xl lg:text-4xl font-bold leading-tight mb-6 text-gray-900">
-          {article.title}
-        </h1>
-
-        {/* タグ */}
-        {article.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2">
-            {article.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-0.5 text-xs bg-gray-100 text-gray-500"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
-      </div>
-
-      <hr className="border-gray-100 mb-10" />
-
-      {article.todayPoint && (
-        <p className="mb-10 text-base leading-[1.9] text-gray-800 font-medium border-l-2 border-amber-700 pl-5">
-          {article.todayPoint}
-        </p>
-      )}
-
-      {/* 本文 */}
-      <article className="space-y-5 text-base leading-[1.9] text-gray-700">
-        {blocks.map((block, i) =>
-          block.type === 'hr' ? (
-            <hr key={i} className="border-gray-100" />
-          ) : block.type === 'heading' ? (
-            <h2 key={i} className="font-serif text-xl font-bold text-gray-900 pt-3">
-              {renderInline(block.content)}
-            </h2>
-          ) : block.type === 'blockquote' ? null : block.type === 'list' ? (
-            <ul key={i} className="list-disc pl-6 space-y-2">
-              {block.items.map((item, j) => (
-                <li key={j}>{renderInline(item)}</li>
+          {article.tags.length > 0 && (
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {article.tags.map((tag) => (
+                <li key={tag}>
+                  <Link
+                    href={`/articles/tag/${tagToSlug(tag)}`}
+                    className="inline-block bg-gray-100 px-3 py-1 text-xs text-gray-600 hover:bg-gray-900 hover:text-white transition-colors"
+                  >
+                    {tag}
+                  </Link>
+                </li>
               ))}
             </ul>
-          ) : (
-            <p key={i}>{renderInline(block.content)}</p>
-          ),
+          )}
+
+          <div className="mt-7">
+            <ChannelLinks
+              xUrl={article.xUrl}
+              noteUrl={article.noteArticleUrl}
+              sourceUrl={article.originalSourceUrl}
+              sourceName={article.sourceName}
+            />
+          </div>
+        </header>
+
+        {article.coverImage && (
+          <figure className="relative mb-10 aspect-[1200/630] w-full overflow-hidden bg-gray-100">
+            <Image src={article.coverImage} alt="" fill sizes="(max-width: 768px) 100vw, 672px" className="object-cover" priority />
+          </figure>
         )}
+
+        {/* ─── 目次 ─── */}
+        {showToc && (
+          <nav aria-label="目次" className="mb-10 border border-gray-100 bg-gray-50/60 px-6 py-5">
+            <p className="mb-3 text-[10px] tracking-[0.35em] text-gray-400 uppercase">Contents</p>
+            <ol className="space-y-1.5 text-sm">
+              {headings.map((h) => (
+                <li key={h.id} className={h.level === 3 ? 'pl-4' : ''}>
+                  <a href={`#${h.id}`} className="text-gray-700 hover:text-amber-700 transition-colors">
+                    {h.content}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        )}
+
+        {/* ─── 本文 ─── */}
+        <div className="text-[1.02rem] leading-[2] text-gray-800 [&_p]:tracking-[0.01em]">
+          <MarkdownBody body={article.body} dropLeadingBlockquote={article.format === 'digest'} />
+        </div>
+
+        {/* ─── 出典・導線 ─── */}
+        <footer className="mt-14 border-t border-gray-200 pt-8">
+          <div className="flex flex-wrap items-start justify-between gap-6">
+            <div>
+              <p className="mb-3 text-[10px] tracking-[0.35em] text-gray-400 uppercase">この記事を読める場所</p>
+              <ChannelLinks
+                xUrl={article.xUrl}
+                noteUrl={article.noteArticleUrl}
+                sourceUrl={article.originalSourceUrl}
+                sourceName={article.sourceName}
+                size="sm"
+              />
+            </div>
+            {article.originalSourceUrl && (
+              <p className="max-w-full text-xs leading-relaxed text-gray-500">
+                <span className="mr-2 tracking-wide text-gray-400">出典</span>
+                <a
+                  href={article.originalSourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="break-all underline underline-offset-4 hover:text-gray-900 transition-colors"
+                >
+                  {article.originalSourceUrl}
+                </a>
+              </p>
+            )}
+          </div>
+
+          <p className="mt-8 text-xs leading-relaxed text-gray-400">
+            ※ 本記事は AI ニュースの解説を目的としており、医療上の診断・治療の助言ではありません。
+          </p>
+        </footer>
       </article>
 
-      <hr className="border-gray-100 mt-12 mb-8" />
+      {/* ─── 前後の記事 ─── */}
+      {(newer || older) && (
+        <nav aria-label="前後の記事" className="mx-auto max-w-[42rem] border-t border-gray-100 py-8">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+              {newer && (
+                <Link href={`/articles/${newer.articleId}`} className="group block">
+                  <span className="text-[10px] tracking-[0.3em] text-gray-400 uppercase">← 新しい記事</span>
+                  <span className="mt-1 block font-serif text-sm font-bold leading-snug text-gray-800 group-hover:text-amber-700 transition-colors">
+                    {newer.title}
+                  </span>
+                </Link>
+              )}
+            </div>
+            <div className="sm:text-right">
+              {older && (
+                <Link href={`/articles/${older.articleId}`} className="group block">
+                  <span className="text-[10px] tracking-[0.3em] text-gray-400 uppercase">古い記事 →</span>
+                  <span className="mt-1 block font-serif text-sm font-bold leading-snug text-gray-800 group-hover:text-amber-700 transition-colors">
+                    {older.title}
+                  </span>
+                </Link>
+              )}
+            </div>
+          </div>
+        </nav>
+      )}
 
-      {/* フッター：出典・導線 */}
-      <footer className="space-y-3 text-sm text-gray-500">
-        <p>
-          <span className="text-gray-400 text-xs tracking-wide uppercase mr-2">元記事</span>
-          <a
-            href={article.originalSourceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline underline-offset-4 hover:text-gray-700 break-all transition-colors"
-          >
-            {article.originalSourceUrl}
-          </a>
-        </p>
-
-        {article.noteArticleUrl && (
-          <p>
-            <span className="text-gray-400 text-xs tracking-wide uppercase mr-2">note</span>
-            <a
-              href={article.noteArticleUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline underline-offset-4 hover:text-gray-700 transition-colors"
-            >
-              {(article.edition === 'standalone' ||
-                article.publishedAt.slice(0, 10) > '2026-04-18' ||
-                (article.publishedAt.slice(0, 10) === '2026-04-18' && article.edition === 'evening'))
-                ? 'noteで読む' : '3本まとめ記事で読む'}
-            </a>
-          </p>
-        )}
-
-        <p className="text-xs text-gray-400 mt-6 pt-4 border-t border-gray-100">
-          ※ 本記事はAIニュースの解説を目的としており、医療上の診断・治療の助言ではありません。
-        </p>
-      </footer>
+      {/* ─── 関連記事 ─── */}
+      {related.length > 0 && (
+        <section className="bg-gray-50 py-14 -mx-6 lg:-mx-8 px-6 lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <p className="mb-2 text-[10px] tracking-[0.4em] text-gray-400 uppercase">Related</p>
+            <h2 className="mb-8 font-serif text-xl font-bold text-gray-900">関連する記事</h2>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+              {related.map((a) => (
+                <ArticleCard key={a.articleId} article={a} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </main>
   );
 }

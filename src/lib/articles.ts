@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import matter from 'gray-matter';
 import type { HpArticle, HpArticleMeta, HpArticleOverride } from '@/types/article';
 
 /**
@@ -14,6 +15,14 @@ function getArticlesDir(): string {
 function getOverridesFile(): string {
   return process.env.HP_ARTICLE_OVERRIDES_FILE ?? path.join(getArticlesDir(), 'overrides.json');
 }
+
+/** 過去記事（digest）の articleId → X 投稿 URL 対応表（記事生成側の配信記録から生成） */
+function getXLinksFile(): string {
+  return process.env.HP_ARTICLE_XLINKS_FILE ?? path.join(getArticlesDir(), 'x-links.json');
+}
+
+/** 記事データとして読まない補助ファイル */
+const AUXILIARY_FILES = new Set(['overrides.json', 'x-links.json']);
 
 // ---------------------------------------------------------------------------
 // バリデーション
@@ -68,16 +77,26 @@ function assertRequiredFields(article: Partial<HpArticle>, filePath: string): vo
 
 function loadArticlesFromDir(dir: string): HpArticle[] {
   if (!fs.existsSync(dir)) {
+    // 明示的に指定された置き場が無いのは設定ミス。黙って 0 件にせず止める
+    // （2026-10-24: .env.local の HP_ARTICLES_DIR が移設前の vault パスを指したまま残り、
+    //   ローカルだけ記事 0 件で全ページが 404 になっていた）
+    if (process.env.HP_ARTICLES_DIR) {
+      throw new Error(
+        `[articles] HP_ARTICLES_DIR が指すディレクトリがありません: ${dir}（.env.local を確認してください）`,
+      );
+    }
     return [];
   }
 
-  const excludedFiles = new Set(['overrides.json', path.basename(getOverridesFile())]);
-  const files = fs
-    .readdirSync(dir)
-    .filter((f) => f.endsWith('.json') && !excludedFiles.has(f));
+  const excludedFiles = new Set([
+    ...AUXILIARY_FILES,
+    path.basename(getOverridesFile()),
+    path.basename(getXLinksFile()),
+  ]);
+  const entries = fs.readdirSync(dir).filter((f) => !excludedFiles.has(f));
   const articles: HpArticle[] = [];
 
-  for (const file of files) {
+  for (const file of entries.filter((f) => f.endsWith('.json'))) {
     const filePath = path.join(dir, file);
     const raw = fs.readFileSync(filePath, 'utf-8');
 
@@ -91,11 +110,132 @@ function loadArticlesFromDir(dir: string): HpArticle[] {
     const items = Array.isArray(parsed) ? parsed : [parsed];
     for (const item of items) {
       assertRequiredFields(item as Partial<HpArticle>, filePath);
-      articles.push(item as HpArticle);
+      const legacy = item as HpArticle;
+      articles.push({ ...legacy, summary: stripLegacyGreeting(legacy.summary), format: 'digest' });
     }
   }
 
+  for (const file of entries.filter((f) => f.endsWith('.md'))) {
+    articles.push(loadMarkdownArticle(path.join(dir, file)));
+  }
+
   return articles;
+}
+
+// ---------------------------------------------------------------------------
+// Markdown 記事（post 形式）: VaultPublisher が 1 記事 1 ファイルで追加する
+// 仕様: docs/specs/article-markdown-format.md
+// ---------------------------------------------------------------------------
+
+function toStringArray(value: unknown): string[] {
+  if (Array.isArray(value)) return value.map(String).filter(Boolean);
+  if (typeof value === 'string' && value.trim()) return [value.trim()];
+  return [];
+}
+
+function toIsoDate(value: unknown, filePath: string): string {
+  // gray-matter は YAML の日付を Date に変換する。文字列ならそのまま使う
+  if (value instanceof Date) return value.toISOString();
+  if (typeof value === 'string' && value.trim()) {
+    const d = new Date(value);
+    if (Number.isNaN(d.getTime())) {
+      throw new Error(`[articles] Invalid publishedAt in ${filePath}: ${value}`);
+    }
+    return value.trim();
+  }
+  throw new Error(`[articles] Missing required field "publishedAt" in ${filePath}`);
+}
+
+/** 本文の最初の段落（見出し・引用・リストを除く）から要約を作る */
+/** 旧ダイジェストの要約は「AI Daily Digestへようこそ。」で始まるものが多い（162/696 本）。
+ *  今はその形で配信していないので、表示用の要約からは冒頭の挨拶文だけを外す（元ファイルは変えない）。 */
+export function stripLegacyGreeting(summary: string): string {
+  return summary.replace(/^AI Daily Digest(へ|に)ようこそ[。．.!！]?\s*/u, '').trim();
+}
+
+export function summaryFromBody(body: string, maxLength = 120): string {
+  const blocks = body
+    .split(/\n{2,}/)
+    .map((b) => b.trim())
+    .filter((b) => b && !/^(#|>|-\s|```|---)/.test(b));
+  const first = blocks[0] ?? '';
+  const text = first
+    .replace(/\[([^\]]*)\]\([^)]+\)/g, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return text.length > maxLength ? `${text.slice(0, maxLength)}…` : text;
+}
+
+export function loadMarkdownArticle(filePath: string): HpArticle {
+  const { data, content } = matter(fs.readFileSync(filePath, 'utf-8'));
+  const body = content.trim();
+  const title = typeof data.title === 'string' ? data.title.trim() : '';
+  if (!title) throw new Error(`[articles] Missing required field "title" in ${filePath}`);
+  if (!body) throw new Error(`[articles] Empty body in ${filePath}`);
+
+  const optionalUrl = (key: string): string | undefined => {
+    const v = data[key];
+    if (typeof v !== 'string' || !v.trim()) return undefined;
+    try {
+      new URL(v);
+    } catch {
+      throw new Error(`[articles] Invalid ${key} in ${filePath}: ${v}`);
+    }
+    return v.trim();
+  };
+
+  const coverImage =
+    typeof data.coverImage === 'string' && data.coverImage.trim()
+      ? data.coverImage.trim()
+      : undefined;
+  if (coverImage && !coverImage.startsWith('/')) {
+    throw new Error(`[articles] coverImage must be a site path starting with "/" in ${filePath}`);
+  }
+
+  return {
+    articleId: path.basename(filePath, '.md'),
+    title,
+    publishedAt: toIsoDate(data.publishedAt, filePath),
+    edition: 'standalone',
+    orderInEdition: 0,
+    body,
+    originalSourceUrl: optionalUrl('sourceUrl'),
+    sourceName: typeof data.sourceName === 'string' && data.sourceName.trim() ? data.sourceName.trim() : 'X',
+    tags: toStringArray(data.tags),
+    category: typeof data.category === 'string' && data.category.trim() ? data.category.trim() : 'post',
+    summary:
+      typeof data.summary === 'string' && data.summary.trim()
+        ? data.summary.trim()
+        : summaryFromBody(body),
+    noteArticleUrl: optionalUrl('noteUrl'),
+    xUrl: optionalUrl('xUrl'),
+    coverImage,
+    format: 'post',
+  };
+}
+
+function loadXLinks(filePath: string): Record<string, string> {
+  if (!fs.existsSync(filePath)) return {};
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  } catch {
+    throw new Error(`[articles] Failed to parse x-links JSON: ${filePath}`);
+  }
+  if (!parsed || Array.isArray(parsed) || typeof parsed !== 'object') {
+    throw new Error(`[articles] x-links file must be an object: ${filePath}`);
+  }
+  const result: Record<string, string> = {};
+  for (const [id, url] of Object.entries(parsed as Record<string, unknown>)) {
+    if (id.startsWith('_') || typeof url !== 'string') continue;
+    result[id] = url;
+  }
+  return result;
+}
+
+function applyXLinks(articles: HpArticle[], links: Record<string, string>): HpArticle[] {
+  return articles.map((a) => (a.xUrl || !links[a.articleId] ? a : { ...a, xUrl: links[a.articleId] }));
 }
 
 function loadOverrides(filePath: string): Record<string, HpArticleOverride> {
@@ -156,8 +296,11 @@ function checkDuplicateIds(articles: HpArticle[]): void {
 function deduplicateArticles(articles: HpArticle[]): HpArticle[] {
   type Key = string;
   const toDateStr = (publishedAt: string) => publishedAt.slice(0, 10);
+  // post 形式は 1 ファイル 1 記事で articleId が一意なので、日付キーで潰さない
   const makeKey = (a: HpArticle): Key =>
-    `${toDateStr(a.publishedAt)}|${a.edition}|${a.orderInEdition}`;
+    a.format === 'post'
+      ? `post|${a.articleId}`
+      : `${toDateStr(a.publishedAt)}|${a.edition}|${a.orderInEdition}`;
 
   // 非 note- 記事を先に登録し、note- 記事で上書きしない
   const map = new Map<Key, HpArticle>();
@@ -191,7 +334,7 @@ function getAllArticlesRaw(): HpArticle[] {
   const articles = loadArticlesFromDir(articlesDir);
   const overrides = loadOverrides(overridesFile);
   const deduped = deduplicateArticles(articles);
-  const mergedArticles = applyOverrides(deduped, overrides);
+  const mergedArticles = applyXLinks(applyOverrides(deduped, overrides), loadXLinks(getXLinksFile()));
   checkDuplicateIds(mergedArticles);
 
   // 最新順（publishedAt 降順）
@@ -229,6 +372,29 @@ export function getArticle(id: string): HpArticle | null {
 /** 一覧検索用に本文を含む全記事を最新順で取得 */
 export function getArticlesWithBody(): HpArticle[] {
   return getAllArticlesRaw();
+}
+
+/** 前後の記事（最新順の並びで、prev = 1 つ新しい記事、next = 1 つ古い記事） */
+export function getAdjacentArticles(id: string): { newer: HpArticleMeta | null; older: HpArticleMeta | null } {
+  const list = getArticles();
+  const i = list.findIndex((a) => a.articleId === id);
+  if (i === -1) return { newer: null, older: null };
+  return { newer: list[i - 1] ?? null, older: list[i + 1] ?? null };
+}
+
+/** 関連記事: 共通タグが多い順・同数なら新しい順。自分自身は除く */
+export function getRelatedArticles(id: string, limit = 3): HpArticleMeta[] {
+  const list = getArticles();
+  const self = list.find((a) => a.articleId === id);
+  if (!self || self.tags.length === 0) return [];
+  const tags = new Set(self.tags);
+  return list
+    .filter((a) => a.articleId !== id)
+    .map((a, index) => ({ a, index, score: a.tags.filter((t) => tags.has(t)).length }))
+    .filter((x) => x.score > 0)
+    .sort((x, y) => y.score - x.score || x.index - y.index)
+    .slice(0, limit)
+    .map((x) => x.a);
 }
 
 /** タグで絞り込み（最新順） */

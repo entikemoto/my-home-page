@@ -8,20 +8,33 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  /* 見出し・名前・ブランド文言は明朝（Noto Serif JP） */
   --font-serif: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Yu Mincho",
     Georgia, serif;
-  --font-sans: var(--font-noto-serif-jp), "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans", Meiryo, sans-serif;
+  /* 本文も明朝（2026-10-24 にゴシック化を試したが、オーナー判断で明朝に戻した。知的な印象を優先） */
+  --font-sans: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Yu Mincho",
+    Georgia, serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-noto-serif-jp), "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans", Meiryo, sans-serif;
+  font-family: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Yu Mincho",
+    Georgia, serif;
+  text-rendering: optimizeLegibility;
 }
 
 h1,
 h2 {
   letter-spacing: -0.02em;
+}
+
+::selection {
+  background: #e3eadf;
+  color: #14261f;
+}
+
+/* 記事本文の中の長い URL を折り返す */
+.article-body a {
+  overflow-wrap: anywhere;
 }

@@ -18,8 +18,8 @@
 |------|------|
 | Core | Next.js 15+ (App Router) + TypeScript |
 | UI | Tailwind CSS（動き控えめ、読みやすさ優先） |
-| Content | Markdown / MDX（個別記事単位） |
-| Search | Pagefind（静的検索、ビルド後インデックス） |
+| Content | 記事 2 形式を混在: 旧 JSON（`content/articles/*.json`・2026-03〜06・無変更）と Markdown（`content/articles/*.md`・2026-10〜・配信装置が追加） |
+| Search | ブラウザ側のメタ情報検索（タイトル・要約・タグ）。Pagefind は未導入（要件書 §2） |
 | Deploy | GitHub + Vercel |
 
 技術スタックと採用理由（なぜこれを選んだか）の正本は `docs/architecture.md`。
@@ -36,6 +36,8 @@
 | `docs/architecture.md` | 技術スタックと採用理由 |
 | `MainVault/projects/20260317_MyHomePage/docs/development-progress.md`（**vault 側**） | 部品ごとの進捗マップ |
 | `docs/project-status.md` | **コード側の現在地の正本**（Phase・Next Actions・Blockers）。実装状況はここを見る |
+| `docs/requirements/01-hp-renewal-2026-10.md` | 2026-10 刷新の要件（X 中心の書庫化・全文掲載・UI 改善）と決定ログ |
+| `docs/specs/article-markdown-format.md` | 記事の新形式（`content/articles/*.md`・配信装置 vault-publisher が書き、`src/lib/articles.ts` が読む契約） |
 
 ---
 

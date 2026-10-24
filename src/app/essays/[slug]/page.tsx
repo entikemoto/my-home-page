@@ -1,24 +1,18 @@
-import React from 'react';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getEssay, getEssays, _resetEssayCache } from '@/lib/essays';
-import { bodyToBlocks } from '@/lib/essay-markdown';
+import { absoluteUrl } from '@/lib/site';
+import { formatDateJa } from '@/lib/article-labels';
+import MarkdownBody from '@/components/MarkdownBody';
+import ChannelLinks from '@/components/ChannelLinks';
 
 if (process.env.NODE_ENV === 'development') {
   _resetEssayCache();
 }
 
-// ---------------------------------------------------------------------------
-// 静的パス生成
-// ---------------------------------------------------------------------------
-
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return getEssays().map((e) => ({ slug: e.slug }));
 }
-
-// ---------------------------------------------------------------------------
-// メタデータ
-// ---------------------------------------------------------------------------
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -26,147 +20,62 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const essay = getEssay(slug);
   if (!essay) return {};
-
+  const url = absoluteUrl(`/essays/${essay.slug}`);
   return {
     title: essay.title,
     description: essay.summary,
+    alternates: { canonical: url },
     openGraph: {
       title: essay.title,
       description: essay.summary,
       type: 'article',
+      url,
       publishedTime: essay.publishedAt,
     },
   };
 }
-
-// ---------------------------------------------------------------------------
-// Markdown レンダラー
-// ---------------------------------------------------------------------------
-
-function renderInline(text: string): React.ReactNode {
-  const pattern = /(\*\*[^*]+\*\*|\[\[[^\]]+\]\]|\[[^\]]*\]\([^)]+\)|`[^`]+`)/g;
-  const parts = text.split(pattern);
-  return parts.map((part, i) => {
-    if (part.startsWith('**') && part.endsWith('**')) {
-      return <strong key={i}>{part.slice(2, -2)}</strong>;
-    }
-    if (part.startsWith('`') && part.endsWith('`')) {
-      return <code key={i} className="bg-gray-100 px-1.5 py-0.5 text-sm font-mono text-gray-700">{part.slice(1, -1)}</code>;
-    }
-    if (part.startsWith('[[') && part.endsWith(']]')) {
-      return <span key={i}>{part.slice(2, -2)}</span>;
-    }
-    const linkMatch = part.match(/^\[([^\]]*)\]\(([^)]+)\)$/);
-    if (linkMatch) {
-      return (
-        <a key={i} href={linkMatch[2]} target="_blank" rel="noopener noreferrer"
-          className="underline underline-offset-4 hover:text-gray-900 transition-colors">
-          {linkMatch[1]}
-        </a>
-      );
-    }
-    return part;
-  });
-}
-
-// ---------------------------------------------------------------------------
-// ページ本体
-// ---------------------------------------------------------------------------
 
 export default async function EssayPage({ params }: Props) {
   const { slug } = await params;
   const essay = getEssay(slug);
   if (!essay) notFound();
 
-  const publishedDate = new Date(essay.publishedAt);
-  const dateLabel = publishedDate.toLocaleDateString('ja-JP', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-
-  const blocks = bodyToBlocks(essay.body);
-
   return (
-    <main className="max-w-3xl mx-auto px-6 lg:px-8 py-16">
-      {/* ヘッダー */}
-      <div className="mb-8">
-        <div className="flex items-center gap-3 mb-5 text-xs text-gray-400 tracking-wide">
-          <span className="text-teal-600 uppercase tracking-[0.2em]">Essay</span>
-          <span>·</span>
-          <time dateTime={essay.publishedAt}>{dateLabel}</time>
+    <main className="px-6 lg:px-8">
+      <article className="mx-auto max-w-[42rem] py-14 lg:py-20">
+        <header className="mb-10">
+          <p className="mb-5 flex items-center gap-3 text-xs tracking-[0.12em] text-gray-500">
+            <span className="text-teal-700">エッセイ</span>
+            <span aria-hidden className="text-gray-300">/</span>
+            <time dateTime={essay.publishedAt}>{formatDateJa(essay.publishedAt)}</time>
+          </p>
+          <h1 className="font-serif text-[1.7rem] font-bold leading-[1.35] tracking-tight text-gray-900 lg:text-[2.35rem]">
+            {essay.title}
+          </h1>
+          {essay.tags.length > 0 && (
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {essay.tags.map((tag) => (
+                <li key={tag} className="bg-gray-100 px-3 py-1 text-xs text-gray-600">
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          )}
+          {essay.noteUrl && (
+            <div className="mt-7">
+              <ChannelLinks noteUrl={essay.noteUrl} />
+            </div>
+          )}
+        </header>
+
+        <div className="text-[1.02rem] leading-[2] text-gray-800">
+          <MarkdownBody body={essay.body} />
         </div>
 
-        <h1 className="font-serif text-2xl lg:text-4xl font-bold leading-tight mb-6 text-gray-900">
-          {essay.title}
-        </h1>
-
-        {essay.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2">
-            {essay.tags.map((tag) => (
-              <span key={tag} className="px-3 py-0.5 text-xs bg-gray-100 text-gray-500">
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
-      </div>
-
-      <hr className="border-gray-100 mb-10" />
-
-      {/* 本文 */}
-      <article className="space-y-5 text-base leading-[1.9] text-gray-700">
-        {blocks.map((block, i) => {
-          if (block.type === 'hr') return <hr key={i} className="border-gray-100" />;
-          if (block.type === 'heading') {
-            const Tag = block.level === 2 ? 'h2' : 'h3';
-            const cls = block.level === 2
-              ? 'font-serif text-xl font-bold text-gray-900 pt-3'
-              : 'font-serif text-lg font-bold text-gray-900 pt-2';
-            return <Tag key={i} className={cls}>{renderInline(block.content)}</Tag>;
-          }
-          if (block.type === 'code') {
-            return (
-              <pre key={i} className="bg-gray-50 border border-gray-100 p-4 overflow-x-auto text-sm font-mono text-gray-700">
-                <code>{block.content}</code>
-              </pre>
-            );
-          }
-          if (block.type === 'blockquote') {
-            return (
-              <blockquote key={i} className="border-l-2 border-gray-200 pl-4 text-gray-500 italic space-y-1">
-                {block.lines.map((l, j) => <p key={j}>{renderInline(l)}</p>)}
-              </blockquote>
-            );
-          }
-          if (block.type === 'list') {
-            return (
-              <ul key={i} className="list-disc pl-6 space-y-2">
-                {block.items.map((item, j) => <li key={j}>{renderInline(item)}</li>)}
-              </ul>
-            );
-          }
-          return <p key={i}>{renderInline(block.content)}</p>;
-        })}
-      </article>
-
-      <hr className="border-gray-100 mt-12 mb-8" />
-
-      {/* フッター */}
-      <footer className="space-y-3 text-sm text-gray-500">
-        {essay.noteUrl && (
-          <p>
-            <span className="text-gray-400 text-xs tracking-wide uppercase mr-2">note</span>
-            <a href={essay.noteUrl} target="_blank" rel="noopener noreferrer"
-              className="underline underline-offset-4 hover:text-gray-700 transition-colors">
-              noteでも読む
-            </a>
-          </p>
-        )}
-        <p className="text-xs text-gray-400 mt-6 pt-4 border-t border-gray-100">
+        <footer className="mt-14 border-t border-gray-200 pt-8 text-xs leading-relaxed text-gray-400">
           ※ 本記事は個人の見解であり、医療上の診断・治療の助言ではありません。
-        </p>
-      </footer>
+        </footer>
+      </article>
     </main>
   );
 }

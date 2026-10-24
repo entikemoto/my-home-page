@@ -6,10 +6,31 @@
 ## Summary
 
 - **プロジェクト名**: My Home Page
-- **Phase**: **Phase 4 — デプロイ・本番化（完了・運用中）**
-- **Last updated**: 2026-08-17（`git log` と現物の実測に基づく）
+- **Phase**: **Phase 5 — X 中心の書庫化と UI 刷新（2026-10-24 着手・プレビュー確認待ち）**
+- **Last updated**: 2026-10-24
 - **High-level goal**: 個人ブランドサイト兼、AI 解説記事の検索・蓄積基盤。
-  note の朝便/夜便に含まれる記事を、HP では 1 本ずつ個別に見せて探しやすくする。
+  X の Article として投稿した解説記事（note にも同じ内容）を、HP に全文で 1 本ずつ保存し、探せる書庫にする。
+
+### 2026-10-24 の現在地（刷新・ブランチ `feat/hp-renewal-2026-10`）
+
+| 観測 | 実測 | 根拠 |
+|---|---|---|
+| 記事の流入 | 2026-06-25 で停止していた（配信装置の HP 係が一覧 1 行追記のみ） | `content/articles/` 最新日付・vault-publisher learnings 2026-10-24 |
+| 対処 | Markdown 記事形式（post）を追加。配信装置 `hp_client.publish_article` が記事 md を 1 本新規追加＋一覧 1 行 | `docs/specs/article-markdown-format.md`・vault-publisher `tests/test_clients.py::TestHpArticlePublish` |
+| 過去記事 | 375 本に X 投稿 URL を付与（記事生成側の配信記録から） | `content/articles/x-links.json` |
+| UI | 記事ページ（X/note 導線・目次・前後・関連）・一覧（24 件ずつ）・トップ・フッターを刷新。明朝・英語ナビ・トップの濃緑帯は従来どおり（オーナー判断）。タイトル上の種別ラベル（AI Daily Digest 朝便／note 記事）と旧要約の挨拶文は表示から外した | `src/app/`・`src/components/`・`src/lib/articles.ts` |
+| 認知の土台 | sitemap / robots / feed.xml / 記事ごとの OGP 画像 | EV-006 |
+| 依存 | next 16.4.3（critical 2 件・high 1 件を解消。main に push 済み・Vercel success 10/24 07:05） | `4fb64e6` |
+| テスト | 6 files / 35 tests（vitest）・`npm run build` exit 0（30 ルート） | `npm test` |
+
+**次のアクション（Phase 5）**
+
+1. オーナーが Vercel プレビュー URL で新 UI を確認し、PR をマージ（マージで本番反映）
+2. 配信装置の変更（vault-publisher ブランチ `feat/hp-article-publish`）を Fugu レビューのうえ main へ
+3. 初回の実記事 1 本を配信装置経由で流し、HP に記事ページが出ることと Vercel success を確認（EV-004 の本番実測）
+4. 要件書 §2 の後回し: Pagefind・アクセス計測（Vercel Analytics の有効化はダッシュボード操作）・カスタムドメイン・英語版
+
+> 以下は 2026-08-17 時点の記録（歴史的参照）。
 
 > **2026-08-17 の訂正**: このファイルは 2026-03-18 の「Phase 1・アプリ実装は未着手」のまま
 > 5 か月放置されていた。実際には Phase 4 まで到達し本番稼働している。以下は実物の測定値。
