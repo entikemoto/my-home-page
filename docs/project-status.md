@@ -21,7 +21,10 @@
 | UI | 記事ページ（X/note 導線・目次・前後・関連）・一覧（24 件ずつ）・トップ・フッターを刷新。明朝・英語ナビ・トップの濃緑帯は従来どおり（オーナー判断）。タイトル上の種別ラベル（AI Daily Digest 朝便／note 記事）と旧要約の挨拶文は表示から外した | `src/app/`・`src/components/`・`src/lib/articles.ts` |
 | 認知の土台 | sitemap / robots / feed.xml / 記事ごとの OGP 画像 | EV-006 |
 | 依存 | next 16.4.3（critical 2 件・high 1 件を解消。main に push 済み・Vercel success 10/24 07:05） | `4fb64e6` |
-| テスト | 6 files / 35 tests（vitest）・`npm run build` exit 0（30 ルート） | `npm test` |
+| 過去 note 記事 | 2026-10-24 夕: 取り込み処理が見つけた未掲載 218 本（2025-06〜2026-06）を重複排除の修正とともに掲載。記事数 440 → 515・重複タイトル 0 | `content/articles/note_import.json`・`src/lib/articles.ts` `deduplicateArticles` |
+| 配信装置 | vault-publisher `publish_article` を main にマージ（PR #1・2026-10-24 夕・内製レビューの major 1 件を修正後）。次の note 投稿から HP に記事 md が自動追加される | vault-publisher `a23154a` |
+| 依存（dev） | vitest 4.1.11 → 4.1.12（Dependabot medium 2 件・@vitest/mocker）。`npm audit` 0 件 | `package.json` |
+| テスト | 7 files / 40 tests（vitest）・`npm run build` exit 0（30 ルート） | `npm test` |
 
 **次のアクション（Phase 5）**
 
