@@ -288,36 +288,46 @@ function checkDuplicateIds(articles: HpArticle[]): void {
 }
 
 // ---------------------------------------------------------------------------
-// コンテンツ重複排除（同一日・同一edition・同一順序の記事）
-// note_import.json と *_articles.json が同じ記事を持つ場合、
-// *_articles.json 側（非 "note-" プレフィックス）を優先する。
+// コンテンツ重複排除
+// note_import.json（note から取り込んだ記事・articleId が "note-" で始まる）と *_articles.json
+// （記事生成側の正本）が同じ記事を持つ場合、*_articles.json 側を優先する。
+//  - 朝便・夜便（morning / evening）: 1 本の note 記事を記事単位に割った同士なので
+//    「同一日・同一便・同一順序」で突き合わせる（従来どおり）
+//  - 単発記事（standalone）: note の記事 URL で突き合わせる。日付キーで潰すと
+//    同じ日に出た別の記事まで 1 本に潰れていた（2026-10-24 に 153 本の取り違えを確認）
 // ---------------------------------------------------------------------------
 
-function deduplicateArticles(articles: HpArticle[]): HpArticle[] {
-  type Key = string;
+export function deduplicateArticles(articles: HpArticle[]): HpArticle[] {
   const toDateStr = (publishedAt: string) => publishedAt.slice(0, 10);
-  // post 形式は 1 ファイル 1 記事で articleId が一意なので、日付キーで潰さない
-  const makeKey = (a: HpArticle): Key =>
-    a.format === 'post'
-      ? `post|${a.articleId}`
-      : `${toDateStr(a.publishedAt)}|${a.edition}|${a.orderInEdition}`;
+  const editionKey = (a: HpArticle) => `${toDateStr(a.publishedAt)}|${a.edition}|${a.orderInEdition}`;
+  const isNote = (a: HpArticle) => a.format !== 'post' && a.articleId.startsWith('note-');
 
-  // 非 note- 記事を先に登録し、note- 記事で上書きしない
-  const map = new Map<Key, HpArticle>();
-  const nonNote = articles.filter((a) => !a.articleId.startsWith('note-'));
-  const note = articles.filter((a) => a.articleId.startsWith('note-'));
+  const nonNote = articles.filter((a) => !isNote(a));
+  const note = articles.filter(isNote);
 
-  for (const a of nonNote) {
-    map.set(makeKey(a), a);
-  }
+  const nonNoteEditionKeys = new Set(nonNote.filter((a) => a.format !== 'post').map(editionKey));
+  const nonNoteNoteUrls = new Set(
+    nonNote.map((a) => a.noteArticleUrl).filter((u): u is string => typeof u === 'string' && u.length > 0),
+  );
+
+  // 同じ記事を note に再投稿した場合は URL が変わるので、タイトル一致でも正本を優先する
+  const nonNoteTitles = new Set(nonNote.map((a) => a.title.trim()));
+
+  const kept: HpArticle[] = [...nonNote];
+  const seenEditionKeys = new Set<string>();
   for (const a of note) {
-    const key = makeKey(a);
-    if (!map.has(key)) {
-      map.set(key, a);
+    if (a.edition === 'standalone') {
+      if (a.noteArticleUrl && nonNoteNoteUrls.has(a.noteArticleUrl)) continue; // 正本が既にある
+      if (nonNoteTitles.has(a.title.trim())) continue; // 再投稿（URL 違い・同タイトル）
+      kept.push(a);
+      continue;
     }
+    const key = editionKey(a);
+    if (nonNoteEditionKeys.has(key) || seenEditionKeys.has(key)) continue;
+    seenEditionKeys.add(key);
+    kept.push(a);
   }
-
-  return [...map.values()];
+  return kept;
 }
 
 // ---------------------------------------------------------------------------
