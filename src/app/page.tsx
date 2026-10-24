@@ -47,6 +47,20 @@ export default function HomePage() {
 
   return (
     <main>
+      {/* ─── Brand Statement（元の形。2026-10-24 オーナー判断で維持） ─── */}
+      <section className="bg-[#14261F] text-white py-16 lg:py-24">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <h2 className="font-serif text-[clamp(1.8rem,4.5vw,3.5rem)] font-black tracking-tight text-[#F7F4EC] mb-5">
+            Beyond Medicine. Beyond Imagination.
+          </h2>
+          <p className="text-[#C2CEC7] text-sm lg:text-base leading-relaxed">
+            医療を越え、想像を越えて。
+            <br />
+            人とAIの叡智で、「次の医療」を創り出す。
+          </p>
+        </div>
+      </section>
+
       {/* ─── Hero（名前・肩書・一言・導線） ─── */}
       <section className="border-b border-gray-100">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-16 lg:grid-cols-[1.1fr_1fr] lg:gap-20 lg:px-12 lg:py-24">
@@ -78,9 +92,6 @@ export default function HomePage() {
                 <XGlyph /> X でフォロー
               </a>
             </div>
-            <p className="mt-8 text-xs leading-relaxed text-gray-400">
-              Beyond Medicine. Beyond Imagination. ── 医療を越え、想像を越えて。
-            </p>
           </div>
 
           {/* 右: 最新記事を大きく 1 本 */}

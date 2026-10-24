@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { HpArticleMeta } from '@/types/article';
-import { articleKindLabel, formatDateJa } from '@/lib/article-labels';
+import { formatDateJa } from '@/lib/article-labels';
 
 type Props = {
   article: HpArticleMeta;
@@ -40,10 +40,6 @@ export default function ArticleCard({ article, featured = false }: Props) {
       )}
 
       <div className="flex flex-1 flex-col px-5 pt-5 pb-4">
-        <p className="mb-3 flex items-center gap-2 text-[10px] tracking-[0.25em] text-amber-700 uppercase">
-          <span>{articleKindLabel(article)}</span>
-        </p>
-
         <h2 className={`font-serif font-bold leading-snug text-gray-900 ${featured ? 'text-xl lg:text-2xl' : 'text-base'}`}>
           <Link href={href} className="after:absolute after:inset-0 after:content-[''] group-hover:text-amber-800 transition-colors">
             {article.title}

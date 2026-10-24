@@ -4,16 +4,17 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { SOCIAL } from '@/lib/site';
 
-/**
- * 主導線は 5 つに絞る（以前は英語ラベル 9 項目）。
- * 発信一覧（/posts）・YouTube・Lab はフッターから辿れる。
- */
+/** 項目名は英語のまま（2026-10-24 に日本語 5 項目を試したが、オーナー判断で元に戻した） */
 const navLinks = [
-  { href: '/articles', label: '記事' },
-  { href: '/essays', label: 'エッセイ' },
-  { href: '/dev-diary', label: '開発記録' },
-  { href: '/talks', label: '登壇・著書' },
-  { href: '/about', label: 'プロフィール' },
+  { href: '/youtube', label: 'YouTube' },
+  { href: '/articles', label: 'Articles' },
+  { href: '/essays', label: 'Essays' },
+  { href: '/posts', label: 'Posts' },
+  { href: '/dev-diary', label: 'Dev Log' },
+  { href: '/talks', label: 'Talks' },
+  { href: '/publications', label: 'Publications' },
+  { href: '/lab', label: 'Lab' },
+  { href: '/about', label: 'About' },
 ];
 
 function XGlyph() {
@@ -38,7 +39,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-6 text-sm text-gray-600 md:flex lg:gap-8">
+        <nav className="hidden items-center gap-4 text-sm text-gray-500 md:flex lg:gap-6">
           {navLinks.map(({ href, label }) => (
             <Link key={href} href={href} className="tracking-wide transition-colors hover:text-gray-900">
               {label}
@@ -48,10 +49,10 @@ export default function Header() {
             href={SOCIAL.x}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-gray-900 px-3 py-1.5 text-xs tracking-[0.12em] text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            aria-label="X"
+            className="ml-2 text-gray-500 transition-colors hover:text-gray-900"
           >
             <XGlyph />
-            <span>フォロー</span>
           </a>
         </nav>
 
@@ -97,9 +98,6 @@ export default function Header() {
             <a href={SOCIAL.note} target="_blank" rel="noopener noreferrer" className="hover:text-gray-900">
               note
             </a>
-            <Link href="/posts" className="hover:text-gray-900" onClick={() => setMenuOpen(false)}>
-              発信一覧
-            </Link>
           </div>
         </nav>
       )}

@@ -8,7 +8,7 @@ import { absoluteUrl } from '@/lib/site';
 import MarkdownBody, { headingsOf, parseBody } from '@/components/MarkdownBody';
 import ChannelLinks from '@/components/ChannelLinks';
 import ArticleCard from '@/components/ArticleCard';
-import { articleKindLabel, formatDateJa } from '@/lib/article-labels';
+import { formatDateJa } from '@/lib/article-labels';
 
 // ビルド時にキャッシュをリセット（HMR での二重読み込み対策）
 if (process.env.NODE_ENV === 'development') {
@@ -57,8 +57,6 @@ export default async function ArticlePage({ params }: Props) {
         {/* ─── 見出し ─── */}
         <header className="mb-10">
           <p className="mb-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs tracking-[0.12em] text-gray-500">
-            <span className="text-amber-700">{articleKindLabel(article)}</span>
-            <span aria-hidden className="text-gray-300">/</span>
             <time dateTime={article.publishedAt}>{formatDateJa(article.publishedAt)}</time>
             {article.format === 'digest' && article.sourceName && (
               <>
@@ -126,7 +124,7 @@ export default async function ArticlePage({ params }: Props) {
         )}
 
         {/* ─── 本文 ─── */}
-        <div className="font-sans text-[1.02rem] leading-[2] text-gray-800 [&_p]:tracking-[0.01em]">
+        <div className="text-[1.02rem] leading-[2] text-gray-800 [&_p]:tracking-[0.01em]">
           <MarkdownBody body={article.body} dropLeadingBlockquote={article.format === 'digest'} />
         </div>
 

@@ -2,15 +2,15 @@ import Link from 'next/link';
 import { SOCIAL } from '@/lib/site';
 
 const siteLinks = [
-  { href: '/articles', label: '記事' },
-  { href: '/essays', label: 'エッセイ' },
-  { href: '/dev-diary', label: '開発記録' },
-  { href: '/posts', label: '発信一覧' },
-  { href: '/talks', label: '登壇' },
-  { href: '/publications', label: '著書' },
+  { href: '/articles', label: 'Articles' },
+  { href: '/essays', label: 'Essays' },
+  { href: '/dev-diary', label: 'Dev Log' },
+  { href: '/posts', label: 'Posts' },
+  { href: '/talks', label: 'Talks' },
+  { href: '/publications', label: 'Publications' },
   { href: '/youtube', label: 'YouTube' },
-  { href: '/lab', label: '医療AI共創ラボ' },
-  { href: '/about', label: 'プロフィール' },
+  { href: '/lab', label: 'Lab' },
+  { href: '/about', label: 'About' },
 ];
 
 export default function Footer() {

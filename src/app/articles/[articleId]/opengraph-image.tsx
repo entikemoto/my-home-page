@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 import { getArticle } from '@/lib/articles';
 import { loadJapaneseFont } from '@/lib/og-font';
-import { articleKindLabel, formatDateJa } from '@/lib/article-labels';
+import { formatDateJa } from '@/lib/article-labels';
 
 export const alt = '記事カード';
 export const size = { width: 1200, height: 630 };
@@ -13,11 +13,10 @@ export default async function Image({ params }: Props) {
   const { articleId } = await params;
   const article = getArticle(articleId);
   const title = article?.title ?? 'Takeshi Ikemoto';
-  const kind = article ? articleKindLabel(article) : '';
   const date = article ? formatDateJa(article.publishedAt) : '';
   const name = '池本毅  医師 / MBA / AIビルダー';
 
-  const font = await loadJapaneseFont(`${title}${kind}${date}${name}Takeshi Ikemoto`);
+  const font = await loadJapaneseFont(`${title}${date}${name}Takeshi Ikemoto`);
 
   return new ImageResponse(
     (
@@ -35,7 +34,6 @@ export default async function Image({ params }: Props) {
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: 18, fontSize: 24, color: '#C2CEC7', letterSpacing: 2 }}>
-          <span style={{ color: '#D9A86A' }}>{kind}</span>
           {date && <span>{date}</span>}
         </div>
         <div

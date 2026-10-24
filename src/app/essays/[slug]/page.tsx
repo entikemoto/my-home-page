@@ -68,7 +68,7 @@ export default async function EssayPage({ params }: Props) {
           )}
         </header>
 
-        <div className="font-sans text-[1.02rem] leading-[2] text-gray-800">
+        <div className="text-[1.02rem] leading-[2] text-gray-800">
           <MarkdownBody body={essay.body} />
         </div>
 

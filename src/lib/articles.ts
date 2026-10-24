@@ -110,7 +110,8 @@ function loadArticlesFromDir(dir: string): HpArticle[] {
     const items = Array.isArray(parsed) ? parsed : [parsed];
     for (const item of items) {
       assertRequiredFields(item as Partial<HpArticle>, filePath);
-      articles.push({ ...(item as HpArticle), format: 'digest' });
+      const legacy = item as HpArticle;
+      articles.push({ ...legacy, summary: stripLegacyGreeting(legacy.summary), format: 'digest' });
     }
   }
 
@@ -146,6 +147,12 @@ function toIsoDate(value: unknown, filePath: string): string {
 }
 
 /** 本文の最初の段落（見出し・引用・リストを除く）から要約を作る */
+/** 旧ダイジェストの要約は「AI Daily Digestへようこそ。」で始まるものが多い（162/696 本）。
+ *  今はその形で配信していないので、表示用の要約からは冒頭の挨拶文だけを外す（元ファイルは変えない）。 */
+export function stripLegacyGreeting(summary: string): string {
+  return summary.replace(/^AI Daily Digest(へ|に)ようこそ[。．.!！]?\s*/u, '').trim();
+}
+
 export function summaryFromBody(body: string, maxLength = 120): string {
   const blocks = body
     .split(/\n{2,}/)

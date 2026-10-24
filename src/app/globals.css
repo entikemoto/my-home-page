@@ -11,16 +11,16 @@
   /* 見出し・名前・ブランド文言は明朝（Noto Serif JP） */
   --font-serif: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Yu Mincho",
     Georgia, serif;
-  /* 本文・UI は端末のゴシック（2026-10-24: 以前は本文も明朝にマッピングされていて長文が重かった） */
-  --font-sans: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
-    "Yu Gothic", Meiryo, system-ui, -apple-system, sans-serif;
+  /* 本文も明朝（2026-10-24 にゴシック化を試したが、オーナー判断で明朝に戻した。知的な印象を優先） */
+  --font-sans: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Yu Mincho",
+    Georgia, serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
-  font-feature-settings: "palt";
+  font-family: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Yu Mincho",
+    Georgia, serif;
   text-rendering: optimizeLegibility;
 }
 

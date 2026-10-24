@@ -172,7 +172,7 @@ export default function AboutPage() {
                 note
               </a>
               <p className="text-xs text-gray-500 leading-relaxed">
-                AI Daily Digest の朝版・夜版を中心に、そのほかの記事も掲載
+                X 記事と同じ解説記事を note でも公開。過去のダイジェストも
               </p>
             </div>
             <div className="border-l-2 border-amber-700 pl-5">

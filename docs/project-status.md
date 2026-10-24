@@ -18,10 +18,10 @@
 | 記事の流入 | 2026-06-25 で停止していた（配信装置の HP 係が一覧 1 行追記のみ） | `content/articles/` 最新日付・vault-publisher learnings 2026-10-24 |
 | 対処 | Markdown 記事形式（post）を追加。配信装置 `hp_client.publish_article` が記事 md を 1 本新規追加＋一覧 1 行 | `docs/specs/article-markdown-format.md`・vault-publisher `tests/test_clients.py::TestHpArticlePublish` |
 | 過去記事 | 375 本に X 投稿 URL を付与（記事生成側の配信記録から） | `content/articles/x-links.json` |
-| UI | 記事ページ（X/note 導線・目次・前後・関連）・一覧（24 件ずつ）・トップ・ナビ・フッターを刷新。本文はゴシック | `src/app/`・`src/components/` |
+| UI | 記事ページ（X/note 導線・目次・前後・関連）・一覧（24 件ずつ）・トップ・フッターを刷新。明朝・英語ナビ・トップの濃緑帯は従来どおり（オーナー判断）。タイトル上の種別ラベル（AI Daily Digest 朝便／note 記事）と旧要約の挨拶文は表示から外した | `src/app/`・`src/components/`・`src/lib/articles.ts` |
 | 認知の土台 | sitemap / robots / feed.xml / 記事ごとの OGP 画像 | EV-006 |
 | 依存 | next 16.4.3（critical 2 件・high 1 件を解消。main に push 済み・Vercel success 10/24 07:05） | `4fb64e6` |
-| テスト | 5 files / 31 tests（vitest）・`npm run build` exit 0（30 ルート） | `npm test` |
+| テスト | 6 files / 35 tests（vitest）・`npm run build` exit 0（30 ルート） | `npm test` |
 
 **次のアクション（Phase 5）**
 
