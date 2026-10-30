@@ -11,11 +11,11 @@ coverImage: "/images/articles/2026-10-30-post-edadeda9.png"
 sourceProject: "ainews-digest"
 ---
 
-> [What Does a Harness Buy? Tokens, Mostly.（arXiv）](https://arxiv.org/abs/2610.04433)
-> 公開日: 2026-10-03
->
-> [Fancy harnesses make coding agents more expensive but not better, study finds（The Decoder）](https://the-decoder.com/fancy-harnesses-make-coding-agents-more-expensive-but-not-better-study-finds/)
-> 公開日: 2026-10-24
+[What Does a Harness Buy? Tokens, Mostly.（arXiv）](https://arxiv.org/abs/2610.04433)
+公開日: 2026-10-03
+
+[Fancy harnesses make coding agents more expensive but not better, study finds（The Decoder）](https://the-decoder.com/fancy-harnesses-make-coding-agents-more-expensive-but-not-better-study-finds/)
+公開日: 2026-10-24
 
 これは、前の記事「モデルの点数は、モデルだけの点数ではない」の続きです。
 
