@@ -10,3 +10,4 @@
 - 2026-10-30 「Androidアプリの開発環境に、ClaudeやCodexも使えるようになった」 [X](https://x.com/Ikemoto1966/status/2115972372612383190) / [note](https://note.com/entikemoto/n/nb8bc6eed4555)
 - 2026-10-30 「モデルの点数は、モデルだけの点数ではない」 [X](https://x.com/Ikemoto1966/status/2115984234091536619) / [note](https://note.com/entikemoto/n/n6556185d6e90)
 - 2026-10-30 「正答率はモデルが決め、コストはアプリが決める——同じモデルを3つのコーディングアプリに入れて比べた論文」 [X](https://x.com/Ikemoto1966/status/2116004533281382463) / [note](https://note.com/entikemoto/n/nd25504936492)
+- 2026-10-31 「サブエージェントに分けて任せるより、一つのエージェントで通す」 [X](https://x.com/Ikemoto1966/status/2116514109290365053) / [note](https://note.com/entikemoto/n/n010ddbed8795)
